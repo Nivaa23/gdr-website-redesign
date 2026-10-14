@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initExpertiseMegaMenu();
   initMobileNavigation();
   initHeroCarousel();
-  initPhaseNoticeToasts();
 });
 
 /* --------------------------------------------------------------------------
@@ -383,41 +382,3 @@ function initHeroCarousel() {
   }
 }
 
-/* --------------------------------------------------------------------------
-   5. Phase Notice Toasts for Unresolved / Phase 02 Destinations
-   Ensures no fake routes or 404 broken actions exist
-   -------------------------------------------------------------------------- */
-function initPhaseNoticeToasts() {
-  const pendingLinks = document.querySelectorAll('[data-phase-pending]');
-  const toast = document.getElementById('toast-notification');
-  const toastMessage = document.getElementById('toast-message');
-  const toastClose = document.getElementById('toast-close');
-
-  if (!toast || !toastMessage) return;
-
-  let toastTimeout = null;
-
-  function showToast(message) {
-    clearTimeout(toastTimeout);
-    toastMessage.textContent = message;
-    toast.hidden = false;
-
-    toastTimeout = setTimeout(() => {
-      toast.hidden = true;
-    }, 4500);
-  }
-
-  pendingLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const message = link.getAttribute('data-phase-pending') || 'This section is scheduled for Phase 02 implementation.';
-      showToast(message);
-    });
-  });
-
-  if (toastClose) {
-    toastClose.addEventListener('click', () => {
-      toast.hidden = true;
-    });
-  }
-}

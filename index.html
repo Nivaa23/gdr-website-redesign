@@ -991,28 +991,48 @@
 
     </section>
 
-    <!-- Phase 2 Boundary Notification (Informing user of scope boundaries) -->
-    <aside class="phase-notice-strip" aria-label="Implementation Status Notice">
-      <div class="container phase-notice-strip__inner">
-        <div class="phase-notice-strip__badge">Phase 02 Deliverable Complete</div>
-        <p class="phase-notice-strip__text">
-          Business Metrics Band and Introductory Expertise Area (Testing, Design, Supervision, and Concrete Promotional Card) are fully operational. Subsequent homepage sections are preserved for Phase 03 authorization.
-        </p>
-      </div>
-    </aside>
-  </main>
+    <!-- ======================================================================
+         PHASE 03: ABOUT COMPANY SECTION
+         ====================================================================== -->
+    <section class="about-section" id="about-us" aria-labelledby="about-section-heading">
+      <div class="container">
+        <div class="about-section__grid">
+          
+          <!-- Left Column: Managing Director's Photograph Area -->
+          <div class="about-section__media-col">
+            <div class="director-portrait-frame" id="director-portrait-frame">
+              <div class="director-portrait-placeholder" aria-label="Managing Director Photograph Area">
+                <svg class="director-silhouette-icon" width="108" height="108" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="7" r="4.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M4.5 20.25C4.5 16.5 7.75 14 12 14C16.25 14 19.5 16.5 19.5 20.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <span class="director-caption-label">Managing Director</span>
+              </div>
+            </div>
+          </div>
 
-  <!-- Toast Notification for Phase 02 Pending Items -->
-  <div class="toast-notification" id="toast-notification" role="status" aria-live="polite" hidden>
-    <div class="toast-notification__body">
-      <svg class="toast-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-        <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
-        <path d="M10 6V10M10 14H10.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-      <span class="toast-message" id="toast-message"></span>
-    </div>
-    <button type="button" class="toast-close" id="toast-close" aria-label="Close notification">&times;</button>
-  </div>
+          <!-- Right Column: Heading and Descriptive Text -->
+          <div class="about-section__content-col">
+            <div class="about-section__overline">
+              <span class="overline-pillar" aria-hidden="true"></span>
+              <span class="about-section__eyebrow">ABOUT COMPANY</span>
+            </div>
+            
+            <h2 class="about-section__heading" id="about-section-heading">
+              Committed to superior quality and results.
+            </h2>
+            
+            <div class="about-section__body">
+              <p class="about-section__text">
+                Geo Designs &amp; Research is an established multidisciplinary engineering consultancy and research organization delivering comprehensive infrastructure engineering, architectural design, project management, and advanced laboratory testing services. Partnering with central, state, and institutional authorities, the firm applies rigorous engineering expertise and quality-driven methodologies to ensure structural integrity and enduring project performance.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
 
   <script type="module" src="/js/main.js"></script>
 </body>
