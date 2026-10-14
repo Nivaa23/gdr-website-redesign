@@ -1149,7 +1149,315 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
-   9. Phase 01 Boundary Notice Strip
+   8b. Phase 02: Business Metrics & Introductory Expertise Area
+   -------------------------------------------------------------------------- */
+.section-overview {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-white);
+}
+
+/* --- Part 1: Business Metrics Band --- */
+.metrics-band {
+  width: 100%;
+  background-color: var(--color-primary-slate);
+  color: var(--color-white);
+  padding: 44px 0;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.metrics-band__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  width: 100%;
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 var(--space-md);
+  position: relative;
+}
+
+/* Restrained vertical separator between metrics on desktop */
+.metric-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.22);
+}
+
+.metric-item__value {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-white);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.metric-item__label {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: 0.01em;
+  display: block;
+}
+
+/* --- Part 2: Introductory Expertise Area --- */
+.intro-expertise {
+  width: 100%;
+  background-color: var(--color-white);
+  padding: 64px 0 72px;
+}
+
+.intro-expertise__composition {
+  display: grid;
+  grid-template-columns: 3fr 1.15fr;
+  gap: var(--space-lg);
+  align-items: stretch;
+}
+
+/* Three service cards on the left */
+.intro-services-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  align-items: stretch;
+}
+
+.service-card-item {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-grey-300);
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: var(--shadow-subtle);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.service-card-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(33, 37, 41, 0.09);
+  border-color: var(--color-primary-slate-light);
+}
+
+.service-card-item__media {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--color-grey-200);
+}
+
+.service-card-item__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.service-card-item:hover .service-card-item__img {
+  transform: scale(1.04);
+}
+
+.service-card-item__caption {
+  padding: 16px 20px;
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-grey-200);
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.service-card-item__title {
+  font-family: var(--font-heading);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-charcoal-dark);
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+/* Promotional card on the right */
+.intro-promo-aside {
+  display: flex;
+  height: 100%;
+}
+
+.promo-card-item {
+  background-color: #f7f9fa;
+  border: 1px solid var(--color-grey-300);
+  border-radius: var(--border-radius-sm);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  box-shadow: var(--shadow-subtle);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.promo-card-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(33, 37, 41, 0.09);
+  border-color: var(--color-primary-slate-light);
+}
+
+.promo-card-item__body {
+  margin-bottom: var(--space-xl);
+}
+
+.promo-card-item__headline {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-primary-slate-dark);
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.promo-card-item__footer {
+  margin-top: auto;
+}
+
+.promo-card-item__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 22px;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  background-color: var(--color-primary-slate);
+  border: 1px solid var(--color-primary-slate);
+  border-radius: var(--border-radius-sm);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.promo-card-item__cta:hover {
+  background-color: var(--color-primary-slate-dark);
+  border-color: var(--color-primary-slate-dark);
+  color: var(--color-white);
+  transform: translateX(2px);
+}
+
+.promo-cta-arrow {
+  transition: transform var(--transition-fast);
+}
+
+.promo-card-item__cta:hover .promo-cta-arrow {
+  transform: translateX(3px);
+}
+
+/* Responsive Rules for Phase 02 */
+@media (max-width: 1080px) {
+  .intro-expertise__composition {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .intro-services-group {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .promo-card-item {
+    min-height: 190px;
+  }
+}
+
+@media (max-width: 900px) {
+  .metrics-band__grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: var(--space-xl);
+    column-gap: var(--space-lg);
+  }
+
+  .metric-item:not(:last-child)::after {
+    display: none;
+  }
+
+  .intro-services-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .metrics-band {
+    padding: var(--space-xl) 0;
+  }
+
+  .metrics-band__grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: var(--space-lg);
+    column-gap: var(--space-sm);
+  }
+
+  .metric-item {
+    padding: 0 var(--space-xs);
+  }
+
+  .metric-item__value {
+    font-size: 2.125rem;
+  }
+
+  .metric-item__label {
+    font-size: 0.8125rem;
+  }
+
+  .intro-expertise {
+    padding: var(--space-2xl) 0;
+  }
+
+  .intro-services-group {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .service-card-item__media {
+    height: 200px;
+  }
+
+  .promo-card-item {
+    padding: var(--space-lg);
+  }
+
+  .promo-card-item__headline {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .metrics-band__grid {
+    grid-template-columns: 1fr;
+    row-gap: var(--space-md);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. Phase 02 Boundary Notice Strip
    Scope integrity notification
    -------------------------------------------------------------------------- */
 .phase-notice-strip {
