@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initExpertiseMegaMenu();
   initMobileNavigation();
   initHeroCarousel();
+  initJourneyTimeline();
 });
 
 /* --------------------------------------------------------------------------
@@ -381,4 +382,38 @@ function initHeroCarousel() {
     startAutoRotation();
   }
 }
+
+/* --------------------------------------------------------------------------
+   5. Our Journey Timeline Navigation
+   Smooth horizontal scrolling via Prev / Next buttons and keyboard
+   -------------------------------------------------------------------------- */
+function initJourneyTimeline() {
+  const wrapper = document.getElementById('journey-timeline-wrapper');
+  const prevBtn = document.getElementById('journey-prev-btn');
+  const nextBtn = document.getElementById('journey-next-btn');
+
+  if (!wrapper || !prevBtn || !nextBtn) return;
+
+  const scrollAmount = 352; // card width (320px) + gap (32px)
+
+  prevBtn.addEventListener('click', () => {
+    wrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    wrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+
+  // Keyboard navigation
+  wrapper.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      wrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      wrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  });
+}
+
 
