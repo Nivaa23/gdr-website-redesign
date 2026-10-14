@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geo Designs & Research</title>
+  <meta name="description" content="Geo Designs & Research is an established multidisciplinary engineering consultancy delivering infrastructure, architectural design, BIM, lab testing, and project management services for government, institutional, and corporate clients.">
+  
+  <!-- Favicon derived from official company logo -->
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/favicon.png">
+
+  <!-- Typography: Inter & Outfit from Google Fonts with fallback to system fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <!-- Skip link for keyboard accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top Corporate Utility Bar (Refined Government & Institutional Trust Indicator) -->
+  <div class="top-bar" aria-label="Corporate Details">
+    <div class="container top-bar__inner">
+      <div class="top-bar__tagline">
+        <span class="status-indicator"></span> Multidisciplinary Engineering Consultancy &amp; Research
+      </div>
+      <div class="top-bar__meta">
+        <span class="top-bar__badge">Government &amp; Institutional Partner</span>
+        <span class="top-bar__divider" aria-hidden="true">|</span>
+        <span class="top-bar__contact">An ISO 9001:2015 Certified Organization</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Primary Header & Navigation Bar -->
+  <header class="site-header" id="site-header">
+    <div class="container site-header__inner">
+      <!-- Official Company Logo on Left -->
+      <a href="#" class="brand-link" id="brand-link" aria-label="Geo Designs & Research - Return to Homepage">
+        <img 
+          src="/assets/images/gdr-logo.png" 
+          alt="Geo Designs & Research Official Logo" 
+          class="brand-logo" 
+          id="brand-logo"
+          width="78"
+          height="70"
+          loading="eager"
+        >
+        <div class="brand-text">
+          <span class="brand-name">GEO DESIGNS &amp; RESEARCH</span>
+          <span class="brand-sub">ENGINEERING CONSULTANCY &amp; RESEARCH</span>
+        </div>
+      </a>
+
+      <!-- Primary Navigation Links (Ordered strictly per specifications) -->
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary Navigation">
+        <ul class="nav-list" role="menubar">
+          <!-- 1. About Us -->
+          <li class="nav-item" role="none">
+            <a href="#about-us" class="nav-link" role="menuitem" id="nav-about" data-phase-pending="About Us content is scheduled for Phase 02.">
+              About Us
+            </a>
+          </li>
+
+          <!-- 2. Expertise (Accessible Mega Menu Trigger) -->
+          <li class="nav-item nav-item--has-dropdown" role="none" id="expertise-nav-item">
+            <button 
+              type="button" 
+              class="nav-link nav-link--button" 
+              id="expertise-menu-button" 
+              aria-expanded="false" 
+              aria-haspopup="true"
+              aria-controls="expertise-mega-menu"
+              role="menuitem"
+            >
+              <span>Expertise</span>
+              <svg class="nav-arrow-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+
+            <!-- Desktop Expertise Mega Menu -->
+            <div 
+              class="mega-menu" 
+              id="expertise-mega-menu" 
+              role="region" 
+              aria-label="Expertise Services Directory"
+              hidden
+            >
+              <div class="mega-menu__container">
+                <div class="mega-menu__header">
+                  <div class="mega-menu__title-group">
+                    <span class="mega-menu__eyebrow">Technical Capabilities</span>
+                    <h2 class="mega-menu__heading">Comprehensive Engineering Expertise</h2>
+                  </div>
+                  <p class="mega-menu__desc">
+                    Integrated consultancy services across 10 specialized divisions, delivering end-to-end design, analysis, and execution capabilities.
+                  </p>
+                </div>
+
+                <div class="mega-menu__content">
+                  <!-- Category Tabs / Selector (Left Side) -->
+                  <div class="mega-menu__sidebar" role="tablist" aria-orientation="vertical" aria-label="Expertise Categories">
+                    <button class="category-tab is-active" id="tab-architecture" role="tab" aria-selected="true" aria-controls="panel-architecture" data-category="architecture">
+                      <span class="category-tab__index">A</span>
+                      <span class="category-tab__label">Architecture</span>
+                      <svg class="category-tab__chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5.5 3.5L9 7L5.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    
+                    <button class="category-tab" id="tab-bim" role="tab" aria-selected="false" aria-controls="panel-bim" data-category="bim">
+                      <span class="category-tab__index">B</span>
+                      <span class="category-tab__label">BIM</span>
+                      <svg class="category-tab__chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5.5 3.5L9 7L5.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+
+                    <button class="category-tab" id="tab-commerce" role="tab" aria-selected="false" aria-controls="panel-commerce" data-category="commerce">
+                      <span class="category-tab__index">C</span>
+                      <span class="category-tab__label">Commerce &amp; Contract Management</span>
+                      <svg class="category-tab__chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5.5 3.5L9 7L5.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+
+                    <button class="category-tab" id="tab-hydro" role="tab" aria-selected="false" aria-controls="panel-hydro" data-category="hydro">
+                      <span class="category-tab__index">D</span>
+                      <span class="category-tab__label">Hydro &amp; Highway DPR</span>
+                      <svg class="category-tab__chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5.5 3.5L9 7L5.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+
+                    <button class="category-tab" id="tab-lab" role="tab" aria-selected="false" aria-controls="panel-lab" data-category="lab">
+                      <span class="category-tab__index">E</span>
+                      <span class="category-tab__label">Lab Testing</span>
+                      <svg class="category-tab__chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5.5 3.5L9 7L5.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+
+                    <button class="category-tab" id="tab-mepf" role="tab" aria-selected="false" aria-controls="panel-mepf" data-category="mepf">
+                      <span class="category-tab__index">F</span>
+                      <span class="category-tab__label">MEPF</span>
+                      <svg class="category-tab__chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5.5 3.5L9 7L5.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+
+                    <button class="category-tab" id="tab-pmc" role="tab" aria-selected="false" aria-controls="panel-pmc" data-category="pmc">
+                      <span class="category-tab__index">G</span>
+                      <span class="category-tab__label">Project Management Consultancy</span>
+                      <svg class="category-tab__chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5.5 3.5L9 7L5.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+
+                    <button class="category-tab" id="tab-structure" role="tab" aria-selected="false" aria-controls="panel-structure" data-category="structure">
+                      <span class="category-tab__index">H</span>
+                      <span class="category-tab__label">Structure</span>
+                      <svg class="category-tab__chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5.5 3.5L9 7L5.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+
+                    <button class="category-tab" id="tab-survey" role="tab" aria-selected="false" aria-controls="panel-survey" data-category="survey">
+                      <span class="category-tab__index">I</span>
+                      <span class="category-tab__label">Survey</span>
+                      <svg class="category-tab__chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5.5 3.5L9 7L5.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+
+                    <button class="category-tab" id="tab-environment" role="tab" aria-selected="false" aria-controls="panel-environment" data-category="environment">
+                      <span class="category-tab__index">J</span>
+                      <span class="category-tab__label">Environmentally Sustainable Solutions</span>
+                      <svg class="category-tab__chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5.5 3.5L9 7L5.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                  </div>
+
+                  <!-- Category Detail Panels (Right Side) -->
+                  <div class="mega-menu__details">
+                    <!-- Panel A: Architecture -->
+                    <div class="service-panel is-active" id="panel-architecture" role="tabpanel" aria-labelledby="tab-architecture">
+                      <div class="service-panel__header">
+                        <span class="service-panel__tag">Division A</span>
+                        <h3 class="service-panel__title">Architecture</h3>
+                        <p class="service-panel__summary">Comprehensive architectural design, planning, and sustainability analysis for institutional, commercial, and urban environments.</p>
+                      </div>
+                      <div class="service-grid">
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Interior Design</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Urban Planning</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Green Building</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Building Information Modelling</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Building Performance Analysis</span></div>
+                      </div>
+                    </div>
+
+                    <!-- Panel B: BIM -->
+                    <div class="service-panel" id="panel-bim" role="tabpanel" aria-labelledby="tab-bim" hidden>
+                      <div class="service-panel__header">
+                        <span class="service-panel__tag">Division B</span>
+                        <h3 class="service-panel__title">BIM (Building Information Modelling)</h3>
+                        <p class="service-panel__summary">Multi-dimensional BIM workflows spanning structural, MEP, clash detection, 4D/5D/6D lifecycle, and model auditing.</p>
+                      </div>
+                      <div class="service-grid service-grid--two-col">
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Architectural BIM</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Structure BIM</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">MEP BIM</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Clash Detection</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">BIM Based Quantity Takeoff &amp; BBS</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">GFC Drawings Extraction</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Fabrication Drawings</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Bill of Quantities (BOQ)</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">4D - Construction Scheduling</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">5D - Cost on Time Line</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">6D - Facility Management</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">BIM Design &amp; Development</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Marketing Presentation</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">BIM Model Auditing</span></div>
+                      </div>
+                    </div>
+
+                    <!-- Panel C: Commerce & Contract Management -->
+                    <div class="service-panel" id="panel-commerce" role="tabpanel" aria-labelledby="tab-commerce" hidden>
+                      <div class="service-panel__header">
+                        <span class="service-panel__tag">Division C</span>
+                        <h3 class="service-panel__title">Commerce &amp; Contract Management</h3>
+                        <p class="service-panel__summary">Rigorous cost engineering, rate analysis, tender preparation, and detailed project reporting for major procurement.</p>
+                      </div>
+                      <div class="service-grid service-grid--two-col">
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Approximate Estimate</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Detailed Estimate</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Market Analysis</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Rate Analysis</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Internal Services</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">External Services</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Draft Tender Paper</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Detailed Project Report</span></div>
+                      </div>
+                    </div>
+
+                    <!-- Panel D: Hydro & Highway DPR -->
+                    <div class="service-panel" id="panel-hydro" role="tabpanel" aria-labelledby="tab-hydro" hidden>
+                      <div class="service-panel__header">
+                        <span class="service-panel__tag">Division D</span>
+                        <h3 class="service-panel__title">Hydro &amp; Highway DPR</h3>
+                        <p class="service-panel__summary">Dedicated Detailed Project Report (DPR) formulation and technical feasibility consultancy for hydro-power structures and high-capacity roadway networks.</p>
+                      </div>
+                      <div class="service-panel__direct-notice">
+                        <div class="notice-box">
+                          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                            <path d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z" stroke="#35556B" stroke-width="1.8"/>
+                            <path d="M10 6V10M10 14H10.01" stroke="#35556B" stroke-width="1.8" stroke-linecap="round"/>
+                          </svg>
+                          <div class="notice-box__text">
+                            <strong>Direct Consulting Division</strong>
+                            <p>Hydro &amp; Highway DPR functions as a consolidated specialized discipline. Per official audit specifications, services in this category are delivered under direct master DPR frameworks without subdivided categories.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Panel E: Lab Testing -->
+                    <div class="service-panel" id="panel-lab" role="tabpanel" aria-labelledby="tab-lab" hidden>
+                      <div class="service-panel__header">
+                        <span class="service-panel__tag">Division E</span>
+                        <h3 class="service-panel__title">Lab Testing</h3>
+                        <p class="service-panel__summary">NABL-aligned state-of-the-art testing facilities conducting mechanical, chemical, environmental, and non-destructive testing.</p>
+                      </div>
+                      <div class="service-grid service-grid--two-col">
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Field Testing</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">High Tech Material &amp; Concrete Lab</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Metallurgical Lab</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Highway Material Testing Lab</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Soil Testing</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Chemical Lab</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Environmental Monitoring &amp; Analysis Lab</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Non-Destructive Testing (NDT) Lab</span></div>
+                      </div>
+                    </div>
+
+                    <!-- Panel F: MEPF -->
+                    <div class="service-panel" id="panel-mepf" role="tabpanel" aria-labelledby="tab-mepf" hidden>
+                      <div class="service-panel__header">
+                        <span class="service-panel__tag">Division F</span>
+                        <h3 class="service-panel__title">MEPF (Mechanical, Electrical, Plumbing &amp; Fire)</h3>
+                        <p class="service-panel__summary">Integrated building services engineering providing energy-efficient electrical, HVAC, public address, and life-safety systems.</p>
+                      </div>
+                      <div class="service-grid service-grid--two-col">
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Illumination &amp; Ventilation</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Distribution of Electric Supply</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">ELV Systems (LAN, EPABX, TV)</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">HVAC</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Automatic Fire Detection &amp; Alarm System</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">PA System</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Fire Fighting System</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Water Supply &amp; Plumbing</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Building Drainage &amp; Sewage Disposal</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Rain Water Harvesting</span></div>
+                      </div>
+                    </div>
+
+                    <!-- Panel G: Project Management Consultancy -->
+                    <div class="service-panel" id="panel-pmc" role="tabpanel" aria-labelledby="tab-pmc" hidden>
+                      <div class="service-panel__header">
+                        <span class="service-panel__tag">Division G</span>
+                        <h3 class="service-panel__title">Project Management Consultancy</h3>
+                        <p class="service-panel__summary">End-to-end supervision, quality assurance, safety auditing, and transportation engineering for national infrastructure assets.</p>
+                      </div>
+                      <div class="service-grid service-grid--two-col">
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">National, State Highways &amp; Toll Roads</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Bridges, Flyovers, Railway Over Bridges &amp; Interchanges</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Pavement &amp; Structural Rehabilitation</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Traffic Engineering</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Environment &amp; Social Studies</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Urban, Rural &amp; Local Roads</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Railway Engineering</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Design of Jetty</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Transportation Planning</span></div>
+                      </div>
+                    </div>
+
+                    <!-- Panel H: Structure -->
+                    <div class="service-panel" id="panel-structure" role="tabpanel" aria-labelledby="tab-structure" hidden>
+                      <div class="service-panel__header">
+                        <span class="service-panel__tag">Division H</span>
+                        <h3 class="service-panel__title">Structure</h3>
+                        <p class="service-panel__summary">Structural design and seismic engineering across specialized building typologies, from high-rises to wide-span hangars.</p>
+                      </div>
+                      <div class="service-grid service-grid--two-col">
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">High-Rise Buildings</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Residential Buildings</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Commercial Buildings</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Educational Buildings</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Hospital Buildings</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Auditorium Buildings</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Hangars</span></div>
+                      </div>
+                    </div>
+
+                    <!-- Panel I: Survey -->
+                    <div class="service-panel" id="panel-survey" role="tabpanel" aria-labelledby="tab-survey" hidden>
+                      <div class="service-panel__header">
+                        <span class="service-panel__tag">Division I</span>
+                        <h3 class="service-panel__title">Survey</h3>
+                        <p class="service-panel__summary">High-precision geodetic, aerial, LiDAR, contour, and alignment surveys supporting linear and infrastructure corridors.</p>
+                      </div>
+                      <div class="service-grid service-grid--two-col">
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Topography &amp; Contour Survey</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Resonation Survey</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Road / Canal / Railway Align UI Survey</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Catchment Survey</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Arial Survey</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">LiDAR Survey</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Cadastral Survey</span></div>
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Pipeline Survey</span></div>
+                      </div>
+                    </div>
+
+                    <!-- Panel J: Environmentally Sustainable Solutions -->
+                    <div class="service-panel" id="panel-environment" role="tabpanel" aria-labelledby="tab-environment" hidden>
+                      <div class="service-panel__header">
+                        <span class="service-panel__tag">Division J</span>
+                        <h3 class="service-panel__title">Environmentally Sustainable Solutions</h3>
+                        <p class="service-panel__summary">Ecological assessments, environmental impact mitigation, and sustainable engineering frameworks.</p>
+                      </div>
+                      <div class="service-grid">
+                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Environmentally Sustainable Solutions</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mega-menu__footer">
+                  <div class="mega-menu__meta-note">
+                    <span class="meta-label">Standards Compliance:</span> Indian Standards (IS), IRC, MoRTH, NBC, and International ASTM/AASHTO Engineering Norms.
+                  </div>
+                  <div class="mega-menu__action">
+                    <a href="#contact-us" class="btn btn--subtle-link">Inquire About Engineering Services &rarr;</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- 3. Credentials -->
+          <li class="nav-item" role="none">
+            <a href="#credentials" class="nav-link" role="menuitem" id="nav-credentials" data-phase-pending="Credentials documentation is scheduled for Phase 02.">
+              Credentials
+            </a>
+          </li>
+
+          <!-- 4. Downloads -->
+          <li class="nav-item" role="none">
+            <a href="#downloads" class="nav-link" role="menuitem" id="nav-downloads" data-phase-pending="Corporate downloads portal is scheduled for Phase 02.">
+              Downloads
+            </a>
+          </li>
+
+          <!-- 5. Career -->
+          <li class="nav-item" role="none">
+            <a href="#career" class="nav-link" role="menuitem" id="nav-career" data-phase-pending="Career opportunities section is scheduled for Phase 02.">
+              Career
+            </a>
+          </li>
+
+          <!-- 6. Contact Us -->
+          <li class="nav-item" role="none">
+            <a href="#contact-us" class="nav-link" role="menuitem" id="nav-contact" data-phase-pending="Contact inquiry module is scheduled for Phase 02.">
+              Contact Us
+            </a>
+          </li>
+
+          <!-- 7. Projects -->
+          <li class="nav-item" role="none">
+            <a href="#projects" class="nav-link" role="menuitem" id="nav-projects" data-phase-pending="Project showcase directory is scheduled for Phase 02.">
+              Projects
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button 
+        type="button" 
+        class="mobile-menu-toggle" 
+        id="mobile-menu-toggle" 
+        aria-label="Toggle navigation menu" 
+        aria-expanded="false"
+        aria-controls="mobile-nav-drawer"
+      >
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer" hidden aria-label="Mobile Navigation Menu">
+      <div class="mobile-nav-drawer__inner">
+        <ul class="mobile-nav-list">
+          <li class="mobile-nav-item">
+            <a href="#about-us" class="mobile-nav-link" data-phase-pending="About Us content is scheduled for Phase 02.">1. About Us</a>
+          </li>
+
+          <li class="mobile-nav-item mobile-nav-item--accordion">
+            <button type="button" class="mobile-nav-link mobile-nav-accordion-btn" id="mobile-expertise-toggle" aria-expanded="false">
+              <span>2. Expertise</span>
+              <svg class="mobile-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 5.5L7 9L10.5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            
+            <!-- Mobile Expertise Accordion List -->
+            <div class="mobile-expertise-content" id="mobile-expertise-content" hidden>
+              <!-- A. Architecture -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">A. Architecture</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Interior Design</li>
+                  <li>Urban Planning</li>
+                  <li>Green Building</li>
+                  <li>Building Information Modelling</li>
+                  <li>Building Performance Analysis</li>
+                </ul>
+              </details>
+
+              <!-- B. BIM -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">B. BIM</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Architectural BIM</li>
+                  <li>Structure BIM</li>
+                  <li>MEP BIM</li>
+                  <li>Clash Detection</li>
+                  <li>BIM Based Quantity Takeoff &amp; BBS</li>
+                  <li>GFC Drawings Extraction</li>
+                  <li>Fabrication Drawings</li>
+                  <li>Bill of Quantities (BOQ)</li>
+                  <li>4D - Construction Scheduling</li>
+                  <li>5D - Cost on Time Line</li>
+                  <li>6D - Facility Management</li>
+                  <li>BIM Design &amp; Development</li>
+                  <li>Marketing Presentation</li>
+                  <li>BIM Model Auditing</li>
+                </ul>
+              </details>
+
+              <!-- C. Commerce & Contract Management -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">C. Commerce &amp; Contract Management</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Approximate Estimate</li>
+                  <li>Detailed Estimate</li>
+                  <li>Market Analysis</li>
+                  <li>Rate Analysis</li>
+                  <li>Internal Services</li>
+                  <li>External Services</li>
+                  <li>Draft Tender Paper</li>
+                  <li>Detailed Project Report</li>
+                </ul>
+              </details>
+
+              <!-- D. Hydro & Highway DPR -->
+              <div class="mobile-category mobile-category--direct">
+                <div class="mobile-category__summary mobile-category__summary--static">
+                  D. Hydro &amp; Highway DPR
+                  <span class="mobile-category__badge">Direct DPR Discipline</span>
+                </div>
+              </div>
+
+              <!-- E. Lab Testing -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">E. Lab Testing</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Field Testing</li>
+                  <li>High Tech Material &amp; Concrete Lab</li>
+                  <li>Metallurgical Lab</li>
+                  <li>Highway Material Testing Lab</li>
+                  <li>Soil Testing</li>
+                  <li>Chemical Lab</li>
+                  <li>Environmental Monitoring &amp; Analysis Lab</li>
+                  <li>Non-Destructive Testing (NDT) Lab</li>
+                </ul>
+              </details>
+
+              <!-- F. MEPF -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">F. MEPF</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Illumination &amp; Ventilation</li>
+                  <li>Distribution of Electric Supply</li>
+                  <li>ELV Systems (LAN, EPABX, TV)</li>
+                  <li>HVAC</li>
+                  <li>Automatic Fire Detection &amp; Alarm System</li>
+                  <li>PA System</li>
+                  <li>Fire Fighting System</li>
+                  <li>Water Supply &amp; Plumbing</li>
+                  <li>Building Drainage &amp; Sewage Disposal</li>
+                  <li>Rain Water Harvesting</li>
+                </ul>
+              </details>
+
+              <!-- G. Project Management Consultancy -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">G. Project Management Consultancy</summary>
+                <ul class="mobile-subservice-list">
+                  <li>National, State Highways &amp; Toll Roads</li>
+                  <li>Bridges, Flyovers, Railway Over Bridges &amp; Interchanges</li>
+                  <li>Pavement &amp; Structural Rehabilitation</li>
+                  <li>Traffic Engineering</li>
+                  <li>Environment &amp; Social Studies</li>
+                  <li>Urban, Rural &amp; Local Roads</li>
+                  <li>Railway Engineering</li>
+                  <li>Design of Jetty</li>
+                  <li>Transportation Planning</li>
+                </ul>
+              </details>
+
+              <!-- H. Structure -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">H. Structure</summary>
+                <ul class="mobile-subservice-list">
+                  <li>High-Rise Buildings</li>
+                  <li>Residential Buildings</li>
+                  <li>Commercial Buildings</li>
+                  <li>Educational Buildings</li>
+                  <li>Hospital Buildings</li>
+                  <li>Auditorium Buildings</li>
+                  <li>Hangars</li>
+                </ul>
+              </details>
+
+              <!-- I. Survey -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">I. Survey</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Topography &amp; Contour Survey</li>
+                  <li>Resonation Survey</li>
+                  <li>Road / Canal / Railway Align UI Survey</li>
+                  <li>Catchment Survey</li>
+                  <li>Arial Survey</li>
+                  <li>LiDAR Survey</li>
+                  <li>Cadastral Survey</li>
+                  <li>Pipeline Survey</li>
+                </ul>
+              </details>
+
+              <!-- J. Environmentally Sustainable Solutions -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">J. Environmentally Sustainable Solutions</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Environmentally Sustainable Solutions</li>
+                </ul>
+              </details>
+            </div>
+          </li>
+
+          <li class="mobile-nav-item">
+            <a href="#credentials" class="mobile-nav-link" data-phase-pending="Credentials documentation is scheduled for Phase 02.">3. Credentials</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="#downloads" class="mobile-nav-link" data-phase-pending="Corporate downloads portal is scheduled for Phase 02.">4. Downloads</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="#career" class="mobile-nav-link" data-phase-pending="Career opportunities section is scheduled for Phase 02.">5. Career</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="#contact-us" class="mobile-nav-link" data-phase-pending="Contact inquiry module is scheduled for Phase 02.">6. Contact Us</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="#projects" class="mobile-nav-link" data-phase-pending="Project showcase directory is scheduled for Phase 02.">7. Projects</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Anchor -->
+  <main id="main-content">
+    <!-- HOMEPAGE HERO SECTION -->
+    <section 
+      class="hero-section" 
+      id="hero-section" 
+      aria-roledescription="carousel" 
+      aria-label="Core Engineering Disciplines Showcase"
+    >
+      <!-- Carousel Slides Container -->
+      <div class="hero-carousel" id="hero-carousel">
+        
+        <!-- Slide 1: Infrastructure & Highway / Bridge Engineering -->
+        <article 
+          class="hero-slide is-active" 
+          id="hero-slide-1" 
+          role="group" 
+          aria-roledescription="slide" 
+          aria-label="1 of 3: Multidisciplinary Engineering Consultancy &amp; Infrastructure Solutions"
+          data-slide-index="0"
+        >
+          <div class="hero-slide__bg-wrap">
+            <img 
+              src="/assets/images/hero-infrastructure-bridge.jpg" 
+              alt="Major cable-stayed infrastructure bridge and roadway engineering project" 
+              class="hero-slide__bg"
+              width="1920" 
+              height="1080"
+              loading="eager"
+            >
+            <div class="hero-slide__overlay" aria-hidden="true"></div>
+          </div>
+          <div class="container hero-slide__content-container">
+            <div class="hero-slide__content">
+              <div class="hero-slide__overline">
+                <span class="overline-pillar"></span>
+                <span>PMC &amp; Infrastructure Engineering</span>
+              </div>
+              <h1 class="hero-slide__title">
+                Multidisciplinary Engineering Consultancy &amp; Infrastructure Solutions
+              </h1>
+              <p class="hero-slide__desc">
+                Partnering with central, state, and institutional authorities to engineer resilient highways, major bridges, and foundational national infrastructure.
+              </p>
+              <div class="hero-slide__action-group">
+                <!-- Verified CTA label reference: MORE ABOUT (Destination reported as Phase 02 dependency) -->
+                <a 
+                  href="#about-us" 
+                  class="btn btn--primary" 
+                  id="hero-cta-1"
+                  data-phase-pending="MORE ABOUT action destination is an unresolved dependency pending approved Phase 02 route specification."
+                >
+                  <span>MORE ABOUT</span>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3.33334 8H12.6667M12.6667 8L8.66668 4M12.6667 8L8.66668 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <button type="button" class="btn btn--outline" id="hero-secondary-1" data-target-tab="pmc">
+                  Explore Project Capabilities
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 2: Architecture, Structural Engineering & BIM -->
+        <article 
+          class="hero-slide" 
+          id="hero-slide-2" 
+          role="group" 
+          aria-roledescription="slide" 
+          aria-label="2 of 3: Comprehensive Architectural Design, Structural Engineering &amp; BIM Solutions"
+          data-slide-index="1"
+          aria-hidden="true"
+        >
+          <div class="hero-slide__bg-wrap">
+            <img 
+              src="/assets/images/hero-architecture-complex.jpg" 
+              alt="State-of-the-art corporate and institutional architectural engineering complex" 
+              class="hero-slide__bg"
+              width="1920" 
+              height="1080"
+              loading="lazy"
+            >
+            <div class="hero-slide__overlay" aria-hidden="true"></div>
+          </div>
+          <div class="container hero-slide__content-container">
+            <div class="hero-slide__content">
+              <div class="hero-slide__overline">
+                <span class="overline-pillar"></span>
+                <span>Architecture, Structure &amp; BIM Services</span>
+              </div>
+              <h2 class="hero-slide__title">
+                Comprehensive Architectural Design, Structural Engineering &amp; BIM Solutions
+              </h2>
+              <p class="hero-slide__desc">
+                Delivering complete lifecycle intelligence from urban planning and seismic structural design to full 6D BIM facility management.
+              </p>
+              <div class="hero-slide__action-group">
+                <a 
+                  href="#about-us" 
+                  class="btn btn--primary" 
+                  id="hero-cta-2"
+                  data-phase-pending="MORE ABOUT action destination is an unresolved dependency pending approved Phase 02 route specification."
+                >
+                  <span>MORE ABOUT</span>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3.33334 8H12.6667M12.6667 8L8.66668 4M12.6667 8L8.66668 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <button type="button" class="btn btn--outline" id="hero-secondary-2" data-target-tab="architecture">
+                  View Architectural Portfolio
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 3: Laboratory Testing, Geotechnical Investigation & Survey -->
+        <article 
+          class="hero-slide" 
+          id="hero-slide-3" 
+          role="group" 
+          aria-roledescription="slide" 
+          aria-label="3 of 3: Advanced Material Testing, Geotechnical Investigation &amp; Survey Services"
+          data-slide-index="2"
+          aria-hidden="true"
+        >
+          <div class="hero-slide__bg-wrap">
+            <img 
+              src="/assets/images/hero-lab-testing.jpg" 
+              alt="Civil engineers performing precision compressive core testing in an advanced testing laboratory" 
+              class="hero-slide__bg"
+              width="1920" 
+              height="1080"
+              loading="lazy"
+            >
+            <div class="hero-slide__overlay" aria-hidden="true"></div>
+          </div>
+          <div class="container hero-slide__content-container">
+            <div class="hero-slide__content">
+              <div class="hero-slide__overline">
+                <span class="overline-pillar"></span>
+                <span>Testing Laboratories &amp; Field Investigation</span>
+              </div>
+              <h2 class="hero-slide__title">
+                Advanced Material Testing, Geotechnical Investigation &amp; Survey Services
+              </h2>
+              <p class="hero-slide__desc">
+                NABL-aligned precision testing laboratories, non-destructive testing (NDT), and high-accuracy LiDAR geodetic surveys safeguarding quality.
+              </p>
+              <div class="hero-slide__action-group">
+                <a 
+                  href="#about-us" 
+                  class="btn btn--primary" 
+                  id="hero-cta-3"
+                  data-phase-pending="MORE ABOUT action destination is an unresolved dependency pending approved Phase 02 route specification."
+                >
+                  <span>MORE ABOUT</span>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3.33334 8H12.6667M12.6667 8L8.66668 4M12.6667 8L8.66668 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+                <button type="button" class="btn btn--outline" id="hero-secondary-3" data-target-tab="lab">
+                  Explore Testing Capabilities
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Carousel Navigation & Accessibility Controls -->
+      <div class="hero-controls" aria-label="Hero Carousel Navigation">
+        <div class="container hero-controls__inner">
+          
+          <!-- Slide Counter -->
+          <div class="hero-counter" aria-live="polite">
+            <span class="hero-counter__current" id="hero-counter-current">01</span>
+            <span class="hero-counter__sep">/</span>
+            <span class="hero-counter__total">03</span>
+          </div>
+
+          <!-- Slide Indicators (Dots) -->
+          <div class="hero-dots" role="tablist" aria-label="Choose Slide to Display">
+            <button 
+              type="button" 
+              class="hero-dot is-active" 
+              role="tab" 
+              aria-selected="true" 
+              aria-controls="hero-slide-1" 
+              id="hero-dot-1"
+              aria-label="Go to Slide 1: Multidisciplinary Engineering Consultancy"
+              data-slide-to="0"
+            ></button>
+            <button 
+              type="button" 
+              class="hero-dot" 
+              role="tab" 
+              aria-selected="false" 
+              aria-controls="hero-slide-2" 
+              id="hero-dot-2"
+              aria-label="Go to Slide 2: Architectural Design, Structural Engineering &amp; BIM"
+              data-slide-to="1"
+            ></button>
+            <button 
+              type="button" 
+              class="hero-dot" 
+              role="tab" 
+              aria-selected="false" 
+              aria-controls="hero-slide-3" 
+              id="hero-dot-3"
+              aria-label="Go to Slide 3: Advanced Material Testing &amp; Geotechnical Investigation"
+              data-slide-to="2"
+            ></button>
+          </div>
+
+          <!-- Navigation Arrows & WCAG Play/Pause Button -->
+          <div class="hero-nav-buttons">
+            <button 
+              type="button" 
+              class="hero-arrow-btn" 
+              id="hero-prev-btn" 
+              aria-label="Previous slide"
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+
+            <!-- Play / Pause toggle for WCAG 2.2.2 compliance -->
+            <button 
+              type="button" 
+              class="hero-arrow-btn hero-pause-btn" 
+              id="hero-pause-btn" 
+              aria-label="Pause automatic slide rotation" 
+              aria-pressed="false"
+            >
+              <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="6" y="4" width="4" height="16"></rect>
+                <rect x="14" y="4" width="4" height="16"></rect>
+              </svg>
+              <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" hidden>
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </button>
+
+            <button 
+              type="button" 
+              class="hero-arrow-btn" 
+              id="hero-next-btn" 
+              aria-label="Next slide"
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Slide Progress Bar -->
+      <div class="hero-progress-bar" aria-hidden="true">
+        <div class="hero-progress-fill" id="hero-progress-fill"></div>
+      </div>
+    </section>
+
+    <!-- Phase 1 Boundary Notification (Informing user of scope boundaries) -->
+    <aside class="phase-notice-strip" aria-label="Implementation Status Notice">
+      <div class="container phase-notice-strip__inner">
+        <div class="phase-notice-strip__badge">Phase 01 Deliverable Complete</div>
+        <p class="phase-notice-strip__text">
+          Primary Navigation Bar, Official Logo, Browser Favicon, Complete Expertise Menu (10 Categories / 70 Sub-services), and Hero Carousel are fully operational. Subsequent homepage sections are preserved for Phase 02 authorization.
+        </p>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Toast Notification for Phase 02 Pending Items -->
+  <div class="toast-notification" id="toast-notification" role="status" aria-live="polite" hidden>
+    <div class="toast-notification__body">
+      <svg class="toast-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+        <path d="M10 6V10M10 14H10.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="toast-message" id="toast-message"></span>
+    </div>
+    <button type="button" class="toast-close" id="toast-close" aria-label="Close notification">&times;</button>
+  </div>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
