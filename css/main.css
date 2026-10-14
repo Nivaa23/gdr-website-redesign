@@ -1647,6 +1647,240 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
+   10. Phase 04: Our Expertise Section
+   Categories: Infrastructure, Building, Testing
+   Vertical category rails + 3-column service cards grid
+   -------------------------------------------------------------------------- */
+.expertise-main-section {
+  width: 100%;
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-grey-200);
+  padding: 88px 0 96px;
+  position: relative;
+}
+
+.expertise-main-header {
+  margin-bottom: 56px;
+}
+
+.expertise-heading-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.expertise-pillar {
+  width: 5px;
+  height: 28px;
+  background-color: var(--color-muted-green);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.expertise-main-heading {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-primary-slate-dark);
+  margin: 0;
+}
+
+/* Category Row / Block */
+.expertise-category-block {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  gap: var(--space-xl);
+  align-items: stretch;
+  margin-bottom: 56px;
+}
+
+.expertise-category-block:last-child {
+  margin-bottom: 0;
+}
+
+/* Vertical Category Rail on Desktop */
+.expertise-category-rail {
+  background-color: var(--color-primary-slate);
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 0;
+  box-shadow: var(--shadow-subtle);
+  user-select: none;
+}
+
+.expertise-category-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Service Cards 3-Column Grid */
+.expertise-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  align-items: stretch;
+}
+
+/* Service Card Item */
+.expertise-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-grey-300);
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: var(--shadow-subtle);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.expertise-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(33, 37, 41, 0.09);
+  border-color: var(--color-primary-slate-light);
+}
+
+.expertise-card__media {
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--color-grey-200);
+}
+
+.expertise-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.expertise-card:hover .expertise-card__img {
+  transform: scale(1.04);
+}
+
+/* Neutral Brand-Consistent Technical Placeholder */
+.expertise-card__placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f0f4f8 0%, #e3edf4 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.expertise-card__placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(53, 85, 107, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(53, 85, 107, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+.expertise-card__icon {
+  width: 56px;
+  height: 56px;
+  color: var(--color-primary-slate);
+  opacity: 0.7;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+  z-index: 1;
+}
+
+.expertise-card:hover .expertise-card__icon {
+  transform: scale(1.08);
+  opacity: 0.95;
+}
+
+/* Restrained Title Area */
+.expertise-card__body {
+  padding: 16px 20px;
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-grey-200);
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.expertise-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--color-charcoal-dark);
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+/* Responsive Rules for Our Expertise */
+@media (max-width: 1024px) {
+  .expertise-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .expertise-main-section {
+    padding: 64px 0 72px;
+  }
+
+  .expertise-main-header {
+    margin-bottom: 36px;
+  }
+
+  .expertise-main-heading {
+    font-size: 1.875rem;
+  }
+
+  .expertise-category-block {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    margin-bottom: 40px;
+  }
+
+  .expertise-category-rail {
+    padding: 12px 18px;
+    justify-content: flex-start;
+    border-radius: var(--border-radius-sm);
+  }
+
+  .expertise-category-label {
+    writing-mode: horizontal-tb;
+    transform: none;
+    letter-spacing: 0.08em;
+    font-size: 0.9375rem;
+    text-align: left;
+  }
+
+  .expertise-cards-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .expertise-card__media {
+    height: 180px;
+  }
+}
+
+/* --------------------------------------------------------------------------
    11. Responsive Breakpoints
    Desktop, Tablet, Mobile layout rules
    -------------------------------------------------------------------------- */
