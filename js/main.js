@@ -3,6 +3,11 @@
  * Phase 01: Navigation, Mega-Menu, Mobile Drawer, and Hero Carousel Controller
  */
 
+import { inject } from '@vercel/analytics';
+
+// Initialize Vercel Web Analytics
+inject();
+
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initExpertiseMegaMenu();
