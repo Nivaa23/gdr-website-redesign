@@ -2442,6 +2442,207 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
+   10c. Phase 08: Our Headquarter Section (Redesigned)
+   Spacious two-column layout: Info & CTA (left 40-45%) + Primary Google Maps Visual (right 55-60%)
+   -------------------------------------------------------------------------- */
+.headquarter-section {
+  width: 100%;
+  background-color: var(--color-grey-100);
+  border-top: 1px solid var(--color-grey-200);
+  padding: 88px 0 96px;
+  position: relative;
+}
+
+.headquarter-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 56px;
+  align-items: center;
+}
+
+/* Left Column: Headquarters Information */
+.headquarter-info-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.headquarter-header {
+  margin-bottom: 24px;
+}
+
+.headquarter-heading-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.headquarter-pillar {
+  width: 5px;
+  height: 28px;
+  background-color: var(--color-accent-green);
+  border-radius: 2px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.headquarter-heading {
+  font-family: var(--font-heading);
+  font-size: 2.125rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-primary-slate);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.headquarter-details {
+  margin-bottom: 32px;
+}
+
+.headquarter-company-name {
+  font-family: var(--font-heading);
+  font-size: 1.3125rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-charcoal-dark);
+  margin: 0 0 12px 0;
+  letter-spacing: -0.01em;
+}
+
+.headquarter-address {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  font-style: normal;
+  line-height: 1.7;
+  color: var(--color-charcoal-light);
+  margin: 0;
+  max-width: 480px;
+}
+
+.headquarter-action {
+  display: flex;
+}
+
+.headquarter-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 32px;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-white);
+  background-color: var(--color-primary-slate);
+  border: 1px solid var(--color-primary-slate);
+  border-radius: var(--border-radius-sm);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.headquarter-cta-btn:hover {
+  background-color: var(--color-primary-slate-dark);
+  border-color: var(--color-primary-slate-dark);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(53, 85, 107, 0.3);
+}
+
+.headquarter-cta-icon {
+  transition: transform var(--transition-fast);
+}
+
+.headquarter-cta-btn:hover .headquarter-cta-icon {
+  transform: translateX(3px);
+}
+
+/* Right Column: Google Maps Image Visual (Primary element, ~58% width) */
+.headquarter-visual-col {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headquarter-map-card {
+  display: block;
+  width: 100%;
+  position: relative;
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--color-grey-300);
+  background-color: var(--color-white);
+  box-shadow: 0 10px 30px rgba(33, 37, 41, 0.08);
+  text-decoration: none;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.headquarter-map-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(33, 37, 41, 0.14);
+  border-color: var(--color-primary-slate-light);
+}
+
+.headquarter-map-img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.headquarter-map-card:hover .headquarter-map-img {
+  transform: scale(1.02);
+}
+
+/* Responsive Adaptations for Our Headquarter */
+@media (max-width: 992px) {
+  .headquarter-section {
+    padding: 64px 0 72px;
+  }
+
+  .headquarter-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .headquarter-details {
+    margin-bottom: 28px;
+  }
+
+  .headquarter-map-img {
+    height: 320px;
+  }
+}
+
+@media (max-width: 600px) {
+  .headquarter-heading {
+    font-size: 1.75rem;
+  }
+
+  .headquarter-company-name {
+    font-size: 1.1875rem;
+  }
+
+  .headquarter-address {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .headquarter-cta-btn {
+    width: 100%;
+  }
+
+  .headquarter-map-img {
+    height: 260px;
+  }
+}
+
+/* --------------------------------------------------------------------------
    11. Responsive Breakpoints
    Desktop, Tablet, Mobile layout rules
    -------------------------------------------------------------------------- */
