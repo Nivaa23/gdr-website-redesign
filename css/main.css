@@ -2643,6 +2643,272 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
+   10d. Phase 09: Other Branches Section
+   Polished, responsive collection of seven branch cards.
+   Authentic Google Maps screenshots for confirmed locations.
+   -------------------------------------------------------------------------- */
+.branches-section {
+  width: 100%;
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-grey-200);
+  padding: 88px 0 96px;
+  position: relative;
+}
+
+.branches-header {
+  margin-bottom: 40px;
+}
+
+.branches-heading-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.branches-pillar {
+  width: 5px;
+  height: 28px;
+  background-color: var(--color-accent-green);
+  border-radius: 2px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.branches-heading {
+  font-family: var(--font-heading);
+  font-size: 2.125rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-primary-slate);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Branch Cards Grid (Max 3 columns on wide desktop) */
+.branches-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+/* Explicit Desktop Layout Placement */
+@media (min-width: 993px) {
+  .branches-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto auto;
+    column-gap: 32px;
+    row-gap: 14px;
+    align-items: start;
+  }
+
+  #branch-card-bharuch {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 18px;
+  }
+
+  #branch-card-bhuj {
+    grid-column: 2;
+    grid-row: 1;
+    margin-bottom: 18px;
+  }
+
+  #branch-card-gandhinagar {
+    grid-column: 3;
+    grid-row: 1;
+    margin-bottom: 18px;
+  }
+
+  #branch-card-junagadh {
+    grid-column: 1;
+    grid-row: 2 / span 2;
+  }
+
+  #branch-card-navsari {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+  }
+
+  #branch-card-nadiad {
+    grid-column: 3;
+    grid-row: 2;
+  }
+
+  #branch-card-jaisalmer {
+    grid-column: 3;
+    grid-row: 3;
+  }
+}
+
+/* Base Branch Card */
+.branch-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-grey-200);
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(33, 37, 41, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.branch-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(33, 37, 41, 0.1);
+  border-color: var(--color-primary-slate-light);
+}
+
+/* Map Image Container (occupies 45–55% of card visual height) */
+.branch-card__map-wrap {
+  display: block;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background-color: var(--color-grey-100);
+  border-bottom: 1px solid var(--color-grey-200);
+  position: relative;
+  text-decoration: none;
+}
+
+.branch-card__map-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.branch-card__map-wrap:hover .branch-card__map-img {
+  transform: scale(1.03);
+}
+
+/* Card Content Area */
+.branch-card__content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.branch-card__name {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-charcoal-dark);
+  margin: 0 0 10px 0;
+  letter-spacing: -0.01em;
+}
+
+.branch-card__address {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-style: normal;
+  line-height: 1.6;
+  color: var(--color-charcoal-light);
+  margin: 0 0 20px 0;
+  flex-grow: 1;
+}
+
+/* Card Action Area */
+.branch-card__action {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-grey-200);
+}
+
+.branch-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-primary-slate);
+  text-decoration: none;
+  transition: color var(--transition-fast), gap var(--transition-fast);
+}
+
+.branch-card__link:hover {
+  color: var(--color-primary-slate-dark);
+  gap: 12px;
+}
+
+.branch-card__icon {
+  transition: transform var(--transition-fast);
+}
+
+.branch-card__link:hover .branch-card__icon {
+  transform: translateX(2px);
+}
+
+/* Simplified Cards (Nadiad & Jaisalmer: Displays only branch name and state) */
+.branch-card--simple {
+  padding: 28px 24px;
+  background-color: var(--color-grey-100);
+  border: 1px solid var(--color-grey-200);
+  border-left: 4px solid var(--color-primary-slate);
+}
+
+.branch-card--simple .branch-card__content {
+  padding: 0;
+}
+
+.branch-card--simple .branch-card__name {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+/* Responsive Adaptations for Other Branches */
+@media (max-width: 992px) {
+  .branches-section {
+    padding: 64px 0 72px;
+  }
+
+  .branches-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .branches-header {
+    margin-bottom: 32px;
+  }
+
+  .branch-card__map-wrap {
+    height: 180px;
+  }
+
+  .branch-card__content {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .branches-section {
+    padding: 56px 0 64px;
+  }
+
+  .branches-heading {
+    font-size: 1.75rem;
+  }
+
+  .branches-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .branch-card__map-wrap {
+    height: 180px;
+  }
+
+  .branch-card--simple {
+    padding: 22px 20px;
+  }
+}
+
+/* --------------------------------------------------------------------------
    11. Responsive Breakpoints
    Desktop, Tablet, Mobile layout rules
    -------------------------------------------------------------------------- */
