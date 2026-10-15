@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroCarousel();
   initJourneyTimeline();
   initFooterYear();
+  initWordmarkCursorEffect();
+  initGlobeSegmentEffect();
 });
 
 /* --------------------------------------------------------------------------
@@ -425,6 +427,181 @@ function initFooterYear() {
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
   }
+}
+
+/* --------------------------------------------------------------------------
+   7. Footer Wordmark Localized Cursor-Driven White Fill
+   Reveals white fill ONLY within pointer proximity via dynamic SVG radial mask
+   Smooth lerp tracking creates fluid travel across letter strokes
+   -------------------------------------------------------------------------- */
+function initWordmarkCursorEffect() {
+  const panel = document.getElementById('footer-wordmark-panel');
+  const svg = document.getElementById('wordmark-svg');
+  const spotlight = document.getElementById('wordmark-spotlight');
+
+  if (!panel || !svg || !spotlight) return;
+
+  // Respect system reduced-motion preferences
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return;
+  }
+
+  let isHovered = false;
+  let targetX = -500;
+  let targetY = -500;
+  let currentX = -500;
+  let currentY = -500;
+  let targetRadius = 0;
+  let currentRadius = 0;
+  let animId = null;
+
+  function toSvgCoords(clientX, clientY) {
+    const pt = svg.createSVGPoint();
+    pt.x = clientX;
+    pt.y = clientY;
+    const ctm = svg.getScreenCTM();
+    if (!ctm) return { x: 0, y: 0 };
+    const transformed = pt.matrixTransform(ctm.inverse());
+    return { x: transformed.x, y: transformed.y };
+  }
+
+  function updateLoop() {
+    // Smooth fluid interpolation
+    currentX += (targetX - currentX) * 0.18;
+    currentY += (targetY - currentY) * 0.18;
+    currentRadius += (targetRadius - currentRadius) * 0.15;
+
+    spotlight.setAttribute('cx', currentX.toFixed(2));
+    spotlight.setAttribute('cy', currentY.toFixed(2));
+    spotlight.setAttribute('r', Math.max(0, currentRadius).toFixed(2));
+
+    // Continue loop while hovered or while radius is still dissipating
+    if (isHovered || currentRadius > 0.5) {
+      animId = requestAnimationFrame(updateLoop);
+    } else {
+      spotlight.setAttribute('r', '0');
+      animId = null;
+    }
+  }
+
+  function startLoop() {
+    if (!animId) {
+      animId = requestAnimationFrame(updateLoop);
+    }
+  }
+
+  // Pointer interactions strictly isolated to wordmark panel
+  panel.addEventListener('pointerenter', (e) => {
+    isHovered = true;
+    const coords = toSvgCoords(e.clientX, e.clientY);
+    targetX = coords.x;
+    targetY = coords.y;
+    if (currentRadius <= 0.5) {
+      currentX = coords.x;
+      currentY = coords.y;
+    }
+    targetRadius = 140; // Localized reveal radius in SVG units
+    startLoop();
+  });
+
+  panel.addEventListener('pointermove', (e) => {
+    if (!isHovered) {
+      isHovered = true;
+      targetRadius = 140;
+    }
+    const coords = toSvgCoords(e.clientX, e.clientY);
+    targetX = coords.x;
+    targetY = coords.y;
+    startLoop();
+  });
+
+  panel.addEventListener('pointerleave', () => {
+    isHovered = false;
+    targetRadius = 0;
+    startLoop();
+  });
+
+  // Accessible keyboard focus behavior
+  panel.addEventListener('focus', () => {
+    isHovered = true;
+    targetX = 660; // Center coordinate
+    targetY = 140;
+    targetRadius = 240;
+    startLoop();
+  });
+
+  panel.addEventListener('blur', () => {
+    isHovered = false;
+    targetRadius = 0;
+    startLoop();
+  });
+}
+
+/* --------------------------------------------------------------------------
+   8. Footer 3D Globe Geometrically Accurate Segment Interaction
+   Independently activates ONLY the specific visible geometric surface under cursor
+   Preserves crisp facet boundaries and Geo brand colors
+   -------------------------------------------------------------------------- */
+function initGlobeSegmentEffect() {
+  const container = document.getElementById('footer-globe-container');
+  const svg = document.getElementById('footer-globe-svg');
+
+  if (!container || !svg) return;
+
+  const facets = Array.from(svg.querySelectorAll('.globe-facet'));
+  let activeFacet = null;
+
+  function setActiveFacet(newFacet) {
+    if (activeFacet === newFacet) return;
+    if (activeFacet) {
+      activeFacet.classList.remove('is-active');
+    }
+    activeFacet = newFacet;
+    if (activeFacet) {
+      activeFacet.classList.add('is-active');
+    }
+  }
+
+  // Pointer interactions strictly isolated to globe container
+  container.addEventListener('pointermove', (e) => {
+    const target = e.target.closest('.globe-facet');
+    if (target) {
+      setActiveFacet(target);
+    } else {
+      setActiveFacet(null);
+    }
+  });
+
+  container.addEventListener('pointerleave', () => {
+    setActiveFacet(null);
+  });
+
+  container.addEventListener('pointerup', () => {
+    setTimeout(() => {
+      setActiveFacet(null);
+    }, 450);
+  });
+
+  // Accessible keyboard navigation
+  container.addEventListener('keydown', (e) => {
+    if (facets.length === 0) return;
+    let currentIndex = facets.indexOf(activeFacet);
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      const nextIndex = (currentIndex + 1) % facets.length;
+      setActiveFacet(facets[nextIndex]);
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      const prevIndex = (currentIndex - 1 + facets.length) % facets.length;
+      setActiveFacet(facets[prevIndex]);
+    } else if (e.key === 'Escape') {
+      setActiveFacet(null);
+    }
+  });
+
+  container.addEventListener('blur', () => {
+    setActiveFacet(null);
+  });
 }
 
 

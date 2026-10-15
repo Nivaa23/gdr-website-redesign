@@ -32,8 +32,10 @@
   --color-black: #000000;
 
   /* Typography */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-heading: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-primary: 'Hanken Grotesk', sans-serif;
+  --font-sans: 'Hanken Grotesk', sans-serif;
+  --font-heading: 'Hanken Grotesk', sans-serif;
+  --font-label: 'Geist Mono', monospace;
 
   /* Spacing Scale */
   --space-2xs: 4px;
@@ -145,6 +147,31 @@ ul, ol {
   margin-right: auto;
   padding-left: var(--space-lg);
   padding-right: var(--space-lg);
+}
+
+/* --------------------------------------------------------------------------
+   Website-Wide Label Typography: Geist Mono
+   Dedicated assignment for all technical, eyebrow, category, metadata, and section labels
+   -------------------------------------------------------------------------- */
+.top-bar__badge,
+.top-bar__contact,
+.mega-menu__eyebrow,
+.category-tab__index,
+.service-panel__tag,
+.meta-label,
+.mobile-category__badge,
+.hero-slide__overline,
+.hero-counter,
+.metric-item__label,
+.service-card-item__caption,
+.director-caption-label,
+.about-section__eyebrow,
+.expertise-category-label,
+.milestone-label,
+.timeline-card__year,
+.globe-caption,
+.footer-cell__heading {
+  font-family: var(--font-label);
 }
 
 /* --------------------------------------------------------------------------
@@ -3242,6 +3269,520 @@ ul, ol {
 }
 
 
+
+/* --------------------------------------------------------------------------
+   11. Geo Designs & Research Architectural Footer
+   Strict hand-drawn layout specification:
+   - Upper 6-column information grid (22%, 14%, 17%, 17%, 15%, 15%)
+   - Interactive 3D outlined globe with segmented brand fills
+   - Oversized two-line drafting-style outlined wordmark with solid white fill on hover
+   - Bottom copyright strip
+   -------------------------------------------------------------------------- */
+.site-footer {
+  background-color: #1a242c;
+  color: var(--color-light-grey, #BEBEBE);
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-wrapper {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 56px 24px 40px;
+  box-sizing: border-box;
+}
+
+/* 1. Upper Information Grid (Desktop 6-Column Specification) */
+.footer-grid-upper {
+  display: grid;
+  grid-template-columns: 22% 14% 17% 17% 15% 15%;
+  grid-template-rows: auto auto;
+  border-top: 1px solid rgba(190, 190, 190, 0.18);
+  border-left: 1px solid rgba(190, 190, 190, 0.18);
+  background-color: #1a242c;
+  box-sizing: border-box;
+}
+
+/* Universal Content Cell */
+.footer-cell {
+  border-right: 1px solid rgba(190, 190, 190, 0.18);
+  border-bottom: 1px solid rgba(190, 190, 190, 0.18);
+  padding: 30px 22px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  background-color: #1a242c;
+}
+
+/* Headings in upper grid: Exactly the 5 footer section titles in solid white */
+.footer-cell__heading {
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-top: 0;
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+/* Navigation & service link lists */
+.footer-cell__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-nav-anchor {
+  color: var(--color-light-grey, #BEBEBE);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  display: inline-block;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.footer-nav-anchor:hover,
+.footer-nav-anchor:focus-visible {
+  color: var(--color-white, #FFFFFF);
+  transform: translateX(2px);
+}
+
+/* Area 1: Developing Ways of Success (Row 1, Column 1) */
+.footer-cell--tagline {
+  grid-column: 1;
+  grid-row: 1;
+  justify-content: center;
+}
+
+.footer-tagline {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-white, #FFFFFF);
+  margin: 0;
+}
+
+/* Area 2: Company (Row 1, Column 2) */
+.footer-cell--company {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* Area 3: Expertise (Row 1, Columns 3–4) */
+.footer-cell--expertise {
+  grid-column: 3 / 5;
+  grid-row: 1;
+}
+
+/* Area 4: Geo Logo Tall Panel (Row 1–2, Columns 5–6) */
+.footer-cell--logo-panel {
+  grid-column: 5 / 7;
+  grid-row: 1 / 3;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background-color: #172027;
+}
+
+.footer-globe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  cursor: pointer;
+  padding: 8px;
+  outline: none;
+  border-radius: var(--border-radius-sm);
+  transition: transform var(--transition-base);
+}
+
+.footer-globe-container:focus-visible {
+  outline: 2px solid var(--color-muted-green, #497E5E);
+  outline-offset: 4px;
+}
+
+.footer-globe-svg {
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.25));
+}
+
+/* Globe Wireframe Linework */
+.globe-wireframe {
+  fill: none;
+  stroke: rgba(190, 190, 190, 0.4);
+  stroke-width: 1px;
+  transition: stroke var(--transition-base);
+}
+
+.globe-wireframe--outer {
+  stroke: #BEBEBE;
+  stroke-width: 1.5px;
+}
+
+.globe-base {
+  fill: rgba(26, 36, 44, 0.95);
+  transition: fill var(--transition-base);
+}
+
+/* Individually Targetable 3D Globe Facets */
+.globe-facet {
+  fill: transparent;
+  stroke: rgba(190, 190, 190, 0.4);
+  stroke-width: 1px;
+  stroke-linejoin: round;
+  cursor: pointer;
+  transition: fill 0.3s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Assigned Geo Brand Colors for each individual facet */
+.globe-facet--slate {
+  --facet-active-fill: #35556B;
+}
+
+.globe-facet--green {
+  --facet-active-fill: #497E5E;
+}
+
+.globe-facet--charcoal {
+  --facet-active-fill: #343A40;
+}
+
+.globe-facet--badge {
+  --facet-active-fill: #35556B;
+}
+
+/* Hover & Active State: ONLY the hovered/active facet activates! */
+.globe-facet:hover,
+.globe-facet.is-active {
+  fill: var(--facet-active-fill);
+  stroke: #FFFFFF;
+  stroke-width: 1.5px;
+}
+
+/* Central GDR Monogram Badge text */
+.globe-badge-label {
+  fill: #BEBEBE;
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  transition: fill 0.3s ease;
+}
+
+.globe-facet--badge:hover ~ .globe-badge-label,
+.globe-facet--badge.is-active ~ .globe-badge-label {
+  fill: #FFFFFF;
+}
+
+.globe-point {
+  fill: #BEBEBE;
+  transition: fill var(--transition-fast);
+}
+
+.globe-caption {
+  font-family: var(--font-label);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-light-grey, #BEBEBE);
+  transition: color var(--transition-fast);
+}
+
+.footer-cell--logo-panel:hover .globe-caption,
+.footer-globe-container:focus-visible .globe-caption {
+  color: #FFFFFF;
+}
+
+/* Area 5: Headquarters (Row 2, Column 1) */
+.footer-cell--headquarters {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.footer-address {
+  font-style: normal;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--color-light-grey, #BEBEBE);
+  margin-bottom: 14px;
+}
+
+.footer-action-link {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-muted-green-light, #5d9a74);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  display: inline-block;
+  transition: color var(--transition-fast);
+}
+
+.footer-action-link:hover,
+.footer-action-link:focus-visible {
+  color: var(--color-white, #FFFFFF);
+}
+
+/* Area 6: Social (Row 2, Column 2) */
+.footer-cell--social {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.footer-social-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-social-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-light-grey, #BEBEBE);
+  text-decoration: none;
+  display: inline-block;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.footer-social-link:hover,
+.footer-social-link:focus-visible {
+  color: var(--color-white, #FFFFFF);
+  transform: translateX(2px);
+}
+
+/* Area 7: Other Branches (Row 2, Columns 3–4) */
+.footer-cell--branches {
+  grid-column: 3 / 5;
+  grid-row: 2;
+}
+
+.footer-branches-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px;
+  row-gap: 10px;
+}
+
+.footer-branches-subcol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-branch-link {
+  color: var(--color-light-grey, #BEBEBE);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  display: inline-block;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.footer-branch-link:hover,
+.footer-branch-link:focus-visible {
+  color: var(--color-white, #FFFFFF);
+  transform: translateX(2px);
+}
+
+/* 2. Oversized Two-Line Outlined Wordmark Region */
+.footer-wordmark-panel {
+  width: 100%;
+  border-left: 1px solid rgba(190, 190, 190, 0.18);
+  border-right: 1px solid rgba(190, 190, 190, 0.18);
+  border-bottom: 1px solid rgba(190, 190, 190, 0.18);
+  padding: clamp(24px, 3.5vw, 44px) clamp(16px, 2.5vw, 32px);
+  background-color: #172027;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  transition: background-color var(--transition-base);
+}
+
+.footer-wordmark-panel:focus-visible {
+  outline: 2px solid var(--color-muted-green, #497E5E);
+  outline-offset: -2px;
+}
+
+.wordmark-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Wordmark Typography Base */
+.wordmark-text {
+  font-family: var(--font-primary);
+  font-size: 108px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* Layer 1: Base outlined text showing dark background inside */
+.wordmark-text--outline {
+  fill: transparent;
+  stroke: rgba(190, 190, 190, 0.7);
+  stroke-width: 1.5px;
+}
+
+/* Layer 2: Solid white fill, strictly revealed by cursor-driven SVG mask */
+.wordmark-text--fill {
+  fill: #FFFFFF;
+  stroke: #FFFFFF;
+  stroke-width: 1px;
+}
+
+/* Layer 3: Crisp top stroke for razor-sharp boundaries above fill */
+.wordmark-text--top-stroke {
+  fill: transparent;
+  stroke: #BEBEBE;
+  stroke-width: 1.5px;
+}
+
+.footer-wordmark-panel:hover .wordmark-drafting-ticks,
+.footer-wordmark-panel:focus-visible .wordmark-drafting-ticks {
+  opacity: 0.85;
+  stroke: #FFFFFF;
+}
+
+.wordmark-drafting-ticks {
+  transition: opacity 0.45s ease, stroke 0.45s ease;
+}
+
+/* 3. Bottom Copyright Strip */
+.footer-copyright-strip {
+  width: 100%;
+  border-left: 1px solid rgba(190, 190, 190, 0.18);
+  border-right: 1px solid rgba(190, 190, 190, 0.18);
+  border-bottom: 1px solid rgba(190, 190, 190, 0.18);
+  padding: 18px clamp(16px, 2.5vw, 32px);
+  background-color: #1a242c;
+  box-sizing: border-box;
+}
+
+.footer-copyright-text {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--color-light-grey, #BEBEBE);
+  letter-spacing: 0.02em;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Layout Rules for Footer
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .footer-grid-upper {
+    grid-template-columns: 26% 16% 28% 30%;
+  }
+
+  .footer-cell--tagline {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .footer-cell--company {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .footer-cell--expertise {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .footer-cell--logo-panel {
+    grid-column: 4;
+    grid-row: 1 / 3;
+  }
+
+  .footer-cell--headquarters {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .footer-cell--social {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .footer-cell--branches {
+    grid-column: 3;
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-wrapper {
+    padding: 36px 16px 28px;
+  }
+
+  .footer-grid-upper {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgba(190, 190, 190, 0.18);
+  }
+
+  .footer-cell {
+    border-right: none;
+    padding: 24px 18px;
+  }
+
+  /* Exact Reading Order for Stacked Layout */
+  .footer-cell--tagline { order: 1; }
+  .footer-cell--company { order: 2; }
+  .footer-cell--expertise { order: 3; }
+  .footer-cell--logo-panel { 
+    order: 4; 
+    padding: 32px 18px;
+  }
+  .footer-cell--headquarters { order: 5; }
+  .footer-cell--social { order: 6; }
+  .footer-cell--branches { order: 7; }
+
+  .footer-branches-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+  }
+
+  .wordmark-text {
+    font-size: 88px;
+    letter-spacing: 0.1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-branches-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wordmark-text {
+    font-size: 72px;
+    letter-spacing: 0.08em;
+  }
+}
 
 /* --------------------------------------------------------------------------
    12. Reduced Motion Accessibility
