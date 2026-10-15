@@ -2194,6 +2194,223 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
+   10b. Phase 06: Our Networks Section
+   Two-Column Corporate Layout: India Network Map (left) + Service Categories (right)
+   -------------------------------------------------------------------------- */
+.networks-section {
+  width: 100%;
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-grey-200);
+  padding: 88px 0 96px;
+  position: relative;
+}
+
+.networks-header {
+  margin-bottom: 52px;
+}
+
+.networks-heading-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.networks-pillar {
+  width: 5px;
+  height: 28px;
+  background-color: var(--color-accent-green);
+  border-radius: 2px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.networks-heading {
+  font-family: var(--font-heading);
+  font-size: 2.125rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-primary-slate);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Two-Column Grid */
+.networks-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+/* Left Column: India Network Map Frame */
+.network-map-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.network-map-frame {
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 1 / 1.16;
+  background: linear-gradient(150deg, #f8fafc 0%, #edf3f8 100%);
+  border: 1px solid var(--color-grey-300);
+  border-radius: var(--border-radius-sm);
+  box-shadow: 0 10px 30px rgba(33, 37, 41, 0.06);
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.network-map-frame:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(33, 37, 41, 0.1);
+  border-color: var(--color-primary-slate-light);
+}
+
+.network-map-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.network-map-svg {
+  width: 100%;
+  height: 100%;
+  max-height: 480px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(53, 85, 107, 0.08));
+}
+
+.network-map-outline {
+  fill: #e1ebf2;
+  stroke: var(--color-primary-slate);
+  stroke-width: 2.2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  transition: fill var(--transition-base), stroke var(--transition-base);
+}
+
+.network-map-frame:hover .network-map-outline {
+  fill: #dbe7f0;
+  stroke: var(--color-accent-green);
+}
+
+.network-map-island {
+  fill: var(--color-primary-slate);
+  stroke: #ffffff;
+  stroke-width: 0.5;
+  transition: fill var(--transition-base);
+}
+
+.network-map-frame:hover .network-map-island {
+  fill: var(--color-accent-green);
+}
+
+/* Right Column: Service Categories List */
+.network-services-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.network-services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.network-service-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-grey-300);
+  border-left: 5px solid var(--color-primary-slate);
+  border-radius: var(--border-radius-sm);
+  padding: 26px 30px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 14px rgba(33, 37, 41, 0.04);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.network-service-card:hover {
+  transform: translateX(4px);
+  box-shadow: 0 8px 24px rgba(33, 37, 41, 0.08);
+}
+
+/* Restrained color variation drawn from existing Geo brand palette */
+.network-service-card:nth-child(1) {
+  border-left-color: var(--color-primary-slate); /* Slate blue #35556B */
+}
+
+.network-service-card:nth-child(2) {
+  border-left-color: var(--color-accent-green); /* Muted green #497E5E */
+}
+
+.network-service-card:nth-child(3) {
+  border-left-color: var(--color-primary-slate); /* Slate blue #35556B */
+}
+
+.network-service-card:nth-child(4) {
+  border-left-color: var(--color-accent-green); /* Muted green #497E5E */
+}
+
+.network-service-text {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.03em;
+  color: var(--color-charcoal-dark);
+  text-transform: uppercase;
+  word-break: normal;
+}
+
+/* Responsive Adaptations for Our Networks */
+@media (max-width: 992px) {
+  .networks-section {
+    padding: 64px 0 72px;
+  }
+
+  .networks-header {
+    margin-bottom: 36px;
+  }
+
+  .networks-grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .network-map-frame {
+    max-width: 440px;
+  }
+}
+
+@media (max-width: 600px) {
+  .networks-heading {
+    font-size: 1.75rem;
+  }
+
+  .network-service-card {
+    padding: 20px 22px;
+  }
+
+  .network-service-text {
+    font-size: 1.0625rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
    11. Responsive Breakpoints
    Desktop, Tablet, Mobile layout rules
    -------------------------------------------------------------------------- */
