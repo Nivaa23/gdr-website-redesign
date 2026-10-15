@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNavigation();
   initHeroCarousel();
   initJourneyTimeline();
+  initFooterYear();
 });
 
 /* --------------------------------------------------------------------------
@@ -415,5 +416,16 @@ function initJourneyTimeline() {
     }
   });
 }
+
+/* --------------------------------------------------------------------------
+   6. Dynamic Footer Copyright Year
+   -------------------------------------------------------------------------- */
+function initFooterYear() {
+  const yearEl = document.getElementById('current-year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
+}
+
 
 
