@@ -1597,6 +1597,37 @@ ul, ol {
   margin: 0;
 }
 
+.about-section__action {
+  margin-top: 28px;
+  display: flex;
+}
+
+.about-section__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-white);
+  background-color: var(--color-primary-slate);
+  border: 1px solid var(--color-primary-slate);
+  border-radius: var(--border-radius-sm);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.about-section__btn:hover {
+  background-color: var(--color-primary-slate-dark);
+  border-color: var(--color-primary-slate-dark);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(53, 85, 107, 0.28);
+}
+
 /* Responsive adjustments for About Section */
 @media (max-width: 992px) {
   .about-section {
