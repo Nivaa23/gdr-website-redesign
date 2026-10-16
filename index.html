@@ -1619,80 +1619,113 @@
           <div class="network-map-col">
             <div class="network-map-frame" id="network-map-frame">
               <div class="network-map-container" role="img" aria-label="India network map illustrating Geo Designs &amp; Research distributed network of locations">
-                <svg class="network-map-svg" viewBox="0 0 500 580" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <defs>
-                    <!-- Engineering Geodetic Grid Pattern -->
-                    <pattern id="geodetic-grid" width="50" height="50" patternUnits="userSpaceOnUse">
-                      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(53, 85, 107, 0.07)" stroke-width="1"/>
-                    </pattern>
-                  </defs>
-                  
-                  <!-- Background Grid -->
-                  <rect width="500" height="580" fill="url(#geodetic-grid)"/>
-                  
-                  <!-- Coordinate Graticule Lines -->
-                  <line x1="40" y1="120" x2="460" y2="120" stroke="rgba(53, 85, 107, 0.12)" stroke-dasharray="3,3" stroke-width="1"/>
-                  <line x1="40" y1="260" x2="460" y2="260" stroke="rgba(53, 85, 107, 0.12)" stroke-dasharray="3,3" stroke-width="1"/>
-                  <line x1="40" y1="400" x2="460" y2="400" stroke="rgba(53, 85, 107, 0.12)" stroke-dasharray="3,3" stroke-width="1"/>
-                  <line x1="140" y1="40" x2="140" y2="550" stroke="rgba(53, 85, 107, 0.12)" stroke-dasharray="3,3" stroke-width="1"/>
-                  <line x1="260" y1="40" x2="260" y2="550" stroke="rgba(53, 85, 107, 0.12)" stroke-dasharray="3,3" stroke-width="1"/>
-                  <line x1="380" y1="40" x2="380" y2="550" stroke="rgba(53, 85, 107, 0.12)" stroke-dasharray="3,3" stroke-width="1"/>
+                <svg class="network-map-svg" viewBox="0 0 483 513" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="India network map displaying project locations across the country">
+                  <!-- India Geographic Base Map Asset preserving state boundaries -->
+                  <image href="/assets/images/india-network-base-map.png" x="0" y="0" width="483" height="513" preserveAspectRatio="xMidYMid meet" />
 
-                  <!-- Latitude & Longitude Labels -->
-                  <text x="465" y="123" fill="#8C9CA8" font-size="9" font-family="'Inter', sans-serif">28°N</text>
-                  <text x="465" y="263" fill="#8C9CA8" font-size="9" font-family="'Inter', sans-serif">20°N</text>
-                  <text x="465" y="403" fill="#8C9CA8" font-size="9" font-family="'Inter', sans-serif">12°N</text>
-                  <text x="140" y="572" fill="#8C9CA8" font-size="9" font-family="'Inter', sans-serif" text-anchor="middle">72°E</text>
-                  <text x="260" y="572" fill="#8C9CA8" font-size="9" font-family="'Inter', sans-serif" text-anchor="middle">80°E</text>
-                  <text x="380" y="572" fill="#8C9CA8" font-size="9" font-family="'Inter', sans-serif" text-anchor="middle">88°E</text>
-
-                  <!-- India Geographic Silhouette Boundary -->
-                  <path class="network-map-outline" d="
-                    M 242 22
-                    C 252 20, 266 26, 274 38
-                    C 284 52, 286 70, 284 86
-                    C 282 100, 274 112, 272 124
-                    C 282 130, 300 138, 318 146
-                    C 336 154, 354 164, 368 172
-                    C 374 162, 380 160, 385 168
-                    C 390 176, 400 180, 414 182
-                    C 430 174, 450 158, 468 158
-                    C 482 158, 488 172, 486 188
-                    C 484 202, 476 218, 470 232
-                    C 464 246, 458 260, 450 274
-                    C 444 286, 436 298, 426 296
-                    C 420 294, 418 280, 416 266
-                    C 412 250, 400 242, 388 244
-                    C 378 248, 372 260, 366 276
-                    C 358 304, 348 338, 336 374
-                    C 324 410, 308 448, 292 482
-                    C 276 514, 260 542, 246 558
-                    C 242 562, 238 560, 234 554
-                    C 226 542, 218 518, 210 490
-                    C 200 454, 190 414, 182 376
-                    C 174 338, 166 308, 158 288
-                    C 152 278, 140 274, 130 282
-                    C 116 294, 98 294, 88 278
-                    C 78 264, 86 248, 102 240
-                    C 114 234, 122 228, 114 218
-                    C 102 206, 88 208, 76 216
-                    C 68 206, 76 192, 90 182
-                    C 108 168, 128 152, 146 134
-                    C 164 118, 180 98, 192 80
-                    C 202 64, 212 44, 224 32
-                    Z
-                  "/>
-
-                  <!-- Lakshadweep Islands -->
-                  <circle cx="172" cy="485" r="3" class="network-map-island"/>
-                  <circle cx="166" cy="502" r="2.6" class="network-map-island"/>
-                  <circle cx="174" cy="518" r="2.6" class="network-map-island"/>
-
-                  <!-- Andaman & Nicobar Islands -->
-                  <ellipse cx="436" cy="430" rx="3.5" ry="9" class="network-map-island"/>
-                  <ellipse cx="440" cy="460" rx="3.5" ry="11" class="network-map-island"/>
-                  <ellipse cx="444" cy="495" rx="4" ry="14" class="network-map-island"/>
-                  <ellipse cx="448" cy="525" rx="3.5" ry="9" class="network-map-island"/>
+                  <!-- Categorized Project Location Pins -->
+                  <g class="network-pins-layer" id="network-pins-layer">
+                  <circle class="network-pin" data-category="tpqa" cx="128.1" cy="74.5" r="5" fill="#487CB7" />
+                  <circle class="network-pin" data-category="survey" cx="167.1" cy="101" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="design" cx="136.7" cy="104.3" r="5" fill="#497E5E" />
+                  <circle class="network-pin" data-category="geotech" cx="141" cy="107" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="tpqa" cx="184" cy="118" r="5" fill="#487CB7" />
+                  <circle class="network-pin" data-category="geotech" cx="139.9" cy="123.8" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="survey" cx="125.5" cy="130.8" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="survey" cx="144.1" cy="131.3" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="design" cx="161.1" cy="133.1" r="5" fill="#497E5E" />
+                  <circle class="network-pin" data-category="geotech" cx="183.1" cy="133.8" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="survey" cx="185" cy="141.7" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="geotech" cx="172.2" cy="156.2" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="survey" cx="130.8" cy="176.6" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="geotech" cx="105.6" cy="181.2" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="survey" cx="217.4" cy="189" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="design" cx="238" cy="190" r="5" fill="#497E5E" />
+                  <circle class="network-pin" data-category="survey" cx="433" cy="190.8" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="geotech" cx="69" cy="200" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="geotech" cx="339.2" cy="206.7" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="geotech" cx="274.2" cy="207.3" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="design" cx="125.9" cy="208" r="5" fill="#497E5E" />
+                  <circle class="network-pin" data-category="geotech" cx="381" cy="207.7" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="tpqa" cx="389.5" cy="207.8" r="5" fill="#487CB7" />
+                  <circle class="network-pin" data-category="geotech" cx="399.2" cy="209.6" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="survey" cx="373.6" cy="210" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="tpqa" cx="427" cy="210" r="5" fill="#487CB7" />
+                  <circle class="network-pin" data-category="survey" cx="101.2" cy="211.4" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="survey" cx="296.3" cy="212.8" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="survey" cx="183.5" cy="220.9" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="design" cx="288.1" cy="220.9" r="5" fill="#497E5E" />
+                  <circle class="network-pin" data-category="geotech" cx="114.3" cy="231.2" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="design" cx="203.4" cy="233.8" r="5" fill="#497E5E" />
+                  <circle class="network-pin" data-category="design" cx="111.7" cy="239.4" r="5" fill="#497E5E" />
+                  <circle class="network-pin" data-category="geotech" cx="209.8" cy="240.6" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="survey" cx="396.1" cy="249.9" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="geotech" cx="89.5" cy="253.3" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="design" cx="198.5" cy="251.4" r="5" fill="#497E5E" />
+                  <circle class="network-pin" data-category="survey" cx="212.8" cy="251.4" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="geotech" cx="53.2" cy="253.1" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="geotech" cx="275.3" cy="252.8" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="tpqa" cx="401.2" cy="254.2" r="5" fill="#487CB7" />
+                  <circle class="network-pin" data-category="survey" cx="291.2" cy="254.4" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="geotech" cx="146.9" cy="260" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="geotech" cx="167.9" cy="260.9" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="survey" cx="314.2" cy="261.3" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="geotech" cx="326.2" cy="261.3" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="survey" cx="206.9" cy="262" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="survey" cx="94.3" cy="264.7" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="survey" cx="68.1" cy="268" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="survey" cx="80.7" cy="268.8" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="survey" cx="172.5" cy="269.1" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="design" cx="98.6" cy="271.4" r="5" fill="#497E5E" />
+                  <circle class="network-pin" data-category="tpqa" cx="93.1" cy="271.3" r="5" fill="#487CB7" />
+                  <circle class="network-pin" data-category="survey" cx="248.7" cy="275.6" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="survey" cx="103.6" cy="276.4" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="design" cx="116.2" cy="276.4" r="5" fill="#497E5E" />
+                  <circle class="network-pin" data-category="survey" cx="88" cy="285.1" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="geotech" cx="49.9" cy="287.1" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="design" cx="74" cy="288" r="5" fill="#497E5E" />
+                  <circle class="network-pin" data-category="survey" cx="62.3" cy="289.2" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="design" cx="110" cy="293" r="5" fill="#497E5E" />
+                  <circle class="network-pin" data-category="geotech" cx="228.8" cy="295" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="survey" cx="291.9" cy="303.1" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="survey" cx="267.8" cy="311.5" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="tpqa" cx="163.5" cy="311.9" r="5" fill="#487CB7" />
+                  <circle class="network-pin" data-category="geotech" cx="112.9" cy="313.9" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="geotech" cx="255" cy="315" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="survey" cx="136.4" cy="315.8" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="tpqa" cx="145" cy="316.4" r="5" fill="#487CB7" />
+                  <circle class="network-pin" data-category="design" cx="295.3" cy="316.8" r="5" fill="#497E5E" />
+                  <circle class="network-pin" data-category="tpqa" cx="99" cy="322.3" r="5" fill="#487CB7" />
+                  <circle class="network-pin" data-category="tpqa" cx="184.9" cy="319" r="5" fill="#487CB7" />
+                  <circle class="network-pin" data-category="geotech" cx="166.4" cy="327.4" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="survey" cx="127.3" cy="328.2" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="survey" cx="142.7" cy="329.8" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="geotech" cx="103.7" cy="337.4" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="survey" cx="193.8" cy="338.7" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="geotech" cx="178.4" cy="347.6" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="tpqa" cx="116.3" cy="350.7" r="5" fill="#487CB7" />
+                  <circle class="network-pin" data-category="design" cx="255.8" cy="350.5" r="5" fill="#497E5E" />
+                  <circle class="network-pin" data-category="geotech" cx="238" cy="356.2" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="design" cx="233.6" cy="362.4" r="5" fill="#497E5E" />
+                  <circle class="network-pin" data-category="geotech" cx="176.8" cy="365.3" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="design" cx="214.6" cy="377.2" r="5" fill="#497E5E" />
+                  <circle class="network-pin" data-category="geotech" cx="123.8" cy="379.4" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="geotech" cx="177.1" cy="379.9" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="survey" cx="115.7" cy="383.6" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="tpqa" cx="148.8" cy="387.2" r="5" fill="#487CB7" />
+                  <circle class="network-pin" data-category="design" cx="200.3" cy="387.2" r="5" fill="#497E5E" />
+                  <circle class="network-pin" data-category="design" cx="118.7" cy="390.2" r="5" fill="#497E5E" />
+                  <circle class="network-pin" data-category="survey" cx="139.8" cy="409.5" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="geotech" cx="143" cy="419" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="survey" cx="193.2" cy="420.4" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="tpqa" cx="170.5" cy="424.2" r="5" fill="#487CB7" />
+                  <circle class="network-pin" data-category="design" cx="160" cy="431" r="5" fill="#497E5E" />
+                  <circle class="network-pin" data-category="design" cx="204" cy="440" r="5" fill="#497E5E" />
+                  <circle class="network-pin" data-category="geotech" cx="187.3" cy="457.8" r="5" fill="#FFE000" />
+                  <circle class="network-pin" data-category="tpqa" cx="149.6" cy="461.8" r="5" fill="#487CB7" />
+                  <circle class="network-pin" data-category="survey" cx="178.5" cy="471.1" r="5" fill="#FF9900" />
+                  <circle class="network-pin" data-category="design" cx="158.2" cy="481.2" r="5" fill="#497E5E" />
+                  </g>
                 </svg>
               </div>
             </div>
@@ -1702,24 +1735,24 @@
           <div class="network-services-col">
             <div class="network-services-list" role="list">
               
-              <!-- Category 1: IPQA, PMC, IE JOBS -->
-              <div class="network-service-card" role="listitem" id="network-category-1">
-                <span class="network-service-text">IPQA, PMC, IE JOBS</span>
+              <!-- Category 1: TPQA, PMC, IE Jobs -->
+              <div class="network-service-card" role="listitem" id="network-category-tpqa" data-category="tpqa" tabindex="0" aria-label="TPQA, PMC, IE Jobs">
+                <span class="network-service-text">TPQA, PMC, IE Jobs</span>
               </div>
 
-              <!-- Category 2: DESIGN & DPR JOBS -->
-              <div class="network-service-card" role="listitem" id="network-category-2">
-                <span class="network-service-text">DESIGN &amp; DPR JOBS</span>
+              <!-- Category 2: Design & DPR Jobs -->
+              <div class="network-service-card" role="listitem" id="network-category-design" data-category="design" tabindex="0" aria-label="Design &amp; DPR Jobs">
+                <span class="network-service-text">Design &amp; DPR Jobs</span>
               </div>
 
-              <!-- Category 3: FIELD SURVEY -->
-              <div class="network-service-card" role="listitem" id="network-category-3">
-                <span class="network-service-text">FIELD SURVEY</span>
+              <!-- Category 3: Field Survey -->
+              <div class="network-service-card" role="listitem" id="network-category-survey" data-category="survey" tabindex="0" aria-label="Field Survey">
+                <span class="network-service-text">Field Survey</span>
               </div>
 
-              <!-- Category 4: GEOTECH INVESTIGATION -->
-              <div class="network-service-card" role="listitem" id="network-category-4">
-                <span class="network-service-text">GEOTECH INVESTIGATION</span>
+              <!-- Category 4: Geotech Investigation -->
+              <div class="network-service-card" role="listitem" id="network-category-geotech" data-category="geotech" tabindex="0" aria-label="Geotech Investigation">
+                <span class="network-service-text">Geotech Investigation</span>
               </div>
 
             </div>

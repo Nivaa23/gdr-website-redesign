@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFooterYear();
   initWordmarkCursorEffect();
   initGlobeSegmentEffect();
+  initOurNetworksInteraction();
 });
 
 /* --------------------------------------------------------------------------
@@ -601,6 +602,91 @@ function initGlobeSegmentEffect() {
 
   container.addEventListener('blur', () => {
     setActiveFacet(null);
+  });
+}
+
+/* --------------------------------------------------------------------------
+   8. Our Networks Synchronized Map & Category Interaction
+   Synchronized hover & focus between network categories and colored pins
+   -------------------------------------------------------------------------- */
+function initOurNetworksInteraction() {
+  const section = document.getElementById('our-networks');
+  if (!section) return;
+
+  const categoryCards = Array.from(section.querySelectorAll('.network-service-card'));
+  const pins = Array.from(section.querySelectorAll('.network-pin'));
+
+  const heading = document.getElementById('networks-heading');
+  const mapFrame = document.getElementById('network-map-frame');
+  const mapCol = section.querySelector('.network-map-col');
+
+  // Exact desktop alignment between section heading and map container
+  function syncMapAlignment() {
+    if (!heading || !mapFrame || !mapCol) return;
+    if (window.innerWidth <= 600) {
+      mapFrame.style.marginLeft = '0px';
+      return;
+    }
+    const headingRect = heading.getBoundingClientRect();
+    const mapColRect = mapCol.getBoundingClientRect();
+    const offset = Math.max(0, Math.round(headingRect.left - mapColRect.left));
+    mapFrame.style.marginLeft = `${offset}px`;
+  }
+  syncMapAlignment();
+  window.addEventListener('resize', syncMapAlignment);
+
+  function setActiveCategory(cat) {
+    if (cat) {
+      section.dataset.activeCategory = cat;
+    } else {
+      delete section.dataset.activeCategory;
+    }
+  }
+
+  // Pointer & Focus interactions for the Category Cards
+  categoryCards.forEach((card) => {
+    const category = card.dataset.category;
+    if (!category) return;
+
+    card.addEventListener('pointerenter', () => {
+      setActiveCategory(category);
+    });
+
+    card.addEventListener('pointerleave', () => {
+      setActiveCategory(null);
+    });
+
+    card.addEventListener('focus', () => {
+      setActiveCategory(category);
+    });
+
+    card.addEventListener('blur', (e) => {
+      const nextCard = e.relatedTarget && e.relatedTarget.closest('.network-service-card');
+      if (!nextCard) {
+        setActiveCategory(null);
+      }
+    });
+
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        setActiveCategory(null);
+        card.blur();
+      }
+    });
+  });
+
+  // Direct map pin hovering interaction
+  pins.forEach((pin) => {
+    const category = pin.dataset.category;
+    if (!category) return;
+
+    pin.addEventListener('pointerenter', () => {
+      setActiveCategory(category);
+    });
+
+    pin.addEventListener('pointerleave', () => {
+      setActiveCategory(null);
+    });
   });
 }
 

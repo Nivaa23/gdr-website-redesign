@@ -2304,20 +2304,21 @@ ul, ol {
 /* Left Column: India Network Map Frame */
 .network-map-col {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
 }
 
 .network-map-frame {
   width: 100%;
-  max-width: 520px;
-  aspect-ratio: 1 / 1.16;
+  max-width: 500px;
+  aspect-ratio: 483 / 513;
+  margin-left: 19px;
   background: linear-gradient(150deg, #f8fafc 0%, #edf3f8 100%);
   border: 1px solid var(--color-grey-300);
   border-radius: var(--border-radius-sm);
   box-shadow: 0 10px 30px rgba(33, 37, 41, 0.06);
-  padding: 24px;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2349,29 +2350,75 @@ ul, ol {
   filter: drop-shadow(0 4px 12px rgba(53, 85, 107, 0.08));
 }
 
-.network-map-outline {
-  fill: #e1ebf2;
-  stroke: var(--color-primary-slate);
-  stroke-width: 2.2;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  transition: fill var(--transition-base), stroke var(--transition-base);
+/* Categorized Network Map Pins */
+.network-pin {
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), filter 0.25s ease;
+  transform-origin: center;
+  transform-box: fill-box;
+  cursor: pointer;
+  opacity: 1;
 }
 
-.network-map-frame:hover .network-map-outline {
-  fill: #dbe7f0;
-  stroke: var(--color-accent-green);
+/* De-emphasis of non-selected pins when active category is set */
+.networks-section[data-active-category] .network-pin {
+  opacity: 0.22;
 }
 
-.network-map-island {
-  fill: var(--color-primary-slate);
-  stroke: #ffffff;
-  stroke-width: 0.5;
-  transition: fill var(--transition-base);
+/* Emphasized pins belonging to selected category */
+.networks-section[data-active-category="tpqa"] .network-pin[data-category="tpqa"],
+.networks-section[data-active-category="design"] .network-pin[data-category="design"],
+.networks-section[data-active-category="survey"] .network-pin[data-category="survey"],
+.networks-section[data-active-category="geotech"] .network-pin[data-category="geotech"] {
+  opacity: 1;
+  transform: scale(1.18);
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
 }
 
-.network-map-frame:hover .network-map-island {
-  fill: var(--color-accent-green);
+/* Instant CSS :has() support for zero-latency hover & focus */
+@supports selector(:has(*)) {
+  .networks-section:has(.network-service-card[data-category="tpqa"]:hover) .network-pin,
+  .networks-section:has(.network-service-card[data-category="tpqa"]:focus-visible) .network-pin {
+    opacity: 0.22;
+  }
+  .networks-section:has(.network-service-card[data-category="tpqa"]:hover) .network-pin[data-category="tpqa"],
+  .networks-section:has(.network-service-card[data-category="tpqa"]:focus-visible) .network-pin[data-category="tpqa"] {
+    opacity: 1;
+    transform: scale(1.18);
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
+  }
+
+  .networks-section:has(.network-service-card[data-category="design"]:hover) .network-pin,
+  .networks-section:has(.network-service-card[data-category="design"]:focus-visible) .network-pin {
+    opacity: 0.22;
+  }
+  .networks-section:has(.network-service-card[data-category="design"]:hover) .network-pin[data-category="design"],
+  .networks-section:has(.network-service-card[data-category="design"]:focus-visible) .network-pin[data-category="design"] {
+    opacity: 1;
+    transform: scale(1.18);
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
+  }
+
+  .networks-section:has(.network-service-card[data-category="survey"]:hover) .network-pin,
+  .networks-section:has(.network-service-card[data-category="survey"]:focus-visible) .network-pin {
+    opacity: 0.22;
+  }
+  .networks-section:has(.network-service-card[data-category="survey"]:hover) .network-pin[data-category="survey"],
+  .networks-section:has(.network-service-card[data-category="survey"]:focus-visible) .network-pin[data-category="survey"] {
+    opacity: 1;
+    transform: scale(1.18);
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
+  }
+
+  .networks-section:has(.network-service-card[data-category="geotech"]:hover) .network-pin,
+  .networks-section:has(.network-service-card[data-category="geotech"]:focus-visible) .network-pin {
+    opacity: 0.22;
+  }
+  .networks-section:has(.network-service-card[data-category="geotech"]:hover) .network-pin[data-category="geotech"],
+  .networks-section:has(.network-service-card[data-category="geotech"]:focus-visible) .network-pin[data-category="geotech"] {
+    opacity: 1;
+    transform: scale(1.18);
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.35));
+  }
 }
 
 /* Right Column: Service Categories List */
@@ -2398,6 +2445,8 @@ ul, ol {
   display: flex;
   align-items: center;
   box-shadow: 0 4px 14px rgba(33, 37, 41, 0.04);
+  cursor: pointer;
+  outline: none;
   transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
 }
 
@@ -2406,21 +2455,26 @@ ul, ol {
   box-shadow: 0 8px 24px rgba(33, 37, 41, 0.08);
 }
 
-/* Restrained color variation drawn from existing Geo brand palette */
-.network-service-card:nth-child(1) {
-  border-left-color: var(--color-primary-slate); /* Slate blue #35556B */
+.network-service-card:focus-visible {
+  outline: 2px solid var(--color-primary-slate);
+  outline-offset: 2px;
 }
 
-.network-service-card:nth-child(2) {
-  border-left-color: var(--color-accent-green); /* Muted green #497E5E */
+/* Distinct category indicator colors on the left edge */
+.network-service-card[data-category="tpqa"] {
+  border-left-color: #487CB7;
 }
 
-.network-service-card:nth-child(3) {
-  border-left-color: var(--color-primary-slate); /* Slate blue #35556B */
+.network-service-card[data-category="design"] {
+  border-left-color: #497E5E;
 }
 
-.network-service-card:nth-child(4) {
-  border-left-color: var(--color-accent-green); /* Muted green #497E5E */
+.network-service-card[data-category="survey"] {
+  border-left-color: #FF9900;
+}
+
+.network-service-card[data-category="geotech"] {
+  border-left-color: #FFE000;
 }
 
 .network-service-text {
@@ -2432,6 +2486,32 @@ ul, ol {
   color: var(--color-charcoal-dark);
   text-transform: uppercase;
   word-break: normal;
+  transition: color 0.2s ease;
+}
+
+/* Hover & Focus state: only that network name changes to its assigned category color */
+.network-service-card[data-category="tpqa"]:hover .network-service-text,
+.network-service-card[data-category="tpqa"]:focus-visible .network-service-text,
+.networks-section[data-active-category="tpqa"] .network-service-card[data-category="tpqa"] .network-service-text {
+  color: #487CB7;
+}
+
+.network-service-card[data-category="design"]:hover .network-service-text,
+.network-service-card[data-category="design"]:focus-visible .network-service-text,
+.networks-section[data-active-category="design"] .network-service-card[data-category="design"] .network-service-text {
+  color: #497E5E;
+}
+
+.network-service-card[data-category="survey"]:hover .network-service-text,
+.network-service-card[data-category="survey"]:focus-visible .network-service-text,
+.networks-section[data-active-category="survey"] .network-service-card[data-category="survey"] .network-service-text {
+  color: #FF9900;
+}
+
+.network-service-card[data-category="geotech"]:hover .network-service-text,
+.network-service-card[data-category="geotech"]:focus-visible .network-service-text,
+.networks-section[data-active-category="geotech"] .network-service-card[data-category="geotech"] .network-service-text {
+  color: #FFE000;
 }
 
 /* Responsive Adaptations for Our Networks */
@@ -2457,6 +2537,11 @@ ul, ol {
 @media (max-width: 600px) {
   .networks-heading {
     font-size: 1.75rem;
+  }
+
+  .network-map-frame {
+    margin-left: 0;
+    max-width: 100%;
   }
 
   .network-service-card {
