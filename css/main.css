@@ -2675,6 +2675,7 @@ ul, ol {
    Authentic Google Maps screenshots for confirmed locations.
    -------------------------------------------------------------------------- */
 .branches-section {
+  --branch-card-height: 440px;
   width: 100%;
   background-color: var(--color-white);
   border-top: 1px solid var(--color-grey-200);
@@ -2712,7 +2713,7 @@ ul, ol {
   text-transform: uppercase;
 }
 
-/* Branch Cards Grid (Max 3 columns on wide desktop) */
+/* Branch Cards Grid (Desktop 3-Column Specification) */
 .branches-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2724,53 +2725,58 @@ ul, ol {
 @media (min-width: 993px) {
   .branches-grid {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto auto auto;
+    grid-template-rows: var(--branch-card-height) calc((var(--branch-card-height) - 16px) / 2) calc((var(--branch-card-height) - 16px) / 2);
     column-gap: 32px;
-    row-gap: 14px;
+    row-gap: 16px;
     align-items: start;
   }
 
   #branch-card-bharuch {
     grid-column: 1;
     grid-row: 1;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
 
   #branch-card-bhuj {
     grid-column: 2;
     grid-row: 1;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
 
   #branch-card-gandhinagar {
     grid-column: 3;
     grid-row: 1;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
 
   #branch-card-junagadh {
     grid-column: 1;
     grid-row: 2 / span 2;
+    margin-bottom: 0;
   }
 
   #branch-card-navsari {
     grid-column: 2;
     grid-row: 2 / span 2;
+    margin-bottom: 0;
   }
 
   #branch-card-nadiad {
     grid-column: 3;
     grid-row: 2;
+    margin-bottom: 0;
   }
 
   #branch-card-jaisalmer {
     grid-column: 3;
     grid-row: 3;
+    margin-bottom: 0;
   }
 }
 
 /* Base Branch Card */
 .branch-card {
+  width: 100%;
   background-color: var(--color-white);
   border: 1px solid var(--color-grey-200);
   border-radius: var(--border-radius-sm);
@@ -2779,6 +2785,7 @@ ul, ol {
   display: flex;
   flex-direction: column;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  box-sizing: border-box;
 }
 
 .branch-card:hover {
@@ -2787,7 +2794,17 @@ ul, ol {
   border-color: var(--color-primary-slate-light);
 }
 
-/* Map Image Container (occupies 45–55% of card visual height) */
+/* 1. All five address-based branch cards have IDENTICAL total height */
+#branch-card-bharuch,
+#branch-card-bhuj,
+#branch-card-gandhinagar,
+#branch-card-junagadh,
+#branch-card-navsari {
+  height: var(--branch-card-height);
+  box-sizing: border-box;
+}
+
+/* Map Image Container (identical height across all five address cards) */
 .branch-card__map-wrap {
   display: block;
   width: 100%;
@@ -2797,6 +2814,7 @@ ul, ol {
   border-bottom: 1px solid var(--color-grey-200);
   position: relative;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .branch-card__map-img {
@@ -2817,6 +2835,7 @@ ul, ol {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  box-sizing: border-box;
 }
 
 .branch-card__name {
@@ -2835,15 +2854,16 @@ ul, ol {
   font-style: normal;
   line-height: 1.6;
   color: var(--color-charcoal-light);
-  margin: 0 0 20px 0;
+  margin: 0 0 16px 0;
   flex-grow: 1;
 }
 
-/* Card Action Area */
+/* Card Action Area: View on Map link pinned consistently across all five cards */
 .branch-card__action {
   margin-top: auto;
   padding-top: 16px;
   border-top: 1px solid var(--color-grey-200);
+  flex-shrink: 0;
 }
 
 .branch-card__link {
@@ -2871,32 +2891,53 @@ ul, ol {
   transform: translateX(2px);
 }
 
-/* Simplified Cards (Nadiad & Jaisalmer: Displays only branch name and state) */
+/* 2. Simplified Cards (Nadiad & Jaisalmer: Stacked layout with combined height = Navsari) */
+#branch-card-nadiad,
+#branch-card-jaisalmer {
+  height: calc((var(--branch-card-height) - 16px) / 2);
+  box-sizing: border-box;
+}
+
 .branch-card--simple {
-  padding: 28px 24px;
+  padding: 24px;
   background-color: var(--color-grey-100);
   border: 1px solid var(--color-grey-200);
   border-left: 4px solid var(--color-primary-slate);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .branch-card--simple .branch-card__content {
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-grow: 1;
 }
 
 .branch-card--simple .branch-card__name {
   margin: 0;
   font-size: 1.25rem;
+  line-height: 1.35;
+  color: var(--color-charcoal-dark);
 }
 
 /* Responsive Adaptations for Other Branches */
-@media (max-width: 992px) {
+@media (min-width: 641px) and (max-width: 992px) {
   .branches-section {
+    --branch-card-height: 440px;
     padding: 64px 0 72px;
   }
 
   .branches-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    grid-template-rows: var(--branch-card-height) var(--branch-card-height) calc((var(--branch-card-height) - 16px) / 2) calc((var(--branch-card-height) - 16px) / 2);
+    column-gap: 24px;
+    row-gap: 16px;
+    align-items: start;
   }
 
   .branches-header {
@@ -2910,10 +2951,53 @@ ul, ol {
   .branch-card__content {
     padding: 20px;
   }
+
+  #branch-card-bharuch {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 8px;
+  }
+
+  #branch-card-bhuj {
+    grid-column: 2;
+    grid-row: 1;
+    margin-bottom: 8px;
+  }
+
+  #branch-card-gandhinagar {
+    grid-column: 1;
+    grid-row: 2;
+    margin-bottom: 8px;
+  }
+
+  #branch-card-junagadh {
+    grid-column: 2;
+    grid-row: 2;
+    margin-bottom: 8px;
+  }
+
+  #branch-card-navsari {
+    grid-column: 1;
+    grid-row: 3 / span 2;
+    margin-bottom: 0;
+  }
+
+  #branch-card-nadiad {
+    grid-column: 2;
+    grid-row: 3;
+    margin-bottom: 0;
+  }
+
+  #branch-card-jaisalmer {
+    grid-column: 2;
+    grid-row: 4;
+    margin-bottom: 0;
+  }
 }
 
 @media (max-width: 640px) {
   .branches-section {
+    --branch-card-height: 440px;
     padding: 56px 0 64px;
   }
 
@@ -2922,7 +3006,9 @@ ul, ol {
   }
 
   .branches-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     gap: 20px;
   }
 
@@ -2933,6 +3019,14 @@ ul, ol {
   .branch-card--simple {
     padding: 22px 20px;
   }
+
+  #branch-card-bharuch { order: 1; margin-bottom: 0; }
+  #branch-card-bhuj { order: 2; margin-bottom: 0; }
+  #branch-card-gandhinagar { order: 3; margin-bottom: 0; }
+  #branch-card-junagadh { order: 4; margin-bottom: 0; }
+  #branch-card-navsari { order: 5; margin-bottom: 0; }
+  #branch-card-nadiad { order: 6; margin-bottom: -4px; }
+  #branch-card-jaisalmer { order: 7; margin-bottom: 0; }
 }
 
 /* --------------------------------------------------------------------------
