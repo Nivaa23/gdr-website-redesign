@@ -3,6 +3,8 @@
  * Phase 01: Navigation, Mega-Menu, Mobile Drawer, and Hero Carousel Controller
  */
 
+import { mountConcaveCarousel, JOURNEY_MILESTONES } from '../components/concave-carousel.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initExpertiseMegaMenu();
@@ -388,36 +390,43 @@ function initHeroCarousel() {
 }
 
 /* --------------------------------------------------------------------------
-   5. Our Journey Timeline Navigation
-   Smooth horizontal scrolling via Prev / Next buttons and keyboard
+   5. Our Journey — Official React Bits Pro Concave Carousel Integration
+   Curved gallery wall with large readable cards, mandatory 18px gap & continuous autoplay
    -------------------------------------------------------------------------- */
 function initJourneyTimeline() {
-  const wrapper = document.getElementById('journey-timeline-wrapper');
-  const prevBtn = document.getElementById('journey-prev-btn');
-  const nextBtn = document.getElementById('journey-next-btn');
+  const container = document.getElementById('journey-concave-container');
+  if (!container) return;
 
-  if (!wrapper || !prevBtn || !nextBtn) return;
-
-  const scrollAmount = 352; // card width (320px) + gap (32px)
-
-  prevBtn.addEventListener('click', () => {
-    wrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  const carousel = mountConcaveCarousel(container, {
+    items: JOURNEY_MILESTONES,
+    startIndex: 0,
+    aspect: 880 / 740,    // 1.189 Aspect ratio matching enlarged 880x740 card canvas
+    size: 0.77,           // Substantially enlarged cards (77% of available stage height)
+    curvature: 0.44,      // Smooth concave cylinder curvature highlighting active card
+    distance: 4.1,        // Optimal camera perspective for 3 prominent desktop cards
+    tilt: 0,
+    gap: 18,              // MANDATORY card gap: exactly 18px
+    radius: 20,           // Smooth rounded card corners
+    reflection: 0.08,
+    dim: 0.16,
+    autoplay: "drift",    // Continuous looping drift autoplay
+    speed: 0.12,
+    snap: true,
+    inertia: 0.5,
+    pauseOnHover: true,
+    draggable: true,
+    wheel: false,         // Preserve vertical page scrolling
+    captions: false,      // Redundant caption removed
+    controls: true,       // Lower < 01 / 14 > controls retained
+    backgroundColor: "transparent"
   });
 
-  nextBtn.addEventListener('click', () => {
-    wrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-  });
-
-  // Keyboard navigation
-  wrapper.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') {
-      e.preventDefault();
-      wrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    } else if (e.key === 'ArrowRight') {
-      e.preventDefault();
-      wrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  });
+  // Ensure textures are redrawn once web fonts finish loading
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => {
+      carousel?.sync();
+    });
+  }
 }
 
 /* --------------------------------------------------------------------------
