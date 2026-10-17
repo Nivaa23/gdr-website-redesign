@@ -4,8 +4,10 @@
  */
 
 import { mountConcaveCarousel, JOURNEY_MILESTONES } from '../components/concave-carousel.js';
+import { mountTargetCursor } from '../components/target-cursor.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initTargetCursor();
   initNavigation();
   initExpertiseMegaMenu();
   initMobileNavigation();
@@ -16,6 +18,30 @@ document.addEventListener('DOMContentLoaded', () => {
   initGlobeSegmentEffect();
   initOurNetworksInteraction();
 });
+
+/* --------------------------------------------------------------------------
+   0. React Bits TargetCursor Integration
+   Restrained, precise engineering reticle with difference blend mode
+   -------------------------------------------------------------------------- */
+function initTargetCursor() {
+  mountTargetCursor({
+    targetSelector: '.cursor-target',
+    cursorColor: '#497E5E',
+    spinDuration: 0,
+    hoverDuration: 0.16,
+    parallaxOn: false,
+    hideDefaultCursor: true,
+    size: 24,
+    cornerSize: 8,
+    thickness: 2,
+    padding: 4,
+    matchRadius: true,
+    dotSize: 3,
+    blendMode: 'difference',
+    showLabel: false,
+    clickEffect: true
+  });
+}
 
 /* --------------------------------------------------------------------------
    1. Primary Navigation & Phase 02 Interaction Handling

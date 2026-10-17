@@ -631,6 +631,7 @@ export function mountConcaveCarousel(container, options = {}) {
 
     const prevBtn = document.createElement('button');
     prevBtn.type = 'button';
+    prevBtn.className = 'cursor-target';
     prevBtn.setAttribute('aria-label', 'Previous milestone');
     prevBtn.style.width = '38px';
     prevBtn.style.height = '38px';
@@ -669,6 +670,7 @@ export function mountConcaveCarousel(container, options = {}) {
 
     const nextBtn = document.createElement('button');
     nextBtn.type = 'button';
+    nextBtn.className = 'cursor-target';
     nextBtn.setAttribute('aria-label', 'Next milestone');
     nextBtn.style.width = '38px';
     nextBtn.style.height = '38px';
