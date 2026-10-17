@@ -475,7 +475,7 @@ void main() {
 
   float fade = mix(1.0, uReflect * pow(1.0 - clamp(lift / 0.62, 0.0, 1.0), 2.2), mirror);
   float edge = abs(gl_FragCoord.x / uResolution.x * 2.0 - 1.0);
-  float vignette = 1.0 - uDim * smoothstep(0.18, 1.05, edge) * (1.0 - 0.85 * uHover);
+  float vignette = 1.0 - uDim * smoothstep(0.18, 1.05, edge) * (1.0 - 0.85 * clamp(uHover, 0.0, 1.0));
   float alpha = mask * fade * vignette * uAlpha;
   if (alpha < 0.002) discard;
 
@@ -1107,11 +1107,14 @@ export function mountConcaveCarousel(container, options = {}) {
       const isCardHovered = (hoveredIndex === itemIdx);
       const targetHover = isCardHovered ? 1 : 0;
 
-      if (Math.abs(hoverVal += (targetHover - hoverVal) * (1 - Math.exp(-dt / 0.18)) - targetHover) > 0.001) {
+      const delta = (targetHover - hoverVal) * (1 - Math.exp(-dt / 0.18));
+      hoverVal += delta;
+      if (Math.abs(hoverVal - targetHover) > 0.001) {
         needsAnotherPass = true;
       } else {
         hoverVal = targetHover;
       }
+      hoverVal = clamp(hoverVal, 0, 1);
       hoverStates.set(itemIdx, hoverVal);
 
       for (const mesh of [panel.mesh, panel.mirror]) {
