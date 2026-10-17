@@ -6,7 +6,9 @@
  * - Reticle cursor whose corner brackets snap around target elements (.cursor-target)
  * - Corner bracket positioning, target-locking spring animation, and corner radius matching
  * - Pointer tracking, click compression feedback, and fine-pointer detection
- * - Reduced-motion handling and difference blend mode
+ * - Continuous roaming spin rotation with target-locking settling
+ * - Background-aware color switching (#497E5E on light, #FFFFFF on dark)
+ * - Reduced-motion handling and normal blend mode
  * - Clean cleanup on destroy
  */
 import './TargetCursor.css';
@@ -25,12 +27,97 @@ const spring = (state, goal, stiffness, damping, dt) => {
 
 const resolveElement = value => (value && 'current' in value ? value.current : value) || null;
 
+let cachedSection = null;
+let cachedIsDark = false;
+
+/**
+ * Resolves the surrounding structural section or major landmark container for an element,
+ * bypassing individual interactive components (buttons, links, cards, images, badges)
+ * so their local background colors do not distort the section-level cursor color.
+ */
+function getSurroundingSection(el) {
+  if (!el || el === document.body || el === document.documentElement) return document.body;
+
+  // 1. Explicit sub-sections with their own dedicated background within a larger container
+  const subSection = el.closest('.top-bar, .mega-menu');
+  if (subSection) return subSection;
+
+  // 2. Surrounding structural section or semantic landmark container
+  const section = el.closest('section, footer, header, main, [role="region"], [role="banner"], [role="contentinfo"], dialog');
+  if (section) return section;
+
+  return document.body;
+}
+
+/**
+ * Determines whether the effective background of a section is dark (<128 luminance) or light.
+ * Accounts for transparent nested wrappers by ascending towards the document root.
+ */
+function computeSectionIsDark(sectionEl) {
+  if (!sectionEl || sectionEl === document.documentElement) return false;
+
+  // Fast-path known dark containers / dark theme indicators
+  if (sectionEl.matches('.top-bar, .hero-section, .journey-section, .site-footer, [data-theme="dark"], .theme-dark, .dark-theme, .is-dark')) {
+    return true;
+  }
+
+  // Fast-path known light containers / light theme indicators
+  if (sectionEl.matches('.site-header, .mega-menu, [data-theme="light"], .theme-light, .light-theme')) {
+    return false;
+  }
+
+  // Walk up from sectionEl to resolve effective background color through transparent wrappers
+  let curr = sectionEl;
+  let depth = 0;
+  while (curr && curr !== document.documentElement && depth < 8) {
+    depth++;
+    const style = window.getComputedStyle(curr);
+    const bg = style.backgroundColor;
+    if (bg && bg !== 'transparent' && bg !== 'rgba(0, 0, 0, 0)') {
+      const match = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
+      if (match) {
+        const a = match[4] !== undefined ? parseFloat(match[4]) : 1;
+        if (a >= 0.5) {
+          const r = parseInt(match[1], 10);
+          const g = parseInt(match[2], 10);
+          const b = parseInt(match[3], 10);
+          const lum = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+          return lum < 128;
+        }
+      }
+    }
+    curr = curr.parentElement;
+  }
+
+  return false;
+}
+
+/**
+ * Inspects whether the surrounding section beneath the pointer is dark or light.
+ * Uses section caching to avoid redundant computed style evaluations on pointer move.
+ */
+function isDarkUnderPointer(node, x, y) {
+  const el = node || (typeof document !== 'undefined' ? document.elementFromPoint(x, y) : null);
+  if (!el || el === document.documentElement) return false;
+
+  const section = getSurroundingSection(el);
+  if (section === cachedSection) {
+    return cachedIsDark;
+  }
+
+  cachedSection = section;
+  cachedIsDark = computeSectionIsDark(section);
+  return cachedIsDark;
+}
+
 export function mountTargetCursor(options = {}) {
   const defaults = {
     targetSelector: '.cursor-target',
     cursorColor: '#497E5E',
+    lightCursorColor: '#497E5E',
+    darkCursorColor: '#FFFFFF',
     cursorColorOnTarget: null,
-    spinDuration: 0,
+    spinDuration: 1.2,
     hoverDuration: 0.16,
     parallaxOn: false,
     hideDefaultCursor: true,
@@ -40,7 +127,7 @@ export function mountTargetCursor(options = {}) {
     padding: 4,
     matchRadius: true,
     dotSize: 3,
-    blendMode: 'difference',
+    blendMode: 'normal',
     showLabel: false,
     clickEffect: true,
     container: null
@@ -65,8 +152,9 @@ export function mountTargetCursor(options = {}) {
   // Create DOM elements
   const root = document.createElement('div');
   root.className = 'target-cursor';
-  root.style.mixBlendMode = settings.blendMode;
+  root.style.mixBlendMode = settings.blendMode || 'normal';
   root.style.opacity = '0';
+  root.style.setProperty('--target-cursor-color', settings.lightCursorColor || settings.cursorColor || '#497E5E');
   root.setAttribute('aria-hidden', 'true');
 
   const cornerElements = CORNER_ANGLES.map(() => {
@@ -102,6 +190,7 @@ export function mountTargetCursor(options = {}) {
   const lock = { x: 0, v: 0 };
   const press = { x: 0, v: 0 };
   const presence = { x: 0, v: 0 };
+  let currentIsDark = false;
   let target = null;
   let targetRadius = 0;
   let quarter = 0;
@@ -253,8 +342,10 @@ export function mountTargetCursor(options = {}) {
       label.style.opacity = shown.toFixed(3);
     }
 
+    // Background-aware color selection: exact lightColor on light surfaces, exact darkColor on dark surfaces
+    const baseColor = currentIsDark ? (settings.darkCursorColor || '#FFFFFF') : (settings.lightCursorColor || settings.cursorColor || '#497E5E');
     const mix = settings.cursorColorOnTarget ? Math.round(Math.max(0, Math.min(1, lock.x)) * 100) : 0;
-    const color = mix ? `color-mix(in oklab, ${settings.cursorColorOnTarget} ${mix}%, ${settings.cursorColor})` : settings.cursorColor;
+    const color = mix ? `color-mix(in oklab, ${settings.cursorColorOnTarget} ${mix}%, ${baseColor})` : baseColor;
     if (color !== lastColor) {
       root.style.setProperty('--target-cursor-color', color);
       lastColor = color;
@@ -292,6 +383,7 @@ export function mountTargetCursor(options = {}) {
     if (event.pointerType && event.pointerType !== 'mouse') return;
     pointer.x = event.clientX;
     pointer.y = event.clientY;
+    currentIsDark = isDarkUnderPointer(event.target, pointer.x, pointer.y);
     const inside = insideScope(pointer.x, pointer.y, event.target);
     if (inside !== pointer.inside) {
       pointer.inside = inside;
@@ -322,7 +414,9 @@ export function mountTargetCursor(options = {}) {
 
   const onScroll = () => {
     if (!pointer.inside) return;
-    lockOn(findTarget(pointer.x, pointer.y));
+    const node = document.elementFromPoint(pointer.x, pointer.y);
+    currentIsDark = isDarkUnderPointer(node, pointer.x, pointer.y);
+    lockOn(findTarget(pointer.x, pointer.y, node));
     wake();
   };
 
@@ -343,6 +437,8 @@ export function mountTargetCursor(options = {}) {
       document.documentElement.removeEventListener('pointerleave', onLeave);
       window.removeEventListener('blur', onLeave);
       lastScope?.removeAttribute('data-target-cursor-scope');
+      cachedSection = null;
+      cachedIsDark = false;
       style.remove();
       root.remove();
     }

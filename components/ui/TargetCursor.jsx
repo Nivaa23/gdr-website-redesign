@@ -18,11 +18,96 @@ const spring = (state, goal, stiffness, damping, dt) => {
 
 const resolveElement = value => (value && 'current' in value ? value.current : value) || null;
 
+let cachedSection = null;
+let cachedIsDark = false;
+
+/**
+ * Resolves the surrounding structural section or major landmark container for an element,
+ * bypassing individual interactive components (buttons, links, cards, images, badges)
+ * so their local background colors do not distort the section-level cursor color.
+ */
+function getSurroundingSection(el) {
+  if (!el || el === document.body || el === document.documentElement) return document.body;
+
+  // 1. Explicit sub-sections with their own dedicated background within a larger container
+  const subSection = el.closest('.top-bar, .mega-menu');
+  if (subSection) return subSection;
+
+  // 2. Surrounding structural section or semantic landmark container
+  const section = el.closest('section, footer, header, main, [role="region"], [role="banner"], [role="contentinfo"], dialog');
+  if (section) return section;
+
+  return document.body;
+}
+
+/**
+ * Determines whether the effective background of a section is dark (<128 luminance) or light.
+ * Accounts for transparent nested wrappers by ascending towards the document root.
+ */
+function computeSectionIsDark(sectionEl) {
+  if (!sectionEl || sectionEl === document.documentElement) return false;
+
+  // Fast-path known dark containers / dark theme indicators
+  if (sectionEl.matches('.top-bar, .hero-section, .journey-section, .site-footer, [data-theme="dark"], .theme-dark, .dark-theme, .is-dark')) {
+    return true;
+  }
+
+  // Fast-path known light containers / light theme indicators
+  if (sectionEl.matches('.site-header, .mega-menu, [data-theme="light"], .theme-light, .light-theme')) {
+    return false;
+  }
+
+  // Walk up from sectionEl to resolve effective background color through transparent wrappers
+  let curr = sectionEl;
+  let depth = 0;
+  while (curr && curr !== document.documentElement && depth < 8) {
+    depth++;
+    const style = window.getComputedStyle(curr);
+    const bg = style.backgroundColor;
+    if (bg && bg !== 'transparent' && bg !== 'rgba(0, 0, 0, 0)') {
+      const match = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/);
+      if (match) {
+        const a = match[4] !== undefined ? parseFloat(match[4]) : 1;
+        if (a >= 0.5) {
+          const r = parseInt(match[1], 10);
+          const g = parseInt(match[2], 10);
+          const b = parseInt(match[3], 10);
+          const lum = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+          return lum < 128;
+        }
+      }
+    }
+    curr = curr.parentElement;
+  }
+
+  return false;
+}
+
+/**
+ * Inspects whether the surrounding section beneath the pointer is dark or light.
+ * Uses section caching to avoid redundant computed style evaluations on pointer move.
+ */
+function isDarkUnderPointer(node, x, y) {
+  const el = node || (typeof document !== 'undefined' ? document.elementFromPoint(x, y) : null);
+  if (!el || el === document.documentElement) return false;
+
+  const section = getSurroundingSection(el);
+  if (section === cachedSection) {
+    return cachedIsDark;
+  }
+
+  cachedSection = section;
+  cachedIsDark = computeSectionIsDark(section);
+  return cachedIsDark;
+}
+
 export const TargetCursor = ({
   targetSelector = '.cursor-target',
   cursorColor = '#497E5E',
+  lightCursorColor = '#497E5E',
+  darkCursorColor = '#FFFFFF',
   cursorColorOnTarget,
-  spinDuration = 0,
+  spinDuration = 1.2,
   hoverDuration = 0.16,
   parallaxOn = false,
   hideDefaultCursor = true,
@@ -32,7 +117,7 @@ export const TargetCursor = ({
   padding = 4,
   matchRadius = true,
   dotSize = 3,
-  blendMode = 'difference',
+  blendMode = 'normal',
   showLabel = false,
   clickEffect = true,
   container
@@ -46,6 +131,8 @@ export const TargetCursor = ({
   const settings = {
     targetSelector,
     cursorColor,
+    lightCursorColor,
+    darkCursorColor,
     cursorColorOnTarget,
     spinDuration,
     hoverDuration: Math.max(0.05, hoverDuration),
@@ -90,6 +177,7 @@ export const TargetCursor = ({
     const lock = { x: 0, v: 0 };
     const press = { x: 0, v: 0 };
     const presence = { x: 0, v: 0 };
+    let currentIsDark = false;
     let target = null;
     let targetRadius = 0;
     let quarter = 0;
@@ -218,7 +306,7 @@ export const TargetCursor = ({
         if (!corner) return;
         const [lx, ly] = local[i];
         const x = centerX.x + lx * cos - ly * sin;
-        const y = centerY.x + lx * sin + ly * cos;
+        const y = centerY.y + lx * sin + ly * cos;
         left = Math.min(left, x);
         top = Math.min(top, y);
         corner.style.transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0) rotate(${(CORNER_ANGLES[i] + degrees).toFixed(2)}deg)`;
@@ -228,26 +316,25 @@ export const TargetCursor = ({
         corner.style.borderTopLeftRadius = `${r.toFixed(2)}px`;
       });
 
-      const dot = dotRef.current;
-      if (dot) {
+      if (dotRef.current) {
         const dotScale = 1 - press.x * 0.35;
-        dot.style.transform = `translate3d(${pointer.x}px, ${pointer.y}px, 0) translate(-50%, -50%) scale(${dotScale.toFixed(3)})`;
-        dot.style.width = `${s.dotSize}px`;
-        dot.style.height = `${s.dotSize}px`;
+        dotRef.current.style.transform = `translate3d(${pointer.x}px, ${pointer.y}px, 0) translate(-50%, -50%) scale(${dotScale.toFixed(3)})`;
+        dotRef.current.style.width = `${s.dotSize}px`;
+        dotRef.current.style.height = `${s.dotSize}px`;
       }
 
-      const label = labelRef.current;
-      if (label) {
+      if (labelRef.current) {
         const text = s.showLabel && target ? target.getAttribute('data-cursor-label') || '' : '';
-        if (text && text !== lastLabel) label.textContent = text;
+        if (text && text !== lastLabel) labelRef.current.textContent = text;
         if (text) lastLabel = text;
         const shown = text ? Math.max(0, Math.min(1, lock.x)) : 0;
-        label.style.transform = `translate3d(${left.toFixed(2)}px, ${(top - 8).toFixed(2)}px, 0) translateY(-100%) translateY(${((1 - shown) * 4).toFixed(2)}px)`;
-        label.style.opacity = shown.toFixed(3);
+        labelRef.current.style.transform = `translate3d(${left.toFixed(2)}px, ${(top - 8).toFixed(2)}px, 0) translateY(-100%) translateY(${((1 - shown) * 4).toFixed(2)}px)`;
+        labelRef.current.style.opacity = shown.toFixed(3);
       }
 
+      const baseColor = currentIsDark ? (s.darkCursorColor || '#FFFFFF') : (s.lightCursorColor || s.cursorColor || '#497E5E');
       const mix = s.cursorColorOnTarget ? Math.round(Math.max(0, Math.min(1, lock.x)) * 100) : 0;
-      const color = mix ? `color-mix(in oklab, ${s.cursorColorOnTarget} ${mix}%, ${s.cursorColor})` : settings.cursorColor;
+      const color = mix ? `color-mix(in oklab, ${s.cursorColorOnTarget} ${mix}%, ${baseColor})` : baseColor;
       if (color !== lastColor) {
         root.style.setProperty('--target-cursor-color', color);
         lastColor = color;
@@ -272,10 +359,7 @@ export const TargetCursor = ({
     const wake = () => {
       if (!raf) raf = requestAnimationFrame(frame);
     };
-    wakeRef.current = () => {
-      hideCursor();
-      wake();
-    };
+    wakeRef.current = wake;
 
     const insideScope = (x, y, element) => {
       const scope = scopeOf();
@@ -289,6 +373,7 @@ export const TargetCursor = ({
       if (event.pointerType && event.pointerType !== 'mouse') return;
       pointer.x = event.clientX;
       pointer.y = event.clientY;
+      currentIsDark = isDarkUnderPointer(event.target, pointer.x, pointer.y);
       const inside = insideScope(pointer.x, pointer.y, event.target);
       if (inside !== pointer.inside) {
         pointer.inside = inside;
@@ -319,7 +404,9 @@ export const TargetCursor = ({
 
     const onScroll = () => {
       if (!pointer.inside) return;
-      lockOn(findTarget(pointer.x, pointer.y));
+      const node = document.elementFromPoint(pointer.x, pointer.y);
+      currentIsDark = isDarkUnderPointer(node, pointer.x, pointer.y);
+      lockOn(findTarget(pointer.x, pointer.y, node));
       wake();
     };
 
@@ -332,7 +419,6 @@ export const TargetCursor = ({
 
     return () => {
       cancelAnimationFrame(raf);
-      wakeRef.current = null;
       window.removeEventListener('pointermove', onPointerMove);
       window.removeEventListener('pointerdown', onPointerDown);
       window.removeEventListener('pointerup', onPointerUp);
@@ -344,19 +430,21 @@ export const TargetCursor = ({
     };
   }, [host]);
 
-  useEffect(() => {
-    wakeRef.current?.();
-  });
-
   if (!host) return null;
 
   return createPortal(
-    <div ref={rootRef} className="target-cursor" style={{ mixBlendMode: blendMode, opacity: 0 }} aria-hidden="true">
-      {CORNER_ANGLES.map((angle, i) => (
+    <div
+      ref={rootRef}
+      className="target-cursor"
+      style={{
+        mixBlendMode: blendMode || 'normal'
+      }}
+    >
+      {CORNER_ANGLES.map((_, index) => (
         <span
-          key={angle}
-          ref={element => {
-            cornerRefs.current[i] = element;
+          key={index}
+          ref={el => {
+            cornerRefs.current[index] = el;
           }}
           className="target-cursor__corner"
         />

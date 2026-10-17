@@ -6,6 +6,7 @@
   height: 0;
   pointer-events: none;
   z-index: 999999;
+  mix-blend-mode: normal;
 }
 
 .target-cursor__corner {
@@ -14,10 +15,11 @@
   left: 0;
   box-sizing: border-box;
   border-style: solid;
-  border-color: var(--target-cursor-color, #ffffff);
+  border-color: var(--target-cursor-color, #497E5E);
   transform-origin: 0 0;
   will-change: transform;
   pointer-events: none;
+  transition: border-color 0.16s ease;
 }
 
 .target-cursor__dot {
@@ -25,16 +27,17 @@
   top: 0;
   left: 0;
   border-radius: 50%;
-  background: var(--target-cursor-color, #ffffff);
+  background: var(--target-cursor-color, #497E5E);
   will-change: transform;
   pointer-events: none;
+  transition: background-color 0.16s ease;
 }
 
 .target-cursor__label {
   position: absolute;
   top: 0;
   left: 0;
-  color: var(--target-cursor-color, #ffffff);
+  color: var(--target-cursor-color, #497E5E);
   font-size: 12px;
   font-weight: 500;
   line-height: 1;
@@ -42,4 +45,11 @@
   opacity: 0;
   will-change: transform, opacity;
   pointer-events: none;
+  transition: color 0.16s ease;
+}
+
+/* Apply intrinsic width to text links so cursor brackets fit exact content dimensions */
+a.cursor-target:not(.btn):not([class*="btn"]):not([class*="card"]):not([class*="wrap"]):not([class*="frame"]):not([class*="item"]):not([class*="logo"]) {
+  width: fit-content;
+  max-width: fit-content;
 }

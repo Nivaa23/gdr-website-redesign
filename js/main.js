@@ -21,13 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* --------------------------------------------------------------------------
    0. React Bits TargetCursor Integration
-   Restrained, precise engineering reticle with difference blend mode
+   Restrained, precise engineering reticle with background-aware colors & 1.2s spin
    -------------------------------------------------------------------------- */
 function initTargetCursor() {
   mountTargetCursor({
     targetSelector: '.cursor-target',
     cursorColor: '#497E5E',
-    spinDuration: 0,
+    lightCursorColor: '#497E5E',
+    darkCursorColor: '#FFFFFF',
+    spinDuration: 1.2,
     hoverDuration: 0.16,
     parallaxOn: false,
     hideDefaultCursor: true,
@@ -37,7 +39,7 @@ function initTargetCursor() {
     padding: 4,
     matchRadius: true,
     dotSize: 3,
-    blendMode: 'difference',
+    blendMode: 'normal',
     showLabel: false,
     clickEffect: true
   });

@@ -739,6 +739,9 @@ ul, ol {
   display: inline-flex;
   align-items: center;
   gap: 4px;
+  width: fit-content;
+  max-width: fit-content;
+  align-self: flex-start;
 }
 
 .btn--subtle-link:hover {
@@ -2776,6 +2779,9 @@ ul, ol {
   padding-top: 16px;
   border-top: 1px solid var(--color-grey-200);
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .branch-card__link {
@@ -2787,6 +2793,9 @@ ul, ol {
   font-weight: 700;
   color: var(--color-primary-slate);
   text-decoration: none;
+  width: fit-content;
+  max-width: fit-content;
+  align-self: flex-start;
   transition: color var(--transition-fast), gap var(--transition-fast);
 }
 
@@ -3346,7 +3355,14 @@ ul, ol {
   padding: 0;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 10px;
+}
+
+.footer-cell__list li {
+  width: fit-content;
+  max-width: fit-content;
+  align-self: flex-start;
 }
 
 .footer-nav-anchor {
@@ -3356,6 +3372,9 @@ ul, ol {
   font-weight: 500;
   line-height: 1.4;
   display: inline-block;
+  width: fit-content;
+  max-width: fit-content;
+  align-self: flex-start;
   transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
@@ -3558,6 +3577,9 @@ ul, ol {
   text-decoration: underline;
   text-underline-offset: 4px;
   display: inline-block;
+  width: fit-content;
+  max-width: fit-content;
+  align-self: flex-start;
   transition: color var(--transition-fast);
 }
 
@@ -3575,6 +3597,7 @@ ul, ol {
 .footer-social-wrap {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 }
 
 .footer-social-link {
@@ -3583,6 +3606,9 @@ ul, ol {
   color: var(--color-light-grey, #BEBEBE);
   text-decoration: none;
   display: inline-block;
+  width: fit-content;
+  max-width: fit-content;
+  align-self: flex-start;
   transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
@@ -3611,7 +3637,14 @@ ul, ol {
   padding: 0;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 10px;
+}
+
+.footer-branches-subcol li {
+  width: fit-content;
+  max-width: fit-content;
+  align-self: flex-start;
 }
 
 .footer-branch-link {
@@ -3621,6 +3654,9 @@ ul, ol {
   font-weight: 500;
   line-height: 1.4;
   display: inline-block;
+  width: fit-content;
+  max-width: fit-content;
+  align-self: flex-start;
   transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
