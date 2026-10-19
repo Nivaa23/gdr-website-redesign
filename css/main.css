@@ -1488,7 +1488,7 @@ ul, ol {
 
 /* --------------------------------------------------------------------------
    9. Phase 03: About Company Section
-   Editorial corporate presentation with Director Portrait area & Executive copy
+   Executive two-column presentation with Managing Director photograph & copy
    -------------------------------------------------------------------------- */
 .about-section {
   width: 100%;
@@ -1498,101 +1498,14 @@ ul, ol {
   position: relative;
 }
 
-.about-section__grid {
-  display: grid;
-  grid-template-columns: 380px 1fr;
-  gap: 56px;
-  align-items: center;
-}
-
-/* Left Column: Managing Director Portrait Frame / Brand-Consistent Treatment */
-.about-section__media-col {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.director-portrait-frame {
-  width: 100%;
-  max-width: 380px;
-  aspect-ratio: 4 / 5;
-  background: linear-gradient(150deg, #f0f4f7 0%, #e1ebf2 100%);
-  border: 1px solid var(--color-grey-300);
-  border-radius: var(--border-radius-sm);
-  box-shadow: 0 10px 30px rgba(33, 37, 41, 0.07);
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
-}
-
-.director-portrait-frame:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 36px rgba(33, 37, 41, 0.1);
-  border-color: var(--color-primary-slate-light);
-}
-
-.director-portrait-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-xl);
-  text-align: center;
-  position: relative;
-}
-
-.director-portrait-placeholder::before {
-  content: '';
-  position: absolute;
-  inset: 12px;
-  border: 1px dashed rgba(53, 85, 107, 0.25);
-  border-radius: var(--border-radius-sm);
-  pointer-events: none;
-}
-
-.director-silhouette-icon {
-  color: var(--color-primary-slate);
-  opacity: 0.6;
-  margin-bottom: var(--space-md);
-  transition: opacity var(--transition-fast), transform var(--transition-fast);
-}
-
-.director-portrait-frame:hover .director-silhouette-icon {
-  opacity: 0.85;
-  transform: scale(1.04);
-}
-
-.director-caption-label {
-  font-family: var(--font-heading);
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-primary-slate-dark);
-  background-color: rgba(255, 255, 255, 0.85);
-  padding: 6px 16px;
-  border-radius: 20px;
-  border: 1px solid rgba(53, 85, 107, 0.18);
-  box-shadow: var(--shadow-subtle);
-}
-
-/* Right Column: Heading & Descriptive Copy */
-.about-section__content-col {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.about-section__header {
+  margin-bottom: 32px;
 }
 
 .about-section__overline {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: var(--space-sm);
 }
 
 .about-section__eyebrow {
@@ -1604,19 +1517,77 @@ ul, ol {
   color: var(--color-primary-slate);
 }
 
+.about-section__grid {
+  display: grid;
+  grid-template-columns: 1.18fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* Left Column: Managing Director Image Container */
+.about-section__media-col {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.about-image-container {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--color-grey-300);
+  box-shadow: 0 10px 30px rgba(33, 37, 41, 0.08);
+  overflow: hidden;
+  background-color: var(--color-grey-200);
+  position: relative;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.about-image-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(33, 37, 41, 0.12);
+  border-color: var(--color-primary-slate-light);
+}
+
+.about-director-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.about-image-container:hover .about-director-image {
+  transform: scale(1.02);
+}
+
+/* Right Column: Company Information */
+.about-section__content-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
 .about-section__heading {
   font-family: var(--font-heading);
-  font-size: 2.375rem;
+  font-size: 2.25rem;
   font-weight: 700;
-  line-height: 1.22;
+  line-height: 1.25;
   letter-spacing: -0.015em;
   color: var(--color-primary-slate-dark);
-  margin-bottom: var(--space-lg);
-  max-width: 680px;
+  margin-top: 0;
+  margin-bottom: 22px;
+  text-align: left;
 }
 
 .about-section__body {
-  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 28px;
+  text-align: left;
 }
 
 .about-section__text {
@@ -1628,15 +1599,15 @@ ul, ol {
 }
 
 .about-section__action {
-  margin-top: 28px;
   display: flex;
+  justify-content: flex-start;
 }
 
 .about-section__btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 28px;
+  padding: 12px 32px;
   font-family: var(--font-sans);
   font-size: 0.9375rem;
   font-weight: 700;
@@ -1666,19 +1637,17 @@ ul, ol {
 
   .about-section__grid {
     grid-template-columns: 1fr;
-    gap: var(--space-2xl);
+    gap: 36px;
   }
 
-  .about-section__media-col {
-    justify-content: flex-start;
-  }
-
-  .director-portrait-frame {
-    max-width: 320px;
+  .about-image-container {
+    max-width: 640px;
+    aspect-ratio: 16 / 10;
+    margin: 0 auto;
   }
 
   .about-section__heading {
-    font-size: 2rem;
+    font-size: 1.875rem;
   }
 }
 
@@ -1687,23 +1656,35 @@ ul, ol {
     padding: 48px 0;
   }
 
-  .about-section__grid {
-    gap: var(--space-xl);
+  .about-section__header {
+    margin-bottom: 24px;
   }
 
-  .director-portrait-frame {
-    max-width: 100%;
-    aspect-ratio: 16 / 10;
+  .about-section__grid {
+    gap: 28px;
   }
 
   .about-section__heading {
-    font-size: 1.625rem;
-    margin-bottom: var(--space-md);
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+
+  .about-section__body {
+    gap: 14px;
+    margin-bottom: 24px;
   }
 
   .about-section__text {
-    font-size: 0.95rem;
+    font-size: 0.9375rem;
     line-height: 1.65;
+  }
+
+  .about-image-container {
+    aspect-ratio: 16 / 11;
+  }
+
+  .about-section__btn {
+    width: 100%;
   }
 }
 

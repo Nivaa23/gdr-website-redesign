@@ -996,35 +996,41 @@
          ====================================================================== -->
     <section class="about-section" id="about-us" aria-labelledby="about-section-heading">
       <div class="container">
+        <!-- Eyebrow / Overline at the top of the section (Authoritative Wireframe Reference) -->
+        <div class="about-section__header">
+          <div class="about-section__overline">
+            <span class="overline-pillar" aria-hidden="true"></span>
+            <span class="about-section__eyebrow">ABOUT COMPANY</span>
+          </div>
+        </div>
+
         <div class="about-section__grid">
           
-          <!-- Left Column: Managing Director's Photograph Area -->
+          <!-- Left Column: Managing Director Photograph -->
           <div class="about-section__media-col">
-            <div class="director-portrait-frame cursor-target" id="director-portrait-frame">
-              <div class="director-portrait-placeholder" aria-label="Managing Director Photograph Area">
-                <svg class="director-silhouette-icon" width="108" height="108" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <circle cx="12" cy="7" r="4.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                  <path d="M4.5 20.25C4.5 16.5 7.75 14 12 14C16.25 14 19.5 16.5 19.5 20.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                </svg>
-                <span class="director-caption-label">Managing Director</span>
-              </div>
+            <div class="about-image-container cursor-target" id="about-image-container">
+              <img 
+                src="/@fs/C:/Users/Admin/.gemini/antigravity-ide/brain/8b44c146-344f-40c0-8bc8-f945094c0c1f/.user_uploaded/media_1792384758849.png" 
+                alt="Managing Director Mr. Pradip Chauhan reviewing civil engineering project drawings with senior engineers" 
+                class="about-director-image" 
+                id="about-director-image"
+                loading="eager"
+              >
             </div>
           </div>
 
-          <!-- Right Column: Heading and Descriptive Text -->
+          <!-- Right Column: Company Information (Heading -> 2 Paragraphs -> Read More CTA) -->
           <div class="about-section__content-col">
-            <div class="about-section__overline">
-              <span class="overline-pillar" aria-hidden="true"></span>
-              <span class="about-section__eyebrow">ABOUT COMPANY</span>
-            </div>
-            
             <h2 class="about-section__heading" id="about-section-heading">
               Committed to superior quality and results.
             </h2>
             
             <div class="about-section__body">
               <p class="about-section__text">
-                Geo Designs &amp; Research is an established multidisciplinary engineering consultancy and research organization delivering comprehensive infrastructure engineering, architectural design, project management, and advanced laboratory testing services. Partnering with central, state, and institutional authorities, the firm applies rigorous engineering expertise and quality-driven methodologies to ensure structural integrity and enduring project performance.
+                Geo Design &amp; Research (P) Ltd. founded in 2007 took over the business of Geo Test House in 2014 which was founded by Mr. Pradip Chauhan (ME Civil - Gold Medalist) in 1991 who is marvellous in the field of civil engineering.
+              </p>
+              <p class="about-section__text">
+                Under the leadership and vision of Mr. Pradip Chauhan, we have delivered top notch civil engineering services in the market, under one roof.
               </p>
             </div>
 
@@ -1032,9 +1038,9 @@
               <a 
                 href="#about-us" 
                 class="btn about-section__btn cursor-target" 
-                id="about-know-more-btn"
+                id="about-read-more-btn"
                 data-phase-pending="Dedicated About Us page requires separate implementation."
-              >Know More</a>
+              >Read More</a>
             </div>
           </div>
 
