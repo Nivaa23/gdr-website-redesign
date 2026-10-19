@@ -6,6 +6,9 @@
 import { mountConcaveCarousel, JOURNEY_MILESTONES } from '../components/concave-carousel.js';
 import { mountDepthCarousel } from '../components/depth-carousel.js';
 import { mountTargetCursor } from '../components/target-cursor.js';
+import heroInfrastructureBridge from '../assets/images/hero-infrastructure-bridge.jpg';
+import heroArchitectureComplex from '../assets/images/hero-architecture-complex.jpg';
+import heroLabTesting from '../assets/images/hero-lab-testing.jpg';
 
 document.addEventListener('DOMContentLoaded', () => {
   initTargetCursor();
@@ -216,17 +219,17 @@ function initMobileNavigation() {
    -------------------------------------------------------------------------- */
 const HERO_SLIDES = [
   {
-    image: '/assets/images/hero-infrastructure-bridge.jpg',
+    image: heroInfrastructureBridge,
     alt: 'Major cable-stayed infrastructure bridge and roadway engineering project',
     title: 'PMC & Infrastructure Engineering'
   },
   {
-    image: '/assets/images/hero-architecture-complex.jpg',
+    image: heroArchitectureComplex,
     alt: 'State-of-the-art corporate and institutional architectural engineering complex',
     title: 'Architecture, Structure & BIM Services'
   },
   {
-    image: '/assets/images/hero-lab-testing.jpg',
+    image: heroLabTesting,
     alt: 'Civil engineers performing precision compressive core testing in an advanced testing laboratory',
     title: 'Testing Laboratories & Field Investigation'
   }
