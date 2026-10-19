@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 190" width="400" height="190">
+  <defs>
+    <linearGradient id="surveyBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A2D3C"/>
+      <stop offset="60%" stop-color="#142431"/>
+      <stop offset="100%" stop-color="#0E1922"/>
+    </linearGradient>
+    <pattern id="surveyGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#4A708B" stroke-width="0.75" stroke-opacity="0.2"/>
+    </pattern>
+  </defs>
+
+  <rect width="400" height="190" fill="url(#surveyBg)"/>
+  <rect width="400" height="190" fill="url(#surveyGrid)"/>
+
+  <!-- Topographic Contour Survey Rings -->
+  <g fill="none" stroke="#3D6480" stroke-width="1.2" opacity="0.45">
+    <ellipse cx="200" cy="95" rx="170" ry="75"/>
+    <ellipse cx="200" cy="95" rx="130" ry="58"/>
+    <ellipse cx="200" cy="95" rx="90" ry="40"/>
+    <ellipse cx="200" cy="95" rx="55" ry="24" stroke="#497E5E" stroke-width="1.5"/>
+  </g>
+
+  <!-- Total Station Geodetic Triangulation Sightlines -->
+  <g stroke="#497E5E" stroke-width="1.2" fill="none" opacity="0.7">
+    <!-- Laser Sightlines from Benchmarks -->
+    <line x1="50" y1="40" x2="200" y2="95" stroke-dasharray="3 3"/>
+    <line x1="350" y1="45" x2="200" y2="95" stroke-dasharray="3 3"/>
+    <line x1="80" y1="160" x2="200" y2="95" stroke-dasharray="3 3"/>
+    <line x1="320" y1="155" x2="200" y2="95" stroke-dasharray="3 3"/>
+    
+    <!-- Outer Baseline -->
+    <line x1="50" y1="40" x2="350" y2="45" stroke="#37556C" stroke-dasharray="2 4"/>
+    <line x1="80" y1="160" x2="320" y2="155" stroke="#37556C" stroke-dasharray="2 4"/>
+  </g>
+
+  <!-- Survey Benchmark Target Pins (Prism Poles) -->
+  <g fill="#497E5E" stroke="#E2E8F0" stroke-width="1.2">
+    <circle cx="50" cy="40" r="4"/>
+    <circle cx="350" cy="45" r="4"/>
+    <circle cx="80" cy="160" r="4"/>
+    <circle cx="320" cy="155" r="4"/>
+  </g>
+
+  <!-- Centerpiece Technical Badge with Survey Icon -->
+  <g transform="translate(176, 71)">
+    <circle cx="24" cy="24" r="32" fill="#14232F" stroke="#497E5E" stroke-width="1.5" filter="drop-shadow(0 4px 12px rgba(0,0,0,0.5))"/>
+    <circle cx="24" cy="24" r="28" fill="none" stroke="#35556B" stroke-width="1" stroke-dasharray="2 3"/>
+    <!-- Survey Tripod & Plumb-bob Icon -->
+    <path d="M24 8V18M18 18H30" stroke="#E2E8F0" stroke-width="2.2" stroke-linecap="round"/>
+    <circle cx="24" cy="13" r="5" stroke="#497E5E" stroke-width="2" fill="none"/>
+    <path d="M24 18L12 40M24 18L36 40M24 18V40" stroke="#E2E8F0" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M16 32H32" stroke="#497E5E" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Registration Marks -->
+  <g stroke="#4A708B" stroke-width="1" opacity="0.5">
+    <path d="M 12 8 H 20 M 16 4 V 12"/>
+    <path d="M 380 8 H 388 M 384 4 V 12"/>
+    <path d="M 12 182 H 20 M 16 178 V 186"/>
+    <path d="M 380 182 H 388 M 384 178 V 186"/>
+  </g>
+
+  <!-- Metadata -->
+  <text x="24" y="24" font-family="'Geist Mono', monospace" font-size="9" fill="#88A8BF" letter-spacing="1.5" opacity="0.75">GEODETIC SURVEY // 02</text>
+  <text x="376" y="174" text-anchor="end" font-family="'Geist Mono', monospace" font-size="8.5" fill="#497E5E" letter-spacing="1" opacity="0.85">TOTAL STATION / DGPS BM</text>
+</svg>

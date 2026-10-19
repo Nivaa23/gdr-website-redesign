@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 190" width="400" height="190">
+  <defs>
+    <linearGradient id="mepfBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#192A36"/>
+      <stop offset="60%" stop-color="#13212D"/>
+      <stop offset="100%" stop-color="#0E171F"/>
+    </linearGradient>
+    <pattern id="mepfGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#4A708B" stroke-width="0.75" stroke-opacity="0.2"/>
+    </pattern>
+  </defs>
+
+  <rect width="400" height="190" fill="url(#mepfBg)"/>
+  <rect width="400" height="190" fill="url(#mepfGrid)"/>
+
+  <!-- Mechanical & HVAC Isometric Duct Routing -->
+  <g stroke="#395A73" stroke-width="2" fill="none" opacity="0.45">
+    <path d="M 20 40 H 140 V 100 H 260 V 50 H 380"/>
+    <path d="M 60 160 H 180 V 110 H 300 V 150 H 380"/>
+  </g>
+  <!-- Electrical & Fire Piping Lines -->
+  <g stroke="#497E5E" stroke-width="1.5" fill="none" stroke-dasharray="4 3" opacity="0.65">
+    <path d="M 40 70 H 110 V 130 H 290 V 80 H 360"/>
+    <path d="M 80 25 V 80 H 210 V 155 H 340"/>
+  </g>
+
+  <!-- Service Terminal Diffusers & Valve Nodes -->
+  <g fill="#497E5E" stroke="#E2E8F0" stroke-width="1.2">
+    <circle cx="140" cy="100" r="3.5"/>
+    <circle cx="260" cy="50" r="3.5"/>
+    <circle cx="180" cy="110" r="3.5"/>
+    <circle cx="300" cy="150" r="3.5"/>
+    <circle cx="110" cy="130" r="3.5"/>
+    <circle cx="290" cy="80" r="3.5"/>
+  </g>
+
+  <!-- Centerpiece Technical Badge with MEPF Icon -->
+  <g transform="translate(176, 71)">
+    <circle cx="24" cy="24" r="32" fill="#14232F" stroke="#497E5E" stroke-width="1.5" filter="drop-shadow(0 4px 12px rgba(0,0,0,0.5))"/>
+    <circle cx="24" cy="24" r="28" fill="none" stroke="#35556B" stroke-width="1" stroke-dasharray="2 3"/>
+    <!-- MEPF Icon -->
+    <path d="M8 14H24V26H40" stroke="#E2E8F0" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M16 34H32V22" stroke="#497E5E" stroke-width="2.2" stroke-linecap="round"/>
+    <circle cx="8" cy="14" r="3" fill="#E2E8F0"/>
+    <circle cx="40" cy="26" r="3" fill="#E2E8F0"/>
+    <circle cx="16" cy="34" r="3" fill="#497E5E"/>
+    <path d="M28 10L36 18M36 10L28 18" stroke="#E2E8F0" stroke-width="1.8" stroke-linecap="round"/>
+  </g>
+
+  <!-- Registration Marks -->
+  <g stroke="#4A708B" stroke-width="1" opacity="0.5">
+    <path d="M 12 8 H 20 M 16 4 V 12"/>
+    <path d="M 380 8 H 388 M 384 4 V 12"/>
+    <path d="M 12 182 H 20 M 16 178 V 186"/>
+    <path d="M 380 182 H 388 M 384 178 V 186"/>
+  </g>
+
+  <!-- Metadata -->
+  <text x="24" y="24" font-family="'Geist Mono', monospace" font-size="9" fill="#88A8BF" letter-spacing="1.5" opacity="0.75">MEPF ENGINEERING // 03</text>
+  <text x="376" y="174" text-anchor="end" font-family="'Geist Mono', monospace" font-size="8.5" fill="#497E5E" letter-spacing="1" opacity="0.85">HVAC / ELEC / PLUMB / FIRE</text>
+</svg>
