@@ -6,6 +6,7 @@
 import { mountConcaveCarousel, JOURNEY_MILESTONES } from '../components/concave-carousel.js';
 import { mountDepthCarousel } from '../components/depth-carousel.js';
 import { mountTargetCursor } from '../components/target-cursor.js';
+import { initAnimatedContent } from '../components/animated-content.js';
 import heroInfrastructureBridge from '../assets/images/hero-infrastructure-bridge.jpg';
 import heroArchitectureComplex from '../assets/images/hero-architecture-complex.jpg';
 import heroLabTesting from '../assets/images/hero-lab-testing.jpg';
@@ -21,6 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
   initWordmarkCursorEffect();
   initGlobeSegmentEffect();
   initOurNetworksInteraction();
+  initAnimatedContent({
+    distance: 40,
+    duration: 1.0,
+    blur: 12,
+    stagger: 0.08,
+    threshold: 0.1,
+    once: true
+  });
 });
 
 /* --------------------------------------------------------------------------

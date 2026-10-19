@@ -3748,3 +3748,39 @@ ul, ol {
     display: none;
   }
 }
+
+/* --------------------------------------------------------------------------
+   13. React Bits — AnimatedContent Scroll Animations
+   Preset: Blur | Direction: Vertical | Distance: 40px | Duration: 1s
+   Ease: power3.out (cubic-bezier(0.165, 0.84, 0.44, 1)) | Blur: 12px
+   -------------------------------------------------------------------------- */
+.animated-content-item,
+.animated-content:not([data-stagger-container]) {
+  opacity: 0;
+  transform: translate3d(0, var(--ac-distance, 40px), 0) scale(var(--ac-scale, 1));
+  filter: blur(var(--ac-blur, 12px));
+  transition: opacity var(--ac-duration, 1s) var(--ac-ease, cubic-bezier(0.165, 0.84, 0.44, 1)) var(--ac-delay, 0s),
+              transform var(--ac-duration, 1s) var(--ac-ease, cubic-bezier(0.165, 0.84, 0.44, 1)) var(--ac-delay, 0s),
+              filter var(--ac-duration, 1s) var(--ac-ease, cubic-bezier(0.165, 0.84, 0.44, 1)) var(--ac-delay, 0s);
+  will-change: opacity, transform, filter;
+  backface-visibility: hidden;
+}
+
+.animated-content-item.is-revealed,
+.animated-content:not([data-stagger-container]).is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-content-item,
+  .animated-content:not([data-stagger-container]),
+  .animated-content-item.is-revealed,
+  .animated-content:not([data-stagger-container]).is-revealed {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}
