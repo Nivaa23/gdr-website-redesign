@@ -608,34 +608,23 @@
     <section 
       class="hero-section" 
       id="hero-section" 
-      aria-roledescription="carousel" 
       aria-label="Core Engineering Disciplines Showcase"
     >
-      <!-- Carousel Slides Container -->
-      <div class="hero-carousel" id="hero-carousel">
-        
-        <!-- Slide 1: Infrastructure & Highway / Bridge Engineering -->
-        <article 
-          class="hero-slide is-active" 
-          id="hero-slide-1" 
-          role="group" 
-          aria-roledescription="slide" 
-          aria-label="1 of 3: Multidisciplinary Engineering Consultancy &amp; Infrastructure Solutions"
-          data-slide-index="0"
-        >
-          <div class="hero-slide__bg-wrap">
-            <img 
-              src="/assets/images/hero-infrastructure-bridge.jpg" 
-              alt="Major cable-stayed infrastructure bridge and roadway engineering project" 
-              class="hero-slide__bg"
-              width="1920" 
-              height="1080"
-              loading="eager"
+      <div class="container hero-container">
+        <div class="hero-split-grid">
+          
+          <!-- Left column — 50% width: Slide-specific active content -->
+          <div class="hero-content-col">
+            
+            <!-- Slide 1 Content -->
+            <article 
+              class="hero-slide-content is-active" 
+              id="hero-slide-1" 
+              role="group" 
+              aria-roledescription="slide" 
+              aria-label="1 of 3: Multidisciplinary Engineering Consultancy &amp; Infrastructure Solutions"
+              data-slide-index="0"
             >
-            <div class="hero-slide__overlay" aria-hidden="true"></div>
-          </div>
-          <div class="container hero-slide__content-container">
-            <div class="hero-slide__content">
               <div class="hero-slide__overline">
                 <span class="overline-pillar"></span>
                 <span>PMC &amp; Infrastructure Engineering</span>
@@ -663,33 +652,18 @@
                   Explore Project Capabilities
                 </button>
               </div>
-            </div>
-          </div>
-        </article>
+            </article>
 
-        <!-- Slide 2: Architecture, Structural Engineering & BIM -->
-        <article 
-          class="hero-slide" 
-          id="hero-slide-2" 
-          role="group" 
-          aria-roledescription="slide" 
-          aria-label="2 of 3: Comprehensive Architectural Design, Structural Engineering &amp; BIM Solutions"
-          data-slide-index="1"
-          aria-hidden="true"
-        >
-          <div class="hero-slide__bg-wrap">
-            <img 
-              src="/assets/images/hero-architecture-complex.jpg" 
-              alt="State-of-the-art corporate and institutional architectural engineering complex" 
-              class="hero-slide__bg"
-              width="1920" 
-              height="1080"
-              loading="lazy"
+            <!-- Slide 2 Content -->
+            <article 
+              class="hero-slide-content" 
+              id="hero-slide-2" 
+              role="group" 
+              aria-roledescription="slide" 
+              aria-label="2 of 3: Comprehensive Architectural Design, Structural Engineering &amp; BIM Solutions"
+              data-slide-index="1"
+              aria-hidden="true"
             >
-            <div class="hero-slide__overlay" aria-hidden="true"></div>
-          </div>
-          <div class="container hero-slide__content-container">
-            <div class="hero-slide__content">
               <div class="hero-slide__overline">
                 <span class="overline-pillar"></span>
                 <span>Architecture, Structure &amp; BIM Services</span>
@@ -716,33 +690,18 @@
                   View Architectural Portfolio
                 </button>
               </div>
-            </div>
-          </div>
-        </article>
+            </article>
 
-        <!-- Slide 3: Laboratory Testing, Geotechnical Investigation & Survey -->
-        <article 
-          class="hero-slide" 
-          id="hero-slide-3" 
-          role="group" 
-          aria-roledescription="slide" 
-          aria-label="3 of 3: Advanced Material Testing, Geotechnical Investigation &amp; Survey Services"
-          data-slide-index="2"
-          aria-hidden="true"
-        >
-          <div class="hero-slide__bg-wrap">
-            <img 
-              src="/assets/images/hero-lab-testing.jpg" 
-              alt="Civil engineers performing precision compressive core testing in an advanced testing laboratory" 
-              class="hero-slide__bg"
-              width="1920" 
-              height="1080"
-              loading="lazy"
+            <!-- Slide 3 Content -->
+            <article 
+              class="hero-slide-content" 
+              id="hero-slide-3" 
+              role="group" 
+              aria-roledescription="slide" 
+              aria-label="3 of 3: Advanced Material Testing, Geotechnical Investigation &amp; Survey Services"
+              data-slide-index="2"
+              aria-hidden="true"
             >
-            <div class="hero-slide__overlay" aria-hidden="true"></div>
-          </div>
-          <div class="container hero-slide__content-container">
-            <div class="hero-slide__content">
               <div class="hero-slide__overline">
                 <span class="overline-pillar"></span>
                 <span>Testing Laboratories &amp; Field Investigation</span>
@@ -769,105 +728,16 @@
                   Explore Testing Capabilities
                 </button>
               </div>
-            </div>
-          </div>
-        </article>
+            </article>
 
-      </div>
-
-      <!-- Carousel Navigation & Accessibility Controls -->
-      <div class="hero-controls" aria-label="Hero Carousel Navigation">
-        <div class="container hero-controls__inner">
-          
-          <!-- Slide Counter -->
-          <div class="hero-counter" aria-live="polite">
-            <span class="hero-counter__current" id="hero-counter-current">01</span>
-            <span class="hero-counter__sep">/</span>
-            <span class="hero-counter__total">03</span>
           </div>
 
-          <!-- Slide Indicators (Dots) -->
-          <div class="hero-dots" role="tablist" aria-label="Choose Slide to Display">
-            <button 
-              type="button" 
-              class="hero-dot is-active cursor-target" 
-              role="tab" 
-              aria-selected="true" 
-              aria-controls="hero-slide-1" 
-              id="hero-dot-1" 
-              aria-label="Go to Slide 1: Multidisciplinary Engineering Consultancy"
-              data-slide-to="0"
-            ></button>
-            <button 
-              type="button" 
-              class="hero-dot cursor-target" 
-              role="tab" 
-              aria-selected="false" 
-              aria-controls="hero-slide-2" 
-              id="hero-dot-2" 
-              aria-label="Go to Slide 2: Architectural Design, Structural Engineering &amp; BIM"
-              data-slide-to="1"
-            ></button>
-            <button 
-              type="button" 
-              class="hero-dot cursor-target" 
-              role="tab" 
-              aria-selected="false" 
-              aria-controls="hero-slide-3" 
-              id="hero-dot-3" 
-              aria-label="Go to Slide 3: Advanced Material Testing &amp; Geotechnical Investigation"
-              data-slide-to="2"
-            ></button>
-          </div>
-
-          <!-- Navigation Arrows & WCAG Play/Pause Button -->
-          <div class="hero-nav-buttons">
-            <button 
-              type="button" 
-              class="hero-arrow-btn cursor-target" 
-              id="hero-prev-btn" 
-              aria-label="Previous slide"
-            >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-
-            <!-- Play / Pause toggle for WCAG 2.2.2 compliance -->
-            <button 
-              type="button" 
-              class="hero-arrow-btn hero-pause-btn cursor-target" 
-              id="hero-pause-btn" 
-              aria-label="Pause automatic slide rotation" 
-              aria-pressed="false"
-            >
-              <svg class="icon-pause" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="6" y="4" width="4" height="16"></rect>
-                <rect x="14" y="4" width="4" height="16"></rect>
-              </svg>
-              <svg class="icon-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true" hidden>
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-              </svg>
-            </button>
-
-            <button 
-              type="button" 
-              class="hero-arrow-btn cursor-target" 
-              id="hero-next-btn" 
-              aria-label="Next slide"
-            >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
+          <!-- Right column — 50% width: DepthCarousel -->
+          <div class="hero-carousel-col">
+            <div id="hero-depth-carousel" class="depth-carousel-wrapper"></div>
           </div>
 
         </div>
-      </div>
-
-      <!-- Slide Progress Bar -->
-      <div class="hero-progress-bar" aria-hidden="true">
-        <div class="hero-progress-fill" id="hero-progress-fill"></div>
       </div>
     </section>
 

@@ -4,6 +4,7 @@
  */
 
 import { mountConcaveCarousel, JOURNEY_MILESTONES } from '../components/concave-carousel.js';
+import { mountDepthCarousel } from '../components/depth-carousel.js';
 import { mountTargetCursor } from '../components/target-cursor.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -210,194 +211,95 @@ function initMobileNavigation() {
 }
 
 /* --------------------------------------------------------------------------
-   4. Homepage Hero Section Carousel Controller
-   Automatic rotation, synchronized image & text, WCAG pause, keyboard & swipe
+   4. Homepage Hero Section — DepthCarousel Controller
+   50/50 split with 3D DepthCarousel, continuous autoplay loop & synchronized text
    -------------------------------------------------------------------------- */
+const HERO_SLIDES = [
+  {
+    image: '/assets/images/hero-infrastructure-bridge.jpg',
+    alt: 'Major cable-stayed infrastructure bridge and roadway engineering project',
+    title: 'PMC & Infrastructure Engineering'
+  },
+  {
+    image: '/assets/images/hero-architecture-complex.jpg',
+    alt: 'State-of-the-art corporate and institutional architectural engineering complex',
+    title: 'Architecture, Structure & BIM Services'
+  },
+  {
+    image: '/assets/images/hero-lab-testing.jpg',
+    alt: 'Civil engineers performing precision compressive core testing in an advanced testing laboratory',
+    title: 'Testing Laboratories & Field Investigation'
+  }
+];
+
 function initHeroCarousel() {
-  const carousel = document.getElementById('hero-carousel');
-  const slides = Array.from(document.querySelectorAll('.hero-slide'));
-  const dots = Array.from(document.querySelectorAll('.hero-dot'));
-  const counterCurrent = document.getElementById('hero-counter-current');
-  const prevBtn = document.getElementById('hero-prev-btn');
-  const nextBtn = document.getElementById('hero-next-btn');
-  const pauseBtn = document.getElementById('hero-pause-btn');
-  const progressFill = document.getElementById('hero-progress-fill');
+  const container = document.getElementById('hero-depth-carousel');
+  const slideContents = Array.from(document.querySelectorAll('.hero-slide-content'));
 
-  if (!carousel || slides.length === 0) return;
+  if (!container || slideContents.length === 0) return;
 
-  const totalSlides = slides.length;
-  let currentIndex = 0;
-  const slideDuration = 6000; // 6 seconds per slide
-  let intervalId = null;
-  let isPaused = false;
-  let progressStart = 0;
-  let progressRaf = null;
+  function alignCarouselWithText() {
+    const stage = document.querySelector('.depth-carousel__stage');
+    if (!stage) return;
 
-  // Respect user reduced-motion preference (WCAG 2.3.3)
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) {
-    isPaused = true;
-    updatePauseButtonUI(true);
-  }
-
-  function goToSlide(index) {
-    slides[currentIndex].classList.remove('is-active');
-    slides[currentIndex].setAttribute('aria-hidden', 'true');
-    dots[currentIndex].classList.remove('is-active');
-    dots[currentIndex].setAttribute('aria-selected', 'false');
-
-    currentIndex = (index + totalSlides) % totalSlides;
-
-    slides[currentIndex].classList.add('is-active');
-    slides[currentIndex].removeAttribute('aria-hidden');
-    dots[currentIndex].classList.add('is-active');
-    dots[currentIndex].setAttribute('aria-selected', 'true');
-
-    if (counterCurrent) {
-      counterCurrent.textContent = String(currentIndex + 1).padStart(2, '0');
+    if (window.innerWidth <= 992) {
+      stage.style.marginTop = '';
+      stage.style.height = '';
+      return;
     }
 
-    resetProgressBar();
-  }
+    const activeSlide = document.querySelector('.hero-slide-content.is-active');
+    if (!activeSlide) return;
 
-  function nextSlide() {
-    goToSlide(currentIndex + 1);
-  }
+    const heading = activeSlide.querySelector('.hero-slide__title');
+    const actionGroup = activeSlide.querySelector('.hero-slide__action-group');
+    if (!heading || !actionGroup) return;
 
-  function prevSlide() {
-    goToSlide(currentIndex - 1);
-  }
+    const slideRect = activeSlide.getBoundingClientRect();
+    const headingRect = heading.getBoundingClientRect();
+    const actionRect = actionGroup.getBoundingClientRect();
 
-  function resetProgressBar() {
-    if (prefersReducedMotion || !progressFill) return;
-    cancelAnimationFrame(progressRaf);
-    progressFill.style.width = '0%';
-    progressStart = performance.now();
+    const topOffset = Math.round(headingRect.top - slideRect.top);
+    const targetHeight = Math.round(actionRect.bottom - headingRect.top);
 
-    function updateProgress(now) {
-      if (isPaused) {
-        progressRaf = requestAnimationFrame(updateProgress);
-        return;
-      }
-      const elapsed = now - progressStart;
-      const pct = Math.min(100, (elapsed / slideDuration) * 100);
-      progressFill.style.width = `${pct}%`;
-
-      if (elapsed < slideDuration) {
-        progressRaf = requestAnimationFrame(updateProgress);
-      }
-    }
-    progressRaf = requestAnimationFrame(updateProgress);
-  }
-
-  function startAutoRotation() {
-    if (prefersReducedMotion || isPaused) return;
-    clearInterval(intervalId);
-    intervalId = setInterval(nextSlide, slideDuration);
-    resetProgressBar();
-  }
-
-  function pauseAutoRotation() {
-    clearInterval(intervalId);
-    intervalId = null;
-  }
-
-  function updatePauseButtonUI(paused) {
-    if (!pauseBtn) return;
-    pauseBtn.setAttribute('aria-pressed', paused ? 'true' : 'false');
-    pauseBtn.setAttribute('aria-label', paused ? 'Resume automatic slide rotation' : 'Pause automatic slide rotation');
-    const pauseIcon = pauseBtn.querySelector('.icon-pause');
-    const playIcon = pauseBtn.querySelector('.icon-play');
-    if (pauseIcon && playIcon) {
-      pauseIcon.hidden = paused;
-      playIcon.hidden = !paused;
+    if (targetHeight > 0) {
+      stage.style.marginTop = `${topOffset}px`;
+      stage.style.height = `${targetHeight}px`;
     }
   }
 
-  // Play / Pause Toggle
-  if (pauseBtn) {
-    pauseBtn.addEventListener('click', () => {
-      isPaused = !isPaused;
-      updatePauseButtonUI(isPaused);
-      if (isPaused) {
-        pauseAutoRotation();
+  function syncActiveSlide(index) {
+    slideContents.forEach((slide, idx) => {
+      const isActive = idx === index;
+      slide.classList.toggle('is-active', isActive);
+      if (isActive) {
+        slide.removeAttribute('aria-hidden');
       } else {
-        startAutoRotation();
+        slide.setAttribute('aria-hidden', 'true');
       }
     });
+
+    // Match top of heading and bottom of CTA buttons precisely
+    requestAnimationFrame(alignCarouselWithText);
   }
 
-  // Arrows
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      prevSlide();
-      if (!isPaused) startAutoRotation();
-    });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      nextSlide();
-      if (!isPaused) startAutoRotation();
-    });
-  }
-
-  // Dots
-  dots.forEach(dot => {
-    dot.addEventListener('click', () => {
-      const slideIndex = parseInt(dot.getAttribute('data-slide-to'), 10);
-      goToSlide(slideIndex);
-      if (!isPaused) startAutoRotation();
-    });
-  });
-
-  // Pause on hover
-  carousel.addEventListener('mouseenter', () => {
-    if (!isPaused) pauseAutoRotation();
-  });
-
-  carousel.addEventListener('mouseleave', () => {
-    if (!isPaused) startAutoRotation();
-  });
-
-  // Keyboard navigation when hero section is interacted with
-  const heroSection = document.getElementById('hero-section');
-  if (heroSection) {
-    heroSection.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') {
-        prevSlide();
-        if (!isPaused) startAutoRotation();
-      } else if (e.key === 'ArrowRight') {
-        nextSlide();
-        if (!isPaused) startAutoRotation();
-      }
-    });
-  }
-
-  // Touch Swipe for Mobile / Tablet Devices
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  carousel.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
-
-  carousel.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-  }, { passive: true });
-
-  function handleSwipe() {
-    const diff = touchEndX - touchStartX;
-    if (Math.abs(diff) > 45) {
-      if (diff < 0) {
-        nextSlide();
-      } else {
-        prevSlide();
-      }
-      if (!isPaused) startAutoRotation();
+  // Mount DepthCarousel with scaled configuration for prominent cards
+  const carousel = mountDepthCarousel(container, {
+    items: HERO_SLIDES,
+    depth: 210,
+    spread: 65,
+    tilt: 18,
+    tiltDirection: 'right',
+    perspective: 1400,
+    visibleCards: 4,
+    falloff: 0.2,
+    blur: 6,
+    autoplay: true,
+    loop: true,
+    onChange: (index) => {
+      syncActiveSlide(index);
     }
-  }
+  });
 
   // Hero Secondary Capability Buttons (Connect to Expertise Tabs)
   const secondaryButtons = document.querySelectorAll('[data-target-tab]');
@@ -410,11 +312,37 @@ function initHeroCarousel() {
     });
   });
 
-  // Initialize first slide and start rotation
-  goToSlide(0);
-  if (!isPaused) {
-    startAutoRotation();
+  // Keyboard navigation for hero accessibility
+  const heroSection = document.getElementById('hero-section');
+  if (heroSection && carousel) {
+    heroSection.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        carousel.previous();
+      } else if (e.key === 'ArrowRight') {
+        carousel.next();
+      }
+    });
   }
+
+  // Responsive and font-loading alignment triggers
+  window.addEventListener('resize', alignCarouselWithText);
+  window.addEventListener('load', alignCarouselWithText);
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(alignCarouselWithText);
+  }
+  if (window.ResizeObserver) {
+    const heroContentCol = document.querySelector('.hero-content-col');
+    if (heroContentCol) {
+      const ro = new ResizeObserver(() => {
+        alignCarouselWithText();
+      });
+      ro.observe(heroContentCol);
+    }
+  }
+
+  // Initial synchronization and vertical alignment
+  syncActiveSlide(0);
+  requestAnimationFrame(alignCarouselWithText);
 }
 
 /* --------------------------------------------------------------------------
