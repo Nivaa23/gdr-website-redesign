@@ -7,14 +7,14 @@ import { mountConcaveCarousel, JOURNEY_MILESTONES } from '../components/concave-
 import { mountDepthCarousel } from '../components/depth-carousel.js';
 import { mountTargetCursor } from '../components/target-cursor.js';
 import { initAnimatedContent } from '../components/animated-content.js';
+import { initNavigation14 } from '../components/navigation-14.js';
 import heroInfrastructureBridge from '../assets/images/hero-infrastructure-bridge.jpg';
 import heroArchitectureComplex from '../assets/images/hero-architecture-complex.jpg';
 import heroLabTesting from '../assets/images/hero-lab-testing.jpg';
 
 document.addEventListener('DOMContentLoaded', () => {
   initTargetCursor();
-  initNavigation();
-  initExpertiseMegaMenu();
+  initNavigation14();
   initMobileNavigation();
   initHeroCarousel();
   initJourneyTimeline();
@@ -59,141 +59,17 @@ function initTargetCursor() {
 }
 
 /* --------------------------------------------------------------------------
-   1. Primary Navigation & Phase 02 Interaction Handling
+   1 & 2. React Bits Pro Navigation 14 (Mega Panel Navigation with Featured Card)
+   Registry Item: @reactbits-pro/navigation-14
+   Provides accessible mega-panel interactions, scroll elevation, keyboard controls,
+   and featured card layout. Integrated via components/navigation-14.js.
    -------------------------------------------------------------------------- */
 function initNavigation() {
-  const header = document.getElementById('site-header');
-
-  // Subtle header shadow elevation on scroll
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      header.classList.add('is-scrolled');
-    } else {
-      header.classList.remove('is-scrolled');
-    }
-  }, { passive: true });
+  return initNavigation14();
 }
 
-/* --------------------------------------------------------------------------
-   2. Expertise Accessible Mega-Menu
-   10 Categories & 70 Sub-Services
-   -------------------------------------------------------------------------- */
 function initExpertiseMegaMenu() {
-  const menuButton = document.getElementById('expertise-menu-button');
-  const megaMenu = document.getElementById('expertise-mega-menu');
-  const navItem = document.getElementById('expertise-nav-item');
-  const categoryTabs = Array.from(document.querySelectorAll('.category-tab'));
-  const servicePanels = Array.from(document.querySelectorAll('.service-panel'));
-
-  if (!menuButton || !megaMenu) return;
-
-  let isOpen = false;
-  let closeTimeout = null;
-
-  function openMenu() {
-    clearTimeout(closeTimeout);
-    isOpen = true;
-    megaMenu.hidden = false;
-    menuButton.setAttribute('aria-expanded', 'true');
-  }
-
-  function closeMenu() {
-    isOpen = false;
-    megaMenu.hidden = true;
-    menuButton.setAttribute('aria-expanded', 'false');
-  }
-
-  // Toggle on button click
-  menuButton.addEventListener('click', (e) => {
-    e.stopPropagation();
-    if (isOpen) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  });
-
-  // Desktop hover intent
-  navItem.addEventListener('mouseenter', () => {
-    if (window.innerWidth > 992) {
-      openMenu();
-    }
-  });
-
-  navItem.addEventListener('mouseleave', () => {
-    if (window.innerWidth > 992) {
-      closeTimeout = setTimeout(() => {
-        closeMenu();
-      }, 250);
-    }
-  });
-
-  // Close when clicking outside
-  document.addEventListener('click', (e) => {
-    if (isOpen && !navItem.contains(e.target)) {
-      closeMenu();
-    }
-  });
-
-  // Keyboard navigation & accessibility (Escape, Arrow keys)
-  document.addEventListener('keydown', (e) => {
-    if (isOpen && e.key === 'Escape') {
-      closeMenu();
-      menuButton.focus();
-    }
-  });
-
-  // Tab switching inside mega-menu
-  function activateCategory(targetCategory) {
-    categoryTabs.forEach(tab => {
-      const isTarget = tab.getAttribute('data-category') === targetCategory;
-      tab.classList.toggle('is-active', isTarget);
-      tab.setAttribute('aria-selected', isTarget ? 'true' : 'false');
-    });
-
-    servicePanels.forEach(panel => {
-      const isTarget = panel.id === `panel-${targetCategory}`;
-      panel.classList.toggle('is-active', isTarget);
-      panel.hidden = !isTarget;
-    });
-  }
-
-  categoryTabs.forEach((tab, index) => {
-    // Switch on click
-    tab.addEventListener('click', () => {
-      const cat = tab.getAttribute('data-category');
-      activateCategory(cat);
-    });
-
-    // Switch on hover for seamless desktop exploration
-    tab.addEventListener('mouseenter', () => {
-      const cat = tab.getAttribute('data-category');
-      activateCategory(cat);
-    });
-
-    // Keyboard Arrow navigation through category tabs
-    tab.addEventListener('keydown', (e) => {
-      let nextIndex = index;
-      if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        nextIndex = (index + 1) % categoryTabs.length;
-        categoryTabs[nextIndex].focus();
-        activateCategory(categoryTabs[nextIndex].getAttribute('data-category'));
-      } else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        nextIndex = (index - 1 + categoryTabs.length) % categoryTabs.length;
-        categoryTabs[nextIndex].focus();
-        activateCategory(categoryTabs[nextIndex].getAttribute('data-category'));
-      }
-    });
-  });
-
-  // Allow other components (like hero buttons) to open a specific category
-  window.openExpertiseCategory = (categoryKey) => {
-    openMenu();
-    activateCategory(categoryKey);
-    megaMenu.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  };
+  return initNavigation14();
 }
 
 /* --------------------------------------------------------------------------

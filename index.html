@@ -16,6 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/components/Navigation14.css">
   <link rel="stylesheet" href="/components/AnimatedContent.css">
 </head>
 <body>
@@ -36,374 +37,309 @@
     </div>
   </div>
 
-  <!-- Primary Header & Navigation Bar -->
-  <header class="site-header" id="site-header">
-    <div class="container site-header__inner">
+  <!-- Primary Header & Navigation Bar (React Bits Pro Navigation 14) -->
+  <header class="site-header nav14-header" id="site-header">
+    <div class="container site-header__inner nav14-container">
       <!-- Official Company Logo on Left -->
-      <a href="#" class="brand-link cursor-target" id="brand-link" aria-label="Geo Designs & Research - Return to Homepage">
+      <a href="#" class="brand-link nav14-brand cursor-target" id="brand-link" aria-label="Geo Designs & Research - Return to Homepage">
         <img 
           src="/assets/images/gdr-logo.png" 
           alt="Geo Designs & Research Official Logo" 
-          class="brand-logo" 
+          class="brand-logo nav14-logo" 
           id="brand-logo"
           width="78"
           height="70"
           loading="eager"
         >
-        <div class="brand-text">
-          <span class="brand-name">GEO DESIGNS &amp; RESEARCH</span>
-          <span class="brand-sub">ENGINEERING CONSULTANCY &amp; RESEARCH</span>
+        <div class="brand-text nav14-brand-text">
+          <span class="brand-name nav14-brand-name">GEO DESIGNS &amp; RESEARCH</span>
+          <span class="brand-sub nav14-brand-sub">ENGINEERING CONSULTANCY &amp; RESEARCH</span>
         </div>
       </a>
 
       <!-- Primary Navigation Links (Ordered strictly per specifications) -->
-      <nav class="primary-nav" id="primary-nav" aria-label="Primary Navigation">
-        <ul class="nav-list" role="menubar">
+      <nav class="primary-nav nav14-nav" id="primary-nav" aria-label="Primary Navigation">
+        <ul class="nav-list nav14-list" role="menubar">
           <!-- 1. About Us -->
-          <li class="nav-item" role="none">
-            <a href="#about-us" class="nav-link cursor-target" role="menuitem" id="nav-about" data-phase-pending="About Us content is scheduled for Phase 02.">
+          <li class="nav-item nav14-item" role="none">
+            <a href="#about-us" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-about" data-phase-pending="About Us content is scheduled for Phase 02.">
               About Us
             </a>
           </li>
 
-          <!-- 2. Expertise (Accessible Mega Menu Trigger) -->
-          <li class="nav-item nav-item--has-dropdown" role="none" id="expertise-nav-item">
+          <!-- 2. Expertise (React Bits Pro Navigation 14 Mega Panel Dropdown + Featured Card) -->
+          <li class="nav-item nav14-item nav-item--has-dropdown" role="none" id="expertise-nav-item">
             <button 
               type="button" 
-              class="nav-link nav-link--button cursor-target" 
+              class="nav-link nav14-link nav14-trigger cursor-target" 
               id="expertise-menu-button" 
               aria-expanded="false" 
               aria-haspopup="true"
-              aria-controls="expertise-mega-menu"
+              aria-controls="nav14-mega-panel"
               role="menuitem"
+              data-nav14-trigger
             >
               <span>Expertise</span>
-              <svg class="nav-arrow-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <svg class="nav-arrow-icon nav14-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                 <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
 
-            <!-- Desktop Expertise Mega Menu -->
+            <!-- Navigation 14 Mega Panel Dropdown -->
             <div 
-              class="mega-menu" 
-              id="expertise-mega-menu" 
+              class="nav14-mega-panel" 
+              id="nav14-mega-panel" 
               role="region" 
-              aria-label="Expertise Services Directory"
+              aria-label="Expertise Capabilities Directory"
               hidden
+              data-nav14-panel
             >
-              <div class="mega-menu__container">
-                <div class="mega-menu__header">
-                  <div class="mega-menu__title-group">
-                    <span class="mega-menu__eyebrow">Technical Capabilities</span>
-                    <h2 class="mega-menu__heading">Comprehensive Engineering Expertise</h2>
-                  </div>
-                  <p class="mega-menu__desc">
-                    Integrated consultancy services across 10 specialized divisions, delivering end-to-end design, analysis, and execution capabilities.
-                  </p>
-                </div>
-
-                <div class="mega-menu__content">
-                  <!-- Category Tabs / Selector (Left Side) -->
-                  <div class="mega-menu__sidebar" role="tablist" aria-orientation="vertical" aria-label="Expertise Categories">
-                    <button class="category-tab is-active cursor-target" id="tab-architecture" role="tab" aria-selected="true" aria-controls="panel-architecture" data-category="architecture">
-                      <span class="category-tab__index">A</span>
-                      <span class="category-tab__label">Architecture</span>
-                      <svg class="category-tab__chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5.5 3.5L9 7L5.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </button>
-                    
-                    <button class="category-tab cursor-target" id="tab-bim" role="tab" aria-selected="false" aria-controls="panel-bim" data-category="bim">
-                      <span class="category-tab__index">B</span>
-                      <span class="category-tab__label">BIM</span>
-                      <svg class="category-tab__chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5.5 3.5L9 7L5.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </button>
-
-                    <button class="category-tab cursor-target" id="tab-commerce" role="tab" aria-selected="false" aria-controls="panel-commerce" data-category="commerce">
-                      <span class="category-tab__index">C</span>
-                      <span class="category-tab__label">Commerce &amp; Contract Management</span>
-                      <svg class="category-tab__chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5.5 3.5L9 7L5.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </button>
-
-                    <button class="category-tab cursor-target" id="tab-hydro" role="tab" aria-selected="false" aria-controls="panel-hydro" data-category="hydro">
-                      <span class="category-tab__index">D</span>
-                      <span class="category-tab__label">Hydro &amp; Highway DPR</span>
-                      <svg class="category-tab__chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5.5 3.5L9 7L5.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </button>
-
-                    <button class="category-tab cursor-target" id="tab-lab" role="tab" aria-selected="false" aria-controls="panel-lab" data-category="lab">
-                      <span class="category-tab__index">E</span>
-                      <span class="category-tab__label">Lab Testing</span>
-                      <svg class="category-tab__chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5.5 3.5L9 7L5.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </button>
-
-                    <button class="category-tab cursor-target" id="tab-mepf" role="tab" aria-selected="false" aria-controls="panel-mepf" data-category="mepf">
-                      <span class="category-tab__index">F</span>
-                      <span class="category-tab__label">MEPF</span>
-                      <svg class="category-tab__chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5.5 3.5L9 7L5.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </button>
-
-                    <button class="category-tab cursor-target" id="tab-pmc" role="tab" aria-selected="false" aria-controls="panel-pmc" data-category="pmc">
-                      <span class="category-tab__index">G</span>
-                      <span class="category-tab__label">Project Management Consultancy</span>
-                      <svg class="category-tab__chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5.5 3.5L9 7L5.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </button>
-
-                    <button class="category-tab cursor-target" id="tab-structure" role="tab" aria-selected="false" aria-controls="panel-structure" data-category="structure">
-                      <span class="category-tab__index">H</span>
-                      <span class="category-tab__label">Structure</span>
-                      <svg class="category-tab__chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5.5 3.5L9 7L5.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </button>
-
-                    <button class="category-tab cursor-target" id="tab-survey" role="tab" aria-selected="false" aria-controls="panel-survey" data-category="survey">
-                      <span class="category-tab__index">I</span>
-                      <span class="category-tab__label">Survey</span>
-                      <svg class="category-tab__chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5.5 3.5L9 7L5.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </button>
-
-                    <button class="category-tab cursor-target" id="tab-environment" role="tab" aria-selected="false" aria-controls="panel-environment" data-category="environment">
-                      <span class="category-tab__index">J</span>
-                      <span class="category-tab__label">Environmentally Sustainable Solutions</span>
-                      <svg class="category-tab__chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M5.5 3.5L9 7L5.5 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </button>
-                  </div>
-
-                  <!-- Category Detail Panels (Right Side) -->
-                  <div class="mega-menu__details">
-                    <!-- Panel A: Architecture -->
-                    <div class="service-panel is-active" id="panel-architecture" role="tabpanel" aria-labelledby="tab-architecture">
-                      <div class="service-panel__header">
-                        <span class="service-panel__tag">Division A</span>
-                        <h3 class="service-panel__title">Architecture</h3>
-                        <p class="service-panel__summary">Comprehensive architectural design, planning, and sustainability analysis for institutional, commercial, and urban environments.</p>
-                      </div>
-                      <div class="service-grid">
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Interior Design</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Urban Planning</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Green Building</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Building Information Modelling</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Building Performance Analysis</span></div>
-                      </div>
+              <div class="nav14-panel-inner">
+                <div class="nav14-panel-grid">
+                  <!-- Column 1: Infrastructure & Civil Engineering -->
+                  <div class="nav14-col">
+                    <div class="nav14-col-header">
+                      <span class="nav14-col-tag">DIVISION 01</span>
+                      <h3 class="nav14-col-title">Infrastructure &amp; Civil</h3>
                     </div>
-
-                    <!-- Panel B: BIM -->
-                    <div class="service-panel" id="panel-bim" role="tabpanel" aria-labelledby="tab-bim" hidden>
-                      <div class="service-panel__header">
-                        <span class="service-panel__tag">Division B</span>
-                        <h3 class="service-panel__title">BIM (Building Information Modelling)</h3>
-                        <p class="service-panel__summary">Multi-dimensional BIM workflows spanning structural, MEP, clash detection, 4D/5D/6D lifecycle, and model auditing.</p>
-                      </div>
-                      <div class="service-grid service-grid--two-col">
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Architectural BIM</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Structure BIM</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">MEP BIM</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Clash Detection</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">BIM Based Quantity Takeoff &amp; BBS</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">GFC Drawings Extraction</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Fabrication Drawings</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Bill of Quantities (BOQ)</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">4D - Construction Scheduling</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">5D - Cost on Time Line</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">6D - Facility Management</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">BIM Design &amp; Development</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Marketing Presentation</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">BIM Model Auditing</span></div>
-                      </div>
-                    </div>
-
-                    <!-- Panel C: Commerce & Contract Management -->
-                    <div class="service-panel" id="panel-commerce" role="tabpanel" aria-labelledby="tab-commerce" hidden>
-                      <div class="service-panel__header">
-                        <span class="service-panel__tag">Division C</span>
-                        <h3 class="service-panel__title">Commerce &amp; Contract Management</h3>
-                        <p class="service-panel__summary">Rigorous cost engineering, rate analysis, tender preparation, and detailed project reporting for major procurement.</p>
-                      </div>
-                      <div class="service-grid service-grid--two-col">
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Approximate Estimate</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Detailed Estimate</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Market Analysis</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Rate Analysis</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Internal Services</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">External Services</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Draft Tender Paper</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Detailed Project Report</span></div>
-                      </div>
-                    </div>
-
-                    <!-- Panel D: Hydro & Highway DPR -->
-                    <div class="service-panel" id="panel-hydro" role="tabpanel" aria-labelledby="tab-hydro" hidden>
-                      <div class="service-panel__header">
-                        <span class="service-panel__tag">Division D</span>
-                        <h3 class="service-panel__title">Hydro &amp; Highway DPR</h3>
-                        <p class="service-panel__summary">Dedicated Detailed Project Report (DPR) formulation and technical feasibility consultancy for hydro-power structures and high-capacity roadway networks.</p>
-                      </div>
-                      <div class="service-panel__direct-notice">
-                        <div class="notice-box">
-                          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                            <path d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z" stroke="#35556B" stroke-width="1.8"/>
-                            <path d="M10 6V10M10 14H10.01" stroke="#35556B" stroke-width="1.8" stroke-linecap="round"/>
-                          </svg>
-                          <div class="notice-box__text">
-                            <strong>Direct Consulting Division</strong>
-                            <p>Hydro &amp; Highway DPR functions as a consolidated specialized discipline. Per official audit specifications, services in this category are delivered under direct master DPR frameworks without subdivided categories.</p>
+                    <ul class="nav14-col-list">
+                      <li>
+                        <a href="#our-expertise" class="nav14-menu-card cursor-target" data-category="pmc">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M5 20V8l7-5 7 5v12M9 12h6M9 16h6"/></svg>
                           </div>
-                        </div>
-                      </div>
-                    </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Project Management (PMC)</span>
+                            <span class="nav14-menu-card__desc">Supervision, quality control &amp; audits</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#our-expertise" class="nav14-menu-card cursor-target" data-category="hydro">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19L20 5M4 5l16 14M12 3v18"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Hydro &amp; Highway DPR</span>
+                            <span class="nav14-menu-card__desc">Alignment, hydrology &amp; detailed reports</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#our-expertise" class="nav14-menu-card cursor-target" data-category="survey">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Survey &amp; Geomatics</span>
+                            <span class="nav14-menu-card__desc">DGPS, LiDAR &amp; bathymetric surveys</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#our-expertise" class="nav14-menu-card cursor-target" data-category="structure">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Structural Engineering</span>
+                            <span class="nav14-menu-card__desc">Bridges, flyovers &amp; heavy structures</span>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
 
-                    <!-- Panel E: Lab Testing -->
-                    <div class="service-panel" id="panel-lab" role="tabpanel" aria-labelledby="tab-lab" hidden>
-                      <div class="service-panel__header">
-                        <span class="service-panel__tag">Division E</span>
-                        <h3 class="service-panel__title">Lab Testing</h3>
-                        <p class="service-panel__summary">NABL-aligned state-of-the-art testing facilities conducting mechanical, chemical, environmental, and non-destructive testing.</p>
-                      </div>
-                      <div class="service-grid service-grid--two-col">
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Field Testing</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">High Tech Material &amp; Concrete Lab</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Metallurgical Lab</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Highway Material Testing Lab</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Soil Testing</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Chemical Lab</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Environmental Monitoring &amp; Analysis Lab</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Non-Destructive Testing (NDT) Lab</span></div>
-                      </div>
+                  <!-- Column 2: Building Design & Technology -->
+                  <div class="nav14-col">
+                    <div class="nav14-col-header">
+                      <span class="nav14-col-tag">DIVISION 02</span>
+                      <h3 class="nav14-col-title">Design &amp; Technology</h3>
                     </div>
+                    <ul class="nav14-col-list">
+                      <li>
+                        <a href="#our-expertise" class="nav14-menu-card cursor-target" data-category="architecture">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Architecture &amp; Master Planning</span>
+                            <span class="nav14-menu-card__desc">Institutional, urban &amp; landscape design</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#our-expertise" class="nav14-menu-card cursor-target" data-category="bim">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">BIM Modeling &amp; Auditing</span>
+                            <span class="nav14-menu-card__desc">3D-7D BIM clash detection &amp; lifecycle</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#our-expertise" class="nav14-menu-card cursor-target" data-category="mepf">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">MEPF Engineering</span>
+                            <span class="nav14-menu-card__desc">HVAC, electrical, plumbing &amp; fire safety</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#our-expertise" class="nav14-menu-card cursor-target" data-category="environment">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0110 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0112 2zm0 4v8l5 3"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Sustainable Solutions</span>
+                            <span class="nav14-menu-card__desc">EIA, green building &amp; solar audit</span>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
 
-                    <!-- Panel F: MEPF -->
-                    <div class="service-panel" id="panel-mepf" role="tabpanel" aria-labelledby="tab-mepf" hidden>
-                      <div class="service-panel__header">
-                        <span class="service-panel__tag">Division F</span>
-                        <h3 class="service-panel__title">MEPF (Mechanical, Electrical, Plumbing &amp; Fire)</h3>
-                        <p class="service-panel__summary">Integrated building services engineering providing energy-efficient electrical, HVAC, public address, and life-safety systems.</p>
-                      </div>
-                      <div class="service-grid service-grid--two-col">
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Illumination &amp; Ventilation</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Distribution of Electric Supply</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">ELV Systems (LAN, EPABX, TV)</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">HVAC</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Automatic Fire Detection &amp; Alarm System</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">PA System</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Fire Fighting System</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Water Supply &amp; Plumbing</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Building Drainage &amp; Sewage Disposal</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Rain Water Harvesting</span></div>
-                      </div>
+                  <!-- Column 3: Quality Assurance & Governance -->
+                  <div class="nav14-col">
+                    <div class="nav14-col-header">
+                      <span class="nav14-col-tag">DIVISION 03</span>
+                      <h3 class="nav14-col-title">Testing &amp; Governance</h3>
                     </div>
+                    <ul class="nav14-col-list">
+                      <li>
+                        <a href="#our-expertise" class="nav14-menu-card cursor-target" data-category="lab">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v7.31L4.1 19.3A2 2 0 005.8 22h12.4a2 2 0 001.7-2.7L14 9.31V2"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Lab Material Testing</span>
+                            <span class="nav14-menu-card__desc">NABL accredited soil, concrete &amp; steel</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#our-expertise" class="nav14-menu-card cursor-target" data-category="commerce">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Commerce &amp; Contracts</span>
+                            <span class="nav14-menu-card__desc">Quantity survey, BoQ, FIDIC tenders</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#our-expertise" class="nav14-menu-card cursor-target" data-category="pmc">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Non-Destructive Testing (NDT)</span>
+                            <span class="nav14-menu-card__desc">Rebound hammer, UPV &amp; core drilling</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#our-expertise" class="nav14-menu-card cursor-target" data-category="lab">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Geotechnical Studies</span>
+                            <span class="nav14-menu-card__desc">Borehole drilling &amp; plate load tests</span>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
 
-                    <!-- Panel G: Project Management Consultancy -->
-                    <div class="service-panel" id="panel-pmc" role="tabpanel" aria-labelledby="tab-pmc" hidden>
-                      <div class="service-panel__header">
-                        <span class="service-panel__tag">Division G</span>
-                        <h3 class="service-panel__title">Project Management Consultancy</h3>
-                        <p class="service-panel__summary">End-to-end supervision, quality assurance, safety auditing, and transportation engineering for national infrastructure assets.</p>
+                  <!-- Column 4: Navigation 14 Signature Featured Card -->
+                  <div class="nav14-featured-col">
+                    <div class="nav14-featured-card">
+                      <div class="nav14-featured-card__media">
+                        <img 
+                          src="/assets/images/hero-infrastructure-bridge.jpg" 
+                          alt="Infrastructure &amp; PMC Engineering" 
+                          class="nav14-featured-card__img"
+                          loading="lazy"
+                          width="310"
+                          height="135"
+                        >
+                        <div class="nav14-featured-card__overlay"></div>
+                        <span class="nav14-featured-card__tag">Featured Specialization</span>
                       </div>
-                      <div class="service-grid service-grid--two-col">
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">National, State Highways &amp; Toll Roads</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Bridges, Flyovers, Railway Over Bridges &amp; Interchanges</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Pavement &amp; Structural Rehabilitation</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Traffic Engineering</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Environment &amp; Social Studies</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Urban, Rural &amp; Local Roads</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Railway Engineering</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Design of Jetty</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Transportation Planning</span></div>
-                      </div>
-                    </div>
-
-                    <!-- Panel H: Structure -->
-                    <div class="service-panel" id="panel-structure" role="tabpanel" aria-labelledby="tab-structure" hidden>
-                      <div class="service-panel__header">
-                        <span class="service-panel__tag">Division H</span>
-                        <h3 class="service-panel__title">Structure</h3>
-                        <p class="service-panel__summary">Structural design and seismic engineering across specialized building typologies, from high-rises to wide-span hangars.</p>
-                      </div>
-                      <div class="service-grid service-grid--two-col">
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">High-Rise Buildings</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Residential Buildings</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Commercial Buildings</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Educational Buildings</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Hospital Buildings</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Auditorium Buildings</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Hangars</span></div>
-                      </div>
-                    </div>
-
-                    <!-- Panel I: Survey -->
-                    <div class="service-panel" id="panel-survey" role="tabpanel" aria-labelledby="tab-survey" hidden>
-                      <div class="service-panel__header">
-                        <span class="service-panel__tag">Division I</span>
-                        <h3 class="service-panel__title">Survey</h3>
-                        <p class="service-panel__summary">High-precision geodetic, aerial, LiDAR, contour, and alignment surveys supporting linear and infrastructure corridors.</p>
-                      </div>
-                      <div class="service-grid service-grid--two-col">
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Topography &amp; Contour Survey</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Resonation Survey</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Road / Canal / Railway Align UI Survey</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Catchment Survey</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Arial Survey</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">LiDAR Survey</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Cadastral Survey</span></div>
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Pipeline Survey</span></div>
-                      </div>
-                    </div>
-
-                    <!-- Panel J: Environmentally Sustainable Solutions -->
-                    <div class="service-panel" id="panel-environment" role="tabpanel" aria-labelledby="tab-environment" hidden>
-                      <div class="service-panel__header">
-                        <span class="service-panel__tag">Division J</span>
-                        <h3 class="service-panel__title">Environmentally Sustainable Solutions</h3>
-                        <p class="service-panel__summary">Ecological assessments, environmental impact mitigation, and sustainable engineering frameworks.</p>
-                      </div>
-                      <div class="service-grid">
-                        <div class="service-card"><span class="service-card__dot"></span><span class="service-card__name">Environmentally Sustainable Solutions</span></div>
+                      <div class="nav14-featured-card__body">
+                        <h4 class="nav14-featured-card__title">Infrastructure &amp; PMC Engineering</h4>
+                        <p class="nav14-featured-card__desc">
+                          High-precision structural design, highways, bridges, and comprehensive PMC supervision complying with IRC, IS, and MoRTH standards.
+                        </p>
+                        <a href="#our-expertise" class="nav14-featured-card__action cursor-target" aria-label="Explore Infrastructure Capabilities">
+                          <span>Explore Capabilities</span>
+                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                            <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </a>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div class="mega-menu__footer">
-                  <div class="mega-menu__meta-note">
-                    <span class="meta-label">Standards Compliance:</span> Indian Standards (IS), IRC, MoRTH, NBC, and International ASTM/AASHTO Engineering Norms.
+
+
+                <!-- Navigation 14 Panel Footer -->
+                <div class="nav14-panel-footer">
+                  <div class="nav14-footer-compliance">
+                    <span class="nav14-compliance-badge">STANDARDS COMPLIANCE</span>
+                    <span class="nav14-compliance-text">IS, IRC, MoRTH, NBC, and International ASTM/AASHTO Engineering Norms.</span>
                   </div>
-                  <div class="mega-menu__action">
-                    <a href="#contact-us" class="btn btn--subtle-link cursor-target">Inquire About Engineering Services &rarr;</a>
-                  </div>
+                  <a href="#contact-us" class="nav14-inquire-link cursor-target">
+                    <span>Inquire About Engineering Services</span>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                      <path d="M2.5 6h7M6 2.5l3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>
           </li>
 
           <!-- 3. Credentials -->
-          <li class="nav-item" role="none">
-            <a href="#credentials" class="nav-link cursor-target" role="menuitem" id="nav-credentials" data-phase-pending="Credentials documentation is scheduled for Phase 02.">
+          <li class="nav-item nav14-item" role="none">
+            <a href="#credentials" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-credentials" data-phase-pending="Credentials documentation is scheduled for Phase 02.">
               Credentials
             </a>
           </li>
 
           <!-- 4. Downloads -->
-          <li class="nav-item" role="none">
-            <a href="#downloads" class="nav-link cursor-target" role="menuitem" id="nav-downloads" data-phase-pending="Corporate downloads portal is scheduled for Phase 02.">
+          <li class="nav-item nav14-item" role="none">
+            <a href="#downloads" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-downloads" data-phase-pending="Corporate downloads portal is scheduled for Phase 02.">
               Downloads
             </a>
           </li>
 
           <!-- 5. Career -->
-          <li class="nav-item" role="none">
-            <a href="#career" class="nav-link cursor-target" role="menuitem" id="nav-career" data-phase-pending="Career opportunities section is scheduled for Phase 02.">
+          <li class="nav-item nav14-item" role="none">
+            <a href="#career" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-career" data-phase-pending="Career opportunities section is scheduled for Phase 02.">
               Career
             </a>
           </li>
 
-          <!-- 6. Contact Us -->
-          <li class="nav-item" role="none">
-            <a href="#contact-us" class="nav-link cursor-target" role="menuitem" id="nav-contact" data-phase-pending="Contact inquiry module is scheduled for Phase 02.">
-              Contact Us
+          <!-- 6. Projects -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="#projects" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-projects" data-phase-pending="Project showcase directory is scheduled for Phase 02.">
+              Projects
             </a>
           </li>
 
-          <!-- 7. Projects -->
-          <li class="nav-item" role="none">
-            <a href="#projects" class="nav-link cursor-target" role="menuitem" id="nav-projects" data-phase-pending="Project showcase directory is scheduled for Phase 02.">
-              Projects
+          <!-- 7. Talk to Us -->
+          <li class="nav-item nav14-item nav14-item--cta" role="none">
+            <a href="#contact-us" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-contact" data-phase-pending="Contact inquiry module is scheduled for Phase 02.">
+              Talk to Us
             </a>
           </li>
         </ul>
@@ -412,7 +348,7 @@
       <!-- Mobile Menu Toggle Button -->
       <button 
         type="button" 
-        class="mobile-menu-toggle cursor-target" 
+        class="mobile-menu-toggle nav14-mobile-toggle cursor-target" 
         id="mobile-menu-toggle" 
         aria-label="Toggle navigation menu" 
         aria-expanded="false"
@@ -593,10 +529,10 @@
             <a href="#career" class="mobile-nav-link" data-phase-pending="Career opportunities section is scheduled for Phase 02.">5. Career</a>
           </li>
           <li class="mobile-nav-item">
-            <a href="#contact-us" class="mobile-nav-link" data-phase-pending="Contact inquiry module is scheduled for Phase 02.">6. Contact Us</a>
+            <a href="#projects" class="mobile-nav-link" data-phase-pending="Project showcase directory is scheduled for Phase 02.">6. Projects</a>
           </li>
           <li class="mobile-nav-item">
-            <a href="#projects" class="mobile-nav-link" data-phase-pending="Project showcase directory is scheduled for Phase 02.">7. Projects</a>
+            <a href="#contact-us" class="mobile-nav-link" data-phase-pending="Contact inquiry module is scheduled for Phase 02.">7. Talk to Us</a>
           </li>
         </ul>
       </div>
