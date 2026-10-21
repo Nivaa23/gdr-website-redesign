@@ -728,164 +728,82 @@
 }
 
 /* ==========================================================================
-   9. Section C: Industries We've Worked With (Client Logos)
+   9. Section C: Industries We've Worked With (React Bits Circular Gallery)
    ========================================================================== */
+
 .about-clients {
   position: relative;
-  padding-top: clamp(3.5rem, 5.5vw, 5rem);
-  padding-bottom: clamp(4rem, 6.5vw, 6rem);
-  background-color: var(--color-white);
-  border-top: 1px solid var(--color-grey-200);
+  scroll-margin-top: 90px;
+  padding-top: clamp(2.5rem, 4vw, 3.5rem);
+  padding-bottom: clamp(2.5rem, 4vw, 3.5rem);
+  background-color: var(--color-white, #ffffff);
+  border-top: 1px solid var(--color-grey-200, #e9ecef);
 }
 
-.about-clients__header {
-  margin-bottom: 2.75rem;
+.about-clients__container {
+  max-width: 1420px;
 }
 
-.about-clients__intro {
-  font-family: var(--font-primary);
-  font-size: 1.05rem;
-  line-height: 1.68;
-  color: var(--color-charcoal);
-  max-width: 780px;
-  margin-top: 0.85rem;
-  margin-bottom: 0;
-}
-
-.about-clients__group {
-  margin-bottom: 3.5rem;
-}
-
-.about-clients__group:last-child {
-  margin-bottom: 0;
-}
-
-.about-clients__subheading-wrap {
+.about-clients__header--center {
+  text-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.35rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid rgba(222, 226, 230, 0.75);
+  justify-content: center;
+  margin-bottom: clamp(0.75rem, 1.4vw, 1.125rem);
 }
 
-.about-clients__subheading-title-group {
+.about-block-header__wrap--center {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 0.75rem;
 }
 
-.about-clients__subheading-accent {
-  width: 4px;
-  height: 20px;
-  background-color: var(--color-muted-green);
-  border-radius: 2px;
-  display: inline-block;
-}
-
-.about-clients__subheading {
-  font-family: var(--font-heading);
-  font-size: clamp(1.2rem, 1.8vw, 1.4rem);
+.about-block-header__heading--center {
+  text-align: center;
+  font-family: var(--font-heading, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(1.65rem, 3vw, 2.25rem);
   font-weight: 700;
-  color: var(--color-primary-slate-dark);
-  letter-spacing: -0.01em;
+  color: var(--color-primary-slate-dark, #35556B);
+  letter-spacing: -0.02em;
   margin: 0;
 }
 
-.about-clients__badge {
-  font-family: var(--font-label);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--color-grey-600);
-  background-color: var(--color-grey-100);
-  padding: 4px 10px;
-  border-radius: 4px;
-  border: 1px solid var(--color-grey-200);
-  text-transform: uppercase;
+.about-clients__intro--center {
+  font-family: var(--font-primary, 'Hanken Grotesk', sans-serif);
+  font-size: 1.05rem;
+  line-height: 1.68;
+  color: var(--color-charcoal, #343A40);
+  max-width: 760px;
+  text-align: center;
+  margin: 0 auto;
 }
 
-/* Responsive Logo Grid: 4 columns on desktop */
-.about-clients__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: clamp(1rem, 1.8vw, 1.35rem);
-}
-
-/* Individual Logo Card */
-.about-client-item {
-  background-color: var(--color-white);
-  border: 1px solid rgba(222, 226, 230, 0.85);
-  border-radius: var(--border-radius-md, 6px);
-  height: 110px;
-  padding: 1.15rem 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 6px rgba(33, 37, 41, 0.02);
-  transition: border-color var(--transition-fast, 0.2s ease), box-shadow var(--transition-fast, 0.2s ease), transform var(--transition-fast, 0.2s ease);
-}
-
-.about-client-item:hover {
-  border-color: rgba(53, 85, 107, 0.3);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px -4px rgba(33, 37, 41, 0.07);
-}
-
-.about-client-item__img {
-  max-width: 100%;
-  max-height: 58px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  user-select: none;
-}
-
-/* Responsive Behavior */
-@media (max-width: 992px) {
-  .about-clients__grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.15rem;
-  }
+.circular-gallery-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
 }
 
 @media (max-width: 640px) {
   .about-clients {
-    padding-top: 2.75rem;
-    padding-bottom: 3.5rem;
+    scroll-margin-top: 70px;
+    padding-top: 2.25rem;
+    padding-bottom: 2.5rem;
   }
 
-  .about-clients__header {
-    margin-bottom: 2rem;
+  .about-clients__header--center {
+    margin-bottom: 0.75rem;
   }
 
-  .about-clients__intro {
-    font-size: 0.96875rem;
-    line-height: 1.62;
-  }
-
-  .about-clients__group {
-    margin-bottom: 2.5rem;
-  }
-
-  .about-clients__subheading-wrap {
-    margin-bottom: 1rem;
-  }
-
-  .about-clients__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.875rem;
-  }
-
-  .about-client-item {
-    height: 94px;
-    padding: 0.875rem 1rem;
-  }
-
-  .about-client-item__img {
-    max-height: 48px;
+  .about-clients__intro--center {
+    font-size: 0.9375rem;
+    line-height: 1.58;
+    padding: 0 0.5rem;
   }
 }
+
 
 

@@ -1,0 +1,279 @@
+/**
+ * React Bits — Circular Gallery Styles
+ * 3D Cylindrical Ring arrangement for GDR Client Logos
+ * Refined dimensions (+20–25% size) and neutral grey contrast backgrounds
+ */
+
+.circular-gallery-root {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.circular-gallery {
+  position: relative;
+  width: 100%;
+  height: 410px;
+  overflow: hidden;
+  outline: none;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+}
+
+.circular-gallery[data-dragging] {
+  cursor: grabbing;
+}
+
+.circular-gallery__view {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  perspective: 2000px;
+  perspective-origin: 50% 50%;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 6%, #000 94%, transparent 100%);
+}
+
+.circular-gallery__stage {
+  position: absolute;
+  left: 50%;
+  top: 167px;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.circular-gallery__camera {
+  position: relative;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.circular-gallery__ring {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.circular-gallery__card {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  transition: opacity 0.25s ease;
+}
+
+/* Neutral subtle grey card surface for enhanced logo contrast */
+.circular-gallery__card-surface {
+  position: absolute;
+  left: -155px;
+  top: -86px;
+  width: 310px;
+  height: 172px;
+  background-color: #eef2f5;
+  border: 1px solid rgba(53, 85, 107, 0.16);
+  border-radius: 14px;
+  padding: 18px 22px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 6px 20px rgba(33, 37, 41, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: scale(var(--cg-scale, 1));
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+  box-sizing: border-box;
+}
+
+.circular-gallery__card.is-front .circular-gallery__card-surface {
+  background-color: #e8edf1;
+  border-color: rgba(53, 85, 107, 0.38);
+  box-shadow: 0 18px 42px -4px rgba(53, 85, 107, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.circular-gallery__card:hover .circular-gallery__card-surface {
+  border-color: rgba(73, 126, 94, 0.55);
+  box-shadow: 0 14px 34px -4px rgba(73, 126, 94, 0.16);
+}
+
+.circular-gallery__logo-wrap {
+  width: 100%;
+  height: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.circular-gallery__logo {
+  max-width: 94%;
+  max-height: 98px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  filter: none;
+  display: block;
+}
+
+.circular-gallery__card-name {
+  font-family: var(--font-primary, 'Hanken Grotesk', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-charcoal, #343A40);
+  letter-spacing: 0.015em;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  opacity: 0.88;
+  margin-top: 6px;
+}
+
+/* Status Indicator Pill */
+.circular-gallery__nav-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.circular-gallery__counter {
+  pointer-events: auto;
+  font-family: var(--font-mono, 'Geist Mono', monospace, sans-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-charcoal, #343A40);
+  background-color: #ffffff;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(53, 85, 107, 0.18);
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(33, 37, 41, 0.04);
+  user-select: none;
+}
+
+.circular-gallery__counter-active {
+  color: var(--color-primary-slate-dark, #35556B);
+  font-weight: 700;
+}
+
+.circular-gallery__counter-div {
+  opacity: 0.45;
+  margin: 0 4px;
+}
+
+.circular-gallery__counter-total {
+  opacity: 0.65;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .circular-gallery {
+    height: 355px;
+  }
+
+  .circular-gallery__stage {
+    top: 142px;
+  }
+
+  .circular-gallery__nav-wrap {
+    bottom: 24px;
+  }
+
+  .circular-gallery__card-surface {
+    left: -128px;
+    top: -73px;
+    width: 256px;
+    height: 146px;
+    padding: 14px 18px 10px;
+    border-radius: 12px;
+  }
+
+  .circular-gallery__logo-wrap {
+    height: 94px;
+  }
+
+  .circular-gallery__logo {
+    max-height: 82px;
+  }
+
+  .circular-gallery__card-name {
+    font-size: 0.75rem;
+    margin-top: 4px;
+  }
+}
+
+@media (max-width: 640px) {
+  .circular-gallery {
+    height: 315px;
+  }
+
+  .circular-gallery__stage {
+    top: 122px;
+  }
+
+  .circular-gallery__nav-wrap {
+    bottom: 22px;
+  }
+
+  .circular-gallery__card-surface {
+    left: -108px;
+    top: -62px;
+    width: 216px;
+    height: 124px;
+    padding: 12px 14px 8px;
+    border-radius: 10px;
+  }
+
+  .circular-gallery__logo-wrap {
+    height: 78px;
+  }
+
+  .circular-gallery__logo {
+    max-height: 68px;
+  }
+
+  .circular-gallery__card-name {
+    font-size: 0.6875rem;
+    margin-top: 3px;
+  }
+
+  .circular-gallery__counter {
+    font-size: 0.8125rem;
+    padding: 5px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .circular-gallery__stage,
+  .circular-gallery__card,
+  .circular-gallery__card-surface {
+    transition: none !important;
+  }
+}

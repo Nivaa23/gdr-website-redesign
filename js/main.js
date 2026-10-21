@@ -8,6 +8,7 @@ import { mountDepthCarousel } from '../components/depth-carousel.js';
 import { mountTargetCursor } from '../components/target-cursor.js';
 import { initAnimatedContent } from '../components/animated-content.js';
 import { initNavigation14 } from '../components/navigation-14.js';
+import { mountCircularGallery, CLIENT_LOGOS } from '../components/circular-gallery.js';
 import heroInfrastructureBridge from '../assets/images/hero-infrastructure-bridge.jpg';
 import heroArchitectureComplex from '../assets/images/hero-architecture-complex.jpg';
 import heroLabTesting from '../assets/images/hero-lab-testing.jpg';
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initWordmarkCursorEffect();
   initGlobeSegmentEffect();
   initOurNetworksInteraction();
+  initClientCircularGallery();
   initAnimatedContent({
     distance: 40,
     duration: 1.0,
@@ -543,6 +545,29 @@ function initOurNetworksInteraction() {
     });
   });
 }
+
+/* --------------------------------------------------------------------------
+   9. Industries We've Worked With — React Bits Circular Gallery Integration
+   Official React Bits Circular Gallery / Carousel adapted for GDR Client Logos
+   -------------------------------------------------------------------------- */
+function initClientCircularGallery() {
+  const container = document.getElementById('circular-gallery-container');
+  if (!container) return;
+
+  mountCircularGallery(container, {
+    items: CLIENT_LOGOS,
+    tilt: -4,
+    perspective: 2400,
+    autoplay: true,
+    speed: 5.5,
+    pauseOnHover: true,
+    focusOnClick: true,
+    draggable: true,
+    snap: true,
+    momentum: 0.65
+  });
+}
+
 
 
 
