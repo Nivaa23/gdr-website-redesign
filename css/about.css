@@ -545,8 +545,8 @@
 .philosophy-card__image {
   max-width: 100%;
   width: auto;
-  height: 210px;
-  max-height: 230px;
+  height: 248px;
+  max-height: 265px;
   object-fit: contain;
   transition: transform var(--transition-base, 0.3s ease);
 }
@@ -622,8 +622,8 @@
 .value-card__image {
   max-width: 100%;
   width: auto;
-  height: 175px;
-  max-height: 190px;
+  height: 208px;
+  max-height: 225px;
   object-fit: contain;
   transition: transform var(--transition-base, 0.3s ease);
 }
@@ -702,6 +702,11 @@
     padding: 1.5rem 1.25rem;
   }
 
+  .philosophy-card__image {
+    height: 200px;
+    max-height: 220px;
+  }
+
   .philosophy-card__text {
     font-size: 0.96875rem;
     line-height: 1.65;
@@ -709,6 +714,11 @@
 
   .value-card {
     padding: 1.5rem 1.25rem;
+  }
+
+  .value-card__image {
+    height: 170px;
+    max-height: 185px;
   }
 
   .value-card__text {
