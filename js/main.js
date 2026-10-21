@@ -35,10 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
 /* --------------------------------------------------------------------------
    0. React Bits TargetCursor Integration
    Restrained, precise engineering reticle with background-aware colors & 1.2s spin
+   Snaps and expands corner accents outward around cards on hover
    -------------------------------------------------------------------------- */
 function initTargetCursor() {
   mountTargetCursor({
-    targetSelector: '.cursor-target',
+    targetSelector: '.cursor-target, .expertise-card, .philosophy-card, .value-card, .branch-card, .network-service-card, .headquarter-map-card',
     cursorColor: '#497E5E',
     lightCursorColor: '#497E5E',
     darkCursorColor: '#FFFFFF',

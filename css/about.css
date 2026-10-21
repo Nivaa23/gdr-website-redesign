@@ -397,3 +397,323 @@
     max-width: 100%;
   }
 }
+
+/* ==========================================================================
+   5. Section Header Shared Pattern (Philosophy & Values)
+   ========================================================================== */
+.about-block-header {
+  margin-bottom: clamp(2rem, 3.5vw, 2.75rem);
+}
+
+.about-block-header__wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.about-block-header__pillar {
+  width: 28px;
+  height: 2px;
+  background-color: var(--color-muted-green);
+  border-radius: 1px;
+}
+
+.about-block-header__heading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.45rem, 2.2vw, 1.85rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--color-charcoal-dark);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   6. Section A: Our Philosophy (Our Vision & Our Mission)
+   ========================================================================== */
+.about-philosophy {
+  position: relative;
+  padding-top: clamp(3rem, 5vw, 4.5rem);
+  padding-bottom: clamp(3.5rem, 5.5vw, 5rem);
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-grey-200);
+}
+
+.about-philosophy__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* Philosophy Card */
+.philosophy-card {
+  position: relative;
+  background: linear-gradient(145deg, #ffffff 0%, #fbfcfd 100%);
+  border: 1px solid rgba(53, 85, 107, 0.12);
+  border-radius: var(--border-radius-md, 6px);
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-base, 0.3s ease), box-shadow var(--transition-base, 0.3s ease), border-color var(--transition-base, 0.3s ease);
+  box-shadow: 0 4px 16px -4px rgba(33, 37, 41, 0.04);
+  overflow: visible;
+}
+
+.philosophy-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px -8px rgba(39, 64, 82, 0.1);
+}
+
+.philosophy-card--vision:hover {
+  border-color: rgba(53, 85, 107, 0.35);
+}
+
+.philosophy-card--mission:hover {
+  border-color: rgba(73, 126, 94, 0.4);
+}
+
+/* Card Top Accent Edge */
+.philosophy-card__accent-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  transition: opacity var(--transition-fast, 0.2s ease);
+}
+
+.philosophy-card--vision .philosophy-card__accent-bar {
+  background: linear-gradient(90deg, var(--color-primary-slate) 0%, rgba(53, 85, 107, 0.2) 100%);
+}
+
+.philosophy-card--mission .philosophy-card__accent-bar {
+  background: linear-gradient(90deg, var(--color-muted-green) 0%, rgba(73, 126, 94, 0.2) 100%);
+}
+
+/* Card Header */
+.philosophy-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 0.75rem;
+}
+
+.philosophy-card__tag {
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.philosophy-card--vision .philosophy-card__tag {
+  color: var(--color-primary-slate);
+}
+
+.philosophy-card--mission .philosophy-card__tag {
+  color: var(--color-muted-green-dark);
+}
+
+/* Card Body */
+.philosophy-card__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.35rem, 2vw, 1.625rem);
+  font-weight: 700;
+  color: var(--color-charcoal-dark);
+  margin-bottom: 0.875rem;
+  letter-spacing: -0.015em;
+}
+
+.philosophy-card__text {
+  font-family: var(--font-primary);
+  font-size: 1.03125rem;
+  line-height: 1.72;
+  color: var(--color-charcoal);
+  font-weight: 400;
+}
+
+/* Card Illustration Media */
+.philosophy-card__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0 1.25rem;
+  width: 100%;
+}
+
+.philosophy-card__image {
+  max-width: 100%;
+  width: auto;
+  height: 210px;
+  max-height: 230px;
+  object-fit: contain;
+  transition: transform var(--transition-base, 0.3s ease);
+}
+
+.philosophy-card:hover .philosophy-card__image {
+  transform: scale(1.025);
+}
+
+/* ==========================================================================
+   7. Section B: Our Values (Client focus, Sustainability, Collaboration)
+   ========================================================================== */
+.about-values {
+  position: relative;
+  padding-top: clamp(3.5rem, 5.5vw, 5rem);
+  padding-bottom: clamp(4rem, 6vw, 5.5rem);
+  background-color: #f8fafc;
+  border-top: 1px solid var(--color-grey-200);
+}
+
+.about-values__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+}
+
+/* Value Card */
+.value-card {
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid rgba(222, 226, 230, 0.85);
+  border-radius: var(--border-radius-md, 6px);
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 16px rgba(33, 37, 41, 0.03);
+  transition: transform var(--transition-base, 0.3s ease), box-shadow var(--transition-base, 0.3s ease), border-color var(--transition-base, 0.3s ease);
+}
+
+.value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -8px rgba(33, 37, 41, 0.08);
+  border-color: rgba(53, 85, 107, 0.25);
+}
+
+.value-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 0.75rem;
+}
+
+.value-card__badge {
+  font-family: var(--font-label);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-grey-600);
+  background-color: var(--color-grey-100);
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--color-grey-200);
+}
+
+/* Value Illustration Media */
+.value-card__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0 1.25rem;
+  width: 100%;
+}
+
+.value-card__image {
+  max-width: 100%;
+  width: auto;
+  height: 175px;
+  max-height: 190px;
+  object-fit: contain;
+  transition: transform var(--transition-base, 0.3s ease);
+}
+
+.value-card:hover .value-card__image {
+  transform: scale(1.025);
+}
+
+.value-card__content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.value-card__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 1.8vw, 1.375rem);
+  font-weight: 700;
+  color: var(--color-charcoal-dark);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.value-card__text {
+  font-family: var(--font-primary);
+  font-size: 0.984375rem;
+  line-height: 1.68;
+  color: var(--color-charcoal);
+  font-weight: 400;
+  flex-grow: 1;
+}
+
+/* ==========================================================================
+   8. Responsive Behavior for Philosophy & Values
+   ========================================================================== */
+@media (max-width: 992px) {
+  .about-philosophy__grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .about-values__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .value-card {
+    padding: 1.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-philosophy {
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+  }
+
+  .about-values {
+    padding-top: 2.75rem;
+    padding-bottom: 3.25rem;
+  }
+
+  .about-block-header {
+    margin-bottom: 1.75rem;
+  }
+
+  .about-block-header__pillar {
+    width: 20px;
+  }
+
+  .about-block-header__heading {
+    font-size: 1.35rem;
+  }
+
+  .philosophy-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .philosophy-card__text {
+    font-size: 0.96875rem;
+    line-height: 1.65;
+  }
+
+  .value-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .value-card__text {
+    font-size: 0.9375rem;
+    line-height: 1.62;
+  }
+}
+
