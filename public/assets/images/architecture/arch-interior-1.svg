@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-interior1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1b242b"/>
+      <stop offset="100%" stop-color="#10171d"/>
+    </linearGradient>
+    <linearGradient id="light-beam" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#eedcba" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#eedcba" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg-interior1)"/>
+  
+  <!-- Perspective interior room / corporate boardroom & lobby -->
+  <!-- Ceiling plane with recessed cove lighting -->
+  <polygon points="0,0 600,0 480,90 120,90" fill="#222d36"/>
+  <!-- Ceiling light lines -->
+  <line x1="160" y1="40" x2="440" y2="40" stroke="#f0ece1" stroke-opacity="0.8" stroke-width="4"/>
+  <line x1="200" y1="70" x2="400" y2="70" stroke="#eedcba" stroke-opacity="0.6" stroke-width="2"/>
+
+  <!-- Left Wall in perspective -->
+  <polygon points="0,0 120,90 120,330 0,400" fill="#182026"/>
+  <!-- Wall panelling / acoustic timber slats -->
+  <line x1="20" y1="60" x2="20" y2="388" stroke="#35556B" stroke-width="2"/>
+  <line x1="45" y1="67" x2="45" y2="373" stroke="#35556B" stroke-width="2"/>
+  <line x1="70" y1="75" x2="70" y2="358" stroke="#35556B" stroke-width="2"/>
+  <line x1="95" y1="83" x2="95" y2="344" stroke="#35556B" stroke-width="2"/>
+
+  <!-- Right Wall - Full glass facade looking out -->
+  <polygon points="600,0 480,90 480,330 600,400" fill="#1c2c38"/>
+  <line x1="510" y1="80" x2="510" y2="340" stroke="#7eb3d4" stroke-width="2"/>
+  <line x1="540" y1="60" x2="540" y2="360" stroke="#7eb3d4" stroke-width="2"/>
+  <line x1="570" y1="40" x2="570" y2="380" stroke="#7eb3d4" stroke-width="2"/>
+
+  <!-- Back wall -->
+  <rect x="120" y="90" width="360" height="240" fill="#2b3842"/>
+  <!-- Large feature artwork / acoustic wall on back wall -->
+  <rect x="180" y="120" width="240" height="120" fill="#1e272e" stroke="#497E5E" stroke-width="2"/>
+  <circle cx="300" cy="180" r="45" fill="#35556B" opacity="0.8"/>
+  <line x1="220" y1="180" x2="380" y2="180" stroke="#497E5E" stroke-width="2"/>
+
+  <!-- Floor in perspective with reflection -->
+  <polygon points="0,400 120,330 480,330 600,400" fill="#141a20"/>
+  <polygon points="120,330 480,330 440,360 160,360" fill="#1c252d"/>
+
+  <!-- Executive Boardroom Table in perspective -->
+  <polygon points="210,270 390,270 430,360 170,360" fill="#30414f" stroke="#497E5E" stroke-width="1.5"/>
+  <polygon points="230,275 370,275 400,345 200,345" fill="#212d37"/>
+
+  <!-- Light beam down -->
+  <polygon points="200,40 400,40 450,380 150,380" fill="url(#light-beam)"/>
+
+  <text x="30" y="45" font-family="'Geist Mono', monospace" font-size="12" fill="#497E5E" letter-spacing="2">GDR ARCHITECTURAL PORTFOLIO</text>
+  <text x="30" y="65" font-family="'Hanken Grotesk', sans-serif" font-weight="700" font-size="16" fill="#ffffff">EXECUTIVE BOARDROOM &amp; CONFERENCE SUITE</text>
+</svg>

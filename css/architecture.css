@@ -1,0 +1,779 @@
+/* ==========================================================================
+   Geo Designs & Research — Architecture Service Page Styles
+   File: css/architecture.css
+   Brand Palette:
+     --color-primary-slate: #35556B
+     --color-accent-green:  #497E5E
+     --color-charcoal:      #343A40
+     --color-dark-bg:       #191E23
+     --color-dark-card:     #232A31
+     --color-light-bg:      #F8F9FA
+   Typography:
+     Hanken Grotesk: General text, headings, body copy
+     Geist Mono: Labels, tags, badges, and technical specifications
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. SECTION 1: ARCHITECTURE HERO BANNER
+   Full-width darkened architectural blueprint / construction drafting background
+   -------------------------------------------------------------------------- */
+.arch-hero {
+  position: relative;
+  width: 100%;
+  min-height: 440px;
+  padding: 130px 0 96px;
+  background-color: #121A21;
+  background-image: 
+    linear-gradient(180deg, rgba(16, 23, 29, 0.82) 0%, rgba(16, 23, 29, 0.95) 100%),
+    url('/assets/images/hero-architecture-complex.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Technical Blueprint Wireframe Accents */
+.arch-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(73, 126, 94, 0.12) 0%, transparent 65%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 160px 160px, 160px 160px;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.arch-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-accent-green), var(--color-primary-slate), transparent);
+  opacity: 0.6;
+}
+
+.arch-hero__container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.arch-hero__badge-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px;
+  background-color: rgba(53, 85, 107, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 4px;
+  margin-bottom: 22px;
+  backdrop-filter: blur(6px);
+}
+
+.arch-hero__badge-dot {
+  width: 7px;
+  height: 7px;
+  background-color: #497E5E;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #497E5E;
+}
+
+.arch-hero__badge-text {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: #DDE3E8;
+  text-transform: uppercase;
+}
+
+.arch-hero__title {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(2.8rem, 5.5vw, 4.4rem);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+  line-height: 1.08;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
+}
+
+.arch-hero__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 auto 20px;
+  max-width: 220px;
+}
+
+.arch-hero__divider-line {
+  flex: 1;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.arch-hero__divider-diamond {
+  width: 6px;
+  height: 6px;
+  background-color: #497E5E;
+  transform: rotate(45deg);
+}
+
+.arch-hero__desc {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  color: #C0CCD6;
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+/* --------------------------------------------------------------------------
+   2. SECTION 2: ARCHITECTURE INTRODUCTION
+   Dark charcoal background with technical grid, asymmetric two-column composition
+   -------------------------------------------------------------------------- */
+.arch-intro {
+  position: relative;
+  background-color: #1A1F24;
+  padding: 100px 0 110px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Technical grid / dotted pattern */
+.arch-intro::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(53, 85, 107, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px, 140px 140px;
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+.arch-intro__header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.arch-intro__heading-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.arch-intro__heading {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.arch-intro__accent-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 140px;
+}
+
+.arch-intro__accent-bar {
+  flex: 1;
+  height: 2px;
+  background-color: #497E5E;
+}
+
+.arch-intro__accent-bar--secondary {
+  background-color: #35556B;
+}
+
+/* Asymmetric Two-Column Composition */
+.arch-intro__grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 40px;
+  align-items: center;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* Left Column: Architectural visual */
+.arch-intro__visual-col {
+  position: relative;
+}
+
+.arch-intro__visual-wrap {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.55);
+  background-color: #0E1419;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  aspect-ratio: 4 / 3;
+}
+
+.arch-intro__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arch-intro__visual-wrap:hover .arch-intro__image {
+  transform: scale(1.03);
+}
+
+.arch-intro__visual-tag {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(18, 26, 33, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
+  padding: 8px 16px;
+  border-radius: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arch-intro__visual-tag-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #497E5E;
+}
+
+.arch-intro__visual-tag-text {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* Right Column: Clean White Information Card */
+.arch-intro__card-col {
+  position: relative;
+}
+
+.arch-intro__info-card {
+  background-color: #FFFFFF;
+  color: #343A40;
+  padding: 44px 40px;
+  border-radius: 4px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+  border-left: 4px solid #35556B;
+  position: relative;
+}
+
+.arch-intro__card-tag {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #497E5E;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.arch-intro__card-heading {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(1.4rem, 2vw, 1.75rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: #1F2429;
+  margin: 0 0 18px;
+  letter-spacing: -0.01em;
+}
+
+.arch-intro__card-body {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.72;
+  color: #4A5568;
+  margin-bottom: 24px;
+}
+
+.arch-intro__card-body p + p {
+  margin-top: 14px;
+}
+
+.arch-intro__capabilities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.arch-intro__cap-pill {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #35556B;
+  background-color: #F0F4F8;
+  border: 1px solid #D6E0EA;
+  padding: 5px 12px;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   3. SECTION 3: ARCHITECTURAL PROJECT PORTFOLIO
+   Structured image gallery with exact 8 categories in prescribed sequence
+   -------------------------------------------------------------------------- */
+.arch-portfolio {
+  background-color: #F8F9FA;
+  padding: 100px 0 120px;
+  position: relative;
+}
+
+.arch-portfolio__lead {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 70px;
+}
+
+.arch-portfolio__eyebrow {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #497E5E;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.arch-portfolio__main-title {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(2rem, 3.2vw, 2.85rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #1F2429;
+  margin: 0 0 16px;
+  text-transform: uppercase;
+}
+
+.arch-portfolio__main-desc {
+  font-size: 1.05rem;
+  color: #5A6A78;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Category Sections */
+.arch-category-section {
+  margin-bottom: 80px;
+}
+
+.arch-category-section:last-child {
+  margin-bottom: 0;
+}
+
+.arch-category-header {
+  text-align: center;
+  margin-bottom: 36px;
+  position: relative;
+}
+
+.arch-category-tag {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #35556B;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.arch-category-title {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(1.45rem, 2.2vw, 1.85rem);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #1F2429;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+}
+
+.arch-category-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 140px;
+  margin: 0 auto;
+}
+
+.arch-category-divider-line {
+  flex: 1;
+  height: 2px;
+  background-color: #35556B;
+}
+
+.arch-category-divider-line--green {
+  background-color: #497E5E;
+}
+
+.arch-category-divider-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #343A40;
+}
+
+/* Responsive Project Grids */
+.arch-grid {
+  display: grid;
+  gap: 30px;
+}
+
+.arch-grid--3col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.arch-grid--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.arch-grid--4col {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Project Card */
+.arch-card {
+  position: relative;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.arch-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(53, 85, 107, 0.12);
+}
+
+/* Card Media */
+.arch-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: #1A2228;
+}
+
+.arch-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arch-card:hover .arch-card__img {
+  transform: scale(1.05);
+}
+
+.arch-card__badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(18, 26, 33, 0.85);
+  color: #FFFFFF;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(4px);
+}
+
+/* Card Body */
+.arch-card__body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.arch-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.arch-card__location {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #497E5E;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.arch-card__title {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1F2429;
+  line-height: 1.35;
+  margin: 0 0 10px;
+}
+
+.arch-card__desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #5A6A78;
+  margin: 0;
+  flex: 1;
+}
+
+/* --------------------------------------------------------------------------
+   4. SECTION 4: ALL EXPERTISE (SECONDARY DISCIPLINE NAVIGATION)
+   Dark, textured section introducing other GDR disciplines
+   -------------------------------------------------------------------------- */
+.arch-other-expertise {
+  background-color: #161B20;
+  padding: 100px 0 110px;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.arch-other-expertise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.arch-other-expertise__header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 54px;
+  position: relative;
+  z-index: 2;
+}
+
+.arch-other-expertise__eyebrow {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #497E5E;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.arch-other-expertise__title {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(2rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+}
+
+.arch-other-expertise__desc {
+  font-size: 1rem;
+  color: #A0AEC0;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Horizontal Card Grid */
+.arch-other-expertise__grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+}
+
+.arch-exp-card {
+  background-color: #20262C;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+
+.arch-exp-card:hover {
+  background-color: #273038;
+  border-color: #497E5E;
+  transform: translateY(-3px);
+}
+
+.arch-exp-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.arch-exp-card__icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 4px;
+  background-color: rgba(53, 85, 107, 0.4);
+  color: #DDE3E8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.arch-exp-card__div {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #A0AEC0;
+  text-transform: uppercase;
+}
+
+.arch-exp-card__title {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 8px;
+  line-height: 1.35;
+}
+
+.arch-exp-card__desc {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: #94A3B8;
+  margin: 0 0 16px;
+  flex: 1;
+}
+
+.arch-exp-card__arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #497E5E;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: gap 0.2s ease;
+}
+
+.arch-exp-card:hover .arch-exp-card__arrow {
+  gap: 10px;
+  color: #68B285;
+}
+
+/* --------------------------------------------------------------------------
+   5. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .arch-intro__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .arch-intro__info-card {
+    padding: 36px 30px;
+  }
+
+  .arch-grid--3col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .arch-grid--4col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .arch-hero {
+    min-height: 360px;
+    padding: 100px 0 70px;
+  }
+
+  .arch-hero__title {
+    font-size: 2.4rem;
+  }
+
+  .arch-intro {
+    padding: 70px 0 80px;
+  }
+
+  .arch-intro__info-card {
+    padding: 28px 22px;
+  }
+
+  .arch-portfolio {
+    padding: 70px 0 90px;
+  }
+
+  .arch-grid--3col,
+  .arch-grid--2col,
+  .arch-grid--4col {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .arch-other-expertise {
+    padding: 70px 0 80px;
+  }
+}

@@ -53,8 +53,8 @@ export const EXPERTISE_SERVICES = {
     division: 'Division 02 — Design & Technology',
     desc: 'Holistic architectural design, institutional master planning, urban regeneration, landscape architecture, and transit-oriented development.',
     image: '/assets/images/hero-architecture-complex.jpg',
-    url: '#card-architecture',
-    urlAbout: '/index.html#card-architecture'
+    url: '/architecture.html',
+    urlAbout: '/architecture.html'
   },
   'bim': {
     title: 'BIM Modeling & Auditing',
@@ -217,8 +217,8 @@ export function mountNavigation14(headerElement, options = {}) {
       featuredImg.alt = service.title;
     }
     if (featuredAction) {
-      const isAboutPage = window.location.pathname.includes('about');
-      featuredAction.href = isAboutPage ? service.urlAbout : service.url;
+      const isSubpage = window.location.pathname.includes('about') || window.location.pathname.includes('architecture');
+      featuredAction.href = isSubpage ? service.urlAbout : service.url;
       featuredAction.setAttribute('aria-label', `Explore ${service.title} Capabilities`);
     }
   }

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="hallDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#090D14"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="stageGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="60%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#92400E"/>
+    </linearGradient>
+    <linearGradient id="seatTier" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#B91C1C"/>
+      <stop offset="100%" stop-color="#450A0A"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#hallDark)"/>
+
+  <!-- Proscenium Arch Stage Opening -->
+  <rect x="220" y="80" width="360" height="200" fill="#020617"/>
+  <rect x="250" y="110" width="300" height="170" fill="url(#stageGlow)" opacity="0.85"/>
+  <rect x="220" y="70" width="360" height="16" fill="#35556B"/>
+  <rect x="210" y="70" width="16" height="210" fill="#35556B"/>
+  <rect x="574" y="70" width="16" height="210" fill="#35556B"/>
+
+  <!-- Angled Acoustic Ceiling Baffles -->
+  <polygon points="120,40 240,40 220,70 100,70" fill="#475569"/>
+  <polygon points="260,30 400,30 380,60 240,60" fill="#334155"/>
+  <polygon points="420,30 560,30 540,60 400,60" fill="#475569"/>
+  <polygon points="580,40 700,40 680,70 560,70" fill="#334155"/>
+
+  <!-- Acoustic Ribbed Side Wall Panels -->
+  <g fill="#78350F">
+    <polygon points="40,100 180,120 180,300 40,320"/>
+    <polygon points="760,100 620,120 620,300 760,320"/>
+  </g>
+  <g stroke="#92400E" stroke-width="2">
+    <line x1="60" y1="105" x2="60" y2="315"/>
+    <line x1="90" y1="110" x2="90" y2="310"/>
+    <line x1="120" y1="115" x2="120" y2="305"/>
+    <line x1="150" y1="118" x2="150" y2="302"/>
+    <line x1="740" y1="105" x2="740" y2="315"/>
+    <line x1="710" y1="110" x2="710" y2="310"/>
+    <line x1="680" y1="115" x2="680" y2="305"/>
+    <line x1="650" y1="118" x2="650" y2="302"/>
+  </g>
+
+  <!-- Tiered Audience Seating Rakes -->
+  <polygon points="120,340 680,340 760,490 40,490" fill="#111827"/>
+  <!-- Rows of red velvet upholstered seats -->
+  <ellipse cx="400" cy="355" rx="200" ry="12" fill="url(#seatTier)"/>
+  <ellipse cx="400" cy="380" rx="230" ry="14" fill="url(#seatTier)"/>
+  <ellipse cx="400" cy="410" rx="270" ry="16" fill="url(#seatTier)"/>
+  <ellipse cx="400" cy="445" rx="310" ry="18" fill="url(#seatTier)"/>
+  <ellipse cx="400" cy="485" rx="350" ry="20" fill="url(#seatTier)"/>
+
+  <rect x="30" y="30" width="200" height="44" rx="3" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(255,255,255,0.15)"/>
+  <circle cx="45" cy="52" r="4" fill="#F59E0B"/>
+  <text x="58" y="48" font-family="'Geist Mono', monospace" font-size="9" font-weight="600" fill="#F59E0B" letter-spacing="1">INSTITUTIONAL HALL</text>
+  <text x="58" y="62" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">CONVOCATION AUDITORIUM</text>
+</svg>

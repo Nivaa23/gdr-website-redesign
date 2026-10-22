@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-admin2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141d24"/>
+      <stop offset="100%" stop-color="#24333e"/>
+    </linearGradient>
+    <linearGradient id="facade-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#35556B"/>
+      <stop offset="50%" stop-color="#4a6f8a"/>
+      <stop offset="100%" stop-color="#233b4d"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg-admin2)"/>
+  
+  <!-- Modern Government Directorate / Secretariat Design -->
+  <!-- Horizontal louvered structure -->
+  <polygon points="80,330 520,330 490,140 110,140" fill="url(#facade-grad)" stroke="#497E5E" stroke-width="1.5"/>
+  
+  <!-- Louver system -->
+  <g stroke="#ffffff" stroke-opacity="0.25" stroke-width="2">
+    <line x1="105" y1="170" x2="495" y2="170"/>
+    <line x1="100" y1="200" x2="500" y2="200"/>
+    <line x1="95" y1="230" x2="505" y2="230"/>
+    <line x1="90" y1="260" x2="510" y2="260"/>
+    <line x1="85" y1="290" x2="515" y2="290"/>
+  </g>
+
+  <!-- Vertical mullion ribs -->
+  <g stroke="#1a2630" stroke-width="4">
+    <line x1="160" y1="140" x2="145" y2="330"/>
+    <line x1="220" y1="140" x2="210" y2="330"/>
+    <line x1="280" y1="140" x2="275" y2="330"/>
+    <line x1="340" y1="140" x2="345" y2="330"/>
+    <line x1="400" y1="140" x2="410" y2="330"/>
+    <line x1="460" y1="140" x2="475" y2="330"/>
+  </g>
+
+  <!-- Atrium cantilever cutout -->
+  <rect x="230" y="210" width="160" height="120" fill="#0f161c" stroke="#497E5E" stroke-width="2"/>
+  <rect x="245" y="225" width="130" height="105" fill="#35556B" opacity="0.6"/>
+  <!-- Atrium glass ribs -->
+  <line x1="280" y1="225" x2="280" y2="330" stroke="#7eb3d4" stroke-width="1.5"/>
+  <line x1="310" y1="225" x2="310" y2="330" stroke="#7eb3d4" stroke-width="1.5"/>
+  <line x1="340" y1="225" x2="340" y2="330" stroke="#7eb3d4" stroke-width="1.5"/>
+
+  <!-- Cantilever Canopy over entrance -->
+  <polygon points="180,310 440,310 470,325 150,325" fill="#497E5E" opacity="0.9"/>
+
+  <!-- Base terrace & trees silhouette -->
+  <rect x="0" y="340" width="600" height="60" fill="#0c1114"/>
+  <circle cx="90" cy="335" r="25" fill="#2d4234"/>
+  <circle cx="120" cy="338" r="18" fill="#3a5643"/>
+  <circle cx="490" cy="336" r="22" fill="#2d4234"/>
+  <circle cx="525" cy="338" r="16" fill="#3a5643"/>
+
+  <text x="30" y="45" font-family="'Geist Mono', monospace" font-size="12" fill="#497E5E" letter-spacing="2">GDR ARCHITECTURAL PORTFOLIO</text>
+  <text x="30" y="65" font-family="'Hanken Grotesk', sans-serif" font-weight="700" font-size="16" fill="#ffffff">DEPARTMENTAL SECRETARIAT HEADQUARTERS</text>
+</svg>

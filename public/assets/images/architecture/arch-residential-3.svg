@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="res3Sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#18232C"/>
+      <stop offset="100%" stop-color="#35556B"/>
+    </linearGradient>
+    <linearGradient id="concrete" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F1F5F9"/>
+      <stop offset="70%" stop-color="#CBD5E1"/>
+      <stop offset="100%" stop-color="#94A3B8"/>
+    </linearGradient>
+    <linearGradient id="woodPanel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C28A4A"/>
+      <stop offset="100%" stop-color="#805625"/>
+    </linearGradient>
+    <linearGradient id="balconyGlass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0284C7" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#res3Sky)"/>
+  
+  <!-- Urban Luxury Enclave Building Structure -->
+  <rect x="180" y="80" width="440" height="340" fill="url(#concrete)" rx="2"/>
+  
+  <!-- Wood Accent Feature Walls -->
+  <rect x="210" y="100" width="100" height="300" fill="url(#woodPanel)"/>
+  <rect x="490" y="100" width="100" height="300" fill="url(#woodPanel)"/>
+  
+  <!-- Terraces & Cantilevered Balconies -->
+  <rect x="160" y="140" width="200" height="14" fill="#35556B" rx="1"/>
+  <rect x="160" y="115" width="190" height="25" fill="url(#balconyGlass)" rx="1"/>
+
+  <rect x="440" y="190" width="200" height="14" fill="#35556B" rx="1"/>
+  <rect x="450" y="165" width="190" height="25" fill="url(#balconyGlass)" rx="1"/>
+
+  <rect x="160" y="250" width="200" height="14" fill="#35556B" rx="1"/>
+  <rect x="160" y="225" width="190" height="25" fill="url(#balconyGlass)" rx="1"/>
+
+  <rect x="440" y="300" width="200" height="14" fill="#35556B" rx="1"/>
+  <rect x="450" y="275" width="190" height="25" fill="url(#balconyGlass)" rx="1"/>
+
+  <!-- Large Format Glazing in Center Bay -->
+  <g fill="#0F172A">
+    <rect x="330" y="110" width="140" height="55" rx="1"/>
+    <rect x="330" y="180" width="140" height="55" rx="1"/>
+    <rect x="330" y="250" width="140" height="55" rx="1"/>
+    <rect x="330" y="320" width="140" height="80" rx="1"/>
+  </g>
+
+  <!-- Ground Landscape & Tree Box -->
+  <rect x="0" y="420" width="800" height="80" fill="#0B1118"/>
+  <rect x="140" y="405" width="520" height="25" fill="#366147"/>
+  <circle cx="200" cy="390" r="22" fill="#497E5E"/>
+  <circle cx="600" cy="390" r="22" fill="#497E5E"/>
+
+  <rect x="30" y="30" width="190" height="44" rx="3" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(255,255,255,0.15)"/>
+  <circle cx="45" cy="52" r="4" fill="#497E5E"/>
+  <text x="58" y="48" font-family="'Geist Mono', monospace" font-size="9" font-weight="600" fill="#497E5E" letter-spacing="1">GDR RESIDENTIAL</text>
+  <text x="58" y="62" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">URBAN ENCLAVE</text>
+</svg>

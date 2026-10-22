@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-admin1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e272e"/>
+      <stop offset="100%" stop-color="#0f1418"/>
+    </linearGradient>
+    <linearGradient id="glass-admin" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5a829e" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#35556B" stop-opacity="0.95"/>
+    </linearGradient>
+    <pattern id="grid-admin" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg-admin1)"/>
+  <rect width="600" height="400" fill="url(#grid-admin)"/>
+  
+  <!-- Sky glow -->
+  <circle cx="300" cy="180" r="220" fill="#35556B" opacity="0.18"/>
+
+  <!-- Corporate headquarters tower / government admin -->
+  <!-- Base podium -->
+  <rect x="120" y="270" width="360" height="90" fill="#232d36" stroke="#497E5E" stroke-opacity="0.4" stroke-width="1.5"/>
+  <rect x="140" y="290" width="320" height="70" fill="#182026"/>
+  <!-- Columns along podium -->
+  <g fill="#35556B" opacity="0.7">
+    <rect x="160" y="290" width="10" height="70"/>
+    <rect x="200" y="290" width="10" height="70"/>
+    <rect x="240" y="290" width="10" height="70"/>
+    <rect x="280" y="290" width="10" height="70"/>
+    <rect x="320" y="290" width="10" height="70"/>
+    <rect x="360" y="290" width="10" height="70"/>
+    <rect x="400" y="290" width="10" height="70"/>
+    <rect x="440" y="290" width="10" height="70"/>
+  </g>
+
+  <!-- Central Admin Tower -->
+  <polygon points="210,90 390,90 400,270 200,270" fill="url(#glass-admin)"/>
+  <!-- Glazing mullions -->
+  <line x1="210" y1="90" x2="200" y2="270" stroke="#7eb3d4" stroke-width="2"/>
+  <line x1="390" y1="90" x2="400" y2="270" stroke="#7eb3d4" stroke-width="2"/>
+  <line x1="255" y1="90" x2="250" y2="270" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1.5"/>
+  <line x1="300" y1="90" x2="300" y2="270" stroke="#ffffff" stroke-opacity="0.4" stroke-width="2"/>
+  <line x1="345" y1="90" x2="350" y2="270" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1.5"/>
+
+  <!-- Horizontal spandrels -->
+  <line x1="208" y1="126" x2="392" y2="126" stroke="#232d36" stroke-width="4"/>
+  <line x1="205" y1="162" x2="395" y2="162" stroke="#232d36" stroke-width="4"/>
+  <line x1="203" y1="198" x2="397" y2="198" stroke="#232d36" stroke-width="4"/>
+  <line x1="201" y1="234" x2="399" y2="234" stroke="#232d36" stroke-width="4"/>
+
+  <!-- Crown / parapet feature -->
+  <polygon points="190,90 410,90 370,65 230,65" fill="#343A40" stroke="#497E5E" stroke-width="1.5"/>
+  <rect x="285" y="45" width="30" height="20" fill="#497E5E"/>
+  <line x1="300" y1="45" x2="300" y2="25" stroke="#ffffff" stroke-width="2"/>
+
+  <!-- Left wing -->
+  <rect x="90" y="180" width="110" height="110" fill="#1e272e" stroke="#35556B" stroke-width="1.5"/>
+  <g fill="#4a6572" opacity="0.6">
+    <rect x="105" y="195" width="35" height="18"/>
+    <rect x="150" y="195" width="35" height="18"/>
+    <rect x="105" y="225" width="35" height="18"/>
+    <rect x="150" y="225" width="35" height="18"/>
+    <rect x="105" y="255" width="35" height="18"/>
+    <rect x="150" y="255" width="35" height="18"/>
+  </g>
+
+  <!-- Right wing -->
+  <rect x="400" y="180" width="110" height="110" fill="#1e272e" stroke="#35556B" stroke-width="1.5"/>
+  <g fill="#4a6572" opacity="0.6">
+    <rect x="415" y="195" width="35" height="18"/>
+    <rect x="460" y="195" width="35" height="18"/>
+    <rect x="415" y="225" width="35" height="18"/>
+    <rect x="460" y="225" width="35" height="18"/>
+    <rect x="415" y="255" width="35" height="18"/>
+    <rect x="460" y="255" width="35" height="18"/>
+  </g>
+
+  <!-- Ground Plaza & steps -->
+  <polygon points="60,360 540,360 580,400 20,400" fill="#141a1f"/>
+  <line x1="40" y1="380" x2="560" y2="380" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1"/>
+
+  <text x="30" y="45" font-family="'Geist Mono', monospace" font-size="12" fill="#497E5E" letter-spacing="2">GDR ARCHITECTURAL PORTFOLIO</text>
+  <text x="30" y="65" font-family="'Hanken Grotesk', sans-serif" font-weight="700" font-size="16" fill="#ffffff">CIVIC &amp; ADMINISTRATIVE COMPLEX</text>
+</svg>

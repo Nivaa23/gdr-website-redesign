@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="instSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#192834"/>
+      <stop offset="100%" stop-color="#35556B"/>
+    </linearGradient>
+    <linearGradient id="terracotta" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="50%" stop-color="#B45309"/>
+      <stop offset="100%" stop-color="#92400E"/>
+    </linearGradient>
+    <linearGradient id="concreteExposed" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#CBD5E1"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#instSky)"/>
+
+  <!-- Main Academic Block Structure -->
+  <rect x="140" y="80" width="520" height="340" fill="url(#concreteExposed)" rx="2"/>
+
+  <!-- Terracotta Sun-shading Louver Panels -->
+  <g fill="url(#terracotta)">
+    <!-- Floor 3 Louvers -->
+    <rect x="170" y="110" width="130" height="60" rx="1"/>
+    <rect x="335" y="110" width="130" height="60" rx="1"/>
+    <rect x="500" y="110" width="130" height="60" rx="1"/>
+
+    <!-- Floor 2 Louvers -->
+    <rect x="170" y="195" width="130" height="60" rx="1"/>
+    <rect x="335" y="195" width="130" height="60" rx="1"/>
+    <rect x="500" y="195" width="130" height="60" rx="1"/>
+
+    <!-- Floor 1 Louvers -->
+    <rect x="170" y="280" width="130" height="60" rx="1"/>
+    <rect x="335" y="280" width="130" height="60" rx="1"/>
+    <rect x="500" y="280" width="130" height="60" rx="1"/>
+  </g>
+
+  <!-- Glazed Lecture Windows Behind Louvers -->
+  <g fill="#0F172A">
+    <rect x="180" y="120" width="110" height="40"/>
+    <rect x="345" y="120" width="110" height="40"/>
+    <rect x="510" y="120" width="110" height="40"/>
+    <rect x="180" y="205" width="110" height="40"/>
+    <rect x="345" y="205" width="110" height="40"/>
+    <rect x="510" y="205" width="110" height="40"/>
+    <rect x="180" y="290" width="110" height="40"/>
+    <rect x="345" y="290" width="110" height="40"/>
+    <rect x="510" y="290" width="110" height="40"/>
+  </g>
+
+  <!-- Ground Floor Double-Height Colonnade -->
+  <rect x="140" y="360" width="520" height="60" fill="#E2E8F0"/>
+  <!-- Concrete Columns -->
+  <rect x="180" y="360" width="16" height="60" fill="#35556B"/>
+  <rect x="260" y="360" width="16" height="60" fill="#35556B"/>
+  <rect x="340" y="360" width="16" height="60" fill="#35556B"/>
+  <rect x="420" y="360" width="16" height="60" fill="#35556B"/>
+  <rect x="500" y="360" width="16" height="60" fill="#35556B"/>
+  <rect x="580" y="360" width="16" height="60" fill="#35556B"/>
+
+  <!-- Campus Green Courtyard & Ground -->
+  <rect x="0" y="420" width="800" height="80" fill="#0F172A"/>
+  <polygon points="200,420 600,420 540,490 260,490" fill="#2E4D3A"/>
+  <circle cx="280" cy="445" r="14" fill="#497E5E"/>
+  <circle cx="520" cy="445" r="14" fill="#497E5E"/>
+
+  <rect x="30" y="30" width="190" height="44" rx="3" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(255,255,255,0.15)"/>
+  <circle cx="45" cy="52" r="4" fill="#497E5E"/>
+  <text x="58" y="48" font-family="'Geist Mono', monospace" font-size="9" font-weight="600" fill="#497E5E" letter-spacing="1">ACADEMIC COMPLEX</text>
+  <text x="58" y="62" font-family="'Hanken Grotesk', sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">ENGINEERING INSTITUTE</text>
+</svg>
