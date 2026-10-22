@@ -7,6 +7,97 @@
  */
 import './Navigation14.css';
 
+export const EXPERTISE_SERVICES = {
+  'pmc': {
+    title: 'Project Management Consultancy (PMC)',
+    division: 'Division 01 — Infrastructure & Civil',
+    desc: 'Comprehensive project management, site supervision, quality assurance, safety audits, and contract administration complying with IRC, IS, and MoRTH standards.',
+    image: '/assets/images/hero-infrastructure-bridge.jpg',
+    url: '#card-pmc',
+    urlAbout: '/index.html#card-pmc'
+  },
+  'hydro': {
+    title: 'Hydro & Highway DPR',
+    division: 'Division 01 — Infrastructure & Civil',
+    desc: 'Alignment surveys, hydrological studies, traffic investigations, pavement design, and Detailed Project Reports (DPR) for highways, expressways, and water infrastructure.',
+    image: '/assets/images/expertise-hydro-highway.svg',
+    url: '#card-hydro-highway-dpr',
+    urlAbout: '/index.html#card-hydro-highway-dpr'
+  },
+  'bridge': {
+    title: 'Bridge Engineering',
+    division: 'Division 01 — Infrastructure & Civil',
+    desc: 'Structural analysis, detailed design, health assessment, rehabilitation, and seismic design for river bridges, flyovers, grade separators, and ROBs.',
+    image: '/assets/images/hero-infrastructure-bridge.jpg',
+    url: '#card-bridge-engineering',
+    urlAbout: '/index.html#card-bridge-engineering'
+  },
+  'structure': {
+    title: 'Structural Engineering',
+    division: 'Division 01 — Infrastructure & Civil',
+    desc: 'Advanced structural design and finite element analysis for heavy industrial plants, commercial towers, institutional complexes, and civic structures.',
+    image: '/assets/images/expertise-structure.svg',
+    url: '#card-structure',
+    urlAbout: '/index.html#card-structure'
+  },
+  'survey': {
+    title: 'Survey & Geomatics',
+    division: 'Division 01 — Infrastructure & Civil',
+    desc: 'High-precision geodetic surveys using DGPS, airborne & terrestrial LiDAR, bathymetric mapping, drone photogrammetry, and Geographic Information System (GIS) development.',
+    image: '/assets/images/expertise-survey.svg',
+    url: '#card-survey',
+    urlAbout: '/index.html#card-survey'
+  },
+  'architecture': {
+    title: 'Architecture & Master Planning',
+    division: 'Division 02 — Design & Technology',
+    desc: 'Holistic architectural design, institutional master planning, urban regeneration, landscape architecture, and transit-oriented development.',
+    image: '/assets/images/hero-architecture-complex.jpg',
+    url: '#card-architecture',
+    urlAbout: '/index.html#card-architecture'
+  },
+  'bim': {
+    title: 'BIM Modeling & Auditing',
+    division: 'Division 02 — Design & Technology',
+    desc: 'Multi-disciplinary 3D-7D Building Information Modelling, automated clash detection, quantity takeoff, construction simulation (4D/5D), and BIM model auditing.',
+    image: '/assets/images/expertise-bim.svg',
+    url: '#card-bim',
+    urlAbout: '/index.html#card-bim'
+  },
+  'mepf': {
+    title: 'MEPF Engineering',
+    division: 'Division 02 — Design & Technology',
+    desc: 'Integrated mechanical, electrical, plumbing, fire protection, and building automation design prioritizing energy efficiency, life safety, and operational reliability.',
+    image: '/assets/images/expertise-mepf.svg',
+    url: '#card-mepf',
+    urlAbout: '/index.html#card-mepf'
+  },
+  'sustainability': {
+    title: 'Environmentally Sustainable Solutions',
+    division: 'Division 02 — Design & Technology',
+    desc: 'Environmental Impact Assessment (EIA), green building certification advisory (GRIHA, LEED, IGBC), energy performance simulations, and environmental compliance audits.',
+    image: '/assets/images/expertise-green-building.svg',
+    url: '#card-green-building',
+    urlAbout: '/index.html#card-green-building'
+  },
+  'lab': {
+    title: 'Laboratory & Material Testing',
+    division: 'Division 03 — Testing & Contracts',
+    desc: 'NABL ISO/IEC 17025 accredited physical and chemical testing for soil, aggregates, cement, concrete, steel, bitumen, Non-Destructive Testing (NDT), and geotechnical studies.',
+    image: '/assets/images/hero-lab-testing.jpg',
+    url: '#card-lab-testing',
+    urlAbout: '/index.html#card-lab-testing'
+  },
+  'commerce': {
+    title: 'Commerce & Contract Management',
+    division: 'Division 03 — Testing & Contracts',
+    desc: 'Pre- and post-contract management, Bill of Quantities (BoQ) preparation, detailed cost estimation, rate analysis, tender documentation, and FIDIC contract advisory.',
+    image: '/assets/images/expertise-commerce-contract.svg',
+    url: '#card-commerce-contract',
+    urlAbout: '/index.html#card-commerce-contract'
+  }
+};
+
 export function mountNavigation14(headerElement, options = {}) {
   if (!headerElement) return null;
 
@@ -102,9 +193,69 @@ export function mountNavigation14(headerElement, options = {}) {
   };
   document.addEventListener('keydown', handleKeyDown);
 
-  // 6. Close mega panel when a menu link is clicked
-  const menuLinks = megaPanel ? Array.from(megaPanel.querySelectorAll('a')) : [];
-  menuLinks.forEach(link => {
+  // 6. Service Selection & Right Panel Details Interaction
+  const menuCards = megaPanel ? Array.from(megaPanel.querySelectorAll('.nav14-menu-card')) : [];
+  const featuredCard = megaPanel ? megaPanel.querySelector('.nav14-featured-card') : null;
+  const featuredTag = featuredCard ? featuredCard.querySelector('.nav14-featured-card__tag') : null;
+  const featuredTitle = featuredCard ? featuredCard.querySelector('.nav14-featured-card__title') : null;
+  const featuredDesc = featuredCard ? featuredCard.querySelector('.nav14-featured-card__desc') : null;
+  const featuredImg = featuredCard ? featuredCard.querySelector('.nav14-featured-card__img') : null;
+  const featuredAction = featuredCard ? featuredCard.querySelector('.nav14-featured-card__action') : null;
+
+  function selectService(categoryKey, cardEl) {
+    const service = EXPERTISE_SERVICES[categoryKey];
+    if (!service || !featuredCard) return;
+
+    menuCards.forEach(c => c.classList.remove('is-selected'));
+    if (cardEl) cardEl.classList.add('is-selected');
+
+    if (featuredTitle) featuredTitle.textContent = service.title;
+    if (featuredTag) featuredTag.textContent = service.division;
+    if (featuredDesc) featuredDesc.textContent = service.desc;
+    if (featuredImg) {
+      featuredImg.src = service.image;
+      featuredImg.alt = service.title;
+    }
+    if (featuredAction) {
+      const isAboutPage = window.location.pathname.includes('about');
+      featuredAction.href = isAboutPage ? service.urlAbout : service.url;
+      featuredAction.setAttribute('aria-label', `Explore ${service.title} Capabilities`);
+    }
+  }
+
+  // Bind service selection on click and hover
+  menuCards.forEach(card => {
+    const categoryKey = card.getAttribute('data-category');
+
+    card.addEventListener('mouseenter', () => {
+      selectService(categoryKey, card);
+    });
+    card.addEventListener('focus', () => {
+      selectService(categoryKey, card);
+    });
+
+    card.addEventListener('click', (e) => {
+      const isAlreadySelected = card.classList.contains('is-selected');
+      selectService(categoryKey, card);
+      if (isAlreadySelected) {
+        closePanel();
+      } else {
+        // Prevent immediate navigation so the user can inspect details in the right panel
+        e.preventDefault();
+      }
+    });
+  });
+
+  // Featured card action link navigates and closes panel
+  if (featuredAction) {
+    featuredAction.addEventListener('click', () => {
+      closePanel();
+    });
+  }
+
+  // Other footer links inside mega panel close on click
+  const footerLinks = megaPanel ? Array.from(megaPanel.querySelectorAll('.nav14-panel-footer a')) : [];
+  footerLinks.forEach(link => {
     link.addEventListener('click', () => {
       closePanel();
     });

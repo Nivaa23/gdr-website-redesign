@@ -887,6 +887,20 @@ ul, ol {
   font-size: 0.85rem;
 }
 
+.mobile-view-all {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 4px;
+  font-weight: 600;
+  color: var(--color-primary-navy);
+  font-size: 0.82rem;
+  text-decoration: underline;
+}
+
+.mobile-view-all:hover {
+  color: var(--color-accent-amber);
+}
+
 /* --------------------------------------------------------------------------
    7. Homepage Hero Section
    Prominent, government-appropriate, restrained, image & text carousel
@@ -4016,7 +4030,8 @@ ul, ol {
 }
 
 .nav14-menu-card:hover,
-.nav14-menu-card:focus-visible {
+.nav14-menu-card:focus-visible,
+.nav14-menu-card.is-selected {
   background-color: var(--color-primary-slate-tint, #edf3f7);
   transform: translateX(2px);
 }
@@ -4035,7 +4050,8 @@ ul, ol {
   margin-top: 2px;
 }
 
-.nav14-menu-card:hover .nav14-menu-card__icon {
+.nav14-menu-card:hover .nav14-menu-card__icon,
+.nav14-menu-card.is-selected .nav14-menu-card__icon {
   background-color: var(--color-primary-slate, #35556B);
   color: var(--color-white, #FFFFFF);
 }
@@ -4054,7 +4070,8 @@ ul, ol {
   transition: color 0.18s ease;
 }
 
-.nav14-menu-card:hover .nav14-menu-card__title {
+.nav14-menu-card:hover .nav14-menu-card__title,
+.nav14-menu-card.is-selected .nav14-menu-card__title {
   color: var(--color-primary-slate-dark, #274052);
 }
 

@@ -239,7 +239,8 @@
 }
 
 .nav14-menu-card:hover,
-.nav14-menu-card:focus-visible {
+.nav14-menu-card:focus-visible,
+.nav14-menu-card.is-selected {
   background-color: var(--color-primary-slate-tint, #edf3f7);
   transform: translateX(2px);
 }
@@ -258,7 +259,8 @@
   margin-top: 2px;
 }
 
-.nav14-menu-card:hover .nav14-menu-card__icon {
+.nav14-menu-card:hover .nav14-menu-card__icon,
+.nav14-menu-card.is-selected .nav14-menu-card__icon {
   background-color: var(--color-primary-slate, #35556B);
   color: var(--color-white, #FFFFFF);
 }
@@ -277,7 +279,8 @@
   transition: color 0.18s ease;
 }
 
-.nav14-menu-card:hover .nav14-menu-card__title {
+.nav14-menu-card:hover .nav14-menu-card__title,
+.nav14-menu-card.is-selected .nav14-menu-card__title {
   color: var(--color-primary-slate-dark, #274052);
 }
 
