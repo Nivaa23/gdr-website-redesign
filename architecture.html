@@ -388,21 +388,26 @@
     
     <!-- ======================================================================
          SECTION 1 — ARCHITECTURE HERO
-         Full-width hero banner featuring darkened architectural blueprint/construction
-         theme, centered uppercase page title ARCHITECTURE, restrained premium presentation
+         Full-width architectural video hero with clean typography and restrained overlay
          ====================================================================== -->
     <section class="arch-hero" aria-label="Architecture Discipline Overview">
+      <div class="arch-hero__video-wrap" aria-hidden="true">
+        <video 
+          class="arch-hero__video" 
+          autoplay 
+          loop 
+          muted 
+          playsinline 
+          poster="/assets/images/hero-architecture-complex.jpg"
+          preload="auto"
+        >
+          <source src="/assets/videos/Architecture%20Video.mp4" type="video/mp4">
+          <source src="/assets/videos/architecture-hero.mp4" type="video/mp4">
+        </video>
+        <div class="arch-hero__overlay"></div>
+      </div>
       <div class="arch-hero__container">
-        <div class="arch-hero__badge-wrap">
-          <span class="arch-hero__badge-dot" aria-hidden="true"></span>
-          <span class="arch-hero__badge-text">GDR DISCIPLINE 01 &bull; BUILDING DESIGN &amp; URBAN PLANNING</span>
-        </div>
         <h1 class="arch-hero__title" id="arch-page-heading">ARCHITECTURE</h1>
-        <div class="arch-hero__divider" aria-hidden="true">
-          <span class="arch-hero__divider-line"></span>
-          <span class="arch-hero__divider-diamond"></span>
-          <span class="arch-hero__divider-line"></span>
-        </div>
         <p class="arch-hero__desc">
           Contextual architectural design, comprehensive master planning, and engineering-led infrastructure solutions developed in strict conformance with NBC and international standards.
         </p>
@@ -411,22 +416,11 @@
 
     <!-- ======================================================================
          SECTION 2 — ARCHITECTURE INTRODUCTION
-         Dark charcoal background with subtle technical grid, centered heading ARCHITECTURE,
-         asymmetric two-column composition with visual on left and white info card on right
+         Dark charcoal background with subtle technical grid, asymmetric two-column composition
+         with visual on left and white practice & capabilities card on right
          ====================================================================== -->
-    <section class="arch-intro" id="arch-intro" aria-labelledby="arch-intro-heading">
+    <section class="arch-intro" id="arch-intro" aria-labelledby="arch-intro-practice-heading">
       <div class="container">
-        
-        <!-- Centered Section Heading -->
-        <div class="arch-intro__header">
-          <div class="arch-intro__heading-wrap">
-            <h2 class="arch-intro__heading" id="arch-intro-heading">ARCHITECTURE</h2>
-            <div class="arch-intro__accent-line" aria-hidden="true">
-              <span class="arch-intro__accent-bar"></span>
-              <span class="arch-intro__accent-bar arch-intro__accent-bar--secondary"></span>
-            </div>
-          </div>
-        </div>
 
         <!-- Asymmetric Two-Column Composition -->
         <div class="arch-intro__grid">
@@ -453,7 +447,7 @@
           <div class="arch-intro__card-col">
             <div class="arch-intro__info-card">
               <span class="arch-intro__card-tag">PRACTICE &amp; CAPABILITIES</span>
-              <h3 class="arch-intro__card-heading">Engineering-Driven Architecture for Civic and Institutional Built Environments</h3>
+              <h3 class="arch-intro__card-heading" id="arch-intro-practice-heading">Engineering-Driven Architecture for Civic and Institutional Built Environments</h3>
               <div class="arch-intro__card-body">
                 <p>
                   Geo Designs &amp; Research provides holistic architectural and master planning consultancy across institutional, healthcare, civic administration, and large-scale residential infrastructure. Combining multi-disciplinary engineering depth with functional spatial planning, our team creates enduring environments tailored to site geography, urban context, and statutory guidelines.
@@ -758,12 +752,12 @@
         </div>
 
         <!-- ------------------------------------------------------------------
-             CATEGORY 4: HANGERS (Exact prescribed spelling)
+             CATEGORY 4: HANGARS
              ------------------------------------------------------------------ -->
-        <div class="arch-category-section" id="cat-hangers">
+        <div class="arch-category-section" id="cat-hangars">
           <div class="arch-category-header">
             <span class="arch-category-tag">CATEGORY 04</span>
-            <h3 class="arch-category-title">HANGERS</h3>
+            <h3 class="arch-category-title">HANGARS</h3>
             <div class="arch-category-divider" aria-hidden="true">
               <span class="arch-category-divider-line"></span>
               <span class="arch-category-divider-dot"></span>
@@ -772,7 +766,7 @@
           </div>
 
           <div class="arch-grid arch-grid--2col">
-            <!-- Hanger 1 -->
+            <!-- Hangar 1 -->
             <article class="arch-card">
               <div class="corner-accent top-left" aria-hidden="true"></div>
               <div class="corner-accent top-right" aria-hidden="true"></div>
@@ -801,7 +795,7 @@
               </div>
             </article>
 
-            <!-- Hanger 2 -->
+            <!-- Hangar 2 -->
             <article class="arch-card">
               <div class="corner-accent top-left" aria-hidden="true"></div>
               <div class="corner-accent top-right" aria-hidden="true"></div>
@@ -833,12 +827,12 @@
         </div>
 
         <!-- ------------------------------------------------------------------
-             CATEGORY 5: INSTITUTE BUILDING
+             CATEGORY 5: INSTITUTE BUILDINGS
              ------------------------------------------------------------------ -->
         <div class="arch-category-section" id="cat-institute-building">
           <div class="arch-category-header">
             <span class="arch-category-tag">CATEGORY 05</span>
-            <h3 class="arch-category-title">INSTITUTE BUILDING</h3>
+            <h3 class="arch-category-title">INSTITUTE BUILDINGS</h3>
             <div class="arch-category-divider" aria-hidden="true">
               <span class="arch-category-divider-line"></span>
               <span class="arch-category-divider-dot"></span>
