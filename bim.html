@@ -382,24 +382,29 @@
          Supporting tagline: Constructible Models for Better Construction
          ==================================================================== -->
     <section class="bim-hero" id="bim-hero" aria-label="BIM Service Overview">
-      <div class="bim-hero__backdrop" aria-hidden="true">
-        <img 
-          src="/assets/images/hero-architecture-complex.jpg" 
-          alt="Architectural engineering and 3D coordination model" 
-          class="bim-hero__bg-img"
-          loading="eager"
+      <div class="bim-hero__video-wrap" aria-hidden="true">
+        <video 
+          class="bim-hero__video" 
+          autoplay 
+          loop 
+          muted 
+          playsinline 
+          poster="/assets/images/hero-architecture-complex.jpg"
+          preload="auto"
         >
-        <div class="bim-hero__blueprint-grid"></div>
+          <source src="/assets/videos/bim-hero.mp4" type="video/mp4">
+        </video>
         <div class="bim-hero__overlay"></div>
       </div>
 
       <div class="bim-hero__inner">
+        <!-- Eyebrow label -->
         <div class="bim-hero__badge">
           <span class="bim-hero__badge-dot"></span>
           <span class="bim-hero__badge-text">DISCIPLINE 02 // CIVIL &amp; ARCHITECTURAL BIM</span>
         </div>
 
-        <!-- Primary title: BIM -->
+        <!-- Dominant primary title: BIM -->
         <h1 class="bim-hero__title">BIM</h1>
 
         <!-- Supporting heading: BUILDING INFORMATION MODELLING -->
@@ -408,7 +413,7 @@
         <!-- Supporting tagline: Constructible Models for Better Construction -->
         <p class="bim-hero__tagline">Constructible Models for Better Construction</p>
 
-        <!-- Meta strip -->
+        <!-- Secondary technical information strip -->
         <div class="bim-hero__meta-strip">
           <span class="bim-hero__meta-pill"><strong>Multi-Disciplinary:</strong> Architecture &bull; Structure &bull; MEP</span>
           <span class="bim-hero__meta-divider" aria-hidden="true">/</span>
