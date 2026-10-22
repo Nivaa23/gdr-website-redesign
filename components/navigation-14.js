@@ -6,6 +6,7 @@
  * keyboard controls, responsive state management, and featured card animations.
  */
 import './Navigation14.css';
+import { CANONICAL_ROUTES, getServiceRoute } from '../js/routes.js';
 
 export const EXPERTISE_SERVICES = {
   'pmc': {
@@ -218,7 +219,7 @@ export function mountNavigation14(headerElement, options = {}) {
     }
     if (featuredAction) {
       const isSubpage = window.location.pathname.includes('about') || window.location.pathname.includes('architecture');
-      featuredAction.href = isSubpage ? service.urlAbout : service.url;
+      featuredAction.href = getServiceRoute(categoryKey, isSubpage);
       featuredAction.setAttribute('aria-label', `Explore ${service.title} Capabilities`);
     }
   }
@@ -235,12 +236,19 @@ export function mountNavigation14(headerElement, options = {}) {
     });
 
     card.addEventListener('click', (e) => {
+      const href = card.getAttribute('href');
+      // Dedicated canonical page routes navigate immediately
+      if (href && !href.startsWith('#')) {
+        closePanel();
+        return;
+      }
+
       const isAlreadySelected = card.classList.contains('is-selected');
       selectService(categoryKey, card);
       if (isAlreadySelected) {
         closePanel();
       } else {
-        // Prevent immediate navigation so the user can inspect details in the right panel
+        // Prevent scroll jump on first click for in-page anchors on desktop
         e.preventDefault();
       }
     });
