@@ -8,6 +8,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         about: resolve(__dirname, 'about-1.html'),
         architecture: resolve(__dirname, 'architecture.html'),
+        bim: resolve(__dirname, 'bim.html'),
       },
     },
   },

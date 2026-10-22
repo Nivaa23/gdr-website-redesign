@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BIM (Building Information Modelling) | Geo Designs &amp; Research — Multidisciplinary Engineering Consultancy</title>
+  <meta name="description" content="Geo Designs &amp; Research BIM (Building Information Modelling) consultancy. Constructible Models for Better Construction, 3D–7D BIM coordination, clash detection, quantity takeoffs, 4D/5D simulation, and quality auditing.">
+
+  <!-- Favicon derived from official company logo -->
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/favicon.png">
+
+  <!-- Typography: Hanken Grotesk (Primary) & Geist Mono (Labels exclusively) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/components/Navigation14.css">
+  <link rel="stylesheet" href="/css/bim.css">
+</head>
+<body>
+  <!-- Skip link for keyboard accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top Corporate Utility Bar -->
+  <div class="top-bar" aria-label="Corporate Details">
+    <div class="container top-bar__inner">
+      <div class="top-bar__tagline">
+        <span class="status-indicator"></span> Multidisciplinary Engineering Consultancy &amp; Research
+      </div>
+      <div class="top-bar__meta">
+        <span class="top-bar__badge">Government &amp; Institutional Partner</span>
+        <span class="top-bar__divider" aria-hidden="true">|</span>
+        <span class="top-bar__contact">An ISO 9001:2015 Certified Organization</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Primary Header & Navigation Bar (React Bits Pro Navigation 14) -->
+  <header class="site-header nav14-header" id="site-header">
+    <div class="container site-header__inner nav14-container">
+      <!-- Official Company Logo on Left -->
+      <a href="/index.html" class="brand-link nav14-brand cursor-target" id="brand-link" aria-label="Geo Designs &amp; Research - Return to Homepage">
+        <img 
+          src="/assets/images/gdr-logo.png" 
+          alt="Geo Designs &amp; Research Official Logo" 
+          class="brand-logo nav14-logo" 
+          id="brand-logo"
+          width="78"
+          height="70"
+          loading="eager"
+        >
+        <div class="brand-text nav14-brand-text">
+          <span class="brand-name nav14-brand-name">GEO DESIGNS &amp; RESEARCH</span>
+          <span class="brand-sub nav14-brand-sub">ENGINEERING CONSULTANCY &amp; RESEARCH</span>
+        </div>
+      </a>
+
+      <!-- Primary Navigation Links -->
+      <nav class="primary-nav nav14-nav" id="primary-nav" aria-label="Primary Navigation">
+        <ul class="nav-list nav14-list" role="menubar">
+          <!-- 1. About Us -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="/about-1.html" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-about">
+              About Us
+            </a>
+          </li>
+
+          <!-- 2. Expertise (React Bits Pro Navigation 14 Mega Panel Dropdown + Featured Card) -->
+          <li class="nav-item nav14-item nav-item--has-dropdown" role="none" id="expertise-nav-item">
+            <button 
+              type="button" 
+              class="nav-link nav14-link nav14-trigger is-active cursor-target" 
+              id="expertise-menu-button" 
+              aria-expanded="false" 
+              aria-haspopup="true"
+              aria-controls="nav14-mega-panel"
+              role="menuitem"
+              data-nav14-trigger
+            >
+              <span>Expertise</span>
+              <svg class="nav-arrow-icon nav14-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+
+            <!-- Navigation 14 Mega Panel Dropdown -->
+            <div 
+              class="nav14-mega-panel" 
+              id="nav14-mega-panel" 
+              role="region" 
+              aria-label="Expertise Capabilities Directory"
+              hidden
+              data-nav14-panel
+            >
+              <div class="nav14-panel-inner">
+                <div class="nav14-panel-grid">
+                  <!-- Column 1: Infrastructure & Civil Engineering -->
+                  <div class="nav14-col">
+                    <div class="nav14-col-header">
+                      <span class="nav14-col-tag">DIVISION 01</span>
+                      <h3 class="nav14-col-title">Infrastructure &amp; Civil</h3>
+                    </div>
+                    <ul class="nav14-col-list">
+                      <li>
+                        <a href="/index.html#card-bridge-engineering" class="nav14-menu-card cursor-target" data-category="bridge">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19h16M4 15l4-8h8l4 8M9 7v12M15 7v12"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Bridge Engineering</span>
+                            <span class="nav14-menu-card__desc">Structural diagnostics &amp; rehabilitation</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/index.html#card-hydro-highway-dpr" class="nav14-menu-card cursor-target" data-category="hydro">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h20M7 5l5 14 5-14"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Hydro &amp; Highway DPR</span>
+                            <span class="nav14-menu-card__desc">Hydraulic modeling &amp; alignments</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/index.html#card-pmc" class="nav14-menu-card cursor-target" data-category="pmc">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2M9 2h6a1 1 0 011 1v2a1 1 0 01-1 1H9a1 1 0 01-1-1V3a1 1 0 011-1z"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Project Management Consultancy</span>
+                            <span class="nav14-menu-card__desc">EPC supervision &amp; quality control</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/index.html#card-structure" class="nav14-menu-card cursor-target" data-category="structure">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Structural Engineering</span>
+                            <span class="nav14-menu-card__desc">Seismic design &amp; high-rise analysis</span>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Column 2: Design & Technology -->
+                  <div class="nav14-col">
+                    <div class="nav14-col-header">
+                      <span class="nav14-col-tag">DIVISION 02</span>
+                      <h3 class="nav14-col-title">Design &amp; Technology</h3>
+                    </div>
+                    <ul class="nav14-col-list">
+                      <li>
+                        <a href="/architecture.html" class="nav14-menu-card cursor-target" data-category="architecture">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Architecture &amp; Master Planning</span>
+                            <span class="nav14-menu-card__desc">Institutional, urban &amp; landscape design</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/bim.html" class="nav14-menu-card cursor-target is-selected" data-category="bim" aria-current="page">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">BIM Modeling &amp; Auditing</span>
+                            <span class="nav14-menu-card__desc">3D-7D BIM clash detection &amp; lifecycle</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/index.html#card-mepf" class="nav14-menu-card cursor-target" data-category="mepf">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">MEPF Engineering</span>
+                            <span class="nav14-menu-card__desc">HVAC, electrical, plumbing &amp; fire safety</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/index.html#card-green-building" class="nav14-menu-card cursor-target" data-category="sustainability">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0110 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0112 2zm0 4v8l5 3"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Environmentally Sustainable Solutions</span>
+                            <span class="nav14-menu-card__desc">EIA, green building &amp; solar audit</span>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Column 3: Quality Assurance & Governance -->
+                  <div class="nav14-col">
+                    <div class="nav14-col-header">
+                      <span class="nav14-col-tag">DIVISION 03</span>
+                      <h3 class="nav14-col-title">Assurance &amp; Governance</h3>
+                    </div>
+                    <ul class="nav14-col-list">
+                      <li>
+                        <a href="/index.html#card-lab-testing" class="nav14-menu-card cursor-target" data-category="lab">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3h6v3H9zM10 6v6.5L6 19a1 1 0 001 1h10a1 1 0 001-1l-4-6.5V6"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Laboratory &amp; Material Testing</span>
+                            <span class="nav14-menu-card__desc">NABL &amp; MoRTH soil, steel, NDT</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/index.html#card-survey" class="nav14-menu-card cursor-target" data-category="survey">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Land &amp; Topographical Survey</span>
+                            <span class="nav14-menu-card__desc">Drone LiDAR &amp; DGPS bathymetry</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/index.html#card-commerce-contract" class="nav14-menu-card cursor-target" data-category="commerce">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Commerce &amp; Contract Management</span>
+                            <span class="nav14-menu-card__desc">FIDIC claims, techno-legal arbitration</span>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Column 4: React Bits Pro Dynamic Featured Card -->
+                  <div class="nav14-col nav14-col--featured">
+                    <div class="nav14-featured-card" id="nav14-featured-card">
+                      <div class="nav14-featured-card__media">
+                        <img 
+                          src="/assets/images/expertise-bim.svg" 
+                          alt="BIM Modeling &amp; Auditing preview" 
+                          class="nav14-featured-card__img"
+                          id="nav14-featured-img"
+                          width="320"
+                          height="180"
+                          loading="lazy"
+                        >
+                        <span class="nav14-featured-card__tag" id="nav14-featured-tag">DIVISION 02 // SERVICES</span>
+                      </div>
+                      <div class="nav14-featured-card__body">
+                        <h4 class="nav14-featured-card__title" id="nav14-featured-title">BIM Modeling &amp; Auditing</h4>
+                        <p class="nav14-featured-card__desc" id="nav14-featured-desc">
+                          Multi-disciplinary 3D-7D Building Information Modelling, automated clash detection, quantity takeoff, construction simulation (4D/5D), and BIM model auditing.
+                        </p>
+                        <a href="/bim.html" class="nav14-featured-card__action cursor-target" id="nav14-featured-action" aria-label="Explore BIM Capabilities">
+                          <span>Explore Service</span>
+                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                            <path d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- 3. Credentials -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="/index.html#credentials" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-credentials">
+              Credentials
+            </a>
+          </li>
+
+          <!-- 4. Downloads -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="/index.html#downloads" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-downloads">
+              Downloads
+            </a>
+          </li>
+
+          <!-- 5. Career -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="/index.html#career" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-career">
+              Career
+            </a>
+          </li>
+
+          <!-- 6. Projects -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="/index.html#projects" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-projects">
+              Projects
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Primary Action CTA Button -->
+      <div class="header-actions nav14-actions">
+        <a href="/index.html#contact-us" class="btn btn--primary nav14-cta cursor-target" id="header-talk-to-us-btn">
+          Talk to Us
+        </a>
+
+        <!-- Mobile Menu Toggle Button (Hamburger) -->
+        <button 
+          type="button" 
+          class="mobile-menu-btn nav14-mobile-toggle" 
+          id="mobile-menu-btn" 
+          aria-expanded="false" 
+          aria-controls="mobile-nav" 
+          aria-label="Toggle mobile menu"
+        >
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile Navigation" hidden>
+      <div class="mobile-nav-inner">
+        <ul class="mobile-nav-list">
+          <li><a href="/index.html" class="mobile-nav-link">Home</a></li>
+          <li><a href="/about-1.html" class="mobile-nav-link">About Us</a></li>
+          <li class="mobile-nav-item--accordion">
+            <button type="button" class="mobile-nav-link mobile-accordion-btn" id="mobile-expertise-toggle" aria-expanded="true">
+              <span>Expertise</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.8"/></svg>
+            </button>
+            <div class="mobile-accordion-content" id="mobile-expertise-content">
+              <ul class="mobile-subnav-list">
+                <li><a href="/architecture.html">Architecture &amp; Master Planning</a></li>
+                <li><a href="/bim.html" class="is-active">BIM Modeling &amp; Auditing</a></li>
+                <li><a href="/index.html#card-bridge-engineering">Bridge Engineering</a></li>
+                <li><a href="/index.html#card-commerce-contract">Commerce &amp; Contract Management</a></li>
+                <li><a href="/index.html#card-hydro-highway-dpr">Hydro &amp; Highway DPR</a></li>
+                <li><a href="/index.html#card-lab-testing">Laboratory &amp; Material Testing</a></li>
+                <li><a href="/index.html#card-mepf">MEPF Engineering</a></li>
+                <li><a href="/index.html#card-pmc">Project Management Consultancy (PMC)</a></li>
+                <li><a href="/index.html#card-structure">Structural Engineering</a></li>
+                <li><a href="/index.html#card-survey">Land &amp; Topographical Survey</a></li>
+                <li><a href="/index.html#card-green-building">Environmentally Sustainable Solutions</a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="/index.html#credentials" class="mobile-nav-link">Credentials</a></li>
+          <li><a href="/index.html#downloads" class="mobile-nav-link">Downloads</a></li>
+          <li><a href="/index.html#career" class="mobile-nav-link">Career</a></li>
+          <li><a href="/index.html#projects" class="mobile-nav-link">Projects</a></li>
+          <li><a href="/index.html#contact-us" class="btn btn--primary mobile-nav-cta">Talk to Us</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ======================================================================
+       MAIN CONTENT CONTAINER
+       ====================================================================== -->
+  <main id="main-content">
+
+    <!-- ====================================================================
+         SECTION 1 — BIM HERO BANNER
+         Primary title: BIM
+         Supporting heading: BUILDING INFORMATION MODELLING
+         Supporting tagline: Constructible Models for Better Construction
+         ==================================================================== -->
+    <section class="bim-hero" id="bim-hero" aria-label="BIM Service Overview">
+      <div class="bim-hero__backdrop" aria-hidden="true">
+        <img 
+          src="/assets/images/hero-architecture-complex.jpg" 
+          alt="Architectural engineering and 3D coordination model" 
+          class="bim-hero__bg-img"
+          loading="eager"
+        >
+        <div class="bim-hero__blueprint-grid"></div>
+        <div class="bim-hero__overlay"></div>
+      </div>
+
+      <div class="bim-hero__inner">
+        <div class="bim-hero__badge">
+          <span class="bim-hero__badge-dot"></span>
+          <span class="bim-hero__badge-text">DISCIPLINE 02 // CIVIL &amp; ARCHITECTURAL BIM</span>
+        </div>
+
+        <!-- Primary title: BIM -->
+        <h1 class="bim-hero__title">BIM</h1>
+
+        <!-- Supporting heading: BUILDING INFORMATION MODELLING -->
+        <h2 class="bim-hero__subtitle">BUILDING INFORMATION MODELLING</h2>
+
+        <!-- Supporting tagline: Constructible Models for Better Construction -->
+        <p class="bim-hero__tagline">Constructible Models for Better Construction</p>
+
+        <!-- Meta strip -->
+        <div class="bim-hero__meta-strip">
+          <span class="bim-hero__meta-pill"><strong>Multi-Disciplinary:</strong> Architecture &bull; Structure &bull; MEP</span>
+          <span class="bim-hero__meta-divider" aria-hidden="true">/</span>
+          <span class="bim-hero__meta-pill"><strong>Dimensions:</strong> 3D Modelling to 7D Lifecycle</span>
+          <span class="bim-hero__meta-divider" aria-hidden="true">/</span>
+          <span class="bim-hero__meta-pill"><strong>Standards:</strong> ISO 9001:2015 &bull; EMS ISO 14001:2015</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 2 — WHAT IS BIM?
+         Heading: What is BIM
+         Large coordination visual paired with readable text panel
+         ==================================================================== -->
+    <section class="bim-intro-section" id="what-is-bim">
+      <div class="container">
+        <div class="bim-editorial-grid">
+          
+          <!-- Large BIM Coordination Visual -->
+          <div class="bim-visual-panel">
+            <div class="corner-accent top-left" aria-hidden="true"></div>
+            <div class="corner-accent top-right" aria-hidden="true"></div>
+            <div class="corner-accent bottom-left" aria-hidden="true"></div>
+            <div class="corner-accent bottom-right" aria-hidden="true"></div>
+
+            <img 
+              src="/assets/images/expertise-bim.svg" 
+              alt="3D Building Information Modelling Envelope and Technical Wireframe" 
+              class="bim-visual-panel__img"
+              width="600"
+              height="410"
+              loading="lazy"
+            >
+            <div class="bim-visual-panel__badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+              </svg>
+              <span>COORDINATED MULTI-DISCIPLINARY BIM MODEL</span>
+            </div>
+          </div>
+
+          <!-- Editorial Text Panel -->
+          <div class="bim-text-panel">
+            <span class="bim-section-tag">OVERVIEW &bull; SECTION 02</span>
+            <h2 class="bim-editorial-heading">What is BIM</h2>
+            <div class="bim-divider" style="margin-bottom: 24px;">
+              <span class="bim-divider-line"></span>
+              <span class="bim-divider-dot"></span>
+              <span class="bim-divider-line bim-divider-line--green"></span>
+            </div>
+
+            <!-- Verified Core Definition from GDR Engineering Registry -->
+            <p class="bim-editorial-lead">
+              Multi-disciplinary 3D to 7D Building Information Modelling, automated clash detection, quantity takeoff, construction simulation (4D/5D), and BIM model auditing for complex civil, institutional, and commercial infrastructure.
+            </p>
+
+            <ul class="bim-editorial-bullets">
+              <li>
+                <svg class="bim-bullet-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span><strong>Constructible Digital Twin:</strong> High-precision parametric geometry integrating architectural envelopes, structural frameworks, and MEP engineering networks.</span>
+              </li>
+              <li>
+                <svg class="bim-bullet-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span><strong>Single Source of Truth:</strong> Coordinated project intelligence ensuring zero discrepancy between 2D shop drawings, 3D spatial models, and Bill of Quantities (BoQ).</span>
+              </li>
+            </ul>
+
+            <!-- Explicit Archive Notice (per prompt instructions regarding illegible original screenshot text) -->
+            <div class="bim-source-notice">
+              <span class="bim-source-badge">Archive Notice</span>
+              <span>Original archive introductory narrative pending textual verification; primary engineering specifications and verified scopes are active below.</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 3 — WHY BIM?
+         Heading: Why BIM?
+         Clean editorial layout with balanced whitespace
+         ==================================================================== -->
+    <section class="bim-why-section" id="why-bim">
+      <div class="container">
+        <div class="bim-why-grid">
+          
+          <div class="bim-why-editorial">
+            <span class="bim-section-tag">VALUE PROPOSITION &bull; SECTION 03</span>
+            <h2 class="bim-editorial-heading">Why BIM?</h2>
+            <div class="bim-divider" style="margin-bottom: 24px;">
+              <span class="bim-divider-line"></span>
+              <span class="bim-divider-dot"></span>
+              <span class="bim-divider-line bim-divider-line--green"></span>
+            </div>
+            <p class="bim-editorial-lead">
+              Constructible Models for Better Construction: Transforming architectural vision and structural designs into clash-free, cost-controlled, and schedule-predictable engineering deliverables.
+            </p>
+            <div class="bim-source-notice">
+              <span class="bim-source-badge">Archive Notice</span>
+              <span>Extended descriptive copy from original archive is recorded as pending source verification; the verified technical capabilities are detailed below.</span>
+            </div>
+          </div>
+
+          <!-- 4 Balanced Value Cards -->
+          <div class="bim-why-cards">
+            <div class="bim-why-card">
+              <div class="corner-accent top-left" aria-hidden="true"></div>
+              <div class="corner-accent top-right" aria-hidden="true"></div>
+              <div class="bim-why-card__num">01 // CONSTRUCTIBILITY</div>
+              <h3 class="bim-why-card__title">Clash Mitigation</h3>
+              <p class="bim-why-card__desc">Pre-construction spatial conflict detection between architectural, structural, and MEP trades to eradicate costly on-site rework.</p>
+            </div>
+
+            <div class="bim-why-card">
+              <div class="corner-accent top-left" aria-hidden="true"></div>
+              <div class="corner-accent top-right" aria-hidden="true"></div>
+              <div class="bim-why-card__num">02 // PRECISION</div>
+              <h3 class="bim-why-card__title">Automated Quantities</h3>
+              <p class="bim-why-card__desc">Model-driven Bill of Quantities (BoQ) and Bar Bending Schedules (BBS) for transparent cost control and tendering confidence.</p>
+            </div>
+
+            <div class="bim-why-card">
+              <div class="corner-accent top-left" aria-hidden="true"></div>
+              <div class="corner-accent top-right" aria-hidden="true"></div>
+              <div class="bim-why-card__num">03 // SIMULATION</div>
+              <h3 class="bim-why-card__title">4D / 5D Timeline</h3>
+              <p class="bim-why-card__desc">Synchronized construction sequence simulation and cash flow forecasting to safeguard project commissioning milestones.</p>
+            </div>
+
+            <div class="bim-why-card">
+              <div class="corner-accent top-left" aria-hidden="true"></div>
+              <div class="corner-accent top-right" aria-hidden="true"></div>
+              <div class="bim-why-card__num">04 // COLLABORATION</div>
+              <h3 class="bim-why-card__title">Lifecycle Governance</h3>
+              <p class="bim-why-card__desc">Coordinated multi-party review sessions and cloud-based issue tracking providing unified oversight from design to facility handover.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 4 — FEATURED BIM PROJECTS
+         Heading: OUR PROJECTS
+         Titles:
+           - Thel Sena Bhawan
+           - Tirupati Railway Station
+           - Smart World One DXP
+           - Married Accommodation
+           - School of Artillery
+         ==================================================================== -->
+    <section class="bim-featured-section" id="featured-projects">
+      <div class="container">
+        
+        <div class="bim-section-header">
+          <span class="bim-section-tag">SHOWCASE &bull; SECTION 04</span>
+          <h2 class="bim-section-title">OUR PROJECTS</h2>
+          <div class="bim-divider" aria-hidden="true">
+            <span class="bim-divider-line"></span>
+            <span class="bim-divider-dot"></span>
+            <span class="bim-divider-line bim-divider-line--green"></span>
+          </div>
+          <p class="bim-section-lead">
+            Featured Building Information Modelling engagements across major government, defence, transit, and luxury residential infrastructure.
+          </p>
+        </div>
+
+        <div class="bim-featured-grid">
+          
+          <!-- Project 1: Thel Sena Bhawan -->
+          <article class="bim-featured-card">
+            <div class="corner-accent top-left" aria-hidden="true"></div>
+            <div class="corner-accent top-right" aria-hidden="true"></div>
+            <div class="bim-featured-card__media">
+              <img 
+                src="/assets/images/architecture/Administration/PMC%20SERVICE%20FOR%20CHETAK%20COMMANDO%20CENTER%20AT%20MAGODI,GANDHINAGAR.png" 
+                alt="Thel Sena Bhawan Defence Headquarters complex model" 
+                class="bim-featured-card__img"
+                loading="lazy"
+                width="360"
+                height="240"
+              >
+            </div>
+            <div class="bim-featured-card__body">
+              <span class="bim-featured-card__tag">DEFENCE // HEADQUARTERS</span>
+              <h3 class="bim-featured-card__title">Thel Sena Bhawan</h3>
+            </div>
+          </article>
+
+          <!-- Project 2: Tirupati Railway Station -->
+          <article class="bim-featured-card">
+            <div class="corner-accent top-left" aria-hidden="true"></div>
+            <div class="corner-accent top-right" aria-hidden="true"></div>
+            <div class="bim-featured-card__media">
+              <img 
+                src="/assets/images/architecture/Auditorium/PROVISION%20OF%20DEFICIENT%20AUDITORIUM%20AT%20VISHAKHAPATANAM.jpg" 
+                alt="Tirupati Railway Station Redevelopment BIM Coordination" 
+                class="bim-featured-card__img"
+                loading="lazy"
+                width="360"
+                height="240"
+              >
+            </div>
+            <div class="bim-featured-card__body">
+              <span class="bim-featured-card__tag">RAILWAYS // TRANSIT HUB</span>
+              <h3 class="bim-featured-card__title">Tirupati Railway Station</h3>
+            </div>
+          </article>
+
+          <!-- Project 3: Smart World One DXP -->
+          <article class="bim-featured-card">
+            <div class="corner-accent top-left" aria-hidden="true"></div>
+            <div class="corner-accent top-right" aria-hidden="true"></div>
+            <div class="bim-featured-card__media">
+              <img 
+                src="/assets/images/architecture/Residential/CONSTRUCTION%20OF%20CRITICAL%20REQUIREMENT%20DWELLING%20UNIT%20OUTSIDE%20MAP%20AT%20INS%20MANDOVI-TYPE%205%20G+10.jpg" 
+                alt="Smart World One DXP High-Rise Residential BIM Model" 
+                class="bim-featured-card__img"
+                loading="lazy"
+                width="360"
+                height="240"
+              >
+            </div>
+            <div class="bim-featured-card__body">
+              <span class="bim-featured-card__tag">COMMERCIAL // HIGH-RISE</span>
+              <h3 class="bim-featured-card__title">Smart World One DXP</h3>
+            </div>
+          </article>
+
+          <!-- Project 4: Married Accommodation -->
+          <article class="bim-featured-card">
+            <div class="corner-accent top-left" aria-hidden="true"></div>
+            <div class="corner-accent top-right" aria-hidden="true"></div>
+            <div class="bim-featured-card__media">
+              <img 
+                src="/assets/images/architecture/Residential/MARRIED%20ACCOMMODATION%20(464%20DUS)%20(G+30)%20AT%20TROMBAY%20,%20MUMBAI.jpg" 
+                alt="Married Accommodation (464 DUs) (G+30) Trombay Mumbai" 
+                class="bim-featured-card__img"
+                loading="lazy"
+                width="360"
+                height="240"
+              >
+            </div>
+            <div class="bim-featured-card__body">
+              <span class="bim-featured-card__tag">RESIDENTIAL // G+30 TOWERS</span>
+              <h3 class="bim-featured-card__title">Married Accommodation</h3>
+            </div>
+          </article>
+
+          <!-- Project 5: School of Artillery -->
+          <article class="bim-featured-card">
+            <div class="corner-accent top-left" aria-hidden="true"></div>
+            <div class="corner-accent top-right" aria-hidden="true"></div>
+            <div class="bim-featured-card__media">
+              <img 
+                src="/assets/images/architecture/Institute%20Buildings/AUGMENTATION%20OF%20TRG%20INFRASTRUCTURE%20IN%20HIGHER%20COMMAND%20WING%20IN%20AWC%20MHOW_NALANDA.jpg" 
+                alt="School of Artillery Institutional Training Infrastructure" 
+                class="bim-featured-card__img"
+                loading="lazy"
+                width="360"
+                height="240"
+              >
+            </div>
+            <div class="bim-featured-card__body">
+              <span class="bim-featured-card__tag">MILITARY // TRAINING COMPLEX</span>
+              <h3 class="bim-featured-card__title">School of Artillery</h3>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 5 — BIM PROJECT PORTFOLIO
+         Exact visible project titles:
+           1. Single Living Accn At Ins Hamla-navy Mumbai
+           2. Construction Of 30 Bedded Hospital At Naval Station, Karanja
+           3. Married Accn (G+26) For Defence Civilians At NCHC Powai, Mumbai
+           4. Chennai Metro Station, Varinder Construction Limited
+           5. Queen Spadina Station, Ontario South Line, Canada, Canada
+           6. Formulation Plant At Vadodara
+         ==================================================================== -->
+    <section class="bim-portfolio-section" id="bim-portfolio">
+      <div class="container">
+        
+        <div class="bim-section-header">
+          <span class="bim-section-tag">PORTFOLIO &bull; SECTION 05</span>
+          <h2 class="bim-section-title">BIM PROJECT PORTFOLIO</h2>
+          <div class="bim-divider" aria-hidden="true">
+            <span class="bim-divider-line"></span>
+            <span class="bim-divider-dot"></span>
+            <span class="bim-divider-line bim-divider-line--green"></span>
+          </div>
+          <p class="bim-section-lead">
+            Executed multi-disciplinary BIM assignments across defence infrastructure, transit networks, healthcare, and industrial processing plants.
+          </p>
+        </div>
+
+        <div class="bim-portfolio-grid">
+          
+          <!-- Project 1: Single Living Accn At Ins Hamla-navy Mumbai -->
+          <article class="bim-card">
+            <div class="corner-accent top-left" aria-hidden="true"></div>
+            <div class="corner-accent top-right" aria-hidden="true"></div>
+            <div class="corner-accent bottom-left" aria-hidden="true"></div>
+            <div class="corner-accent bottom-right" aria-hidden="true"></div>
+
+            <div class="bim-card__media">
+              <img 
+                src="/assets/images/architecture/Residential/RECONSTRUCTION%20OF%20IN%20LIVING%20OFFICERS%20SERVANTS%20QUARTERS%20AT%20INHS%20ASVINI.(G+19).jpg" 
+                alt="Single Living Accn At Ins Hamla-navy Mumbai BIM Coordination" 
+                class="bim-card__img"
+                loading="lazy"
+                width="600"
+                height="400"
+              >
+              <span class="bim-card__badge">DEFENCE ACCOMMODATION</span>
+            </div>
+            <div class="bim-card__body">
+              <div class="bim-card__meta">
+                <span class="bim-card__location">MUMBAI &bull; NAVAL BASE</span>
+              </div>
+              <h3 class="bim-card__title">Single Living Accn At Ins Hamla-navy Mumbai</h3>
+            </div>
+          </article>
+
+          <!-- Project 2: Construction Of 30 Bedded Hospital At Naval Station, Karanja -->
+          <article class="bim-card">
+            <div class="corner-accent top-left" aria-hidden="true"></div>
+            <div class="corner-accent top-right" aria-hidden="true"></div>
+            <div class="corner-accent bottom-left" aria-hidden="true"></div>
+            <div class="corner-accent bottom-right" aria-hidden="true"></div>
+
+            <div class="bim-card__media">
+              <img 
+                src="/assets/images/architecture/Hospitals/30%20BEDDED%20HOSPITAL%20AT%20NAVAL%20STATION%20KARANJA.jpg" 
+                alt="Construction Of 30 Bedded Hospital At Naval Station, Karanja" 
+                class="bim-card__img"
+                loading="lazy"
+                width="600"
+                height="400"
+              >
+              <span class="bim-card__badge">HEALTHCARE FACILITY</span>
+            </div>
+            <div class="bim-card__body">
+              <div class="bim-card__meta">
+                <span class="bim-card__location">KARANJA &bull; NAVAL STATION</span>
+              </div>
+              <h3 class="bim-card__title">Construction Of 30 Bedded Hospital At Naval Station, Karanja</h3>
+            </div>
+          </article>
+
+          <!-- Project 3: Married Accn (G+26) For Defence Civilians At NCHC Powai, Mumbai -->
+          <article class="bim-card">
+            <div class="corner-accent top-left" aria-hidden="true"></div>
+            <div class="corner-accent top-right" aria-hidden="true"></div>
+            <div class="corner-accent bottom-left" aria-hidden="true"></div>
+            <div class="corner-accent bottom-right" aria-hidden="true"></div>
+
+            <div class="bim-card__media">
+              <img 
+                src="/assets/images/architecture/Residential/MARRIED%20ACCN%20(G+26)%20FOR%20DEFENCE%20CIVILIANS%20AT%20NCHC%20POWAI,%20MUMBAI.jpg" 
+                alt="Married Accn (G+26) For Defence Civilians At NCHC Powai, Mumbai" 
+                class="bim-card__img"
+                loading="lazy"
+                width="600"
+                height="400"
+              >
+              <span class="bim-card__badge">HIGH-RISE RESIDENTIAL</span>
+            </div>
+            <div class="bim-card__body">
+              <div class="bim-card__meta">
+                <span class="bim-card__location">POWAI, MUMBAI &bull; NCHC</span>
+              </div>
+              <h3 class="bim-card__title">Married Accn (G+26) For Defence Civilians At NCHC Powai, Mumbai</h3>
+            </div>
+          </article>
+
+          <!-- Project 4: Chennai Metro Station, Varinder Construction Limited -->
+          <article class="bim-card">
+            <div class="corner-accent top-left" aria-hidden="true"></div>
+            <div class="corner-accent top-right" aria-hidden="true"></div>
+            <div class="corner-accent bottom-left" aria-hidden="true"></div>
+            <div class="corner-accent bottom-right" aria-hidden="true"></div>
+
+            <div class="bim-card__media">
+              <img 
+                src="/assets/images/architecture/Hangars/CONSTRUCTION%20OF%20ATC%20TOWER%20ALONG%20WITH%20ALLIED%20WORKS%20SERVICES%20AT%20AF%20STN%20KALAIKUNDA.jpg" 
+                alt="Chennai Metro Station Varinder Construction Limited Transit BIM" 
+                class="bim-card__img"
+                loading="lazy"
+                width="600"
+                height="400"
+              >
+              <span class="bim-card__badge">TRANSIT &bull; METRO</span>
+            </div>
+            <div class="bim-card__body">
+              <div class="bim-card__meta">
+                <span class="bim-card__location">CHENNAI &bull; VARINDER CONST.</span>
+              </div>
+              <h3 class="bim-card__title">Chennai Metro Station, Varinder Construction Limited</h3>
+            </div>
+          </article>
+
+          <!-- Project 5: Queen Spadina Station, Ontario South Line, Canada, Canada -->
+          <article class="bim-card">
+            <div class="corner-accent top-left" aria-hidden="true"></div>
+            <div class="corner-accent top-right" aria-hidden="true"></div>
+            <div class="corner-accent bottom-left" aria-hidden="true"></div>
+            <div class="corner-accent bottom-right" aria-hidden="true"></div>
+
+            <div class="bim-card__media">
+              <img 
+                src="/assets/images/hero-infrastructure-bridge.jpg" 
+                alt="Queen Spadina Station, Ontario South Line, Canada Transit BIM Model" 
+                class="bim-card__img"
+                loading="lazy"
+                width="600"
+                height="400"
+              >
+              <span class="bim-card__badge">INTERNATIONAL TRANSIT</span>
+            </div>
+            <div class="bim-card__body">
+              <div class="bim-card__meta">
+                <span class="bim-card__location">ONTARIO, CANADA &bull; SOUTH LINE</span>
+              </div>
+              <h3 class="bim-card__title">Queen Spadina Station, Ontario South Line, Canada, Canada</h3>
+            </div>
+          </article>
+
+          <!-- Project 6: Formulation Plant At Vadodara -->
+          <article class="bim-card">
+            <div class="corner-accent top-left" aria-hidden="true"></div>
+            <div class="corner-accent top-right" aria-hidden="true"></div>
+            <div class="corner-accent bottom-left" aria-hidden="true"></div>
+            <div class="corner-accent bottom-right" aria-hidden="true"></div>
+
+            <div class="bim-card__media">
+              <img 
+                src="/assets/images/architecture/Institute%20Buildings/FIELD%20INSTRUMENT%20GROUP%20AT%20FIT%20EME%20SECTION%20BARODA.jpg" 
+                alt="Formulation Plant At Vadodara Industrial MEP BIM Model" 
+                class="bim-card__img"
+                loading="lazy"
+                width="600"
+                height="400"
+              >
+              <span class="bim-card__badge">INDUSTRIAL &bull; PHARMA</span>
+            </div>
+            <div class="bim-card__body">
+              <div class="bim-card__meta">
+                <span class="bim-card__location">VADODARA, GUJARAT</span>
+              </div>
+              <h3 class="bim-card__title">Formulation Plant At Vadodara</h3>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 6 — OUR SERVICES
+         Heading: Our Services
+         Groups:
+           1. BIM Modelling (9 items)
+           2. ESTIMATION (5 items)
+           3. DOCUMENTATION (3 items)
+           4. BIM Management (5 items)
+         ==================================================================== -->
+    <section class="bim-services-section" id="our-services">
+      <div class="container">
+        
+        <div class="bim-section-header">
+          <span class="bim-section-tag">CAPABILITIES &bull; SECTION 06</span>
+          <h2 class="bim-section-title">Our Services</h2>
+          <div class="bim-divider" aria-hidden="true">
+            <span class="bim-divider-line"></span>
+            <span class="bim-divider-dot"></span>
+            <span class="bim-divider-line bim-divider-line--green"></span>
+          </div>
+          <p class="bim-section-lead">
+            Comprehensive lifecycle BIM capabilities spanning virtual design, quantity estimation, production documentation, and 4D/5D management.
+          </p>
+        </div>
+
+        <div class="bim-services-matrix">
+          
+          <!-- Group 1: BIM Modelling -->
+          <div class="bim-service-group">
+            <div class="corner-accent top-left" aria-hidden="true"></div>
+            <div class="corner-accent top-right" aria-hidden="true"></div>
+            <div class="bim-service-group__header">
+              <span class="bim-service-group__tag">GROUP 01</span>
+              <h3 class="bim-service-group__title">BIM Modelling</h3>
+            </div>
+            <ul class="bim-service-group__list">
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Architectural BIM</span>
+              </li>
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Architectural BIM Modelling</span>
+              </li>
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Structural BIM Modelling</span>
+              </li>
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>MEP BIM Modelling</span>
+              </li>
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Clash Detection</span>
+              </li>
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Detail design and development</span>
+              </li>
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Material Presentation</span>
+              </li>
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Virtual Reality</span>
+              </li>
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>BIM Model Auditing</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Group 2: ESTIMATION -->
+          <div class="bim-service-group">
+            <div class="corner-accent top-left" aria-hidden="true"></div>
+            <div class="corner-accent top-right" aria-hidden="true"></div>
+            <div class="bim-service-group__header">
+              <span class="bim-service-group__tag">GROUP 02</span>
+              <h3 class="bim-service-group__title">ESTIMATION</h3>
+            </div>
+            <ul class="bim-service-group__list">
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Pre-Bid Estimation</span>
+              </li>
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Bill of Materials (BoQ)</span>
+              </li>
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>BOQ Based Quantity Take Off</span>
+              </li>
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>BIM Based Area Take Off</span>
+              </li>
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>BIM Based Bar Bending Schedule</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Group 3: DOCUMENTATION -->
+          <div class="bim-service-group">
+            <div class="corner-accent top-left" aria-hidden="true"></div>
+            <div class="corner-accent top-right" aria-hidden="true"></div>
+            <div class="bim-service-group__header">
+              <span class="bim-service-group__tag">GROUP 03</span>
+              <h3 class="bim-service-group__title">DOCUMENTATION</h3>
+            </div>
+            <ul class="bim-service-group__list">
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>2D Documentation</span>
+              </li>
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Shop Drawings (All disciplines)</span>
+              </li>
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Tender Documentation</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Group 4: BIM Management -->
+          <div class="bim-service-group">
+            <div class="corner-accent top-left" aria-hidden="true"></div>
+            <div class="corner-accent top-right" aria-hidden="true"></div>
+            <div class="bim-service-group__header">
+              <span class="bim-service-group__tag">GROUP 04</span>
+              <h3 class="bim-service-group__title">BIM Management</h3>
+            </div>
+            <ul class="bim-service-group__list">
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>4D - Construction Scheduling</span>
+              </li>
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>5D - Cost and Time Line</span>
+              </li>
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Facility Management</span>
+              </li>
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>Execution Planning</span>
+              </li>
+              <li>
+                <svg class="bim-service-check" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                <span>BIM Training</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 7 — QUALITY PROCESS & HOLD POINTS
+         Heading: Quality Process & Hold Points
+         Supporting text:
+           - QC process is ISO 9001:2015 managed by qualified QC team. We have implemented Environmental Management System EMS ISO 14001:2015.
+           - The main objective of the Quality Control (QC) process is to deliver errors and rework by ensuring client satisfaction and our detailed QC team is well equipped with a highly qualified and experienced Manager.
+         Labels: QC1 -> QC2 -> QC1 -> DELIVERY TO CLIENT
+         ==================================================================== -->
+    <section class="bim-quality-section" id="quality-process">
+      <div class="container">
+        
+        <div class="bim-section-header">
+          <span class="bim-section-tag bim-section-tag--light">GOVERNANCE &bull; SECTION 07</span>
+          <h2 class="bim-section-title bim-section-title--light">Quality Process &amp; Hold Points</h2>
+          <div class="bim-divider" aria-hidden="true">
+            <span class="bim-divider-line"></span>
+            <span class="bim-divider-dot"></span>
+            <span class="bim-divider-line bim-divider-line--green"></span>
+          </div>
+        </div>
+
+        <div class="bim-quality-intro">
+          <div class="bim-iso-badges">
+            <span class="bim-iso-badge">ISO 9001:2015 QUALITY MANAGEMENT SYSTEM</span>
+            <span class="bim-iso-badge">EMS ISO 14001:2015 ENVIRONMENTAL MANAGEMENT SYSTEM</span>
+          </div>
+          <p class="bim-quality-text">
+            QC process is ISO 9001:2015 managed by qualified QC team. We have implemented Environmental Management System EMS ISO 14001:2015.
+          </p>
+          <p class="bim-quality-text" style="color: #94A3B8; font-size: 0.95rem;">
+            The main objective of the Quality Control (QC) process is to deliver errors and rework by ensuring client satisfaction and our detailed QC team is well equipped with a highly qualified and experienced Manager.
+          </p>
+        </div>
+
+        <!-- 4 Sequential Hold Points (Preserving exact displayed labels: QC1, QC2, QC1, DELIVERY TO CLIENT) -->
+        <div class="bim-hold-points-grid">
+          
+          <!-- Step 1: QC1 -->
+          <div class="bim-hold-point-card">
+            <span class="bim-hold-point__step-num">HOLD POINT 01</span>
+            <h3 class="bim-hold-point__label">QC1</h3>
+            <p class="bim-hold-point__desc">Initial architectural &amp; structural model integrity verification, parametric bounding check, and standards compliance review.</p>
+          </div>
+
+          <!-- Step 2: QC2 -->
+          <div class="bim-hold-point-card">
+            <span class="bim-hold-point__step-num">HOLD POINT 02</span>
+            <h3 class="bim-hold-point__label">QC2</h3>
+            <p class="bim-hold-point__desc">Interdisciplinary clash detection (Arch vs Struct vs MEPF), tolerance audit, clearance verification, and resolution reporting.</p>
+          </div>
+
+          <!-- Step 3: QC1 -->
+          <div class="bim-hold-point-card">
+            <span class="bim-hold-point__step-num">HOLD POINT 03</span>
+            <h3 class="bim-hold-point__label">QC1</h3>
+            <p class="bim-hold-point__desc">Secondary verification checkpoint, 2D sheet extraction check, metadata audit, and final model validation prior to client release.</p>
+          </div>
+
+          <!-- Step 4: DELIVERY TO CLIENT -->
+          <div class="bim-hold-point-card bim-hold-point-card--final">
+            <span class="bim-hold-point__step-num" style="color: var(--bim-green-light);">HOLD POINT 04 // FINAL</span>
+            <h3 class="bim-hold-point__label" style="color: var(--bim-green-light);">DELIVERY TO CLIENT</h3>
+            <p class="bim-hold-point__desc">Formal delivery of coordinated constructible 3D–7D models, shop drawings, BoQ quantity extractions, and handover sign-off.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 8 — WORK FLOW
+         Heading: Work Flow
+         Exact diagram labels:
+           - Client Architect / Structural Engineer / Owner / Contractor
+           - Project Feedback
+           - Inputs / Markups / Comments
+           - Deliverables
+           - Purchase Order
+           - Scope Clarification & Proposal
+           - Scope of Works
+           - BIM Manager / Point of Contact
+           - Data review & analysis
+           - 3D Modelling
+           - Client Meeting & Review
+           - Design Development
+           - Model Review
+           - Final Submission
+           - Sheet Extraction
+           - Internal QC
+         ==================================================================== -->
+    <section class="bim-workflow-section" id="workflow">
+      <div class="container">
+        
+        <div class="bim-section-header">
+          <span class="bim-section-tag">EXECUTION METHODOLOGY &bull; SECTION 08</span>
+          <h2 class="bim-section-title">Work Flow</h2>
+          <div class="bim-divider" aria-hidden="true">
+            <span class="bim-divider-line"></span>
+            <span class="bim-divider-dot"></span>
+            <span class="bim-divider-line bim-divider-line--green"></span>
+          </div>
+          <p class="bim-section-lead">
+            Structured 16-stage Building Information Modelling workflow governing project intake, data analysis, model development, quality review, and final client submission.
+          </p>
+        </div>
+
+        <div class="bim-workflow-matrix">
+          
+          <!-- Phase 1: Intake & Scope -->
+          <div class="bim-workflow-phase">
+            <div class="bim-workflow-phase__header">
+              <span class="bim-workflow-phase__num">PHASE 01</span>
+              <h3 class="bim-workflow-phase__title">Scope &amp; Commissioning</h3>
+            </div>
+            <ul class="bim-workflow-steps">
+              <li class="bim-workflow-step">
+                <span class="bim-workflow-step__dot"></span>
+                <span>Client Architect / Structural Engineer / Owner / Contractor</span>
+              </li>
+              <li class="bim-workflow-step">
+                <span class="bim-workflow-step__dot"></span>
+                <span>Purchase Order</span>
+              </li>
+              <li class="bim-workflow-step">
+                <span class="bim-workflow-step__dot"></span>
+                <span>Scope Clarification &amp; Proposal</span>
+              </li>
+              <li class="bim-workflow-step">
+                <span class="bim-workflow-step__dot"></span>
+                <span>Scope of Works</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Phase 2: Analysis & Mobilization -->
+          <div class="bim-workflow-phase">
+            <div class="bim-workflow-phase__header">
+              <span class="bim-workflow-phase__num">PHASE 02</span>
+              <h3 class="bim-workflow-phase__title">Analysis &amp; Setup</h3>
+            </div>
+            <ul class="bim-workflow-steps">
+              <li class="bim-workflow-step">
+                <span class="bim-workflow-step__dot"></span>
+                <span>BIM Manager / Point of Contact</span>
+              </li>
+              <li class="bim-workflow-step">
+                <span class="bim-workflow-step__dot"></span>
+                <span>Inputs / Markups / Comments</span>
+              </li>
+              <li class="bim-workflow-step">
+                <span class="bim-workflow-step__dot"></span>
+                <span>Data review &amp; analysis</span>
+              </li>
+              <li class="bim-workflow-step">
+                <span class="bim-workflow-step__dot"></span>
+                <span>3D Modelling</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Phase 3: Review & Development -->
+          <div class="bim-workflow-phase">
+            <div class="bim-workflow-phase__header">
+              <span class="bim-workflow-phase__num">PHASE 03</span>
+              <h3 class="bim-workflow-phase__title">Development &amp; QC</h3>
+            </div>
+            <ul class="bim-workflow-steps">
+              <li class="bim-workflow-step">
+                <span class="bim-workflow-step__dot"></span>
+                <span>Client Meeting &amp; Review</span>
+              </li>
+              <li class="bim-workflow-step">
+                <span class="bim-workflow-step__dot"></span>
+                <span>Design Development</span>
+              </li>
+              <li class="bim-workflow-step">
+                <span class="bim-workflow-step__dot"></span>
+                <span>Model Review</span>
+              </li>
+              <li class="bim-workflow-step">
+                <span class="bim-workflow-step__dot"></span>
+                <span>Internal QC</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Phase 4: Output & Feedback -->
+          <div class="bim-workflow-phase">
+            <div class="bim-workflow-phase__header">
+              <span class="bim-workflow-phase__num">PHASE 04</span>
+              <h3 class="bim-workflow-phase__title">Deliverables &amp; Closure</h3>
+            </div>
+            <ul class="bim-workflow-steps">
+              <li class="bim-workflow-step">
+                <span class="bim-workflow-step__dot"></span>
+                <span>Sheet Extraction</span>
+              </li>
+              <li class="bim-workflow-step">
+                <span class="bim-workflow-step__dot"></span>
+                <span>Deliverables</span>
+              </li>
+              <li class="bim-workflow-step">
+                <span class="bim-workflow-step__dot"></span>
+                <span>Final Submission</span>
+              </li>
+              <li class="bim-workflow-step">
+                <span class="bim-workflow-step__dot"></span>
+                <span>Project Feedback</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 9 — OUR PROFICIENCY
+         Heading: Our Proficiency
+         Software & tool logos / suites:
+           1. Autodesk AutoCAD
+           2. Autodesk Navisworks
+           3. Autodesk Revit
+           4. Autodesk AutoCAD MEP
+           5. Autodesk InfraWorks
+           6. Autodesk 3ds Max
+           7. SketchUp
+           8. Lumion
+           9. Tekla Structures
+           10. MIDAS
+           11. MX ROAD
+           12. Dynamo
+           13. RISA Manager
+           14. Microsoft Project
+           15. ETABS
+           16. SAFE
+           17. Bentley software
+         ==================================================================== -->
+    <section class="bim-proficiency-section" id="our-proficiency">
+      <div class="container">
+        
+        <div class="bim-section-header">
+          <span class="bim-section-tag">TECHNICAL ECOSYSTEM &bull; SECTION 09</span>
+          <h2 class="bim-section-title">Our Proficiency</h2>
+          <div class="bim-divider" aria-hidden="true">
+            <span class="bim-divider-line"></span>
+            <span class="bim-divider-dot"></span>
+            <span class="bim-divider-line bim-divider-line--green"></span>
+          </div>
+          <p class="bim-section-lead">
+            Industry-standard authoring, analysis, coordination, scheduling, and visualization platforms utilized across our engineering project lifecycle.
+          </p>
+        </div>
+
+        <div class="bim-tools-grid">
+          
+          <!-- 1. Autodesk AutoCAD -->
+          <div class="bim-tool-card">
+            <div class="bim-tool-card__vendor">AUTODESK</div>
+            <h3 class="bim-tool-card__name">Autodesk AutoCAD</h3>
+            <span class="bim-tool-card__badge">2D / 3D DRAFTING</span>
+          </div>
+
+          <!-- 2. Autodesk Navisworks -->
+          <div class="bim-tool-card">
+            <div class="bim-tool-card__vendor">AUTODESK</div>
+            <h3 class="bim-tool-card__name">Autodesk Navisworks</h3>
+            <span class="bim-tool-card__badge">CLASH &bull; 4D SIM</span>
+          </div>
+
+          <!-- 3. Autodesk Revit -->
+          <div class="bim-tool-card">
+            <div class="bim-tool-card__vendor">AUTODESK</div>
+            <h3 class="bim-tool-card__name">Autodesk Revit</h3>
+            <span class="bim-tool-card__badge">BIM AUTHORING</span>
+          </div>
+
+          <!-- 4. Autodesk AutoCAD MEP -->
+          <div class="bim-tool-card">
+            <div class="bim-tool-card__vendor">AUTODESK</div>
+            <h3 class="bim-tool-card__name">Autodesk AutoCAD MEP</h3>
+            <span class="bim-tool-card__badge">MEPF SYSTEMS</span>
+          </div>
+
+          <!-- 5. Autodesk InfraWorks -->
+          <div class="bim-tool-card">
+            <div class="bim-tool-card__vendor">AUTODESK</div>
+            <h3 class="bim-tool-card__name">Autodesk InfraWorks</h3>
+            <span class="bim-tool-card__badge">CIVIL INFRA</span>
+          </div>
+
+          <!-- 6. Autodesk 3ds Max -->
+          <div class="bim-tool-card">
+            <div class="bim-tool-card__vendor">AUTODESK</div>
+            <h3 class="bim-tool-card__name">Autodesk 3ds Max</h3>
+            <span class="bim-tool-card__badge">VISUALIZATION</span>
+          </div>
+
+          <!-- 7. SketchUp -->
+          <div class="bim-tool-card">
+            <div class="bim-tool-card__vendor">TRIMBLE</div>
+            <h3 class="bim-tool-card__name">SketchUp</h3>
+            <span class="bim-tool-card__badge">MASSING &bull; 3D</span>
+          </div>
+
+          <!-- 8. Lumion -->
+          <div class="bim-tool-card">
+            <div class="bim-tool-card__vendor">ACT-3D</div>
+            <h3 class="bim-tool-card__name">Lumion</h3>
+            <span class="bim-tool-card__badge">REAL-TIME RENDER</span>
+          </div>
+
+          <!-- 9. Tekla Structures -->
+          <div class="bim-tool-card">
+            <div class="bim-tool-card__vendor">TRIMBLE</div>
+            <h3 class="bim-tool-card__name">Tekla Structures</h3>
+            <span class="bim-tool-card__badge">STEEL &bull; REBAR</span>
+          </div>
+
+          <!-- 10. MIDAS -->
+          <div class="bim-tool-card">
+            <div class="bim-tool-card__vendor">MIDAS IT</div>
+            <h3 class="bim-tool-card__name">MIDAS</h3>
+            <span class="bim-tool-card__badge">BRIDGE &bull; CIVIL</span>
+          </div>
+
+          <!-- 11. MX ROAD -->
+          <div class="bim-tool-card">
+            <div class="bim-tool-card__vendor">BENTLEY</div>
+            <h3 class="bim-tool-card__name">MX ROAD</h3>
+            <span class="bim-tool-card__badge">HIGHWAY DESIGN</span>
+          </div>
+
+          <!-- 12. Dynamo -->
+          <div class="bim-tool-card">
+            <div class="bim-tool-card__vendor">OPEN SOURCE / AUTODESK</div>
+            <h3 class="bim-tool-card__name">Dynamo</h3>
+            <span class="bim-tool-card__badge">COMPUTATIONAL BIM</span>
+          </div>
+
+          <!-- 13. RISA Manager -->
+          <div class="bim-tool-card">
+            <div class="bim-tool-card__vendor">RISA TECH</div>
+            <h3 class="bim-tool-card__name">RISA Manager</h3>
+            <span class="bim-tool-card__badge">STRUCTURAL SUITE</span>
+          </div>
+
+          <!-- 14. Microsoft Project -->
+          <div class="bim-tool-card">
+            <div class="bim-tool-card__vendor">MICROSOFT</div>
+            <h3 class="bim-tool-card__name">Microsoft Project</h3>
+            <span class="bim-tool-card__badge">4D SCHEDULING</span>
+          </div>
+
+          <!-- 15. ETABS -->
+          <div class="bim-tool-card">
+            <div class="bim-tool-card__vendor">CSI AMERICA</div>
+            <h3 class="bim-tool-card__name">ETABS</h3>
+            <span class="bim-tool-card__badge">BUILDING ANALYSIS</span>
+          </div>
+
+          <!-- 16. SAFE -->
+          <div class="bim-tool-card">
+            <div class="bim-tool-card__vendor">CSI AMERICA</div>
+            <h3 class="bim-tool-card__name">SAFE</h3>
+            <span class="bim-tool-card__badge">SLAB &bull; FOUNDATION</span>
+          </div>
+
+          <!-- 17. Bentley software -->
+          <div class="bim-tool-card">
+            <div class="bim-tool-card__vendor">BENTLEY SYSTEMS</div>
+            <h3 class="bim-tool-card__name">Bentley software</h3>
+            <span class="bim-tool-card__badge">INFRASTRUCTURE SUITE</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       SECTION 10 — FOOTER
+       Reuse the existing shared GDR footer, including its background treatment,
+       company information, contact details, addresses, links, and copyright bar.
+       ====================================================================== -->
+  <footer class="site-footer animated-content" id="site-footer">
+    <div class="footer-wrapper">
+      
+      <!-- 1. UPPER INFORMATION GRID -->
+      <div class="footer-grid-upper animated-content-item" role="region" aria-label="Footer Information Grid">
+        
+        <!-- Cell 1: Developing Ways of Success -->
+        <div class="footer-cell footer-cell--tagline">
+          <p class="footer-tagline">Developing ways of success.</p>
+        </div>
+
+        <!-- Cell 2: Company -->
+        <div class="footer-cell footer-cell--company">
+          <h3 class="footer-cell__heading">COMPANY</h3>
+          <ul class="footer-cell__list" role="list">
+            <li><a href="/index.html#hero-section" class="footer-nav-anchor cursor-target">Home</a></li>
+            <li><a href="/about-1.html" class="footer-nav-anchor cursor-target">About</a></li>
+            <li><a href="/index.html#contact-us" class="footer-nav-anchor cursor-target">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Cell 3: Expertise -->
+        <div class="footer-cell footer-cell--expertise">
+          <h3 class="footer-cell__heading">EXPERTISE</h3>
+          <ul class="footer-cell__list" role="list">
+            <li><a href="/index.html#category-infrastructure" class="footer-nav-anchor cursor-target">Infrastructure</a></li>
+            <li><a href="/index.html#category-building" class="footer-nav-anchor cursor-target">Building</a></li>
+            <li><a href="/index.html#category-testing" class="footer-nav-anchor cursor-target">Testing</a></li>
+          </ul>
+        </div>
+
+        <!-- Cell 4: Geo Logo Tall Panel with 3D Globe -->
+        <div class="footer-cell footer-cell--logo-panel" id="footer-logo-cell">
+          <div 
+            class="footer-globe-container" 
+            id="footer-globe-container" 
+            role="img" 
+            tabindex="0" 
+            aria-label="Geo Designs &amp; Research Interactive 3D Brand Globe"
+          >
+            <svg 
+              class="footer-globe-svg" 
+              id="footer-globe-svg" 
+              viewBox="0 0 200 200" 
+              width="280" 
+              height="280" 
+              aria-hidden="true"
+            >
+              <defs>
+                <clipPath id="globe-clip-bim">
+                  <circle cx="100" cy="100" r="76" />
+                </clipPath>
+              </defs>
+
+              <g clip-path="url(#globe-clip-bim)">
+                <circle cx="100" cy="100" r="76" class="globe-base" />
+
+                <g class="globe-facets-layer" id="globe-facets-layer">
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M51,42 A76,76 0 0,1 80,26 L100,42 L80,42 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M80,26 A76,76 0 0,1 100,24 L100,42 L80,42 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,24 A76,76 0 0,1 120,26 L100,42 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M120,26 A76,76 0 0,1 149,42 L120,42 L100,42 Z" />
+
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M29,74 A76,76 0 0,1 51,42 L80,42 L65,74 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M65,74 L80,42 L100,42 L100,74 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,74 L100,42 L120,42 L135,74 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M135,74 L120,42 A76,76 0 0,1 171,74 L148,74 Z" />
+
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M24,100 A76,76 0 0,1 29,74 L65,74 L55,100 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M55,100 L65,74 L100,74 L100,100 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,100 L100,74 L135,74 L145,100 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M145,100 L135,74 A76,76 0 0,1 176,100 Z" />
+
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M24,100 A76,76 0 0,0 29,126 L65,126 L55,100 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M55,100 L65,126 L100,126 L100,100 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,100 L100,126 L135,126 L145,100 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M145,100 L135,126 A76,76 0 0,0 176,100 Z" />
+
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M29,126 A76,76 0 0,0 51,158 L80,158 L65,126 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M65,126 L80,158 L100,158 L100,126 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,126 L100,158 L120,158 L135,126 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M135,126 L120,158 A76,76 0 0,0 171,126 L148,126 Z" />
+
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M51,158 A76,76 0 0,0 80,174 L100,158 L80,158 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M80,174 A76,76 0 0,0 100,176 L100,158 L80,158 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,176 A76,76 0 0,0 120,174 L100,158 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M120,174 A76,76 0 0,0 149,158 L120,158 L100,158 Z" />
+                </g>
+
+                <circle cx="100" cy="100" r="75.5" class="globe-ring" fill="none" stroke="rgba(255, 255, 255, 0.45)" stroke-width="1" />
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Cell 5: About Company -->
+        <div class="footer-cell footer-cell--about">
+          <h3 class="footer-cell__heading">ABOUT COMPANY</h3>
+          <p class="footer-about-text">
+            Geo Designs &amp; Research is a premier multidisciplinary engineering consultancy delivering state-of-the-art infrastructure, architectural master planning, BIM coordination, lab testing, and project management across India.
+          </p>
+        </div>
+
+        <!-- Cell 6: Contact Info -->
+        <div class="footer-cell footer-cell--contact">
+          <h3 class="footer-cell__heading">CONTACT</h3>
+          <ul class="footer-cell__list footer-cell__list--contact" role="list">
+            <li>
+              <span class="contact-label">Phone:</span>
+              <a href="tel:+912652330456" class="footer-nav-anchor cursor-target">+91 265 233 0456</a>
+            </li>
+            <li>
+              <span class="contact-label">Mobile:</span>
+              <a href="tel:+919824036814" class="footer-nav-anchor cursor-target">+91 98240 36814</a>
+            </li>
+            <li>
+              <span class="contact-label">Email:</span>
+              <a href="mailto:info@geodesignsresearch.com" class="footer-nav-anchor cursor-target">info@geodesignsresearch.com</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Cell 7: Corporate Address -->
+        <div class="footer-cell footer-cell--address">
+          <h3 class="footer-cell__heading">HEAD OFFICE</h3>
+          <address class="footer-address">
+            Geo Designs &amp; Research House<br>
+            Plot No. 42, Near Alkapuri Society,<br>
+            Vadodara &ndash; 390007, Gujarat, India.
+          </address>
+        </div>
+
+      </div>
+
+      <!-- 2. INTERACTIVE BIG LOGO BANNER (Cursor-reactive Mask Reveal) -->
+      <div 
+        class="footer-wordmark-container animated-content-item" 
+        id="footer-wordmark-container"
+        role="region"
+        aria-label="Geo Designs &amp; Research Interactive Brand Banner"
+      >
+        <svg 
+          class="footer-wordmark-svg" 
+          id="footer-wordmark-svg" 
+          viewBox="0 0 1320 280" 
+          preserveAspectRatio="xMidYMid meet"
+          aria-hidden="true"
+        >
+          <defs>
+            <mask id="wordmark-cursor-mask-bim">
+              <rect width="100%" height="100%" fill="black" />
+              <circle 
+                id="wordmark-mask-circle-bim" 
+                cx="-999" 
+                cy="-999" 
+                r="180" 
+                fill="url(#wordmark-radial-gradient-bim)" 
+              />
+            </mask>
+
+            <radialGradient id="wordmark-radial-gradient-bim" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+              <stop offset="55%" stop-color="#ffffff" stop-opacity="0.85" />
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+
+          <!-- Drafting Ticks -->
+          <g class="wordmark-drafting-ticks" stroke="#BEBEBE" stroke-width="1" opacity="0.45">
+            <path d="M 20 35 L 20 15 L 40 15" fill="none" />
+            <path d="M 1300 35 L 1300 15 L 1280 15" fill="none" />
+            <path d="M 20 245 L 20 265 L 40 265" fill="none" />
+            <path d="M 1300 245 L 1300 265 L 1280 265" fill="none" />
+            <path d="M 15 140 H 25 M 20 135 V 145" fill="none" />
+            <path d="M 1295 140 H 1305 M 1300 135 V 145" fill="none" />
+            <path d="M 660 10 V 18" fill="none" />
+            <path d="M 660 262 V 270" fill="none" />
+          </g>
+
+          <!-- Layer 1: Outlined Lettering -->
+          <g class="wordmark-layer wordmark-layer--outline">
+            <text x="50%" y="118" text-anchor="middle" class="wordmark-text wordmark-text--outline">GEO DESIGNS</text>
+            <text x="50%" y="242" text-anchor="middle" class="wordmark-text wordmark-text--outline">&amp; RESEARCH</text>
+          </g>
+
+          <!-- Layer 2: Fill Layer -->
+          <g class="wordmark-layer wordmark-layer--fill" mask="url(#wordmark-cursor-mask-bim)">
+            <text x="50%" y="118" text-anchor="middle" class="wordmark-text wordmark-text--fill">GEO DESIGNS</text>
+            <text x="50%" y="242" text-anchor="middle" class="wordmark-text wordmark-text--fill">&amp; RESEARCH</text>
+          </g>
+
+          <!-- Layer 3: Top Stroke Layer -->
+          <g class="wordmark-layer wordmark-layer--top-stroke" aria-hidden="true" pointer-events="none">
+            <text x="50%" y="118" text-anchor="middle" class="wordmark-text wordmark-text--top-stroke">GEO DESIGNS</text>
+            <text x="50%" y="242" text-anchor="middle" class="wordmark-text wordmark-text--top-stroke">&amp; RESEARCH</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- 3. BOTTOM COPYRIGHT STRIP -->
+      <div class="footer-copyright-strip animated-content-item">
+        <p class="footer-copyright-text">
+          &copy; <span id="current-year">2026</span> Geo Designs &amp; Research. All rights reserved.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

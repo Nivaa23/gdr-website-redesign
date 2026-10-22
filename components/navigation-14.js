@@ -62,8 +62,8 @@ export const EXPERTISE_SERVICES = {
     division: 'Division 02 — Design & Technology',
     desc: 'Multi-disciplinary 3D-7D Building Information Modelling, automated clash detection, quantity takeoff, construction simulation (4D/5D), and BIM model auditing.',
     image: '/assets/images/expertise-bim.svg',
-    url: '#card-bim',
-    urlAbout: '/index.html#card-bim'
+    url: '/bim.html',
+    urlAbout: '/bim.html'
   },
   'mepf': {
     title: 'MEPF Engineering',
