@@ -22,8 +22,8 @@ export const EXPERTISE_SERVICES = {
     division: 'Division 01 — Infrastructure & Civil',
     desc: 'Alignment surveys, hydrological studies, traffic investigations, pavement design, and Detailed Project Reports (DPR) for highways, expressways, and water infrastructure.',
     image: '/assets/images/expertise-hydro-highway.svg',
-    url: '#card-hydro-highway-dpr',
-    urlAbout: '/index.html#card-hydro-highway-dpr'
+    url: '/hydro.html',
+    urlAbout: '/hydro.html'
   },
   'bridge': {
     title: 'Bridge Engineering',
@@ -201,7 +201,7 @@ export function mountNavigation14(headerElement, options = {}) {
   const featuredTitle = featuredCard ? featuredCard.querySelector('.nav14-featured-card__title') : null;
   const featuredDesc = featuredCard ? featuredCard.querySelector('.nav14-featured-card__desc') : null;
   const featuredImg = featuredCard ? featuredCard.querySelector('.nav14-featured-card__img') : null;
-  const featuredAction = featuredCard ? featuredCard.querySelector('.nav14-featured-card__action') : null;
+  const featuredAction = featuredCard ? (featuredCard.querySelector('.nav14-featured-card__action') || featuredCard.querySelector('.nav14-featured-card__link')) : null;
 
   function selectService(categoryKey, cardEl) {
     const service = EXPERTISE_SERVICES[categoryKey];

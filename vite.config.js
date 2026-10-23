@@ -11,6 +11,7 @@ export default defineConfig({
         bim: resolve(__dirname, 'bim.html'),
         bridge: resolve(__dirname, 'bridge.html'),
         commerce: resolve(__dirname, 'commerce.html'),
+        hydro: resolve(__dirname, 'hydro.html'),
       },
     },
   },

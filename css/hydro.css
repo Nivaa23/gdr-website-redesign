@@ -1,0 +1,664 @@
+/* ==========================================================================
+   Geo Designs & Research — Hydro & Highway DPR Service Styles
+   File: css/hydro.css
+   Reuses the GDR brand palette, typography, and responsive layout conventions.
+   ========================================================================== */
+
+:root {
+  --hhd-slate: #35556B;
+  --hhd-slate-light: #5A7B92;
+  --hhd-green: #497E5E;
+  --hhd-green-light: #A3E8BF;
+  --hhd-charcoal: #1F2429;
+  --hhd-dark: #121A21;
+  --hhd-light-bg: #F6F8FA;
+  --hhd-border: #E2E8F0;
+  --hhd-border-dark: rgba(255, 255, 255, 0.12);
+  --hhd-radius: 6px;
+  --hhd-shadow-sm: 0 2px 10px rgba(33, 37, 41, 0.05);
+  --hhd-shadow-md: 0 6px 20px rgba(33, 37, 41, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 1 — HERO
+   Proportions match the Architecture, BIM, Bridge and Commerce heroes.
+   -------------------------------------------------------------------------- */
+.hhd-hero {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  height: clamp(520px, 75vh, 760px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--hhd-dark);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hhd-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--hhd-green), var(--hhd-slate), transparent);
+  opacity: 0.75;
+  z-index: 4;
+}
+
+.hhd-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: var(--hhd-dark);
+}
+
+.hhd-hero__media-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.hhd-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 20, 26, 0.52) 0%,
+    rgba(14, 20, 26, 0.68) 50%,
+    rgba(14, 20, 26, 0.9) 100%
+  );
+}
+
+.hhd-hero__inner {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hhd-hero__title {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(2.4rem, 6.2vw, 4.6rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  margin: 0 0 22px;
+  text-shadow: 0 4px 32px rgba(0, 0, 0, 0.75);
+  overflow-wrap: break-word;
+}
+
+/* Breadcrumb */
+.hhd-breadcrumb ol {
+  list-style: none;
+  margin: 0;
+  padding: 8px 18px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(18, 26, 33, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 4px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hhd-breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--hhd-green-light);
+}
+
+.hhd-breadcrumb li + li::before {
+  content: '>';
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.hhd-breadcrumb a {
+  color: #C0D0E0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.hhd-breadcrumb a:hover,
+.hhd-breadcrumb a:focus-visible {
+  color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   SHARED SECTION HEADERS & TECHNICAL DIVIDERS
+   -------------------------------------------------------------------------- */
+.hhd-section-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+}
+
+.hhd-section-tag {
+  display: inline-block;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--hhd-slate);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.hhd-heading {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  color: var(--hhd-charcoal);
+  margin: 0 0 16px;
+  line-height: 1.25;
+}
+
+.hhd-divider {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 0 auto 20px;
+}
+
+.hhd-divider-line {
+  display: block;
+  width: 32px;
+  height: 2px;
+  background-color: var(--hhd-slate);
+}
+
+.hhd-divider-line--green {
+  background-color: var(--hhd-green);
+}
+
+.hhd-divider-dot {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--hhd-slate);
+}
+
+.hhd-lead {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #475569;
+  font-weight: 500;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 2 — OVERVIEW (two-column: visual left, content card right)
+   -------------------------------------------------------------------------- */
+.hhd-overview-section {
+  padding: 90px 0;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--hhd-border);
+}
+
+.hhd-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
+  align-items: center;
+}
+
+.hhd-visual-panel {
+  position: relative;
+  background-color: var(--hhd-light-bg);
+  border: 1px solid var(--hhd-border);
+  border-radius: var(--hhd-radius);
+  overflow: hidden;
+  box-shadow: var(--hhd-shadow-sm);
+}
+
+.hhd-visual-panel__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  padding: 28px 24px 56px;
+  box-sizing: border-box;
+}
+
+.hhd-visual-panel__badge {
+  position: absolute;
+  bottom: 16px;
+  left: 20px;
+  right: 20px;
+  width: fit-content;
+  max-width: calc(100% - 40px);
+  background: rgba(18, 26, 33, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 7px 14px;
+  border-radius: 2px;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--hhd-green-light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hhd-content-card {
+  background: #FFFFFF;
+  border: 1px solid var(--hhd-border);
+  border-radius: var(--hhd-radius);
+  padding: clamp(24px, 3.5vw, 40px);
+  box-shadow: var(--hhd-shadow-sm);
+}
+
+.hhd-content-card .hhd-divider {
+  justify-content: flex-start;
+  margin: 0 0 20px 0;
+}
+
+.hhd-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.hhd-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #475569;
+}
+
+.hhd-bullets svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  color: var(--hhd-green);
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 3 & 5 — DATA TABLES (Hydro DPR Projects & Highway DPR Projects)
+   -------------------------------------------------------------------------- */
+.hhd-projects-section {
+  padding: 90px 0 100px;
+  background-color: var(--hhd-light-bg);
+  border-bottom: 1px solid var(--hhd-border);
+}
+
+.hhd-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  background-color: #FFFFFF;
+  border: 1px solid var(--hhd-border);
+  border-radius: var(--hhd-radius);
+  box-shadow: var(--hhd-shadow-sm);
+  margin-bottom: 56px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hhd-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 680px;
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+}
+
+.hhd-table thead {
+  background-color: var(--hhd-dark);
+  color: #FFFFFF;
+}
+
+.hhd-table th {
+  padding: 16px 22px;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #E2E8F0;
+  border-bottom: 2px solid var(--hhd-green);
+}
+
+.hhd-table th:nth-child(1) {
+  width: 28%;
+}
+
+.hhd-table th:nth-child(2) {
+  width: 24%;
+}
+
+.hhd-table th:nth-child(3) {
+  width: 48%;
+}
+
+.hhd-table td {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--hhd-border);
+  vertical-align: top;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.hhd-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.hhd-table tbody tr:nth-child(even) {
+  background-color: #F8FAFC;
+}
+
+.hhd-table tbody tr:hover {
+  background-color: #F1F5F9;
+}
+
+.hhd-table__project-name {
+  font-weight: 700;
+  color: var(--hhd-charcoal);
+  display: block;
+}
+
+.hhd-table__client-name {
+  font-weight: 600;
+  color: var(--hhd-slate);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hhd-table__badge {
+  display: inline-block;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 7px;
+  border-radius: 2px;
+  background-color: rgba(73, 126, 94, 0.1);
+  color: var(--hhd-green);
+  border: 1px solid rgba(73, 126, 94, 0.25);
+  margin-top: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   IMAGE GALLERY (Hydro DPR Projects)
+   -------------------------------------------------------------------------- */
+.hhd-gallery {
+  margin-top: 20px;
+}
+
+.hhd-gallery__title {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--hhd-charcoal);
+  margin: 0 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hhd-gallery__title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 18px;
+  background-color: var(--hhd-green);
+  border-radius: 2px;
+}
+
+.hhd-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.hhd-gallery-card {
+  background: #FFFFFF;
+  border: 1px solid var(--hhd-border);
+  border-radius: var(--hhd-radius);
+  overflow: hidden;
+  box-shadow: var(--hhd-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.hhd-gallery-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--hhd-slate);
+  box-shadow: var(--hhd-shadow-md);
+}
+
+.hhd-gallery-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  background-color: #F8FAFC;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--hhd-border);
+}
+
+.hhd-gallery-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 12px;
+  box-sizing: border-box;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.hhd-gallery-card:hover .hhd-gallery-card__img {
+  transform: scale(1.04);
+}
+
+.hhd-gallery-card__body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hhd-gallery-card__tag {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--hhd-green);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hhd-gallery-card__title {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--hhd-charcoal);
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 4 — HIGHWAY DPR OVERVIEW (Side-by-side on desktop, stacked on mobile)
+   -------------------------------------------------------------------------- */
+.hhd-highway-overview-section {
+  padding: 90px 0;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--hhd-border);
+}
+
+.hhd-highway-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 52px;
+  align-items: center;
+}
+
+.hhd-highway-media {
+  position: relative;
+  border-radius: var(--hhd-radius);
+  overflow: hidden;
+  box-shadow: var(--hhd-shadow-md);
+  border: 1px solid var(--hhd-border);
+  aspect-ratio: 16 / 10;
+  background-color: var(--hhd-dark);
+}
+
+.hhd-highway-media__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hhd-highway-media__caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(14, 20, 26, 0.9) 100%);
+  padding: 24px 20px 14px;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hhd-highway-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.hhd-highway-content .hhd-divider {
+  justify-content: flex-start;
+  margin: 0 0 20px 0;
+}
+
+.hhd-features-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.hhd-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background-color: var(--hhd-light-bg);
+  border: 1px solid var(--hhd-border);
+  border-radius: 4px;
+  padding: 12px 16px;
+}
+
+.hhd-feature-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--hhd-green);
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+.hhd-feature-text strong {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--hhd-charcoal);
+  margin-bottom: 2px;
+}
+
+.hhd-feature-text span {
+  font-size: 0.86rem;
+  color: #5A6A78;
+  line-height: 1.45;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1100px) {
+  .hhd-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .hhd-highway-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .hhd-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hhd-hero {
+    min-height: 440px;
+    height: 60vh;
+  }
+
+  .hhd-hero__title {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  .hhd-breadcrumb ol {
+    font-size: 0.68rem;
+    padding: 6px 12px;
+  }
+
+  .hhd-overview-section,
+  .hhd-projects-section,
+  .hhd-highway-overview-section {
+    padding: 60px 0;
+  }
+
+  .hhd-section-header {
+    margin-bottom: 32px;
+  }
+
+  .hhd-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hhd-table th,
+  .hhd-table td {
+    padding: 12px 14px;
+    font-size: 0.88rem;
+  }
+}
