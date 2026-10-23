@@ -1,0 +1,314 @@
+/* ==========================================================================
+   React Bits Pro — Circle Gallery Component Styles
+   Registry Item: @reactbits-starter/circle-gallery-tw
+   Tailored for Geo Designs & Research BIM Unified "Our Projects" Section
+   Strict Settings:
+     Circle Radius: 23%
+     Item Width: 200px
+     Item Height: 250px
+     Item Scale: 0.85
+     Border Radius: 16px
+     Throw Resistance: 0.35
+     Animation Duration: 0.9s
+     Auto Spin: 10°/s
+     Enable Drag: Enabled
+     Show Numbers: Enabled
+   ========================================================================== */
+
+:root {
+  --circle-gallery-radius: 23%;
+  --circle-gallery-item-w: 200px;
+  --circle-gallery-item-h: 250px;
+  --circle-gallery-scale: 0.85;
+  --circle-gallery-radius-corner: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   Container & Orbit Viewport
+   -------------------------------------------------------------------------- */
+.circle-gallery-container {
+  position: relative;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  height: clamp(560px, 72vh, 680px);
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle-gallery {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  cursor: -webkit-grab;
+}
+
+.circle-gallery.is-dragging {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+
+/* Stage centered at (0, 0) */
+.circle-gallery__stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Central Orbit Guide Ring (engineering visual motif) */
+.circle-gallery__orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px dashed rgba(53, 85, 107, 0.2);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Gallery Item / Card Presentation
+   Exact Dimensions: 200px wide × 250px high, 16px border-radius, 0.85 scale
+   -------------------------------------------------------------------------- */
+.circle-gallery__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 250px;
+  margin-top: -125px;
+  margin-left: -100px;
+  border-radius: 16px;
+  transform-origin: center center;
+  will-change: transform, opacity;
+  transition: box-shadow 0.25s ease;
+  z-index: 2;
+}
+
+.circle-gallery__card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #121A21;
+  border: 1px solid rgba(53, 85, 107, 0.24);
+  box-shadow: 
+    0 10px 28px rgba(18, 26, 33, 0.16),
+    0 2px 6px rgba(18, 26, 33, 0.08);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.circle-gallery__card:hover {
+  border-color: #497E5E;
+  box-shadow: 
+    0 14px 34px rgba(73, 126, 94, 0.22),
+    0 4px 10px rgba(18, 26, 33, 0.12);
+}
+
+.circle-gallery__item.is-active .circle-gallery__card {
+  border-color: #497E5E;
+  box-shadow: 
+    0 16px 38px rgba(73, 126, 94, 0.28),
+    0 0 0 1px #497E5E;
+}
+
+/* Card Project Image */
+.circle-gallery__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 16px;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.circle-gallery__card:hover .circle-gallery__img {
+  transform: scale(1.06);
+}
+
+/* Multi-Stop Contrast Protection Gradient */
+.circle-gallery__overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: linear-gradient(
+    180deg,
+    rgba(18, 26, 33, 0.55) 0%,
+    rgba(18, 26, 33, 0.05) 32%,
+    rgba(18, 26, 33, 0.45) 60%,
+    rgba(18, 26, 33, 0.92) 88%,
+    rgba(18, 26, 33, 0.98) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Sequential Item Number Badge (Show Numbers: Enabled) */
+.circle-gallery__number {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: rgba(18, 26, 33, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 3px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.06em;
+  z-index: 2;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Top Accent Category Badge */
+.circle-gallery__badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #A3E8BF;
+  background: rgba(73, 126, 94, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 3px 6px;
+  border-radius: 6px;
+  border: 1px solid rgba(163, 232, 191, 0.35);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+/* Bottom Card Details */
+.circle-gallery__details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  z-index: 2;
+}
+
+.circle-gallery__category {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #A3E8BF;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: block;
+}
+
+.circle-gallery__title {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.25;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+}
+
+.circle-gallery__location {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.58rem;
+  color: #CBD5E1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Controls & Interaction Hint Bar
+   -------------------------------------------------------------------------- */
+.circle-gallery-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.circle-gallery-hint {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #64748B;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.circle-gallery-hint__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #497E5E;
+  display: inline-block;
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.4; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Adaptations
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .circle-gallery-container {
+    height: 520px;
+  }
+}
+
+@media (max-width: 480px) {
+  .circle-gallery-container {
+    height: 480px;
+  }
+  .circle-gallery__item {
+    width: 170px;
+    height: 220px;
+    margin-top: -110px;
+    margin-left: -85px;
+  }
+}
