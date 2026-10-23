@@ -1098,7 +1098,7 @@
 }
 
 .bim-tool-card {
-  background: #FFFFFF;
+  background: #efefef;
   border: 1px solid var(--bim-border);
   border-radius: var(--bim-radius);
   padding: 18px 16px;
@@ -1111,7 +1111,7 @@
               border-color 0.2s ease, 
               background-color 0.2s ease;
   position: relative;
-  min-height: 110px;
+  min-height: 154px;
   cursor: default;
 }
 
@@ -1135,6 +1135,47 @@
   outline-offset: 2px;
 }
 
+.bim-tool-card__top {
+  display: flex;
+  flex-direction: column;
+}
+
+.bim-tool-card__logo-wrap {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 12px;
+}
+
+.bim-tool-card__logo-img {
+  max-height: 34px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+}
+
+.bim-tool-card__logo-img--tekla {
+  max-height: 42px;
+  transform: scale(1.25);
+  transform-origin: left center;
+}
+
+.bim-tool-card__logo-img--msproject {
+  max-height: 40px;
+  transform: scale(1.25);
+  transform-origin: left center;
+}
+
+.bim-tool-card__logo-img--dynamo {
+  max-height: 36px;
+  height: 36px;
+  width: auto;
+}
+
 .bim-tool-card__vendor {
   font-family: var(--font-mono, 'Geist Mono', monospace);
   font-size: 0.65rem;
@@ -1156,7 +1197,7 @@
 
 .bim-tool-card__badge {
   align-self: flex-start;
-  margin-top: 10px;
+  margin-top: 12px;
   font-family: var(--font-mono, 'Geist Mono', monospace);
   font-size: 0.62rem;
   font-weight: 600;
