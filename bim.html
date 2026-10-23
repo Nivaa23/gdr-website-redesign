@@ -1504,6 +1504,7 @@
             tabindex="0" 
             aria-label="Geo Designs &amp; Research Interactive 3D Brand Globe"
           >
+            <!-- 3D Outlined Sphere Construction with Individually Targetable Geometric Facets -->
             <svg 
               class="footer-globe-svg" 
               id="footer-globe-svg" 
@@ -1513,49 +1514,79 @@
               aria-hidden="true"
             >
               <defs>
-                <clipPath id="globe-clip-bim">
+                <clipPath id="globe-clip">
                   <circle cx="100" cy="100" r="76" />
                 </clipPath>
               </defs>
 
-              <g clip-path="url(#globe-clip-bim)">
+              <!-- Group clipped to sphere -->
+              <g clip-path="url(#globe-clip)">
+                <!-- Dark Base Fill -->
                 <circle cx="100" cy="100" r="76" class="globe-base" />
 
+                <!-- INDEPENDENTLY TARGETABLE 3D GEOMETRIC FACETS -->
                 <g class="globe-facets-layer" id="globe-facets-layer">
+                  <!-- North Polar Tier (Slate Blue #35556B) -->
                   <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M51,42 A76,76 0 0,1 80,26 L100,42 L80,42 Z" />
                   <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M80,26 A76,76 0 0,1 100,24 L100,42 L80,42 Z" />
                   <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,24 A76,76 0 0,1 120,26 L100,42 Z" />
                   <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M120,26 A76,76 0 0,1 149,42 L120,42 L100,42 Z" />
 
+                  <!-- North Temperate Tier -->
                   <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M29,74 A76,76 0 0,1 51,42 L80,42 L65,74 Z" />
                   <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M65,74 L80,42 L100,42 L100,74 Z" />
                   <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,74 L100,42 L120,42 L135,74 Z" />
-                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M135,74 L120,42 A76,76 0 0,1 171,74 L148,74 Z" />
+                  <path class="globe-facet globe-facet--charcoal" data-color="#343A40" d="M135,74 L120,42 L149,42 A76,76 0 0,1 171,74 Z" />
 
-                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M24,100 A76,76 0 0,1 29,74 L65,74 L55,100 Z" />
-                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M55,100 L65,74 L100,74 L100,100 Z" />
-                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,100 L100,74 L135,74 L145,100 Z" />
-                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M145,100 L135,74 A76,76 0 0,1 176,100 Z" />
+                  <!-- Equatorial Tier (Flanks &amp; Central GDR Monogram Emblem) -->
+                  <path class="globe-facet globe-facet--charcoal" data-color="#343A40" d="M24,100 A76,76 0 0,1 29,74 L65,74 L60,100 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M65,74 L100,74 L78,88 L60,88 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,74 L135,74 L140,88 L122,88 Z" />
+                  <path class="globe-facet globe-facet--charcoal" data-color="#343A40" d="M135,74 A76,76 0 0,1 176,100 L140,100 L140,88 Z" />
 
-                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M24,100 A76,76 0 0,0 29,126 L65,126 L55,100 Z" />
-                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M55,100 L65,126 L100,126 L100,100 Z" />
-                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,100 L100,126 L135,126 L145,100 Z" />
-                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M145,100 L135,126 A76,76 0 0,0 176,100 Z" />
+                  <!-- Central GDR Engineering Badge (Independently Active Surface) -->
+                  <path class="globe-facet globe-facet--badge" data-color="#35556B" d="M60,88 L140,88 L140,112 L60,112 Z" />
 
-                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M29,126 A76,76 0 0,0 51,158 L80,158 L65,126 Z" />
-                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M65,126 L80,158 L100,158 L100,126 Z" />
-                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,126 L100,158 L120,158 L135,126 Z" />
-                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M135,126 L120,158 A76,76 0 0,0 171,126 L148,126 Z" />
+                  <!-- Below Badge Transition -->
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M24,100 L60,100 L60,112 L25,113 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M60,112 L140,112 L138,132 L62,132 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M140,100 L176,100 A76,76 0 0,1 175,113 L140,112 Z" />
 
-                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M51,158 A76,76 0 0,0 80,174 L100,158 L80,158 Z" />
-                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M80,174 A76,76 0 0,0 100,176 L100,158 L80,158 Z" />
-                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,176 A76,76 0 0,0 120,174 L100,158 Z" />
-                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M120,174 A76,76 0 0,0 149,158 L120,158 L100,158 Z" />
+                  <!-- South Temperate Tier (Muted Green #497E5E) -->
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M25,113 A76,76 0 0,0 46,154 L75,154 L62,132 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M62,132 L75,154 L100,154 L100,132 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M100,132 L100,154 L125,154 L138,132 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M138,132 L125,154 L154,154 A76,76 0 0,0 175,113 Z" />
+
+                  <!-- South Polar Tier (Muted Green #497E5E) -->
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M46,154 A76,76 0 0,0 80,174 L100,154 L75,154 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M80,174 A76,76 0 0,0 100,176 L100,154 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M100,154 L100,176 A76,76 0 0,0 120,174 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M120,174 A76,76 0 0,0 154,154 L125,154 L100,154 Z" />
                 </g>
 
-                <circle cx="100" cy="100" r="75.5" class="globe-ring" fill="none" stroke="rgba(255, 255, 255, 0.45)" stroke-width="1" />
+                <!-- GDR Central Text Overlay (pointer-events: none) -->
+                <text x="100" y="104" text-anchor="middle" class="globe-badge-label" pointer-events="none">GDR</text>
+
+                <!-- Clean Spherical Wireframe Meridians &amp; Parallels (Overlay, pointer-events: none) -->
+                <g class="globe-wireframe-lines" pointer-events="none">
+                  <ellipse cx="100" cy="100" rx="24" ry="76" class="globe-wireframe globe-wireframe--meridian" />
+                  <ellipse cx="100" cy="100" rx="52" ry="76" class="globe-wireframe globe-wireframe--meridian" />
+                  <line x1="100" y1="24" x2="100" y2="176" class="globe-wireframe globe-wireframe--axis" />
+                  <ellipse cx="100" cy="42" rx="49" ry="12" class="globe-wireframe globe-wireframe--parallel" />
+                  <ellipse cx="100" cy="74" rx="71" ry="18" class="globe-wireframe globe-wireframe--parallel" />
+                  <ellipse cx="100" cy="100" rx="76" ry="22" class="globe-wireframe globe-wireframe--equator" />
+                  <ellipse cx="100" cy="132" rx="72" ry="18" class="globe-wireframe globe-wireframe--parallel" />
+                  <ellipse cx="100" cy="154" rx="54" ry="12" class="globe-wireframe globe-wireframe--parallel" />
+                </g>
               </g>
+
+              <!-- Outer Boundary Circle &amp; Polar Points -->
+              <circle cx="100" cy="100" r="76" class="globe-wireframe globe-wireframe--outer" pointer-events="none" />
+              <circle cx="100" cy="24" r="2.5" class="globe-point" pointer-events="none" />
+              <circle cx="100" cy="176" r="2.5" class="globe-point" pointer-events="none" />
             </svg>
+            <span class="globe-caption">GEO DESIGNS &amp; RESEARCH</span>
           </div>
         </div>
 
@@ -1598,40 +1629,40 @@
 
       </div>
 
-      <!-- 2. INTERACTIVE BIG LOGO BANNER (Cursor-reactive Mask Reveal) -->
-      <div 
-        class="footer-wordmark-container animated-content-item" 
-        id="footer-wordmark-container"
-        role="region"
-        aria-label="Geo Designs &amp; Research Interactive Brand Banner"
-      >
+      <!-- 2. OVERSIZED TWO-LINE OUTLINED WORDMARK REGION -->
+      <div class="footer-wordmark-panel animated-content-item" id="footer-wordmark-panel" tabindex="0" role="region" aria-label="Geo Designs &amp; Research Architectural Wordmark">
         <svg 
-          class="footer-wordmark-svg" 
-          id="footer-wordmark-svg" 
+          class="wordmark-svg" 
+          id="wordmark-svg" 
           viewBox="0 0 1320 280" 
-          preserveAspectRatio="xMidYMid meet"
+          width="100%" 
+          height="auto" 
+          preserveAspectRatio="xMidYMid meet" 
           aria-hidden="true"
         >
           <defs>
-            <mask id="wordmark-cursor-mask-bim">
-              <rect width="100%" height="100%" fill="black" />
+            <!-- Cursor-driven localized mask: reveals white fill ONLY within pointer proximity -->
+            <mask id="wordmark-cursor-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1320" height="280">
+              <rect x="0" y="0" width="1320" height="280" fill="#000000" />
               <circle 
-                id="wordmark-mask-circle-bim" 
-                cx="-999" 
-                cy="-999" 
-                r="180" 
-                fill="url(#wordmark-radial-gradient-bim)" 
+                id="wordmark-spotlight" 
+                cx="-500" 
+                cy="-500" 
+                r="0" 
+                fill="url(#wordmark-radial-gradient)" 
               />
             </mask>
 
-            <radialGradient id="wordmark-radial-gradient-bim" cx="50%" cy="50%" r="50%">
+            <!-- Soft radial gradient for smooth fluid travel across nearby letter strokes -->
+            <radialGradient id="wordmark-radial-gradient" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
-              <stop offset="55%" stop-color="#ffffff" stop-opacity="0.85" />
+              <stop offset="65%" stop-color="#ffffff" stop-opacity="0.9" />
+              <stop offset="85%" stop-color="#ffffff" stop-opacity="0.45" />
               <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
             </radialGradient>
           </defs>
 
-          <!-- Drafting Ticks -->
+          <!-- Technical Architectural Drafting Coordinate Marks -->
           <g class="wordmark-drafting-ticks" stroke="#BEBEBE" stroke-width="1" opacity="0.45">
             <path d="M 20 35 L 20 15 L 40 15" fill="none" />
             <path d="M 1300 35 L 1300 15 L 1280 15" fill="none" />
@@ -1643,19 +1674,19 @@
             <path d="M 660 262 V 270" fill="none" />
           </g>
 
-          <!-- Layer 1: Outlined Lettering -->
+          <!-- LAYER 1: Base Outlined Lettering -->
           <g class="wordmark-layer wordmark-layer--outline">
             <text x="50%" y="118" text-anchor="middle" class="wordmark-text wordmark-text--outline">GEO DESIGNS</text>
             <text x="50%" y="242" text-anchor="middle" class="wordmark-text wordmark-text--outline">&amp; RESEARCH</text>
           </g>
 
-          <!-- Layer 2: Fill Layer -->
-          <g class="wordmark-layer wordmark-layer--fill" mask="url(#wordmark-cursor-mask-bim)">
+          <!-- LAYER 2: Localized White Fill Layer -->
+          <g class="wordmark-layer wordmark-layer--fill" mask="url(#wordmark-cursor-mask)">
             <text x="50%" y="118" text-anchor="middle" class="wordmark-text wordmark-text--fill">GEO DESIGNS</text>
             <text x="50%" y="242" text-anchor="middle" class="wordmark-text wordmark-text--fill">&amp; RESEARCH</text>
           </g>
 
-          <!-- Layer 3: Top Stroke Layer -->
+          <!-- LAYER 3: Crisp Top Stroke Layer -->
           <g class="wordmark-layer wordmark-layer--top-stroke" aria-hidden="true" pointer-events="none">
             <text x="50%" y="118" text-anchor="middle" class="wordmark-text wordmark-text--top-stroke">GEO DESIGNS</text>
             <text x="50%" y="242" text-anchor="middle" class="wordmark-text wordmark-text--top-stroke">&amp; RESEARCH</text>
