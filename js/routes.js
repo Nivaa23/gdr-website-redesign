@@ -18,9 +18,9 @@ export const CANONICAL_ROUTES = {
   // Expertise Service Pages (ordered per Expertise navigation sequence)
   architecture: '/architecture.html', // 1. Architecture & Master Planning (Active Dedicated Page)
   bim: '/bim.html', // 2. BIM Modeling & Auditing (Active Dedicated Page)
+  bridge: '/bridge.html', // 3. Bridge Engineering (Active Dedicated Page)
 
   // Future Service Pages (to be activated as new pages are implemented):
-  // bridge: '/bridge.html',
   // commerce: '/commerce.html',
   // hydro: '/hydro.html',
   // lab: '/lab.html',

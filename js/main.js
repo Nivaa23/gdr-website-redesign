@@ -9,6 +9,7 @@ import { mountTargetCursor } from '../components/target-cursor.js';
 import { initAnimatedContent } from '../components/animated-content.js';
 import { initNavigation14 } from '../components/navigation-14.js';
 import { mountCircularGallery, CLIENT_LOGOS } from '../components/circular-gallery.js';
+import { mountScrollStack } from '../components/scroll-stack.js';
 import heroInfrastructureBridge from '../assets/images/hero-infrastructure-bridge.jpg';
 import heroArchitectureComplex from '../assets/images/hero-architecture-complex.jpg';
 import heroLabTesting from '../assets/images/hero-lab-testing.jpg';
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavigation14();
   initMobileNavigation();
   initHeroCarousel();
+  initBridgeScrollStack();
   initJourneyTimeline();
   initFooterYear();
   initWordmarkCursorEffect();
@@ -33,6 +35,20 @@ document.addEventListener('DOMContentLoaded', () => {
     once: true
   });
 });
+
+function initBridgeScrollStack() {
+  const stackRoot = document.getElementById('bridge-scroll-stack');
+  if (!stackRoot) return;
+  mountScrollStack(stackRoot, {
+    useWindowScroll: true,
+    itemDistance: 80,
+    itemStackDistance: 24,
+    stackPosition: '14%',
+    itemScale: 0.035,
+    baseScale: 0.9,
+    dimAmount: 0.16
+  });
+}
 
 /* --------------------------------------------------------------------------
    0. React Bits TargetCursor Integration

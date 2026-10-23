@@ -30,8 +30,8 @@ export const EXPERTISE_SERVICES = {
     division: 'Division 01 — Infrastructure & Civil',
     desc: 'Structural analysis, detailed design, health assessment, rehabilitation, and seismic design for river bridges, flyovers, grade separators, and ROBs.',
     image: '/assets/images/hero-infrastructure-bridge.jpg',
-    url: '#card-bridge-engineering',
-    urlAbout: '/index.html#card-bridge-engineering'
+    url: '/bridge.html',
+    urlAbout: '/bridge.html'
   },
   'structure': {
     title: 'Structural Engineering',

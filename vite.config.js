@@ -9,6 +9,7 @@ export default defineConfig({
         about: resolve(__dirname, 'about-1.html'),
         architecture: resolve(__dirname, 'architecture.html'),
         bim: resolve(__dirname, 'bim.html'),
+        bridge: resolve(__dirname, 'bridge.html'),
       },
     },
   },

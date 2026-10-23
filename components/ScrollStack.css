@@ -1,0 +1,223 @@
+/* ==========================================================================
+   React Bits Pro — Scroll Stack Component Styles
+   Registry Item: @reactbits-starter/scroll-stack-tw
+   Adapted for Geo Designs & Research Bridge Projects Section
+   ========================================================================== */
+
+.scroll-stack {
+  position: relative;
+  width: 100%;
+}
+
+.scroll-stack--contained {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.scroll-stack--window {
+  position: relative;
+  width: 100%;
+}
+
+.scroll-stack__inner {
+  position: relative;
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding-inline: clamp(16px, 3.5vw, 36px);
+  box-sizing: border-box;
+}
+
+.scroll-stack__slot {
+  position: sticky;
+  width: 100%;
+  will-change: transform;
+}
+
+/* Base Card Presentation */
+.scroll-stack-card {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 240px;
+  padding: clamp(24px, 3.5vw, 36px);
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  color: var(--color-charcoal, #1F2429);
+  border: 1px solid rgba(53, 85, 107, 0.16);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.05),
+    0 1px 3px rgba(0, 0, 0, 0.04);
+  transform-origin: 50% 0;
+  will-change: transform;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* Restrained top accent line honoring GDR engineering identity */
+.scroll-stack-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #35556B 0%, #497E5E 100%);
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+/* Dimming shade overlay that settles back as cards stack */
+.scroll-stack-card__shade {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: #121A21;
+  opacity: var(--scroll-stack-dim, 0);
+  pointer-events: none;
+  transition: opacity 0.12s ease-out;
+  z-index: 5;
+}
+
+/* --------------------------------------------------------------------------
+   Bridge Project Card Hierarchy & Information Structure
+   Text-only presentation: Project Name, Client, Scope of Services
+   -------------------------------------------------------------------------- */
+.bridge-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.bridge-card__tag {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-green, #497E5E);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bridge-card__tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent-green, #497E5E);
+}
+
+.bridge-card__sector {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary-slate, #35556B);
+  background-color: rgba(53, 85, 107, 0.08);
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+.bridge-card__title {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(1.45rem, 2.4vw, 1.95rem);
+  font-weight: 800;
+  color: var(--color-charcoal, #1F2429);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0 0 18px;
+}
+
+.bridge-card__divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(53, 85, 107, 0.18) 0%, rgba(53, 85, 107, 0.04) 100%);
+  margin-bottom: 20px;
+}
+
+.bridge-card__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 24px;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+.bridge-card__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bridge-card__label {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary-slate, #35556B);
+}
+
+.bridge-card__client-name {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-charcoal, #1F2429);
+  line-height: 1.35;
+}
+
+.bridge-card__scope-text {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: 0.94rem;
+  color: #4A5568;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.bridge-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(53, 85, 107, 0.14);
+}
+
+.bridge-card__badge {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent-green, #497E5E);
+  background-color: rgba(73, 126, 94, 0.07);
+  border: 1px solid rgba(73, 126, 94, 0.22);
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Layout Rules
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .bridge-card__grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .scroll-stack-card {
+    padding: 20px 18px;
+    min-height: auto;
+  }
+  .bridge-card__title {
+    font-size: 1.35rem;
+  }
+}
