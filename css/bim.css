@@ -544,22 +544,10 @@
 }
 
 /* --------------------------------------------------------------------------
-   SECTION 4 — OUR PROJECTS (UNIFIED REACT BITS PRO CIRCLE GALLERY)
-   Replaces former separate Featured Projects and Portfolio sections.
+   SECTION 4 — FEATURED BIM PROJECTS (Strip / Carousel)
+   Heading: OUR PROJECTS
+   Titles: Thel Sena Bhawan, Tirupati Railway Station, Smart World One DXP, Married Accommodation, School of Artillery
    -------------------------------------------------------------------------- */
-.bim-projects-section {
-  padding: 95px 0 100px;
-  background-color: var(--bim-light-bg);
-  border-bottom: 1px solid var(--bim-border);
-  position: relative;
-  overflow: hidden;
-}
-
-.bim-projects-section .bim-section-header {
-  max-width: 840px;
-  margin: 0 auto 36px;
-}
-
 .bim-featured-section {
   padding: 90px 0;
   background-color: #FFFFFF;

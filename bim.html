@@ -17,7 +17,6 @@
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/components/Navigation14.css">
-  <link rel="stylesheet" href="/components/CircleGallery.css">
   <link rel="stylesheet" href="/css/bim.css">
 </head>
 <body>
@@ -546,31 +545,259 @@
     </section>
 
     <!-- ====================================================================
-         SECTION 4 — OUR PROJECTS (React Bits Pro Circle Gallery)
-         Unified showcase merging all 11 projects from former Featured Projects
-         and BIM Project Portfolio sections into one continuous Circle Gallery.
+         SECTION 4 — OUR PROJECTS
+         Unified BIM projects section combining all 11 project entries:
+           - Thel Sena Bhawan
+           - Tirupati Railway Station
+           - Smart World One DXP
+           - Married Accommodation
+           - School of Artillery
+           - Single Living Accn At Ins Hamla-navy Mumbai
+           - Construction Of 30 Bedded Hospital At Naval Station, Karanja
+           - Married Accn (G+26) For Defence Civilians At NCHC Powai, Mumbai
+           - Chennai Metro Station, Varinder Construction Limited
+           - Queen Spadina Station, Ontario South Line, Canada, Canada
+           - Formulation Plant At Vadodara
          ==================================================================== -->
-    <section class="bim-projects-section" id="featured-projects" aria-label="Our Projects">
+    <section class="bim-featured-section" id="our-projects">
       <div class="container">
         
         <div class="bim-section-header">
-          <span class="bim-section-tag">PROJECT DIRECTORY // BIM EXCELLENCE</span>
-          <h2 class="bim-section-title">OUR PROJECTS</h2>
+          <span class="bim-section-tag">PROJECTS &bull; SECTION 04</span>
+          <h2 class="bim-section-title">Our Projects</h2>
           <div class="bim-divider" aria-hidden="true">
             <span class="bim-divider-line"></span>
             <span class="bim-divider-dot"></span>
             <span class="bim-divider-line bim-divider-line--green"></span>
           </div>
           <p class="bim-section-lead">
-            Comprehensive Building Information Modelling engagements and executed multi-disciplinary assignments across defence infrastructure, transit networks, healthcare, commercial high-rises, and industrial facilities.
+            Featured Building Information Modelling engagements across major government, defence, transit, healthcare, and residential infrastructure.
           </p>
         </div>
 
-        <!-- React Bits Pro Circle Gallery Container -->
-        <div class="circle-gallery-container" id="bim-circle-gallery">
-          <!-- Dynamically mounted via components/circle-gallery.js -->
+        <div class="bim-featured-grid">
+          
+          <!-- Project 1: Thel Sena Bhawan -->
+          <article class="bim-featured-card">
+            <div class="bim-featured-card__media">
+              <img 
+                src="/assets/images/architecture/Administration/PMC%20SERVICE%20FOR%20CHETAK%20COMMANDO%20CENTER%20AT%20MAGODI,GANDHINAGAR.png" 
+                alt="Thel Sena Bhawan Defence Headquarters complex model" 
+                class="bim-featured-card__img"
+                loading="lazy"
+                width="360"
+                height="240"
+              >
+            </div>
+            <div class="bim-featured-card__body">
+              <span class="bim-featured-card__tag">DEFENCE // HEADQUARTERS</span>
+              <h3 class="bim-featured-card__title">Thel Sena Bhawan</h3>
+            </div>
+          </article>
+
+          <!-- Project 2: Tirupati Railway Station -->
+          <article class="bim-featured-card">
+            <div class="bim-featured-card__media">
+              <img 
+                src="/assets/images/architecture/Auditorium/PROVISION%20OF%20DEFICIENT%20AUDITORIUM%20AT%20VISHAKHAPATANAM.jpg" 
+                alt="Tirupati Railway Station Redevelopment BIM Coordination" 
+                class="bim-featured-card__img"
+                loading="lazy"
+                width="360"
+                height="240"
+              >
+            </div>
+            <div class="bim-featured-card__body">
+              <span class="bim-featured-card__tag">RAILWAYS // TRANSIT HUB</span>
+              <h3 class="bim-featured-card__title">Tirupati Railway Station</h3>
+            </div>
+          </article>
+
+          <!-- Project 3: Smart World One DXP -->
+          <article class="bim-featured-card">
+            <div class="bim-featured-card__media">
+              <img 
+                src="/assets/images/architecture/Residential/CONSTRUCTION%20OF%20CRITICAL%20REQUIREMENT%20DWELLING%20UNIT%20OUTSIDE%20MAP%20AT%20INS%20MANDOVI-TYPE%205%20G+10.jpg" 
+                alt="Smart World One DXP High-Rise Residential BIM Model" 
+                class="bim-featured-card__img"
+                loading="lazy"
+                width="360"
+                height="240"
+              >
+            </div>
+            <div class="bim-featured-card__body">
+              <span class="bim-featured-card__tag">COMMERCIAL // HIGH-RISE</span>
+              <h3 class="bim-featured-card__title">Smart World One DXP</h3>
+            </div>
+          </article>
+
+          <!-- Project 4: Married Accommodation -->
+          <article class="bim-featured-card">
+            <div class="bim-featured-card__media">
+              <img 
+                src="/assets/images/architecture/Residential/MARRIED%20ACCOMMODATION%20(464%20DUS)%20(G+30)%20AT%20TROMBAY%20,%20MUMBAI.jpg" 
+                alt="Married Accommodation (464 DUs) (G+30) Trombay Mumbai" 
+                class="bim-featured-card__img"
+                loading="lazy"
+                width="360"
+                height="240"
+              >
+            </div>
+            <div class="bim-featured-card__body">
+              <span class="bim-featured-card__tag">RESIDENTIAL // G+30 TOWERS</span>
+              <h3 class="bim-featured-card__title">Married Accommodation</h3>
+            </div>
+          </article>
+
+          <!-- Project 5: School of Artillery -->
+          <article class="bim-featured-card">
+            <div class="bim-featured-card__media">
+              <img 
+                src="/assets/images/architecture/Institute%20Buildings/AUGMENTATION%20OF%20TRG%20INFRASTRUCTURE%20IN%20HIGHER%20COMMAND%20WING%20IN%20AWC%20MHOW_NALANDA.jpg" 
+                alt="School of Artillery Institutional Training Infrastructure" 
+                class="bim-featured-card__img"
+                loading="lazy"
+                width="360"
+                height="240"
+              >
+            </div>
+            <div class="bim-featured-card__body">
+              <span class="bim-featured-card__tag">MILITARY // TRAINING COMPLEX</span>
+              <h3 class="bim-featured-card__title">School of Artillery</h3>
+            </div>
+          </article>
+
         </div>
 
+        <div class="bim-portfolio-grid" style="margin-top: 28px;">
+          
+          <!-- Project 1: Single Living Accn At Ins Hamla-navy Mumbai -->
+          <article class="bim-card">
+            <div class="bim-card__media">
+              <img 
+                src="/assets/images/architecture/Residential/RECONSTRUCTION%20OF%20IN%20LIVING%20OFFICERS%20SERVANTS%20QUARTERS%20AT%20INHS%20ASVINI.(G+19).jpg" 
+                alt="Single Living Accn At Ins Hamla-navy Mumbai BIM Coordination" 
+                class="bim-card__img"
+                loading="lazy"
+                width="600"
+                height="400"
+              >
+              <span class="bim-card__badge">DEFENCE ACCOMMODATION</span>
+            </div>
+            <div class="bim-card__body">
+              <div class="bim-card__meta">
+                <span class="bim-card__location">MUMBAI &bull; NAVAL BASE</span>
+              </div>
+              <h3 class="bim-card__title">Single Living Accn At Ins Hamla-navy Mumbai</h3>
+            </div>
+          </article>
+
+          <!-- Project 2: Construction Of 30 Bedded Hospital At Naval Station, Karanja -->
+          <article class="bim-card">
+            <div class="bim-card__media">
+              <img 
+                src="/assets/images/architecture/Hospitals/30%20BEDDED%20HOSPITAL%20AT%20NAVAL%20STATION%20KARANJA.jpg" 
+                alt="Construction Of 30 Bedded Hospital At Naval Station, Karanja" 
+                class="bim-card__img"
+                loading="lazy"
+                width="600"
+                height="400"
+              >
+              <span class="bim-card__badge">HEALTHCARE FACILITY</span>
+            </div>
+            <div class="bim-card__body">
+              <div class="bim-card__meta">
+                <span class="bim-card__location">KARANJA &bull; NAVAL STATION</span>
+              </div>
+              <h3 class="bim-card__title">Construction Of 30 Bedded Hospital At Naval Station, Karanja</h3>
+            </div>
+          </article>
+
+          <!-- Project 3: Married Accn (G+26) For Defence Civilians At NCHC Powai, Mumbai -->
+          <article class="bim-card">
+            <div class="bim-card__media">
+              <img 
+                src="/assets/images/architecture/Residential/MARRIED%20ACCN%20(G+26)%20FOR%20DEFENCE%20CIVILIANS%20AT%20NCHC%20POWAI,%20MUMBAI.jpg" 
+                alt="Married Accn (G+26) For Defence Civilians At NCHC Powai, Mumbai" 
+                class="bim-card__img"
+                loading="lazy"
+                width="600"
+                height="400"
+              >
+              <span class="bim-card__badge">HIGH-RISE RESIDENTIAL</span>
+            </div>
+            <div class="bim-card__body">
+              <div class="bim-card__meta">
+                <span class="bim-card__location">POWAI, MUMBAI &bull; NCHC</span>
+              </div>
+              <h3 class="bim-card__title">Married Accn (G+26) For Defence Civilians At NCHC Powai, Mumbai</h3>
+            </div>
+          </article>
+
+          <!-- Project 4: Chennai Metro Station, Varinder Construction Limited -->
+          <article class="bim-card">
+            <div class="bim-card__media">
+              <img 
+                src="/assets/images/architecture/Hangars/CONSTRUCTION%20OF%20ATC%20TOWER%20ALONG%20WITH%20ALLIED%20WORKS%20SERVICES%20AT%20AF%20STN%20KALAIKUNDA.jpg" 
+                alt="Chennai Metro Station Varinder Construction Limited Transit BIM" 
+                class="bim-card__img"
+                loading="lazy"
+                width="600"
+                height="400"
+              >
+              <span class="bim-card__badge">TRANSIT &bull; METRO</span>
+            </div>
+            <div class="bim-card__body">
+              <div class="bim-card__meta">
+                <span class="bim-card__location">CHENNAI &bull; VARINDER CONST.</span>
+              </div>
+              <h3 class="bim-card__title">Chennai Metro Station, Varinder Construction Limited</h3>
+            </div>
+          </article>
+
+          <!-- Project 5: Queen Spadina Station, Ontario South Line, Canada, Canada -->
+          <article class="bim-card">
+            <div class="bim-card__media">
+              <img 
+                src="/assets/images/hero-infrastructure-bridge.jpg" 
+                alt="Queen Spadina Station, Ontario South Line, Canada Transit BIM Model" 
+                class="bim-card__img"
+                loading="lazy"
+                width="600"
+                height="400"
+              >
+              <span class="bim-card__badge">INTERNATIONAL TRANSIT</span>
+            </div>
+            <div class="bim-card__body">
+              <div class="bim-card__meta">
+                <span class="bim-card__location">ONTARIO, CANADA &bull; SOUTH LINE</span>
+              </div>
+              <h3 class="bim-card__title">Queen Spadina Station, Ontario South Line, Canada, Canada</h3>
+            </div>
+          </article>
+
+          <!-- Project 6: Formulation Plant At Vadodara -->
+          <article class="bim-card">
+            <div class="bim-card__media">
+              <img 
+                src="/assets/images/architecture/Institute%20Buildings/FIELD%20INSTRUMENT%20GROUP%20AT%20FIT%20EME%20SECTION%20BARODA.jpg" 
+                alt="Formulation Plant At Vadodara Industrial MEP BIM Model" 
+                class="bim-card__img"
+                loading="lazy"
+                width="600"
+                height="400"
+              >
+              <span class="bim-card__badge">INDUSTRIAL &bull; PHARMA</span>
+            </div>
+            <div class="bim-card__body">
+              <div class="bim-card__meta">
+                <span class="bim-card__location">VADODARA, GUJARAT</span>
+              </div>
+              <h3 class="bim-card__title">Formulation Plant At Vadodara</h3>
+            </div>
+          </article>
+
+        </div>
       </div>
     </section>
 

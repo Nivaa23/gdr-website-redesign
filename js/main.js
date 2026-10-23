@@ -10,7 +10,6 @@ import { initAnimatedContent } from '../components/animated-content.js';
 import { initNavigation14 } from '../components/navigation-14.js';
 import { mountCircularGallery, CLIENT_LOGOS } from '../components/circular-gallery.js';
 import { mountScrollStack } from '../components/scroll-stack.js';
-import { mountCircleGallery, BIM_PROJECTS } from '../components/circle-gallery.js';
 import heroInfrastructureBridge from '../assets/images/hero-infrastructure-bridge.jpg';
 import heroArchitectureComplex from '../assets/images/hero-architecture-complex.jpg';
 import heroLabTesting from '../assets/images/hero-lab-testing.jpg';
@@ -21,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNavigation();
   initHeroCarousel();
   initBridgeScrollStack();
-  initBimCircleGallery();
   initJourneyTimeline();
   initFooterYear();
   initWordmarkCursorEffect();
@@ -37,26 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     once: true
   });
 });
-
-function initBimCircleGallery() {
-  const container = document.getElementById('bim-circle-gallery');
-  if (!container) return;
-
-  mountCircleGallery(container, {
-    items: BIM_PROJECTS,
-    circleRadius: '23%',
-    radiusPercent: 23,
-    itemWidth: 200,
-    itemHeight: 250,
-    itemScale: 0.85,
-    borderRadius: 16,
-    throwResistance: 0.35,
-    animationDuration: 0.9,
-    autoSpin: 10,
-    enableDrag: true,
-    showNumbers: true
-  });
-}
 
 function initBridgeScrollStack() {
   const stackRoot = document.getElementById('bridge-scroll-stack');

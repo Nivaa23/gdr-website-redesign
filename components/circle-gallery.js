@@ -138,12 +138,17 @@ export function mountCircleGallery(container, options = {}) {
   const count = items.length;
   if (count === 0) return null;
 
-  // Strict customization parsing adhering strictly to specified values
+  // React Bits Pro: @reactbits-starter/circle-gallery-tw configuration
   const settings = {
-    // Circle Radius: 23%
+    // Circle Radius: radiusPercent = 23%
     radiusPercent: typeof options.radiusPercent === 'number' 
       ? options.radiusPercent 
-      : (typeof options.circleRadius === 'string' ? parseFloat(options.circleRadius) : 23),
+      : (typeof options.radius === 'number' || typeof options.circleRadius === 'number' ? null : 23),
+    radius: typeof options.radius === 'number' 
+      ? options.radius 
+      : (typeof options.circleRadius === 'number' 
+          ? options.circleRadius 
+          : null),
     // Item Width: 200px
     itemWidth: typeof options.itemWidth === 'number' ? options.itemWidth : (parseFloat(options.itemWidth) || 200),
     // Item Height: 250px
@@ -268,16 +273,6 @@ export function mountCircleGallery(container, options = {}) {
     };
   });
 
-  // Controls & Interaction Hint Bar
-  const controlsBar = document.createElement('div');
-  controlsBar.className = 'circle-gallery-controls';
-  controlsBar.innerHTML = `
-    <span class="circle-gallery-hint">
-      <span class="circle-gallery-hint__dot"></span>
-      Drag or spin to explore all ${count} BIM projects &bull; Click to focus
-    </span>
-  `;
-  container.appendChild(controlsBar);
 
   // Runtime Geometry & Physics State
   let currentAngle = 0;
@@ -294,18 +289,28 @@ export function mountCircleGallery(container, options = {}) {
   let lastX = 0;
   let lastY = 0;
   let lastTime = 0;
-  let isHovered = false;
   let rafId = null;
 
-  // Viewport / Radius calculation based on Circle Radius: 23%
-  let calculatedRadius = 260;
+  // Viewport / Radius calculation: Circle Radius (radiusPercent = 23%)
+  let calculatedRadius = 280;
 
   const updateRadius = () => {
     const containerW = container.clientWidth || window.innerWidth;
-    const viewW = window.innerWidth;
-    // 23% of viewport width (bounded so cards fit comfortably without collapsing)
-    const baseR = (viewW * settings.radiusPercent) / 100;
-    calculatedRadius = Math.max(160, Math.min(baseR, containerW * 0.44));
+    const containerH = container.clientHeight || 800;
+
+    // React Bits Pro: radius is calculated from radiusPercent (e.g. 23%)
+    let targetRadius = settings.radiusPercent != null
+      ? (containerW * (settings.radiusPercent / 100))
+      : (settings.radius || 280);
+
+    // Keep all cards fully within visible frame at all viewport sizes
+    const effectiveCardH = settings.itemHeight * settings.itemScale;
+    const maxVerticalRadius = Math.max(120, (containerH - effectiveCardH - 40) / 2);
+
+    const effectiveCardW = Math.max(settings.itemWidth, settings.itemHeight) * settings.itemScale;
+    const maxHorizontalRadius = Math.max(120, (containerW - effectiveCardW - 32) / 2);
+
+    calculatedRadius = Math.min(targetRadius, maxVerticalRadius, maxHorizontalRadius);
 
     orbitRing.style.width = `${calculatedRadius * 2}px`;
     orbitRing.style.height = `${calculatedRadius * 2}px`;
@@ -318,31 +323,27 @@ export function mountCircleGallery(container, options = {}) {
     const activeRadius = calculatedRadius;
 
     itemElements.forEach((item, index) => {
-      // Calculate angular position
-      const angle = (currentAngle + item.baseAngle) % 360;
-      const normalized = normalizeDeg(angle); // -180 to +180
-      const rad = angle * TO_RAD;
+      // Calculate angular position around the circle
+      const cardAngle = currentAngle + item.baseAngle;
+      const normalized = normalizeDeg(cardAngle); // -180 to +180
+      const rad = cardAngle * TO_RAD;
 
       // Polar Coordinates (origin at stage center)
       const x = Math.round(activeRadius * Math.sin(rad) * 100) / 100;
       const y = Math.round(-activeRadius * Math.cos(rad) * 100) / 100;
 
-      // Depth & focus calculations
-      // Top position (normalized ≈ 0) has highest focus & scale
+      // Focus calculations
       const distFromTop = Math.abs(normalized); // 0 at top, 180 at bottom
       const focus = 1 - Math.min(distFromTop / 180, 1); // 1.0 at top, 0.0 at bottom
 
-      // Tangential tilt facing tangent to the circle
-      const tilt = normalized * 0.72;
-
-      // Scale factor honoring 0.85 default setting + subtle prominence at apex
-      const scale = settings.itemScale * (0.92 + 0.18 * Math.pow(focus, 1.8));
+      // Card orientation: each card follows its angular orientation around the circle
+      // Text, images, and card content rotate together with their card
+      const rotation = cardAngle;
       const zIndex = Math.round(10 + focus * 80);
-      const opacity = 0.55 + 0.45 * focus;
 
-      item.element.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${tilt.toFixed(2)}deg) scale(${scale.toFixed(3)})`;
+      item.element.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${rotation.toFixed(2)}deg) scale(${settings.itemScale})`;
       item.element.style.zIndex = String(zIndex);
-      item.element.style.opacity = opacity.toFixed(2);
+      item.element.style.opacity = '1';
 
       const isTop = distFromTop < (step / 2);
       item.element.classList.toggle('is-active', isTop);
@@ -383,8 +384,8 @@ export function mountCircleGallery(container, options = {}) {
         velocity *= friction;
       } else {
         velocity = 0;
-        // Auto Spin: 10°/s when idle and not reduced motion
-        if (!isReducedMotion && !isHovered) {
+        // Auto Spin: 10°/s continuous rotation when idle
+        if (!isReducedMotion) {
           currentAngle += settings.autoSpin * dt;
         }
       }
@@ -462,9 +463,6 @@ export function mountCircleGallery(container, options = {}) {
   window.addEventListener('pointerup', onPointerUp, { passive: true });
   window.addEventListener('pointercancel', onPointerUp, { passive: true });
 
-  // Hover detection for gentle auto-spin pause
-  root.addEventListener('pointerenter', () => { isHovered = true; });
-  root.addEventListener('pointerleave', () => { isHovered = false; });
 
   // ------------------------------------------------------------------------
   // Click-to-Focus Card (Animation Duration: 0.9s)
@@ -484,11 +482,17 @@ export function mountCircleGallery(container, options = {}) {
     });
   });
 
-  // Resize Listener
+  // Resize Observer & Window Resize Listener
   const onResize = () => {
     updateRadius();
     render();
   };
+
+  let resizeObserver = null;
+  if (typeof ResizeObserver !== 'undefined') {
+    resizeObserver = new ResizeObserver(() => onResize());
+    resizeObserver.observe(container);
+  }
   window.addEventListener('resize', onResize, { passive: true });
 
   // Accessibility & Keyboard support
@@ -507,6 +511,7 @@ export function mountCircleGallery(container, options = {}) {
   return {
     destroy: () => {
       cancelAnimationFrame(rafId);
+      resizeObserver?.disconnect();
       root.removeEventListener('pointerdown', onPointerDown);
       window.removeEventListener('pointermove', onPointerMove);
       window.removeEventListener('pointerup', onPointerUp);
