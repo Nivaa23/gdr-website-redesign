@@ -37,16 +37,19 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initBridgeScrollStack() {
-  const stackRoot = document.getElementById('bridge-scroll-stack');
-  if (!stackRoot) return;
-  mountScrollStack(stackRoot, {
-    useWindowScroll: true,
-    itemDistance: 80,
-    itemStackDistance: 24,
-    stackPosition: '14%',
-    itemScale: 0.035,
-    baseScale: 0.9,
-    dimAmount: 0.16
+  // Shared React Bits Pro Scroll Stack mount (Bridge projects + Commerce services)
+  ['bridge-scroll-stack', 'commerce-scroll-stack'].forEach((id) => {
+    const stackRoot = document.getElementById(id);
+    if (!stackRoot) return;
+    mountScrollStack(stackRoot, {
+      useWindowScroll: true,
+      itemDistance: 80,
+      itemStackDistance: 24,
+      stackPosition: '14%',
+      itemScale: 0.035,
+      baseScale: 0.9,
+      dimAmount: 0.16
+    });
   });
 }
 

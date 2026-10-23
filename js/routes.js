@@ -19,9 +19,9 @@ export const CANONICAL_ROUTES = {
   architecture: '/architecture.html', // 1. Architecture & Master Planning (Active Dedicated Page)
   bim: '/bim.html', // 2. BIM Modeling & Auditing (Active Dedicated Page)
   bridge: '/bridge.html', // 3. Bridge Engineering (Active Dedicated Page)
+  commerce: '/commerce.html', // 4. Commerce & Contract Management (Active Dedicated Page)
 
   // Future Service Pages (to be activated as new pages are implemented):
-  // commerce: '/commerce.html',
   // hydro: '/hydro.html',
   // lab: '/lab.html',
   // mepf: '/mepf.html',

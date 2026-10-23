@@ -10,6 +10,7 @@ export default defineConfig({
         architecture: resolve(__dirname, 'architecture.html'),
         bim: resolve(__dirname, 'bim.html'),
         bridge: resolve(__dirname, 'bridge.html'),
+        commerce: resolve(__dirname, 'commerce.html'),
       },
     },
   },

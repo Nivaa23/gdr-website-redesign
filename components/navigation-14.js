@@ -94,8 +94,8 @@ export const EXPERTISE_SERVICES = {
     division: 'Division 03 — Testing & Contracts',
     desc: 'Pre- and post-contract management, Bill of Quantities (BoQ) preparation, detailed cost estimation, rate analysis, tender documentation, and FIDIC contract advisory.',
     image: '/assets/images/expertise-commerce-contract.svg',
-    url: '#card-commerce-contract',
-    urlAbout: '/index.html#card-commerce-contract'
+    url: '/commerce.html',
+    urlAbout: '/commerce.html'
   }
 };
 
