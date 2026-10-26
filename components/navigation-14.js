@@ -38,8 +38,8 @@ export const EXPERTISE_SERVICES = {
     division: 'Division 01 — Infrastructure & Civil',
     desc: 'Advanced structural design and finite element analysis for heavy industrial plants, commercial towers, institutional complexes, and civic structures.',
     image: '/assets/images/expertise-structure.svg',
-    url: '#card-structure',
-    urlAbout: '/index.html#card-structure'
+    url: '/structure.html',
+    urlAbout: '/structure.html'
   },
   'survey': {
     title: 'Survey & Geomatics',

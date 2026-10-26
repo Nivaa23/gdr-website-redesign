@@ -1,0 +1,825 @@
+/* ==========================================================================
+   Geo Designs & Research — Structural Engineering Service Page Styles
+   File: css/structure.css
+   Brand Palette: Slate (#35556B), Green (#497E5E), Charcoal (#1A1F24)
+   ========================================================================== */
+
+:root {
+  --struct-slate: #35556B;
+  --struct-slate-dark: #1A2B36;
+  --struct-slate-light: #527A94;
+  --struct-slate-tint: rgba(53, 85, 107, 0.08);
+  --struct-green: #497E5E;
+  --struct-green-light: #A3E8BF;
+  --struct-green-tint: rgba(73, 126, 94, 0.08);
+  --struct-charcoal: #1A1F24;
+  --struct-dark: #121A21;
+  --struct-white: #FFFFFF;
+  --struct-light-bg: #F8FAFC;
+  --struct-grey-border: #E2E8F0;
+  --struct-grey-text: #64748B;
+  --struct-grey-light: #F1F5F9;
+  --struct-radius: 6px;
+  --struct-shadow-sm: 0 2px 8px rgba(33, 37, 41, 0.04);
+  --struct-shadow-md: 0 10px 30px rgba(33, 37, 41, 0.08);
+  --struct-shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.12);
+  --struct-transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   SECTION 1 — STRUCTURE HERO
+   Full-width hero section with prominent centered title and corner brackets
+   ========================================================================== */
+.structure-hero {
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+  height: clamp(480px, 55vh, 600px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--struct-dark);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.structure-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--struct-green), var(--struct-slate), transparent);
+  opacity: 0.85;
+  z-index: 4;
+}
+
+.structure-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.structure-hero__media-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  opacity: 0.38;
+  display: block;
+}
+
+.structure-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 20, 26, 0.65) 0%,
+    rgba(14, 20, 26, 0.78) 50%,
+    rgba(14, 20, 26, 0.94) 100%
+  );
+}
+
+.structure-hero__inner {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Decorative Green Corner Bracket Box */
+.structure-hero__bracket-box {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 56px;
+  margin-bottom: 20px;
+}
+
+.structure-hero__bracket-box .corner-accent {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.structure-hero__bracket-box .corner-accent.top-left {
+  top: 0;
+  left: 0;
+  border-top: 2px solid var(--struct-green-light);
+  border-left: 2px solid var(--struct-green-light);
+}
+
+.structure-hero__bracket-box .corner-accent.top-right {
+  top: 0;
+  right: 0;
+  border-top: 2px solid var(--struct-green-light);
+  border-right: 2px solid var(--struct-green-light);
+}
+
+.structure-hero__bracket-box .corner-accent.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid var(--struct-green-light);
+  border-left: 2px solid var(--struct-green-light);
+}
+
+.structure-hero__bracket-box .corner-accent.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-bottom: 2px solid var(--struct-green-light);
+  border-right: 2px solid var(--struct-green-light);
+}
+
+.structure-hero__title {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0;
+  text-shadow: 0 4px 32px rgba(0, 0, 0, 0.85);
+}
+
+.structure-breadcrumb ol {
+  list-style: none;
+  margin: 0;
+  padding: 8px 22px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(18, 26, 33, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 4px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.structure-breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--struct-green-light);
+}
+
+.structure-breadcrumb li + li::before {
+  content: '>';
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.structure-breadcrumb a {
+  color: #C0D0E0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.structure-breadcrumb a:hover,
+.structure-breadcrumb a:focus-visible {
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   SECTION 2 — STRUCTURE INTRODUCTION SECTION
+   Clean, white introduction section with a two-column layout
+   ========================================================================== */
+.structure-intro {
+  background-color: var(--struct-white);
+  padding: 96px 0 88px;
+  position: relative;
+  border-bottom: 1px solid var(--struct-grey-border);
+}
+
+.structure-intro__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+  align-items: center;
+}
+
+/* Left Column: Heading and Description */
+.structure-intro__content-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.structure-intro__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--struct-green);
+  background-color: var(--struct-green-tint);
+  border: 1px solid rgba(73, 126, 94, 0.22);
+  padding: 4px 12px;
+  border-radius: 3px;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+
+.structure-intro__heading {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(2rem, 3.6vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  color: var(--struct-slate-dark);
+  margin: 0 0 24px;
+}
+
+.structure-intro__text {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: 1.0625rem;
+  line-height: 1.82;
+  color: #334155;
+  margin: 0 0 28px;
+}
+
+.structure-intro__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.structure-intro__pill {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--struct-slate);
+  background-color: var(--struct-slate-tint);
+  border: 1px solid rgba(53, 85, 107, 0.2);
+  padding: 6px 14px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.structure-intro__pill::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--struct-green);
+}
+
+/* Right Column: Supporting Visual */
+.structure-intro__visual-col {
+  width: 100%;
+}
+
+.structure-intro__visual-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border-radius: var(--struct-radius);
+  overflow: hidden;
+  border: 1px solid var(--struct-grey-border);
+  box-shadow: var(--struct-shadow-md);
+  background-color: var(--struct-grey-light);
+}
+
+.structure-intro__visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.structure-intro__visual-frame:hover .structure-intro__visual-img {
+  transform: scale(1.03);
+}
+
+.structure-intro__visual-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  background: rgba(18, 26, 33, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 4px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #FFFFFF;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.725rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.structure-intro__visual-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--struct-green-light);
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(163, 232, 191, 0.6);
+}
+
+/* ==========================================================================
+   SECTION 3 — PROJECT SECTION & INTERACTIVE CATEGORY NAVIGATION
+   Two-column layout: Left project content area + Right sticky category panel
+   ========================================================================== */
+.structure-projects-section {
+  background-color: var(--struct-light-bg);
+  padding: 80px 0 110px;
+  position: relative;
+}
+
+.structure-projects__header {
+  margin-bottom: 44px;
+  text-align: left;
+}
+
+.structure-projects__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.725rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--struct-slate);
+  margin-bottom: 8px;
+}
+
+.structure-projects__title {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--struct-slate-dark);
+  margin: 0;
+}
+
+/* Two-Column Layout: Main Content Area (Left) + Category Panel (Right) */
+.structure-layout {
+  display: grid;
+  grid-template-columns: 1fr 270px;
+  gap: 48px;
+  align-items: start;
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT COLUMN: Sticky Category Panel
+   -------------------------------------------------------------------------- */
+.structure-category-panel {
+  position: sticky;
+  top: 100px;
+  background-color: var(--struct-white);
+  border: 1px solid var(--struct-grey-border);
+  border-radius: var(--struct-radius);
+  box-shadow: var(--struct-shadow-sm);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 20;
+}
+
+.structure-category-panel__title {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--struct-grey-text);
+  padding: 4px 12px 10px;
+  border-bottom: 1px solid var(--struct-grey-border);
+  margin-bottom: 4px;
+}
+
+.structure-category-btn {
+  appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  padding: 12px 14px;
+  border-radius: 4px;
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  transition: var(--struct-transition);
+}
+
+.structure-category-btn__left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.structure-category-btn__num {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.725rem;
+  font-weight: 600;
+  color: var(--struct-grey-text);
+  width: 20px;
+  flex-shrink: 0;
+  transition: var(--struct-transition);
+}
+
+.structure-category-btn__arrow {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateX(-4px);
+  color: var(--struct-green);
+  transition: var(--struct-transition);
+}
+
+.structure-category-btn:hover {
+  background-color: var(--struct-grey-light);
+  color: var(--struct-slate-dark);
+}
+
+.structure-category-btn:hover .structure-category-btn__arrow {
+  opacity: 0.6;
+  transform: translateX(0);
+}
+
+/* Active Category Button */
+.structure-category-btn.is-active {
+  background-color: var(--struct-slate-dark);
+  color: #FFFFFF;
+  border-color: var(--struct-slate-dark);
+  box-shadow: 0 4px 14px rgba(26, 43, 54, 0.22);
+}
+
+.structure-category-btn.is-active .structure-category-btn__num {
+  color: var(--struct-green-light);
+}
+
+.structure-category-btn.is-active .structure-category-btn__arrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--struct-green-light);
+}
+
+/* --------------------------------------------------------------------------
+   LEFT COLUMN: Category-Specific Project Content Views
+   -------------------------------------------------------------------------- */
+.structure-projects-area {
+  min-width: 0; /* Prevents grid blowout */
+}
+
+.structure-category-view {
+  display: none;
+  animation: structViewFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.structure-category-view.is-active {
+  display: block;
+}
+
+@keyframes structViewFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.structure-category-view__header {
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--struct-grey-border);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.structure-category-view__heading {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--struct-slate-dark);
+  margin: 0;
+}
+
+.structure-category-view__count {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--struct-green);
+  background-color: var(--struct-green-tint);
+  border: 1px solid rgba(73, 126, 94, 0.2);
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+/* Consistent Project Card Grid */
+.structure-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.structure-grid--3col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Consistent Project Card Structure */
+.structure-card {
+  position: relative;
+  background-color: var(--struct-white);
+  border: 1px solid var(--struct-grey-border);
+  border-radius: var(--struct-radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--struct-shadow-sm);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.structure-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--struct-shadow-md);
+  border-color: var(--struct-slate-light);
+}
+
+/* Corner Bracket Accents on Project Cards */
+.structure-card .corner-accent {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  z-index: 5;
+  transition: all 0.25s ease;
+}
+
+.structure-card .corner-accent.top-left {
+  top: 8px;
+  left: 8px;
+  border-top: 2px solid var(--struct-green);
+  border-left: 2px solid var(--struct-green);
+}
+
+.structure-card .corner-accent.top-right {
+  top: 8px;
+  right: 8px;
+  border-top: 2px solid var(--struct-green);
+  border-right: 2px solid var(--struct-green);
+}
+
+.structure-card .corner-accent.bottom-left {
+  bottom: 8px;
+  left: 8px;
+  border-bottom: 2px solid var(--struct-green);
+  border-left: 2px solid var(--struct-green);
+}
+
+.structure-card .corner-accent.bottom-right {
+  bottom: 8px;
+  right: 8px;
+  border-bottom: 2px solid var(--struct-green);
+  border-right: 2px solid var(--struct-green);
+}
+
+.structure-card:hover .corner-accent {
+  width: 16px;
+  height: 16px;
+  border-color: var(--struct-slate-light);
+}
+
+.structure-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--struct-grey-light);
+}
+
+.structure-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.structure-card:hover .structure-card__img {
+  transform: scale(1.04);
+}
+
+.structure-card__body {
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: var(--struct-white);
+}
+
+.structure-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.structure-card__tag {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--struct-green);
+}
+
+.structure-card__spec {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--struct-grey-text);
+  background-color: var(--struct-grey-light);
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+.structure-card__title {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--struct-slate-dark);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+/* --------------------------------------------------------------------------
+   EMPTY STATE (for Bungalows or categories without records)
+   -------------------------------------------------------------------------- */
+.structure-empty-state {
+  background-color: var(--struct-white);
+  border: 2px dashed var(--struct-grey-border);
+  border-radius: var(--struct-radius);
+  padding: 64px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.structure-empty-state__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--struct-grey-light);
+  color: var(--struct-slate);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.structure-empty-state__title {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--struct-slate-dark);
+  margin: 0 0 10px;
+}
+
+.structure-empty-state__desc {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: 0.9375rem;
+  color: var(--struct-grey-text);
+  max-width: 440px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .structure-intro__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .structure-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  /* On tablet and mobile, reposition category controls into a compact horizontal,
+     scrollable category selector above project content. Prevent horizontal overflow. */
+  .structure-category-panel {
+    position: static;
+    top: auto;
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    padding: 10px 12px;
+    gap: 8px;
+    border-radius: var(--struct-radius);
+    scrollbar-width: thin;
+  }
+
+  .structure-category-panel::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .structure-category-panel::-webkit-scrollbar-thumb {
+    background-color: var(--struct-grey-border);
+    border-radius: 4px;
+  }
+
+  .structure-category-panel__title {
+    display: none;
+  }
+
+  .structure-category-btn {
+    flex: 0 0 auto;
+    width: auto;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+
+  .structure-category-btn__arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .structure-hero {
+    min-height: 400px;
+  }
+
+  .structure-hero__bracket-box {
+    padding: 24px 32px;
+  }
+
+  .structure-intro {
+    padding: 60px 0;
+  }
+
+  .structure-grid,
+  .structure-grid--3col {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .structure-card__body {
+    padding: 16px 18px;
+  }
+}

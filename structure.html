@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Structural Engineering | Geo Designs &amp; Research — Multidisciplinary Engineering Consultancy</title>
+  <meta name="description" content="Geo Designs &amp; Research Structural Engineering: High-rise, low-rise, commercial, educational and heavy industrial structural analysis, design, durability and seismic compliance.">
+
+  <!-- Favicon derived from official company logo -->
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/favicon.png">
+
+  <!-- Typography: Hanken Grotesk (Primary) & Geist Mono (Labels exclusively) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/components/Navigation14.css">
+  <link rel="stylesheet" href="/css/structure.css">
+</head>
+<body>
+  <!-- Skip link for keyboard accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top Corporate Utility Bar -->
+  <div class="top-bar" aria-label="Corporate Details">
+    <div class="container top-bar__inner">
+      <div class="top-bar__tagline">
+        <span class="status-indicator"></span> Multidisciplinary Engineering Consultancy &amp; Research
+      </div>
+      <div class="top-bar__meta">
+        <span class="top-bar__badge">Government &amp; Institutional Partner</span>
+        <span class="top-bar__divider" aria-hidden="true">|</span>
+        <span class="top-bar__contact">An ISO 9001:2015 Certified Organization</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Primary Header & Navigation Bar (React Bits Pro Navigation 14) -->
+  <header class="site-header nav14-header" id="site-header">
+    <div class="container site-header__inner nav14-container">
+      <!-- Official Company Logo on Left -->
+      <a href="/index.html" class="brand-link nav14-brand cursor-target" id="brand-link" aria-label="Geo Designs &amp; Research - Return to Homepage">
+        <img 
+          src="/assets/images/gdr-logo.png" 
+          alt="Geo Designs &amp; Research Official Logo" 
+          class="brand-logo nav14-logo" 
+          id="brand-logo"
+          width="78"
+          height="70"
+          loading="eager"
+        >
+        <div class="brand-text nav14-brand-text">
+          <span class="brand-name nav14-brand-name">GEO DESIGNS &amp; RESEARCH</span>
+          <span class="brand-sub nav14-brand-sub">ENGINEERING CONSULTANCY &amp; RESEARCH</span>
+        </div>
+      </a>
+
+      <!-- Primary Navigation Links (Ordered strictly per specifications) -->
+      <nav class="primary-nav nav14-nav" id="primary-nav" aria-label="Primary Navigation">
+        <ul class="nav-list nav14-list" role="menubar">
+          <!-- 1. About Us -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="/about-1.html" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-about">
+              About Us
+            </a>
+          </li>
+
+          <!-- 2. Expertise (React Bits Pro Navigation 14 Mega Panel Dropdown + Featured Card) -->
+          <li class="nav-item nav14-item nav-item--has-dropdown" role="none" id="expertise-nav-item">
+            <button 
+              type="button" 
+              class="nav-link nav14-link nav14-trigger cursor-target" 
+              id="expertise-menu-button" 
+              aria-expanded="false" 
+              aria-haspopup="true" 
+              aria-controls="nav14-mega-panel" 
+              role="menuitem" 
+              data-nav14-trigger
+            >
+              <span>Expertise</span>
+              <svg class="nav-arrow-icon nav14-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+
+            <!-- Navigation 14 Mega Panel Dropdown -->
+            <div 
+              class="nav14-mega-panel" 
+              id="nav14-mega-panel" 
+              role="region" 
+              aria-label="Expertise Capabilities Directory" 
+              hidden 
+              data-nav14-panel
+            >
+              <div class="nav14-panel-inner">
+                <div class="nav14-panel-grid">
+                  <!-- Column 1: Infrastructure & Civil Engineering -->
+                  <div class="nav14-col">
+                    <span class="nav14-col-title">DIVISION 01 — INFRASTRUCTURE</span>
+                    <ul class="nav14-col-list" role="menu">
+                      <li role="none">
+                        <a href="/bridge.html" class="nav14-menu-card cursor-target" data-category="bridge">
+                          <div class="nav14-menu-card__icon">01</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">Bridge Engineering</span>
+                            <span class="nav14-menu-card__desc">River bridges, flyovers, ROBs &amp; viaducts</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="none">
+                        <a href="/hydro.html" class="nav14-menu-card cursor-target" data-category="hydro">
+                          <div class="nav14-menu-card__icon">02</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">Hydro &amp; Highway DPR</span>
+                            <span class="nav14-menu-card__desc">Detailed Project Reports, highway alignment &amp; hydrology</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="none">
+                        <a href="/index.html#card-survey" class="nav14-menu-card cursor-target" data-category="survey">
+                          <div class="nav14-menu-card__icon">03</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">Survey &amp; Geomatics</span>
+                            <span class="nav14-menu-card__desc">Drone LiDAR, topography &amp; GIS mapping</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="none">
+                        <a href="/pmc.html" class="nav14-menu-card cursor-target" data-category="pmc">
+                          <div class="nav14-menu-card__icon">04</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">Project Management Consultancy</span>
+                            <span class="nav14-menu-card__desc">Quality supervision &amp; contract administration</span>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Column 2: Building & Structural Engineering -->
+                  <div class="nav14-col">
+                    <span class="nav14-col-title">DIVISION 02 — BUILDINGS &amp; STRUCTURES</span>
+                    <ul class="nav14-col-list" role="menu">
+                      <li role="none">
+                        <a href="/structure.html" class="nav14-menu-card cursor-target is-selected" data-category="structure">
+                          <div class="nav14-menu-card__icon">05</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">Structural Engineering</span>
+                            <span class="nav14-menu-card__desc">High-rise design, seismic compliance &amp; retrofitting</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="none">
+                        <a href="/architecture.html" class="nav14-menu-card cursor-target" data-category="architecture">
+                          <div class="nav14-menu-card__icon">06</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">Architecture &amp; Master Planning</span>
+                            <span class="nav14-menu-card__desc">Urban master planning, institutional &amp; landscape design</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="none">
+                        <a href="/bim.html" class="nav14-menu-card cursor-target" data-category="bim">
+                          <div class="nav14-menu-card__icon">07</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">BIM Modeling &amp; Auditing</span>
+                            <span class="nav14-menu-card__desc">3D-7D Building Information Modelling &amp; clash detection</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="none">
+                        <a href="/mepf.html" class="nav14-menu-card cursor-target" data-category="mepf">
+                          <div class="nav14-menu-card__icon">08</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">MEPF Engineering</span>
+                            <span class="nav14-menu-card__desc">HVAC, electrical, plumbing &amp; fire protection systems</span>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Column 3: Testing, Contracts & Environment -->
+                  <div class="nav14-col">
+                    <span class="nav14-col-title">DIVISION 03 — TESTING &amp; ENVIRONMENT</span>
+                    <ul class="nav14-col-list" role="menu">
+                      <li role="none">
+                        <a href="/lab.html" class="nav14-menu-card cursor-target" data-category="lab">
+                          <div class="nav14-menu-card__icon">09</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">Laboratory &amp; Material Testing</span>
+                            <span class="nav14-menu-card__desc">NABL accredited geotechnical &amp; NDT material lab</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="none">
+                        <a href="/commerce.html" class="nav14-menu-card cursor-target" data-category="commerce">
+                          <div class="nav14-menu-card__icon">10</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">Commerce &amp; Contract Management</span>
+                            <span class="nav14-menu-card__desc">Estimates, tender preparation, rate analysis &amp; BoQ</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="none">
+                        <a href="/index.html#card-green-building" class="nav14-menu-card cursor-target" data-category="sustainability">
+                          <div class="nav14-menu-card__icon">11</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">Environmentally Sustainable Solutions</span>
+                            <span class="nav14-menu-card__desc">EIA, IGBC/GRIHA green building compliance</span>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Column 4: Navigation 14 Signature Featured Card -->
+                  <div class="nav14-featured-col">
+                    <div class="nav14-featured-card">
+                      <div class="nav14-featured-card__media">
+                        <img 
+                          src="/assets/images/expertise-structure.svg" 
+                          alt="Structural Engineering" 
+                          class="nav14-featured-card__img" 
+                          loading="lazy" 
+                          width="310" 
+                          height="135"
+                        >
+                        <div class="nav14-featured-card__overlay"></div>
+                        <span class="nav14-featured-card__tag">Division 01 — Infrastructure &amp; Civil</span>
+                      </div>
+                      <div class="nav14-featured-card__body">
+                        <h4 class="nav14-featured-card__title">Structural Engineering</h4>
+                        <p class="nav14-featured-card__desc">
+                          Advanced structural design and finite element analysis for heavy industrial plants, commercial towers, institutional complexes, and civic structures.
+                        </p>
+                        <a href="/structure.html" class="nav14-featured-card__action cursor-target" aria-label="Explore Structural Engineering Capabilities">
+                          <span>Explore Capabilities</span>
+                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                            <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Navigation 14 Panel Footer -->
+                <div class="nav14-panel-footer">
+                  <div class="nav14-footer-compliance">
+                    <span class="nav14-compliance-badge">STANDARDS COMPLIANCE</span>
+                    <span class="nav14-compliance-text">IS, IRC, MoRTH, NBC, and International ASTM/AASHTO Engineering Norms.</span>
+                  </div>
+                  <a href="/index.html#contact-us" class="nav14-inquire-link cursor-target">
+                    <span>Inquire About Engineering Services</span>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                      <path d="M2.5 6h7M6 2.5l3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- 3. Credentials -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="/index.html#credentials" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-credentials" data-phase-pending="Credentials documentation is scheduled for Phase 02.">
+              Credentials
+            </a>
+          </li>
+
+          <!-- 4. Downloads -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="/index.html#downloads" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-downloads" data-phase-pending="Corporate downloads portal is scheduled for Phase 02.">
+              Downloads
+            </a>
+          </li>
+
+          <!-- 5. Career -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="/index.html#career" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-career" data-phase-pending="Career opportunities section is scheduled for Phase 02.">
+              Career
+            </a>
+          </li>
+
+          <!-- 6. Projects -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="/index.html#projects" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-projects" data-phase-pending="Project showcase directory is scheduled for Phase 02.">
+              Projects
+            </a>
+          </li>
+
+          <!-- 7. Talk to Us (Button CTA) -->
+          <li class="nav-item nav14-item nav14-item--cta" role="none">
+            <a href="/index.html#contact-us" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-contact" data-phase-pending="Contact inquiry module is scheduled for Phase 02.">
+              Talk to Us
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button 
+        type="button" 
+        class="mobile-menu-toggle nav14-mobile-toggle cursor-target" 
+        id="mobile-menu-toggle" 
+        aria-label="Toggle navigation menu" 
+        aria-expanded="false" 
+        aria-controls="mobile-nav-drawer"
+      >
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer" hidden aria-label="Mobile Navigation Menu">
+      <div class="mobile-nav-drawer__inner">
+        <ul class="mobile-nav-list">
+          <li class="mobile-nav-item">
+            <a href="/about-1.html" class="mobile-nav-link">1. About Us</a>
+          </li>
+
+          <li class="mobile-nav-item mobile-nav-item--accordion">
+            <button type="button" class="mobile-nav-link mobile-nav-accordion-btn" id="mobile-expertise-toggle" aria-expanded="false">
+              <span>2. Expertise</span>
+              <svg class="mobile-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 5.5L7 9L10.5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            
+            <!-- Mobile Expertise Accordion List -->
+            <div class="mobile-expertise-content" id="mobile-expertise-content" hidden>
+              <!-- 1. Architecture & Master Planning -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">1. Architecture &amp; Master Planning</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Interior Design</li>
+                  <li>Urban Planning</li>
+                  <li>Green Building Design</li>
+                  <li>Building Information Modelling</li>
+                  <li>Building Performance Analysis</li>
+                  <li><a href="/architecture.html" class="mobile-view-all">View Architecture Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 2. BIM Modeling & Auditing -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">2. BIM Modeling &amp; Auditing</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Architectural &amp; Structural BIM</li>
+                  <li>MEP BIM &amp; Clash Detection</li>
+                  <li>BIM Based Quantity Takeoff &amp; BBS</li>
+                  <li>GFC Drawings Extraction &amp; Fabrication</li>
+                  <li>4D Construction Scheduling &amp; 5D Costing</li>
+                  <li>6D Facility Management &amp; Model Auditing</li>
+                  <li><a href="/bim.html" class="mobile-view-all">View BIM Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 3. Bridge Engineering -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">3. Bridge Engineering</summary>
+                <ul class="mobile-subservice-list">
+                  <li>River Bridges &amp; Flyovers</li>
+                  <li>Railway Over Bridges (ROB) &amp; Interchanges</li>
+                  <li>Bridge Health &amp; Structural Audits</li>
+                  <li>Rehabilitation &amp; Retrofitting</li>
+                  <li>Seismic Analysis &amp; Design</li>
+                  <li><a href="/bridge.html" class="mobile-view-all">View Bridge Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 4. Commerce & Contract Management -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">4. Commerce &amp; Contract Management</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Approximate &amp; Detailed Estimates</li>
+                  <li>Market &amp; Rate Analysis</li>
+                  <li>Internal &amp; External Services</li>
+                  <li>Draft Tender Papers</li>
+                  <li>Detailed Project Reports &amp; FIDIC Contracts</li>
+                  <li><a href="/commerce.html" class="mobile-view-all">View Contracts Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 5. Hydro & Highway DPR -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">5. Hydro &amp; Highway DPR</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Alignment Surveys &amp; Route Studies</li>
+                  <li>Hydrological &amp; Hydraulic Modeling</li>
+                  <li>Pavement &amp; Traffic Engineering</li>
+                  <li>Comprehensive Detailed Project Reports</li>
+                  <li><a href="/hydro.html" class="mobile-view-all">View DPR Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 6. Laboratory & Material Testing -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">6. Laboratory &amp; Material Testing</summary>
+                <ul class="mobile-subservice-list">
+                  <li>High Tech Material &amp; Concrete Lab</li>
+                  <li>Soil Testing &amp; Geotechnical Studies</li>
+                  <li>Metallurgical &amp; Chemical Lab</li>
+                  <li>Highway Material Testing</li>
+                  <li>Non-Destructive Testing (NDT) Lab</li>
+                  <li>Environmental Monitoring &amp; Analysis</li>
+                  <li><a href="/lab.html" class="mobile-view-all">View Laboratory &amp; Material Testing Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 7. MEPF Engineering -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">7. MEPF Engineering</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Illumination, Ventilation &amp; HVAC</li>
+                  <li>Distribution of Electric Supply</li>
+                  <li>ELV Systems (LAN, EPABX, TV)</li>
+                  <li>Fire Detection, Alarm &amp; Fighting Systems</li>
+                  <li>Water Supply, Plumbing &amp; Drainage</li>
+                  <li>Rain Water Harvesting</li>
+                  <li><a href="/mepf.html" class="mobile-view-all">View MEPF Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 8. Project Management Consultancy (PMC) -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">8. Project Management Consultancy (PMC)</summary>
+                <ul class="mobile-subservice-list">
+                  <li>National, State Highways &amp; Toll Roads</li>
+                  <li>Site Supervision &amp; Quality Control</li>
+                  <li>Pavement &amp; Structural Rehabilitation</li>
+                  <li>Traffic Engineering &amp; Transportation Planning</li>
+                  <li>Contract Administration &amp; Audits</li>
+                  <li><a href="/pmc.html" class="mobile-view-all">View PMC Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 9. Structural Engineering -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">9. Structural Engineering</summary>
+                <ul class="mobile-subservice-list">
+                  <li>High-Rise Commercial &amp; Residential Buildings</li>
+                  <li>Institutional &amp; Educational Buildings</li>
+                  <li>Hospital &amp; Auditorium Complexes</li>
+                  <li>Heavy Industrial Structures &amp; Hangars</li>
+                  <li><a href="/structure.html" class="mobile-view-all">View Structural Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 10. Survey & Geomatics -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">10. Survey &amp; Geomatics</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Topography &amp; Contour Surveys</li>
+                  <li>LiDAR &amp; Drone Photogrammetry</li>
+                  <li>Bathymetric &amp; River Profiling</li>
+                  <li>DGPS &amp; Geodetic Survey Network</li>
+                  <li>GIS Spatial Mapping &amp; Remote Sensing</li>
+                  <li><a href="/index.html#card-survey" class="mobile-view-all">View Survey Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 11. Environmentally Sustainable Solutions -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">11. Sustainable Solutions</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Environmental Impact Assessment (EIA)</li>
+                  <li>Green Building Certification Advisory</li>
+                  <li>Energy Performance &amp; Solar Audits</li>
+                  <li>Environmental Management &amp; Compliance</li>
+                  <li><a href="/index.html#card-green-building" class="mobile-view-all">View Sustainable Details &rarr;</a></li>
+                </ul>
+              </details>
+            </div>
+          </li>
+
+          <li class="mobile-nav-item">
+            <a href="/index.html#credentials" class="mobile-nav-link" data-phase-pending="Credentials documentation is scheduled for Phase 02.">3. Credentials</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="/index.html#downloads" class="mobile-nav-link" data-phase-pending="Corporate downloads portal is scheduled for Phase 02.">4. Downloads</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="/index.html#career" class="mobile-nav-link" data-phase-pending="Career opportunities section is scheduled for Phase 02.">5. Career</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="/index.html#projects" class="mobile-nav-link" data-phase-pending="Project showcase directory is scheduled for Phase 02.">6. Projects</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="/index.html#contact-us" class="mobile-nav-link" data-phase-pending="Contact inquiry module is scheduled for Phase 02.">7. Talk to Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       MAIN CONTENT CONTAINER
+       ====================================================================== -->
+  <main id="main-content">
+
+    <!-- ====================================================================
+         SECTION 1 — STRUCTURE HERO SECTION
+         Full-width hero section with prominent centered title and corner brackets
+         ==================================================================== -->
+    <section class="structure-hero" id="structure-hero" aria-labelledby="structure-hero-title">
+      <div class="structure-hero__media" aria-hidden="true">
+        <img 
+          src="/assets/images/hero-architecture-complex.jpg" 
+          alt="Structural Engineering civil high-rise framework" 
+          class="structure-hero__media-img" 
+          width="1600" 
+          height="900" 
+          loading="eager"
+        >
+      </div>
+      <div class="structure-hero__overlay" aria-hidden="true"></div>
+
+      <div class="structure-hero__inner">
+        <!-- Decorative Green Corner-Bracket Treatment -->
+        <div class="structure-hero__bracket-box">
+          <div class="corner-accent top-left" aria-hidden="true"></div>
+          <div class="corner-accent top-right" aria-hidden="true"></div>
+          <div class="corner-accent bottom-left" aria-hidden="true"></div>
+          <div class="corner-accent bottom-right" aria-hidden="true"></div>
+          <h1 class="structure-hero__title" id="structure-hero-title">STRUCTURE</h1>
+        </div>
+
+        <nav class="structure-breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/index.html" class="cursor-target" id="breadcrumb-home">Home</a></li>
+            <li aria-current="page">Structure</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 2 — STRUCTURE INTRODUCTION SECTION
+         Clean, white introduction section with two-column layout
+         ==================================================================== -->
+    <section class="structure-intro" id="structure-intro" aria-labelledby="structure-intro-heading">
+      <div class="container">
+        <div class="structure-intro__grid">
+
+          <!-- Left Column: Heading and Description -->
+          <div class="structure-intro__content-col">
+            <span class="structure-intro__tag">STRUCTURAL INTEGRITY &bull; RESILIENT DESIGN</span>
+            <h2 class="structure-intro__heading" id="structure-intro-heading">
+              Strong foundation for a strong future.
+            </h2>
+            <p class="structure-intro__text">
+              “Be it high-rise or distinctive iconic buildings, we rethink structures to make them more responsive to evolving demands. Our team of inventive and experienced structural engineers is proficient in designing stable, durable, elegant and economic buildings in all conditions. GDR's integrated team respond inventively to every new challenge be it long-span structures or innovations in materials to provide better all-round structural solutions.”
+            </p>
+
+            <ul class="structure-intro__pills" aria-label="Structural Engineering Core Practice Areas">
+              <li class="structure-intro__pill">High-Rise Engineering</li>
+              <li class="structure-intro__pill">Long-Span Framing</li>
+              <li class="structure-intro__pill">Seismic Resistance</li>
+              <li class="structure-intro__pill">Composite Materials</li>
+              <li class="structure-intro__pill">Value Engineering</li>
+            </ul>
+          </div>
+
+          <!-- Right Column: Supporting Visual -->
+          <div class="structure-intro__visual-col">
+            <div class="structure-intro__visual-frame">
+              <div class="corner-accent top-left" aria-hidden="true"></div>
+              <div class="corner-accent top-right" aria-hidden="true"></div>
+              <div class="corner-accent bottom-left" aria-hidden="true"></div>
+              <div class="corner-accent bottom-right" aria-hidden="true"></div>
+
+              <img 
+                src="/assets/images/hero-architecture-complex.jpg" 
+                alt="GDR Structural Engineering complex structural framing and high-rise construction" 
+                class="structure-intro__visual-img" 
+                width="640" 
+                height="440" 
+                loading="lazy"
+              >
+              <div class="structure-intro__visual-badge">
+                <span class="structure-intro__visual-badge-dot" aria-hidden="true"></span>
+                <span class="structure-intro__visual-badge-text">SEISMIC ZONE COMPLIANCE &bull; IS 456 / IS 1893</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 3 — PROJECT SECTION & INTERACTIVE CATEGORY NAVIGATION
+         Two-column layout: Left Project Content Area, Right Sticky Category Panel
+         Categories (exact order):
+         1. Highrise
+         2. Lowrise
+         3. Commercial
+         4. Bungalows
+         5. Educational Institute
+         6. Industrial
+         ==================================================================== -->
+    <section class="structure-projects-section" id="structure-projects" aria-labelledby="structure-projects-title">
+      <div class="container">
+
+        <div class="structure-projects__header">
+          <span class="structure-projects__tag">ENGINEERING PORTFOLIO</span>
+          <h2 class="structure-projects__title" id="structure-projects-title">STRUCTURAL PROJECT PORTFOLIO</h2>
+        </div>
+
+        <div class="structure-layout">
+
+          <!-- Main Content Area: Category-Specific Project Content Views -->
+          <div class="structure-projects-area" id="structure-projects-area">
+
+            <!-- --------------------------------------------------------------
+                 CATEGORY 1: HIGHRISE (Default Active)
+                 -------------------------------------------------------------- -->
+            <div class="structure-category-view is-active" id="view-highrise" role="tabpanel" aria-labelledby="tab-highrise">
+              <div class="structure-category-view__header">
+                <h3 class="structure-category-view__heading">Highrise Structures</h3>
+                <span class="structure-category-view__count">4 Completed Projects</span>
+              </div>
+
+              <div class="structure-grid">
+                <!-- Highrise 1 -->
+                <article class="structure-card">
+                  <div class="corner-accent top-left" aria-hidden="true"></div>
+                  <div class="corner-accent top-right" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-left" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-right" aria-hidden="true"></div>
+                  <div class="structure-card__media">
+                    <img 
+                      src="/assets/images/architecture/Residential/MARRIED%20ACCOMMODATION%20(464%20DUS)%20(G%2B30)%20AT%20TROMBAY%20,%20MUMBAI.jpg" 
+                      alt="MARRIED ACCOMMODATION (464 DUS) (G+30) AT TROMBAY , MUMBAI" 
+                      class="structure-card__img" 
+                      width="600" 
+                      height="380" 
+                      loading="eager"
+                    >
+                  </div>
+                  <div class="structure-card__body">
+                    <div class="structure-card__meta">
+                      <span class="structure-card__tag">HIGHRISE RESIDENTIAL</span>
+                      <span class="structure-card__spec">G+30 RCC TOWER</span>
+                    </div>
+                    <h4 class="structure-card__title">MARRIED ACCOMMODATION (464 DUS) (G+30) AT TROMBAY, MUMBAI</h4>
+                  </div>
+                </article>
+
+                <!-- Highrise 2 -->
+                <article class="structure-card">
+                  <div class="corner-accent top-left" aria-hidden="true"></div>
+                  <div class="corner-accent top-right" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-left" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-right" aria-hidden="true"></div>
+                  <div class="structure-card__media">
+                    <img 
+                      src="/assets/images/architecture/Residential/MARRIED%20ACCN%20(G%2B26)%20FOR%20DEFENCE%20CIVILIANS%20AT%20NCHC%20POWAI,%20MUMBAI.jpg" 
+                      alt="MARRIED ACCN (G+26) FOR DEFENCE CIVILIANS AT NCHC POWAI, MUMBAI" 
+                      class="structure-card__img" 
+                      width="600" 
+                      height="380" 
+                      loading="eager"
+                    >
+                  </div>
+                  <div class="structure-card__body">
+                    <div class="structure-card__meta">
+                      <span class="structure-card__tag">HIGHRISE RESIDENTIAL</span>
+                      <span class="structure-card__spec">G+26 STRUCTURAL SYSTEM</span>
+                    </div>
+                    <h4 class="structure-card__title">MARRIED ACCN (G+26) FOR DEFENCE CIVILIANS AT NCHC POWAI, MUMBAI</h4>
+                  </div>
+                </article>
+
+                <!-- Highrise 3 -->
+                <article class="structure-card">
+                  <div class="corner-accent top-left" aria-hidden="true"></div>
+                  <div class="corner-accent top-right" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-left" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-right" aria-hidden="true"></div>
+                  <div class="structure-card__media">
+                    <img 
+                      src="/assets/images/architecture/Residential/RECONSTRUCTION%20OF%20IN%20LIVING%20OFFICERS%20SERVANTS%20QUARTERS%20AT%20INHS%20ASVINI.(G%2B19).jpg" 
+                      alt="RECONSTRUCTION OF IN LIVING OFFICERS SERVANTS QUARTERS AT INHS ASVINI.(G+19)" 
+                      class="structure-card__img" 
+                      width="600" 
+                      height="380" 
+                      loading="lazy"
+                    >
+                  </div>
+                  <div class="structure-card__body">
+                    <div class="structure-card__meta">
+                      <span class="structure-card__tag">HIGHRISE RESIDENTIAL</span>
+                      <span class="structure-card__spec">G+19 SHEAR WALL</span>
+                    </div>
+                    <h4 class="structure-card__title">RECONSTRUCTION OF IN LIVING OFFICERS SERVANTS QUARTERS AT INHS ASVINI (G+19)</h4>
+                  </div>
+                </article>
+
+                <!-- Highrise 4 -->
+                <article class="structure-card">
+                  <div class="corner-accent top-left" aria-hidden="true"></div>
+                  <div class="corner-accent top-right" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-left" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-right" aria-hidden="true"></div>
+                  <div class="structure-card__media">
+                    <img 
+                      src="/assets/images/architecture/Residential/CONSTRUCTION%20OF%20CRITICAL%20REQUIREMENT%20DWELLING%20UNIT%20OUTSIDE%20MAP%20AT%20INS%20MANDOVI-TYPE%205%20G%2B10.jpg" 
+                      alt="CONSTRUCTION OF CRITICAL REQUIREMENT DWELLING UNIT OUTSIDE MAP AT INS MANDOVI-TYPE 5 G+10" 
+                      class="structure-card__img" 
+                      width="600" 
+                      height="380" 
+                      loading="lazy"
+                    >
+                  </div>
+                  <div class="structure-card__body">
+                    <div class="structure-card__meta">
+                      <span class="structure-card__tag">HIGHRISE RESIDENTIAL</span>
+                      <span class="structure-card__spec">G+10 FRAMED TOWER</span>
+                    </div>
+                    <h4 class="structure-card__title">CONSTRUCTION OF CRITICAL REQUIREMENT DWELLING UNIT OUTSIDE MAP AT INS MANDOVI-TYPE 5 G+10</h4>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- --------------------------------------------------------------
+                 CATEGORY 2: LOWRISE
+                 -------------------------------------------------------------- -->
+            <div class="structure-category-view" id="view-lowrise" role="tabpanel" aria-labelledby="tab-lowrise">
+              <div class="structure-category-view__header">
+                <h3 class="structure-category-view__heading">Lowrise Structures</h3>
+                <span class="structure-category-view__count">3 Completed Projects</span>
+              </div>
+
+              <div class="structure-grid">
+                <!-- Lowrise 1 -->
+                <article class="structure-card">
+                  <div class="corner-accent top-left" aria-hidden="true"></div>
+                  <div class="corner-accent top-right" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-left" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-right" aria-hidden="true"></div>
+                  <div class="structure-card__media">
+                    <img 
+                      src="/assets/images/architecture/Residential/CONSTRUCTION%20OF%20CRITICAL%20REQUIREMENT%20DWELLING%20UNIT%20OUTSIDE%20MAP%20AT%20INS%20MANDOVI-G%2B5%20_13.jpg" 
+                      alt="CONSTRUCTION OF CRITICAL REQUIREMENT DWELLING UNIT OUTSIDE MAP AT INS MANDOVI-G+5 _13" 
+                      class="structure-card__img" 
+                      width="600" 
+                      height="380" 
+                      loading="lazy"
+                    >
+                  </div>
+                  <div class="structure-card__body">
+                    <div class="structure-card__meta">
+                      <span class="structure-card__tag">LOWRISE RESIDENTIAL</span>
+                      <span class="structure-card__spec">G+5 LOW-RISE HOUSING</span>
+                    </div>
+                    <h4 class="structure-card__title">CONSTRUCTION OF CRITICAL REQUIREMENT DWELLING UNIT OUTSIDE MAP AT INS MANDOVI-G+5 _13</h4>
+                  </div>
+                </article>
+
+                <!-- Lowrise 2 -->
+                <article class="structure-card">
+                  <div class="corner-accent top-left" aria-hidden="true"></div>
+                  <div class="corner-accent top-right" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-left" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-right" aria-hidden="true"></div>
+                  <div class="structure-card__media">
+                    <img 
+                      src="/assets/images/architecture/Administration/PROVISION%20OF%20OTM%20ACCN%20AT%20ICGS%20MUNDRA.jpg" 
+                      alt="PROVISION OF OTM ACCN AT ICGS MUNDRA" 
+                      class="structure-card__img" 
+                      width="600" 
+                      height="380" 
+                      loading="lazy"
+                    >
+                  </div>
+                  <div class="structure-card__body">
+                    <div class="structure-card__meta">
+                      <span class="structure-card__tag">CIVIC &amp; ADMINISTRATION</span>
+                      <span class="structure-card__spec">LOW-RISE ACCOMMODATION</span>
+                    </div>
+                    <h4 class="structure-card__title">PROVISION OF OTM ACCN AT ICGS MUNDRA</h4>
+                  </div>
+                </article>
+
+                <!-- Lowrise 3 -->
+                <article class="structure-card">
+                  <div class="corner-accent top-left" aria-hidden="true"></div>
+                  <div class="corner-accent top-right" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-left" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-right" aria-hidden="true"></div>
+                  <div class="structure-card__media">
+                    <img 
+                      src="/assets/images/architecture/Administration/OTM%20ACCOMMODATION%20FOR%20HOSPITAL%20INCLUDING%20EXTERNAL%20SERVICES%20AT%20ALONG%20MILITARY%20STATION.%20(DINJAN).jpg" 
+                      alt="OTM ACCOMMODATION FOR HOSPITAL INCLUDING EXTERNAL SERVICES AT ALONG MILITARY STATION. (DINJAN)" 
+                      class="structure-card__img" 
+                      width="600" 
+                      height="380" 
+                      loading="lazy"
+                    >
+                  </div>
+                  <div class="structure-card__body">
+                    <div class="structure-card__meta">
+                      <span class="structure-card__tag">HEALTHCARE FACILITIES</span>
+                      <span class="structure-card__spec">LOW-RISE INFRASTRUCTURE</span>
+                    </div>
+                    <h4 class="structure-card__title">OTM ACCOMMODATION FOR HOSPITAL INCLUDING EXTERNAL SERVICES AT ALONG MILITARY STATION. (DINJAN)</h4>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- --------------------------------------------------------------
+                 CATEGORY 3: COMMERCIAL
+                 -------------------------------------------------------------- -->
+            <div class="structure-category-view" id="view-commercial" role="tabpanel" aria-labelledby="tab-commercial">
+              <div class="structure-category-view__header">
+                <h3 class="structure-category-view__heading">Commercial Structures</h3>
+                <span class="structure-category-view__count">2 Completed Projects</span>
+              </div>
+
+              <div class="structure-grid">
+                <!-- Commercial 1 -->
+                <article class="structure-card">
+                  <div class="corner-accent top-left" aria-hidden="true"></div>
+                  <div class="corner-accent top-right" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-left" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-right" aria-hidden="true"></div>
+                  <div class="structure-card__media">
+                    <img 
+                      src="/assets/images/architecture/Master%20Planning%20&%20Mixed%20Building/MIXED%20BUILDING.jpg" 
+                      alt="MIXED BUILDING" 
+                      class="structure-card__img" 
+                      width="600" 
+                      height="380" 
+                      loading="lazy"
+                    >
+                  </div>
+                  <div class="structure-card__body">
+                    <div class="structure-card__meta">
+                      <span class="structure-card__tag">COMMERCIAL &amp; MIXED USE</span>
+                      <span class="structure-card__spec">MULTI-STOREY COMMERCIAL</span>
+                    </div>
+                    <h4 class="structure-card__title">MIXED BUILDING</h4>
+                  </div>
+                </article>
+
+                <!-- Commercial 2 -->
+                <article class="structure-card">
+                  <div class="corner-accent top-left" aria-hidden="true"></div>
+                  <div class="corner-accent top-right" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-left" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-right" aria-hidden="true"></div>
+                  <div class="structure-card__media">
+                    <img 
+                      src="/assets/images/architecture/Administration/PMC%20SERVICE%20FOR%20CHETAK%20COMMANDO%20CENTER%20AT%20MAGODI,GANDHINAGAR.png" 
+                      alt="PMC SERVICE FOR CHETAK COMMANDO CENTER AT MAGODI,GANDHINAGAR" 
+                      class="structure-card__img" 
+                      width="600" 
+                      height="380" 
+                      loading="lazy"
+                    >
+                  </div>
+                  <div class="structure-card__body">
+                    <div class="structure-card__meta">
+                      <span class="structure-card__tag">OPERATIONAL HEADQUARTERS</span>
+                      <span class="structure-card__spec">COMMERCIAL &amp; CIVIC</span>
+                    </div>
+                    <h4 class="structure-card__title">PMC SERVICE FOR CHETAK COMMANDO CENTER AT MAGODI,GANDHINAGAR</h4>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- --------------------------------------------------------------
+                 CATEGORY 4: BUNGALOWS (Empty State per requirements)
+                 -------------------------------------------------------------- -->
+            <div class="structure-category-view" id="view-bungalows" role="tabpanel" aria-labelledby="tab-bungalows">
+              <div class="structure-category-view__header">
+                <h3 class="structure-category-view__heading">Bungalows</h3>
+                <span class="structure-category-view__count">Portfolio Update In Progress</span>
+              </div>
+
+              <div class="structure-empty-state">
+                <div class="structure-empty-state__icon" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                  </svg>
+                </div>
+                <h4 class="structure-empty-state__title">Projects for this category will be added soon.</h4>
+                <p class="structure-empty-state__desc">
+                  Detailed engineering documentation, architectural load designs, and structural specifications for bespoke private residential bungalows are currently being archived for publication.
+                </p>
+              </div>
+            </div>
+
+            <!-- --------------------------------------------------------------
+                 CATEGORY 5: EDUCATIONAL INSTITUTE
+                 -------------------------------------------------------------- -->
+            <div class="structure-category-view" id="view-educational" role="tabpanel" aria-labelledby="tab-educational">
+              <div class="structure-category-view__header">
+                <h3 class="structure-category-view__heading">Educational Institute Structures</h3>
+                <span class="structure-category-view__count">6 Completed Projects</span>
+              </div>
+
+              <div class="structure-grid">
+                <!-- Educational 1 -->
+                <article class="structure-card">
+                  <div class="corner-accent top-left" aria-hidden="true"></div>
+                  <div class="corner-accent top-right" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-left" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-right" aria-hidden="true"></div>
+                  <div class="structure-card__media">
+                    <img 
+                      src="/assets/images/architecture/Institute%20Buildings/AUGMENTATION%20OF%20TRG%20INFRASTRUCTURE%20IN%20HIGHER%20COMMAND%20WING%20IN%20AWC%20MHOW_NALANDA.jpg" 
+                      alt="AUGMENTATION OF TRG INFRASTRUCTURE IN HIGHER COMMAND WING IN AWC MHOW_NALANDA" 
+                      class="structure-card__img" 
+                      width="600" 
+                      height="380" 
+                      loading="lazy"
+                    >
+                  </div>
+                  <div class="structure-card__body">
+                    <div class="structure-card__meta">
+                      <span class="structure-card__tag">ACADEMIC INFRASTRUCTURE</span>
+                      <span class="structure-card__spec">INSTITUTE WING</span>
+                    </div>
+                    <h4 class="structure-card__title">AUGMENTATION OF TRG INFRASTRUCTURE IN HIGHER COMMAND WING IN AWC MHOW_NALANDA</h4>
+                  </div>
+                </article>
+
+                <!-- Educational 2 -->
+                <article class="structure-card">
+                  <div class="corner-accent top-left" aria-hidden="true"></div>
+                  <div class="corner-accent top-right" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-left" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-right" aria-hidden="true"></div>
+                  <div class="structure-card__media">
+                    <img 
+                      src="/assets/images/architecture/Institute%20Buildings/CONSTRUCTION%20OF%20PRIMARY%20SCHOOL%20BUILDING%20AT%20DADRA%20IN%20U.T%20OF%20DNH%20(G%2B3).jpg" 
+                      alt="CONSTRUCTION OF PRIMARY SCHOOL BUILDING AT DADRA IN U.T OF DNH (G+3)" 
+                      class="structure-card__img" 
+                      width="600" 
+                      height="380" 
+                      loading="lazy"
+                    >
+                  </div>
+                  <div class="structure-card__body">
+                    <div class="structure-card__meta">
+                      <span class="structure-card__tag">EDUCATIONAL CAMPUS</span>
+                      <span class="structure-card__spec">G+3 RCC STRUCTURE</span>
+                    </div>
+                    <h4 class="structure-card__title">CONSTRUCTION OF PRIMARY SCHOOL BUILDING AT DADRA IN U.T OF DNH (G+3)</h4>
+                  </div>
+                </article>
+
+                <!-- Educational 3 -->
+                <article class="structure-card">
+                  <div class="corner-accent top-left" aria-hidden="true"></div>
+                  <div class="corner-accent top-right" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-left" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-right" aria-hidden="true"></div>
+                  <div class="structure-card__media">
+                    <img 
+                      src="/assets/images/architecture/Institute%20Buildings/CONSTRUCTION%20OF%20PRIMARY%20SCHOOL%20BUILDING%20AT%20KHANVEL%20IN%20U.T%20OF%20DNH%20(G%2B3).jpg" 
+                      alt="CONSTRUCTION OF PRIMARY SCHOOL BUILDING AT KHANVEL IN U.T OF DNH (G+3)" 
+                      class="structure-card__img" 
+                      width="600" 
+                      height="380" 
+                      loading="lazy"
+                    >
+                  </div>
+                  <div class="structure-card__body">
+                    <div class="structure-card__meta">
+                      <span class="structure-card__tag">EDUCATIONAL CAMPUS</span>
+                      <span class="structure-card__spec">G+3 RCC STRUCTURE</span>
+                    </div>
+                    <h4 class="structure-card__title">CONSTRUCTION OF PRIMARY SCHOOL BUILDING AT KHANVEL IN U.T OF DNH (G+3)</h4>
+                  </div>
+                </article>
+
+                <!-- Educational 4 -->
+                <article class="structure-card">
+                  <div class="corner-accent top-left" aria-hidden="true"></div>
+                  <div class="corner-accent top-right" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-left" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-right" aria-hidden="true"></div>
+                  <div class="structure-card__media">
+                    <img 
+                      src="/assets/images/architecture/Institute%20Buildings/CONSTRUCTION%20OF%20PRIMARY%20SCHOOL%20BUILDING%20AT%20NAROLI%20IN%20U.T%20OF%20DNH%20(G%2B2).jpg" 
+                      alt="CONSTRUCTION OF PRIMARY SCHOOL BUILDING AT NAROLI IN U.T OF DNH (G+2)" 
+                      class="structure-card__img" 
+                      width="600" 
+                      height="380" 
+                      loading="lazy"
+                    >
+                  </div>
+                  <div class="structure-card__body">
+                    <div class="structure-card__meta">
+                      <span class="structure-card__tag">EDUCATIONAL CAMPUS</span>
+                      <span class="structure-card__spec">G+2 RCC STRUCTURE</span>
+                    </div>
+                    <h4 class="structure-card__title">CONSTRUCTION OF PRIMARY SCHOOL BUILDING AT NAROLI IN U.T OF DNH (G+2)</h4>
+                  </div>
+                </article>
+
+                <!-- Educational 5 -->
+                <article class="structure-card">
+                  <div class="corner-accent top-left" aria-hidden="true"></div>
+                  <div class="corner-accent top-right" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-left" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-right" aria-hidden="true"></div>
+                  <div class="structure-card__media">
+                    <img 
+                      src="/assets/images/architecture/Institute%20Buildings/EXTENSION%20TO%20UNIVERSITY%20HEAD%20OFFICE%20BUILDING%20OVER%20IQAC%207%20EXAM%20SECTION.jpg" 
+                      alt="EXTENSION TO UNIVERSITY HEAD OFFICE BUILDING OVER IQAC 7 EXAM SECTION" 
+                      class="structure-card__img" 
+                      width="600" 
+                      height="380" 
+                      loading="lazy"
+                    >
+                  </div>
+                  <div class="structure-card__body">
+                    <div class="structure-card__meta">
+                      <span class="structure-card__tag">UNIVERSITY COMPLEX</span>
+                      <span class="structure-card__spec">ACADEMIC EXTENSION</span>
+                    </div>
+                    <h4 class="structure-card__title">EXTENSION TO UNIVERSITY HEAD OFFICE BUILDING OVER IQAC 7 EXAM SECTION</h4>
+                  </div>
+                </article>
+
+                <!-- Educational 6 -->
+                <article class="structure-card">
+                  <div class="corner-accent top-left" aria-hidden="true"></div>
+                  <div class="corner-accent top-right" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-left" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-right" aria-hidden="true"></div>
+                  <div class="structure-card__media">
+                    <img 
+                      src="/assets/images/architecture/Institute%20Buildings/RECONSTRUCTION%20OF%20KENDRIYA%20VIDYALAYA%20NO.1%20BLDG%20AT%20AF%20STN%20JAMANAGAR.jpg" 
+                      alt="RECONSTRUCTION OF KENDRIYA VIDYALAYA NO.1 BLDG AT AF STN JAMANAGAR" 
+                      class="structure-card__img" 
+                      width="600" 
+                      height="380" 
+                      loading="lazy"
+                    >
+                  </div>
+                  <div class="structure-card__body">
+                    <div class="structure-card__meta">
+                      <span class="structure-card__tag">INSTITUTIONAL SCHOOL</span>
+                      <span class="structure-card__spec">RECONSTRUCTED COMPLEX</span>
+                    </div>
+                    <h4 class="structure-card__title">RECONSTRUCTION OF KENDRIYA VIDYALAYA NO.1 BLDG AT AF STN JAMANAGAR</h4>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- --------------------------------------------------------------
+                 CATEGORY 6: INDUSTRIAL
+                 -------------------------------------------------------------- -->
+            <div class="structure-category-view" id="view-industrial" role="tabpanel" aria-labelledby="tab-industrial">
+              <div class="structure-category-view__header">
+                <h3 class="structure-category-view__heading">Industrial Structures</h3>
+                <span class="structure-category-view__count">4 Completed Projects</span>
+              </div>
+
+              <div class="structure-grid">
+                <!-- Industrial 1 -->
+                <article class="structure-card">
+                  <div class="corner-accent top-left" aria-hidden="true"></div>
+                  <div class="corner-accent top-right" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-left" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-right" aria-hidden="true"></div>
+                  <div class="structure-card__media">
+                    <img 
+                      src="/assets/images/architecture/Hangars/PROVISION%20OF%20FLIGHT%20HANGARS%20AT%20AF%20STN%20CHABUA%20AND%20KALAIKUNDA.jpg" 
+                      alt="PROVISION OF FLIGHT HANGARS AT AF STN CHABUA AND KALAIKUNDA" 
+                      class="structure-card__img" 
+                      width="600" 
+                      height="380" 
+                      loading="lazy"
+                    >
+                  </div>
+                  <div class="structure-card__body">
+                    <div class="structure-card__meta">
+                      <span class="structure-card__tag">HEAVY INDUSTRIAL STEEL</span>
+                      <span class="structure-card__spec">LONG-SPAN FLIGHT HANGARS</span>
+                    </div>
+                    <h4 class="structure-card__title">PROVISION OF FLIGHT HANGARS AT AF STN CHABUA AND KALAIKUNDA</h4>
+                  </div>
+                </article>
+
+                <!-- Industrial 2 -->
+                <article class="structure-card">
+                  <div class="corner-accent top-left" aria-hidden="true"></div>
+                  <div class="corner-accent top-right" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-left" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-right" aria-hidden="true"></div>
+                  <div class="structure-card__media">
+                    <img 
+                      src="/assets/images/architecture/Hangars/PROVN%20OF%20ONE%20HANGER%20WITH%20DOUBLE%20STOREY%20ANNEX%20FOR%20FIGHTER%20SQN%20AT%20AF%20STN%20NALIYA.jpg" 
+                      alt="PROVN OF ONE HANGER WITH DOUBLE STOREY ANNEX FOR FIGHTER SQN AT AF STN NALIYA" 
+                      class="structure-card__img" 
+                      width="600" 
+                      height="380" 
+                      loading="lazy"
+                    >
+                  </div>
+                  <div class="structure-card__body">
+                    <div class="structure-card__meta">
+                      <span class="structure-card__tag">AEROSPACE &amp; INDUSTRIAL</span>
+                      <span class="structure-card__spec">STEEL TRUSS HANGAR</span>
+                    </div>
+                    <h4 class="structure-card__title">PROVN OF ONE HANGER WITH DOUBLE STOREY ANNEX FOR FIGHTER SQN AT AF STN NALIYA</h4>
+                  </div>
+                </article>
+
+                <!-- Industrial 3 -->
+                <article class="structure-card">
+                  <div class="corner-accent top-left" aria-hidden="true"></div>
+                  <div class="corner-accent top-right" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-left" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-right" aria-hidden="true"></div>
+                  <div class="structure-card__media">
+                    <img 
+                      src="/assets/images/architecture/Hangars/CONSTRUCTION%20OF%20ATC%20TOWER%20ALONG%20WITH%20ALLIED%20WORKS%20SERVICES%20AT%20AF%20STN%20KALAIKUNDA.jpg" 
+                      alt="CONSTRUCTION OF ATC TOWER ALONG WITH ALLIED WORKS SERVICES AT AF STN KALAIKUNDA" 
+                      class="structure-card__img" 
+                      width="600" 
+                      height="380" 
+                      loading="lazy"
+                    >
+                  </div>
+                  <div class="structure-card__body">
+                    <div class="structure-card__meta">
+                      <span class="structure-card__tag">SPECIALIZED INDUSTRIAL</span>
+                      <span class="structure-card__spec">ATC TOWER &amp; STEEL COMPLEX</span>
+                    </div>
+                    <h4 class="structure-card__title">CONSTRUCTION OF ATC TOWER ALONG WITH ALLIED WORKS SERVICES AT AF STN KALAIKUNDA</h4>
+                  </div>
+                </article>
+
+                <!-- Industrial 4 -->
+                <article class="structure-card">
+                  <div class="corner-accent top-left" aria-hidden="true"></div>
+                  <div class="corner-accent top-right" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-left" aria-hidden="true"></div>
+                  <div class="corner-accent bottom-right" aria-hidden="true"></div>
+                  <div class="structure-card__media">
+                    <img 
+                      src="/assets/images/architecture/Institute%20Buildings/FIELD%20INSTRUMENT%20GROUP%20AT%20FIT%20EME%20SECTION%20BARODA.jpg" 
+                      alt="FIELD INSTRUMENT GROUP AT FIT EME SECTION BARODA" 
+                      class="structure-card__img" 
+                      width="600" 
+                      height="380" 
+                      loading="lazy"
+                    >
+                  </div>
+                  <div class="structure-card__body">
+                    <div class="structure-card__meta">
+                      <span class="structure-card__tag">HEAVY WORKSHOP</span>
+                      <span class="structure-card__spec">INDUSTRIAL EME BAY</span>
+                    </div>
+                    <h4 class="structure-card__title">FIELD INSTRUMENT GROUP AT FIT EME SECTION BARODA</h4>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right Column: Interactive Category Panel (Fixed/Sticky on Desktop) -->
+          <aside class="structure-category-panel" role="tablist" aria-label="Project Categories">
+            <div class="structure-category-panel__title">Categories</div>
+
+            <!-- 1. Highrise -->
+            <button 
+              type="button" 
+              class="structure-category-btn is-active cursor-target" 
+              id="tab-highrise" 
+              role="tab" 
+              aria-selected="true" 
+              aria-controls="view-highrise" 
+              data-target="view-highrise"
+            >
+              <div class="structure-category-btn__left">
+                <span class="structure-category-btn__num">01</span>
+                <span>Highrise</span>
+              </div>
+              <svg class="structure-category-btn__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 12l4-4-4-4"/>
+              </svg>
+            </button>
+
+            <!-- 2. Lowrise -->
+            <button 
+              type="button" 
+              class="structure-category-btn cursor-target" 
+              id="tab-lowrise" 
+              role="tab" 
+              aria-selected="false" 
+              aria-controls="view-lowrise" 
+              data-target="view-lowrise"
+            >
+              <div class="structure-category-btn__left">
+                <span class="structure-category-btn__num">02</span>
+                <span>Lowrise</span>
+              </div>
+              <svg class="structure-category-btn__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 12l4-4-4-4"/>
+              </svg>
+            </button>
+
+            <!-- 3. Commercial -->
+            <button 
+              type="button" 
+              class="structure-category-btn cursor-target" 
+              id="tab-commercial" 
+              role="tab" 
+              aria-selected="false" 
+              aria-controls="view-commercial" 
+              data-target="view-commercial"
+            >
+              <div class="structure-category-btn__left">
+                <span class="structure-category-btn__num">03</span>
+                <span>Commercial</span>
+              </div>
+              <svg class="structure-category-btn__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 12l4-4-4-4"/>
+              </svg>
+            </button>
+
+            <!-- 4. Bungalows -->
+            <button 
+              type="button" 
+              class="structure-category-btn cursor-target" 
+              id="tab-bungalows" 
+              role="tab" 
+              aria-selected="false" 
+              aria-controls="view-bungalows" 
+              data-target="view-bungalows"
+            >
+              <div class="structure-category-btn__left">
+                <span class="structure-category-btn__num">04</span>
+                <span>Bungalows</span>
+              </div>
+              <svg class="structure-category-btn__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 12l4-4-4-4"/>
+              </svg>
+            </button>
+
+            <!-- 5. Educational Institute -->
+            <button 
+              type="button" 
+              class="structure-category-btn cursor-target" 
+              id="tab-educational" 
+              role="tab" 
+              aria-selected="false" 
+              aria-controls="view-educational" 
+              data-target="view-educational"
+            >
+              <div class="structure-category-btn__left">
+                <span class="structure-category-btn__num">05</span>
+                <span>Educational Institute</span>
+              </div>
+              <svg class="structure-category-btn__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 12l4-4-4-4"/>
+              </svg>
+            </button>
+
+            <!-- 6. Industrial -->
+            <button 
+              type="button" 
+              class="structure-category-btn cursor-target" 
+              id="tab-industrial" 
+              role="tab" 
+              aria-selected="false" 
+              aria-controls="view-industrial" 
+              data-target="view-industrial"
+            >
+              <div class="structure-category-btn__left">
+                <span class="structure-category-btn__num">06</span>
+                <span>Industrial</span>
+              </div>
+              <svg class="structure-category-btn__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 12l4-4-4-4"/>
+              </svg>
+            </button>
+          </aside>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       GLOBAL WEBSITE FOOTER (Single Source of Truth)
+       ====================================================================== -->
+  <footer class="site-footer" id="site-footer" aria-label="Corporate Footer">
+    <div class="container footer-container">
+      
+      <!-- 1. COMPACT 7-CELL CAPABILITIES GRID -->
+      <div class="footer-capabilities-grid animated-content">
+        
+        <!-- Cell 01: Headquarters -->
+        <div class="footer-cell footer-cell--contact animated-content-item">
+          <div class="footer-cell__header">
+            <span class="footer-cell__num">01</span>
+            <h4 class="footer-cell__title">Headquarters</h4>
+          </div>
+          <div class="footer-cell__content">
+            <p class="footer-cell__text">
+              Geo Designs &amp; Research (P) Ltd.<br>
+              GDR House, 31, Nutan Bharat Society,<br>
+              Alkapuri, Vadodara - 390007, Gujarat
+            </p>
+            <p class="footer-cell__text footer-cell__text--spaced">
+              <strong>Phone:</strong> +91 265 2330755<br>
+              <strong>Email:</strong> contact@geodesigns.co.in
+            </p>
+          </div>
+        </div>
+
+        <!-- Cell 02: Infrastructure -->
+        <div class="footer-cell animated-content-item">
+          <div class="footer-cell__header">
+            <span class="footer-cell__num">02</span>
+            <h4 class="footer-cell__title">Infrastructure</h4>
+          </div>
+          <ul class="footer-cell__list">
+            <li><a href="/bridge.html" class="cursor-target">Bridge Engineering</a></li>
+            <li><a href="/hydro.html" class="cursor-target">Hydro &amp; Highway DPR</a></li>
+            <li><a href="/index.html#card-survey" class="cursor-target">Survey &amp; Geomatics</a></li>
+            <li><a href="/pmc.html" class="cursor-target">Project Management (PMC)</a></li>
+          </ul>
+        </div>
+
+        <!-- Cell 03: Buildings -->
+        <div class="footer-cell animated-content-item">
+          <div class="footer-cell__header">
+            <span class="footer-cell__num">03</span>
+            <h4 class="footer-cell__title">Buildings</h4>
+          </div>
+          <ul class="footer-cell__list">
+            <li><a href="/architecture.html" class="cursor-target">Architecture &amp; Master Planning</a></li>
+            <li><a href="/structure.html" class="cursor-target">Structural Engineering</a></li>
+            <li><a href="/bim.html" class="cursor-target">BIM Modeling &amp; Auditing</a></li>
+            <li><a href="/mepf.html" class="cursor-target">MEPF Engineering</a></li>
+          </ul>
+        </div>
+
+        <!-- Cell 04: Testing & Governance -->
+        <div class="footer-cell animated-content-item">
+          <div class="footer-cell__header">
+            <span class="footer-cell__num">04</span>
+            <h4 class="footer-cell__title">Testing &amp; QA</h4>
+          </div>
+          <ul class="footer-cell__list">
+            <li><a href="/lab.html" class="cursor-target">Material Testing Lab (NABL)</a></li>
+            <li><a href="/commerce.html" class="cursor-target">Commerce &amp; Contracts</a></li>
+            <li><a href="/index.html#card-green-building" class="cursor-target">Sustainable Solutions</a></li>
+            <li><a href="/lab.html" class="cursor-target">Non-Destructive Testing</a></li>
+          </ul>
+        </div>
+
+        <!-- Cell 05: Company & Careers -->
+        <div class="footer-cell animated-content-item">
+          <div class="footer-cell__header">
+            <span class="footer-cell__num">05</span>
+            <h4 class="footer-cell__title">Company</h4>
+          </div>
+          <ul class="footer-cell__list">
+            <li><a href="/about-1.html" class="cursor-target">About GDR</a></li>
+            <li><a href="/index.html#credentials" class="cursor-target">Credentials</a></li>
+            <li><a href="/index.html#downloads" class="cursor-target">Downloads Portal</a></li>
+            <li><a href="/index.html#career" class="cursor-target">Career Opportunities</a></li>
+          </ul>
+        </div>
+
+        <!-- Cell 06: Quality Accreditations -->
+        <div class="footer-cell animated-content-item">
+          <div class="footer-cell__header">
+            <span class="footer-cell__num">06</span>
+            <h4 class="footer-cell__title">Standards</h4>
+          </div>
+          <div class="footer-cell__content">
+            <p class="footer-cell__text">
+              ISO 9001:2015 Quality Management System accredited.<br>
+              Compliant with IRC, MoRTH, NBC, BIS, and international ASTM &amp; AASHTO standards.
+            </p>
+          </div>
+        </div>
+
+        <!-- Cell 07: 3D Segmented Interactive Globe -->
+        <div class="footer-cell footer-cell--globe animated-content-item">
+          <div class="footer-cell__header">
+            <span class="footer-cell__num">07</span>
+            <h4 class="footer-cell__title">Global Reach</h4>
+          </div>
+          <div class="footer-globe-wrap" id="footer-globe-container">
+            <svg 
+              id="footer-globe-svg" 
+              class="footer-globe-svg cursor-target" 
+              viewBox="0 0 200 200" 
+              width="100%" 
+              height="100%" 
+              aria-label="Interactive 3D Engineering Globe"
+            >
+              <circle cx="100" cy="100" r="88" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1.5" />
+              <g class="globe-latitudes" stroke="rgba(255, 255, 255, 0.14)" stroke-width="1" fill="none">
+                <ellipse cx="100" cy="100" rx="88" ry="24" />
+                <ellipse cx="100" cy="100" rx="88" ry="52" />
+                <ellipse cx="100" cy="100" rx="88" ry="76" />
+                <line x1="12" y1="100" x2="188" y2="100" />
+              </g>
+              <g class="globe-longitudes" stroke="rgba(255, 255, 255, 0.14)" stroke-width="1" fill="none">
+                <line x1="100" y1="12" x2="100" y2="188" />
+                <ellipse cx="100" cy="100" rx="30" ry="88" />
+                <ellipse cx="100" cy="100" rx="60" ry="88" />
+              </g>
+              <g class="globe-facets-layer">
+                <polygon class="globe-facet" points="80,48 120,48 100,20" fill="rgba(73, 126, 94, 0.16)" stroke="rgba(163, 232, 191, 0.35)" stroke-width="1" />
+                <polygon class="globe-facet" points="40,100 80,72 80,128" fill="rgba(53, 85, 107, 0.16)" stroke="rgba(163, 232, 191, 0.35)" stroke-width="1" />
+                <polygon class="globe-facet" points="80,72 120,72 100,100" fill="rgba(73, 126, 94, 0.22)" stroke="rgba(163, 232, 191, 0.45)" stroke-width="1" />
+                <polygon class="globe-facet" points="120,72 160,100 120,128" fill="rgba(53, 85, 107, 0.16)" stroke="rgba(163, 232, 191, 0.35)" stroke-width="1" />
+                <polygon class="globe-facet" points="80,128 120,128 100,160" fill="rgba(73, 126, 94, 0.18)" stroke="rgba(163, 232, 191, 0.4)" stroke-width="1" />
+              </g>
+              <circle cx="100" cy="100" r="4.5" fill="#A3E8BF" />
+              <circle cx="100" cy="100" r="10" fill="none" stroke="#A3E8BF" stroke-width="1" opacity="0.6" />
+            </svg>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 2. HIGH-IMPACT ARCHITECTURAL DRAFTING WORDMARK -->
+      <div 
+        class="footer-wordmark-panel cursor-target" 
+        id="footer-wordmark-panel"
+        tabindex="0"
+        role="img"
+        aria-label="Geo Designs &amp; Research Architectural Wordmark"
+      >
+        <svg 
+          class="wordmark-svg" 
+          id="wordmark-svg"
+          viewBox="0 0 1320 280" 
+          width="100%" 
+          height="100%" 
+          preserveAspectRatio="xMidYMid meet"
+          aria-hidden="true"
+        >
+          <defs>
+            <mask id="wordmark-cursor-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1320" height="280">
+              <rect x="0" y="0" width="1320" height="280" fill="#000000" />
+              <circle 
+                id="wordmark-spotlight" 
+                cx="-500" 
+                cy="-500" 
+                r="0" 
+                fill="url(#wordmark-radial-gradient)" 
+              />
+            </mask>
+
+            <radialGradient id="wordmark-radial-gradient" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+              <stop offset="65%" stop-color="#ffffff" stop-opacity="0.9" />
+              <stop offset="85%" stop-color="#ffffff" stop-opacity="0.45" />
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+
+          <!-- Technical Architectural Drafting Coordinate Marks -->
+          <g class="wordmark-drafting-ticks" stroke="#BEBEBE" stroke-width="1" opacity="0.45">
+            <path d="M 20 35 L 20 15 L 40 15" fill="none" />
+            <path d="M 1300 35 L 1300 15 L 1280 15" fill="none" />
+            <path d="M 20 245 L 20 265 L 40 265" fill="none" />
+            <path d="M 1300 245 L 1300 265 L 1280 265" fill="none" />
+            <path d="M 15 140 H 25 M 20 135 V 145" fill="none" />
+            <path d="M 1295 140 H 1305 M 1300 135 V 145" fill="none" />
+            <path d="M 660 10 V 18" fill="none" />
+            <path d="M 660 262 V 270" fill="none" />
+          </g>
+
+          <!-- LAYER 1: Base Outlined Lettering -->
+          <g class="wordmark-layer wordmark-layer--outline">
+            <text x="50%" y="118" text-anchor="middle" class="wordmark-text wordmark-text--outline">GEO DESIGNS</text>
+            <text x="50%" y="242" text-anchor="middle" class="wordmark-text wordmark-text--outline">&amp; RESEARCH</text>
+          </g>
+
+          <!-- LAYER 2: Localized White Fill Layer -->
+          <g class="wordmark-layer wordmark-layer--fill" mask="url(#wordmark-cursor-mask)">
+            <text x="50%" y="118" text-anchor="middle" class="wordmark-text wordmark-text--fill">GEO DESIGNS</text>
+            <text x="50%" y="242" text-anchor="middle" class="wordmark-text wordmark-text--fill">&amp; RESEARCH</text>
+          </g>
+
+          <!-- LAYER 3: Crisp Top Stroke Layer -->
+          <g class="wordmark-layer wordmark-layer--top-stroke" aria-hidden="true" pointer-events="none">
+            <text x="50%" y="118" text-anchor="middle" class="wordmark-text wordmark-text--top-stroke">GEO DESIGNS</text>
+            <text x="50%" y="242" text-anchor="middle" class="wordmark-text wordmark-text--top-stroke">&amp; RESEARCH</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- 3. BOTTOM COPYRIGHT STRIP -->
+      <div class="footer-copyright-strip animated-content-item">
+        <p class="footer-copyright-text">
+          &copy; <span id="current-year">2026</span> Geo Designs &amp; Research. All rights reserved.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script type="module" src="/js/main.js"></script>
+
+  <!-- Interactive Project Category Navigation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const categoryButtons = document.querySelectorAll('.structure-category-btn');
+      const categoryViews = document.querySelectorAll('.structure-category-view');
+
+      categoryButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = btn.getAttribute('data-target');
+
+          // Update active state on buttons
+          categoryButtons.forEach(b => {
+            b.classList.remove('is-active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('is-active');
+          btn.setAttribute('aria-selected', 'true');
+
+          // Switch project content in-place without page reload or url change
+          categoryViews.forEach(view => {
+            view.classList.remove('is-active');
+          });
+
+          const activeView = document.getElementById(targetId);
+          if (activeView) {
+            activeView.classList.add('is-active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
