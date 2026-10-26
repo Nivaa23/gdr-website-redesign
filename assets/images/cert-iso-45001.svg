@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160" aria-label="ISO 45001:2018 Occupational Health and Safety Certification">
+  <defs>
+    <radialGradient id="isoGrad3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1E2A36"/>
+      <stop offset="100%" stop-color="#121B24"/>
+    </radialGradient>
+  </defs>
+  <circle cx="80" cy="80" r="76" fill="url(#isoGrad3)" stroke="#35556B" stroke-width="2"/>
+  <circle cx="80" cy="80" r="70" fill="none" stroke="#497E5E" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <!-- Safety Shield Symbol -->
+  <path d="M 80 20 L 96 26 C 96 46 80 56 80 60 C 80 56 64 46 64 26 Z" fill="none" stroke="#A3E8BF" stroke-width="1.8"/>
+  <text x="80" y="78" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="16" font-weight="700" fill="#FFFFFF" letter-spacing="1.5">ISO</text>
+  <text x="80" y="98" text-anchor="middle" font-family="'Hanken Grotesk', sans-serif" font-size="14" font-weight="800" fill="#A3E8BF" letter-spacing="1">45001:2018</text>
+  <text x="80" y="118" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="7.5" font-weight="600" fill="#94A3B8" letter-spacing="0.8">OH&amp;S MANAGEMENT</text>
+  <circle cx="80" cy="132" r="3" fill="#497E5E"/>
+</svg>

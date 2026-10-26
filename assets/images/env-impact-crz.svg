@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" width="500" height="320" aria-label="Environmental Impact Assessment and CRZ Demarcation Schematic">
+  <defs>
+    <linearGradient id="crzBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#142426"/>
+      <stop offset="100%" stop-color="#0E191A"/>
+    </linearGradient>
+    <pattern id="crzGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#497E5E" stroke-width="0.75" stroke-opacity="0.2"/>
+    </pattern>
+  </defs>
+  <rect width="500" height="320" fill="url(#crzBg)"/>
+  <rect width="500" height="320" fill="url(#crzGrid)"/>
+  <g font-family="'Geist Mono', monospace" font-size="9" fill="#94A3B8" letter-spacing="1">
+    <text x="20" y="26">EIA STUDIES &amp; CRZ BOUNDARY DELINEATION</text>
+    <text x="350" y="26" fill="#497E5E">CRZ NOTIFICATION 2019</text>
+    <line x1="20" y1="36" x2="480" y2="36" stroke="#497E5E" stroke-opacity="0.4"/>
+  </g>
+  <!-- Coastal Line & High Tide Line (HTL) / Low Tide Line (LTL) Demarcation -->
+  <g transform="translate(60, 60)">
+    <!-- Water Body Zone -->
+    <path d="M 0 160 Q 100 130 180 150 T 380 140 L 380 180 L 0 180 Z" fill="#14262E" stroke="#35556B" stroke-width="1.5"/>
+    <text x="50" y="172" font-family="'Geist Mono', monospace" font-size="8" fill="#35556B">INTERTIDAL ZONE</text>
+    <!-- HTL Line -->
+    <path d="M 0 120 Q 100 90 180 110 T 380 100" fill="none" stroke="#497E5E" stroke-width="2.5"/>
+    <text x="375" y="95" text-anchor="end" font-family="'Geist Mono', monospace" font-size="8" font-weight="700" fill="#497E5E">HTL (HIGH TIDE LINE)</text>
+    <!-- Hazard Line / NDZ Buffer -->
+    <path d="M 0 60 Q 100 30 180 50 T 380 40" fill="none" stroke="#A3E8BF" stroke-width="1.8" stroke-dasharray="4 3"/>
+    <text x="375" y="35" text-anchor="end" font-family="'Geist Mono', monospace" font-size="8" fill="#A3E8BF">200m / 500m CRZ BUFFER</text>
+  </g>
+  <g transform="translate(80, 240)">
+    <rect width="340" height="45" rx="3" fill="#0C1515" stroke="#497E5E" stroke-width="1"/>
+    <text x="14" y="18" font-family="'Geist Mono', monospace" font-size="8" fill="#A3E8BF">ENVIRONMENTAL CLEARANCE (EC) &bull; CRZ-I, II, III, IV</text>
+    <text x="14" y="32" font-family="'Geist Mono', monospace" font-size="8" fill="#94A3B8">PUBLIC HEARINGS &bull; RAPID / COMPREHENSIVE EIA REPORTS</text>
+  </g>
+  <path d="M 12 12 H 24 M 12 12 V 24" stroke="#497E5E" stroke-width="2"/>
+  <path d="M 488 12 H 476 M 488 12 V 24" stroke="#497E5E" stroke-width="2"/>
+  <path d="M 12 308 H 24 M 12 308 V 296" stroke="#497E5E" stroke-width="2"/>
+  <path d="M 488 308 H 476 M 488 308 V 296" stroke="#497E5E" stroke-width="2"/>
+</svg>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" width="500" height="320" aria-label="Solid and Hazardous Waste Management Schematic">
+  <defs>
+    <linearGradient id="wmBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1C2424"/>
+      <stop offset="100%" stop-color="#101818"/>
+    </linearGradient>
+    <pattern id="wmGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#497E5E" stroke-width="0.75" stroke-opacity="0.2"/>
+    </pattern>
+  </defs>
+  <rect width="500" height="320" fill="url(#wmBg)"/>
+  <rect width="500" height="320" fill="url(#wmGrid)"/>
+  <g font-family="'Geist Mono', monospace" font-size="9" fill="#94A3B8" letter-spacing="1">
+    <text x="20" y="26">SOLID &amp; HAZARDOUS WASTE MANAGEMENT</text>
+    <text x="360" y="26" fill="#497E5E">CPCB TSDF GUIDELINES</text>
+    <line x1="20" y1="36" x2="480" y2="36" stroke="#497E5E" stroke-opacity="0.4"/>
+  </g>
+  <!-- Containment Cell / Leachate Barrier Schematic -->
+  <g transform="translate(80, 80)">
+    <polygon points="40,20 300,20 260,110 80,110" fill="#152420" stroke="#497E5E" stroke-width="1.8"/>
+    <!-- Impermeable HDPE Liner Vector -->
+    <path d="M 35 15 L 75 115 L 265 115 L 305 15" fill="none" stroke="#A3E8BF" stroke-width="2.5" stroke-dasharray="6 3"/>
+    <!-- Leachate Collection Pipe -->
+    <line x1="80" y1="125" x2="260" y2="125" stroke="#35556B" stroke-width="3"/>
+    <circle cx="170" cy="125" r="5" fill="#497E5E"/>
+    <text x="170" y="70" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="8.5" font-weight="700" fill="#E2E8F0">ENGINEERED CONTAINMENT</text>
+  </g>
+  <g transform="translate(130, 230)">
+    <rect width="240" height="50" rx="3" fill="#0C1514" stroke="#35556B" stroke-width="1"/>
+    <text x="12" y="20" font-family="'Geist Mono', monospace" font-size="8" fill="#A3E8BF">CO-PROCESSING &bull; SECURE LANDFILL (TSDF)</text>
+    <text x="12" y="36" font-family="'Geist Mono', monospace" font-size="8" fill="#94A3B8">HAZARDOUS WASTE CHARACTERIZATION &amp; AUDITING</text>
+  </g>
+  <path d="M 12 12 H 24 M 12 12 V 24" stroke="#497E5E" stroke-width="2"/>
+  <path d="M 488 12 H 476 M 488 12 V 24" stroke="#497E5E" stroke-width="2"/>
+  <path d="M 12 308 H 24 M 12 308 V 296" stroke="#497E5E" stroke-width="2"/>
+  <path d="M 488 308 H 476 M 488 308 V 296" stroke="#497E5E" stroke-width="2"/>
+</svg>

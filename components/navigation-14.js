@@ -77,9 +77,9 @@ export const EXPERTISE_SERVICES = {
     title: 'Environmentally Sustainable Solutions',
     division: 'Division 02 — Design & Technology',
     desc: 'Environmental Impact Assessment (EIA), green building certification advisory (GRIHA, LEED, IGBC), energy performance simulations, and environmental compliance audits.',
-    image: '/assets/images/expertise-green-building.svg',
-    url: '#card-green-building',
-    urlAbout: '/index.html#card-green-building'
+    image: '/assets/images/Sustainbility.png',
+    url: '/sustainability.html',
+    urlAbout: '/sustainability.html'
   },
   'lab': {
     title: 'Laboratory & Material Testing',

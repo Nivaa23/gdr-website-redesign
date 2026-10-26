@@ -17,6 +17,7 @@ export default defineConfig({
         pmc: resolve(__dirname, 'pmc.html'),
         structure: resolve(__dirname, 'structure.html'),
         survey: resolve(__dirname, 'survey.html'),
+        sustainability: resolve(__dirname, 'sustainability.html'),
       },
     },
   },

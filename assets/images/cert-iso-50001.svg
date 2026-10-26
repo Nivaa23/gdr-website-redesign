@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160" aria-label="ISO 50001 Energy Management System Certification">
+  <defs>
+    <radialGradient id="isoGrad4" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1A2D2A"/>
+      <stop offset="100%" stop-color="#0E1D1B"/>
+    </radialGradient>
+  </defs>
+  <circle cx="80" cy="80" r="76" fill="url(#isoGrad4)" stroke="#497E5E" stroke-width="2"/>
+  <circle cx="80" cy="80" r="70" fill="none" stroke="#A3E8BF" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <!-- Energy Lightning/Eco Bolt -->
+  <path d="M 82 20 L 70 38 H 82 L 78 56 L 92 36 H 80 Z" fill="#A3E8BF" stroke="#497E5E" stroke-width="1"/>
+  <text x="80" y="78" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="16" font-weight="700" fill="#FFFFFF" letter-spacing="1.5">ISO</text>
+  <text x="80" y="98" text-anchor="middle" font-family="'Hanken Grotesk', sans-serif" font-size="14" font-weight="800" fill="#A3E8BF" letter-spacing="1">50001</text>
+  <text x="80" y="118" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="7.5" font-weight="600" fill="#94A3B8" letter-spacing="0.8">ENERGY MANAGEMENT</text>
+  <circle cx="80" cy="132" r="3" fill="#497E5E"/>
+</svg>

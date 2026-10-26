@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160" aria-label="NABL ISO/IEC 17025 Accredited Laboratory Testing Scope">
+  <defs>
+    <radialGradient id="nablGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#192834"/>
+      <stop offset="100%" stop-color="#0F1820"/>
+    </radialGradient>
+  </defs>
+  <circle cx="80" cy="80" r="76" fill="url(#nablGrad)" stroke="#35556B" stroke-width="2"/>
+  <circle cx="80" cy="80" r="70" fill="none" stroke="#497E5E" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <!-- Flask/Measurement Flask Symbol -->
+  <path d="M 76 22 V 32 L 64 52 C 60 58 64 64 72 64 H 88 C 96 64 100 58 96 52 L 84 32 V 22 Z" fill="none" stroke="#A3E8BF" stroke-width="1.8"/>
+  <line x1="72" y1="22" x2="88" y2="22" stroke="#A3E8BF" stroke-width="2"/>
+  <text x="80" y="84" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="15" font-weight="800" fill="#FFFFFF" letter-spacing="2">NABL</text>
+  <text x="80" y="100" text-anchor="middle" font-family="'Hanken Grotesk', sans-serif" font-size="12" font-weight="700" fill="#A3E8BF" letter-spacing="0.8">ISO/IEC 17025</text>
+  <text x="80" y="118" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="7.5" font-weight="600" fill="#94A3B8" letter-spacing="0.8">TESTING SCOPE</text>
+  <circle cx="80" cy="132" r="3" fill="#497E5E"/>
+</svg>

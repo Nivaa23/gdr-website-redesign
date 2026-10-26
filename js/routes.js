@@ -26,9 +26,7 @@ export const CANONICAL_ROUTES = {
   structure: '/structure.html', // 8. Structural Engineering (Active Dedicated Page)
   mepf: '/mepf.html', // 9. MEPF Engineering (Active Dedicated Page)
   survey: '/survey.html', // 10. Survey & Geomatics (Active Dedicated Page)
-
-  // Future Service Pages (to be activated as new pages are implemented):
-  // sustainability: '/sustainability.html'
+  sustainability: '/sustainability.html', // 11. Environmentally Sustainable Solutions (Active Dedicated Page)
 };
 
 /**

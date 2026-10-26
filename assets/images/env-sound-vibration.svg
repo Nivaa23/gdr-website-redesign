@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" width="500" height="320" aria-label="Sound Emission and Vibration Monitoring Analysis Schematic">
+  <defs>
+    <linearGradient id="sBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#19222B"/>
+      <stop offset="100%" stop-color="#0E161F"/>
+    </linearGradient>
+    <pattern id="sGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#35556B" stroke-width="0.75" stroke-opacity="0.25"/>
+    </pattern>
+  </defs>
+  <rect width="500" height="320" fill="url(#sBg)"/>
+  <rect width="500" height="320" fill="url(#sGrid)"/>
+  <g font-family="'Geist Mono', monospace" font-size="9" fill="#94A3B8" letter-spacing="1">
+    <text x="20" y="26">ACOUSTIC &amp; SEISMIC VIBRATION MONITORING</text>
+    <text x="360" y="26" fill="#497E5E">CPCB NOISE RULES 2000</text>
+    <line x1="20" y1="36" x2="480" y2="36" stroke="#35556B" stroke-opacity="0.4"/>
+  </g>
+  <!-- Sound Pressure Waveforms (Decibel Frequency Analysis) -->
+  <g stroke="#35556B" stroke-width="1.2" fill="none" opacity="0.6">
+    <path d="M 40 160 Q 90 90 140 160 T 240 160 T 340 160 T 440 160"/>
+  </g>
+  <g stroke="#497E5E" stroke-width="2" fill="none">
+    <path d="M 40 160 Q 80 110 120 160 T 200 160 T 280 160 T 360 160 T 440 160"/>
+  </g>
+  <!-- Sound Level Meter Type 1 Visual -->
+  <g transform="translate(210, 80)">
+    <!-- Microphone Windscreen -->
+    <circle cx="40" cy="15" r="14" fill="#1C2E38" stroke="#497E5E" stroke-width="1.8"/>
+    <!-- Pre-amplifier Stem -->
+    <rect x="37" y="29" width="6" height="25" fill="#35556B"/>
+    <!-- Body -->
+    <rect x="15" y="54" width="50" height="110" rx="6" fill="#16222A" stroke="#497E5E" stroke-width="1.8"/>
+    <!-- Digital Display -->
+    <rect x="23" y="66" width="34" height="26" rx="2" fill="#0C151B" stroke="#35556B" stroke-width="1"/>
+    <text x="40" y="82" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="10" font-weight="700" fill="#A3E8BF">62.4</text>
+    <text x="40" y="90" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="6" fill="#94A3B8">dB(A) Leq</text>
+  </g>
+  <!-- Spectrum Bands -->
+  <g transform="translate(320, 180)">
+    <rect x="0" y="25" width="8" height="35" fill="#35556B"/>
+    <rect x="14" y="10" width="8" height="50" fill="#497E5E"/>
+    <rect x="28" y="0" width="8" height="60" fill="#A3E8BF"/>
+    <rect x="42" y="18" width="8" height="42" fill="#497E5E"/>
+    <rect x="56" y="30" width="8" height="30" fill="#35556B"/>
+    <text x="32" y="75" text-anchor="middle" font-family="'Geist Mono', monospace" font-size="7" fill="#94A3B8">1/3 OCTAVE BAND</text>
+  </g>
+  <path d="M 12 12 H 24 M 12 12 V 24" stroke="#497E5E" stroke-width="2"/>
+  <path d="M 488 12 H 476 M 488 12 V 24" stroke="#497E5E" stroke-width="2"/>
+  <path d="M 12 308 H 24 M 12 308 V 296" stroke="#497E5E" stroke-width="2"/>
+  <path d="M 488 308 H 476 M 488 308 V 296" stroke="#497E5E" stroke-width="2"/>
+</svg>
