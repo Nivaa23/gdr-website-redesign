@@ -218,7 +218,7 @@ export function mountNavigation14(headerElement, options = {}) {
       featuredImg.alt = service.title;
     }
     if (featuredAction) {
-      const isSubpage = window.location.pathname.includes('about') || window.location.pathname.includes('architecture');
+      const isSubpage = window.location.pathname !== '/' && !window.location.pathname.endsWith('/index.html') && !window.location.pathname.endsWith('/');
       featuredAction.href = getServiceRoute(categoryKey, isSubpage);
       featuredAction.setAttribute('aria-label', `Explore ${service.title} Capabilities`);
     }
