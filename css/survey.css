@@ -1,7 +1,8 @@
 /* ==========================================================================
-   Geo Designs & Research — Survey & Geomatics Service Page Styles
+   Geo Designs & Research — Survey Service Page Styles
    File: css/survey.css
-   Brand Palette: Slate (#35556B), Green (#497E5E), Charcoal (#1A1F24)
+   Design System: Slate (#35556B), Muted Green (#497E5E), Charcoal (#1F2428 / #343A40)
+   Typography: Hanken Grotesk (Primary), Geist Mono (Labels & Technical Microcopy)
    ========================================================================== */
 
 :root {
@@ -12,18 +13,90 @@
   --survey-green: #497E5E;
   --survey-green-light: #A3E8BF;
   --survey-green-tint: rgba(73, 126, 94, 0.08);
-  --survey-charcoal: #1A1F24;
+  --survey-charcoal: #1E2328;
   --survey-dark: #121A21;
+  --survey-darker: #0E141A;
   --survey-white: #FFFFFF;
   --survey-light-bg: #F8FAFC;
-  --survey-grey-border: #E2E8F0;
-  --survey-grey-text: #64748B;
-  --survey-grey-light: #F1F5F9;
+  --survey-light-alt: #F1F5F9;
+  --survey-border: #E2E8F0;
+  --survey-border-dark: rgba(255, 255, 255, 0.1);
+  --survey-text: #343A40;
+  --survey-text-muted: #64748B;
+  --survey-text-light: #94A3B8;
   --survey-radius: 6px;
   --survey-shadow-sm: 0 2px 8px rgba(33, 37, 41, 0.04);
   --survey-shadow-md: 0 10px 30px rgba(33, 37, 41, 0.08);
   --survey-shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.12);
   --survey-transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   COMMON HEADING & DECORATIVE ACCENTS
+   ========================================================================== */
+.survey-divider {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto;
+}
+
+.survey-divider-line {
+  width: 48px;
+  height: 2px;
+  background-color: var(--survey-slate);
+}
+
+.survey-divider-line--green {
+  background-color: var(--survey-green);
+}
+
+.survey-divider-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--survey-green-light);
+}
+
+.survey-section-header {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+.survey-section-tag {
+  display: inline-block;
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--survey-green);
+  margin-bottom: 10px;
+}
+
+.survey-section-title {
+  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--survey-charcoal);
+  margin: 0 0 14px;
+}
+
+.survey-section-title--light {
+  color: #FFFFFF;
+}
+
+.survey-section-desc {
+  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--survey-text-muted);
+  max-width: 720px;
+  margin: 14px auto 0;
 }
 
 /* ==========================================================================
@@ -33,7 +106,7 @@
   position: relative;
   width: 100%;
   min-height: 480px;
-  height: clamp(480px, 55vh, 600px);
+  height: clamp(480px, 55vh, 580px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -67,7 +140,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center 35%;
-  opacity: 0.35;
+  opacity: 0.32;
   display: block;
 }
 
@@ -101,14 +174,14 @@
 .survey-hero__bracket-box {
   position: relative;
   display: inline-block;
-  padding: 24px 44px;
-  margin-bottom: 24px;
+  padding: 24px 52px;
+  margin-bottom: 22px;
 }
 
 .survey-hero__bracket-box .corner-accent {
   position: absolute;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border-color: var(--survey-green);
   border-style: solid;
   pointer-events: none;
@@ -140,14 +213,14 @@
 
 .survey-hero__title {
   font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-size: clamp(2.4rem, 5.5vw, 4.4rem);
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #FFFFFF;
   margin: 0;
   line-height: 1.1;
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.7);
 }
 
 .survey-breadcrumb {
@@ -161,12 +234,15 @@
   align-items: center;
   gap: 10px;
   list-style: none;
-  padding: 0;
+  padding: 8px 18px;
   margin: 0;
   font-family: 'Geist Mono', monospace;
   font-size: 0.82rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  background: rgba(14, 20, 26, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
 }
 
 .survey-breadcrumb li {
@@ -188,7 +264,8 @@
   transition: color 0.2s ease;
 }
 
-.survey-breadcrumb a:hover {
+.survey-breadcrumb a:hover,
+.survey-breadcrumb a:focus-visible {
   color: var(--survey-green-light);
 }
 
@@ -198,195 +275,384 @@
 }
 
 /* ==========================================================================
-   SECTION 2 — INTRO SECTION
+   SECTION 2 — SURVEY INTRODUCTION SECTION (Dark Charcoal / Slate)
    ========================================================================== */
 .survey-intro {
-  background-color: var(--survey-white);
-  padding: 80px 0;
-  border-bottom: 1px solid var(--survey-grey-border);
+  position: relative;
+  background-color: var(--survey-charcoal);
+  padding: 84px 0 100px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.survey-intro__grid {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 48px;
-  align-items: center;
+.survey-intro::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.07) 1.2px, transparent 1.2px),
+    linear-gradient(rgba(53, 85, 107, 0.04) 1px, transparent 1px);
+  background-size: 26px 26px, 130px 130px;
+  pointer-events: none;
+  opacity: 0.8;
 }
 
-.survey-intro__tag {
-  display: inline-block;
-  font-family: 'Geist Mono', monospace;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  color: var(--survey-green);
-  text-transform: uppercase;
-  margin-bottom: 12px;
+.survey-intro__header {
+  text-align: center;
+  margin-bottom: 54px;
+  position: relative;
+  z-index: 2;
 }
 
 .survey-intro__heading {
   font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+  font-size: clamp(2rem, 3.6vw, 2.8rem);
   font-weight: 800;
-  color: var(--survey-charcoal);
-  line-height: 1.22;
-  margin: 0 0 20px 0;
+  letter-spacing: 0.12em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin: 0 0 14px;
 }
 
-.survey-intro__text {
-  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #475569;
-  margin-bottom: 28px;
+.survey-intro__grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.survey-intro__pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-.survey-intro__pill {
-  font-family: 'Geist Mono', monospace;
-  font-size: 0.78rem;
-  font-weight: 500;
-  padding: 6px 14px;
-  background-color: var(--survey-grey-light);
-  border: 1px solid var(--survey-grey-border);
-  border-radius: 4px;
-  color: var(--survey-slate);
+.survey-intro__visual-panel {
+  position: relative;
 }
 
 .survey-intro__visual-frame {
   position: relative;
-  padding: 12px;
-  background: #F8FAFC;
-  border: 1px solid var(--survey-grey-border);
+  background-color: var(--survey-darker);
+  border: 1px solid var(--survey-border-dark);
   border-radius: var(--survey-radius);
+  overflow: hidden;
+  box-shadow: var(--survey-shadow-lg);
+  aspect-ratio: 16 / 11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.survey-intro__visual-frame .corner-accent {
+.survey-intro__visual-frame::before {
+  content: '';
   position: absolute;
-  width: 14px;
-  height: 14px;
-  border-color: var(--survey-green);
-  border-style: solid;
+  top: 10px;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+  border-top: 2px solid var(--survey-green);
+  border-left: 2px solid var(--survey-green);
+  pointer-events: none;
+  z-index: 3;
 }
 
-.survey-intro__visual-frame .corner-accent.top-left { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
-.survey-intro__visual-frame .corner-accent.top-right { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
-.survey-intro__visual-frame .corner-accent.bottom-left { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
-.survey-intro__visual-frame .corner-accent.bottom-right { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+.survey-intro__visual-frame::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  border-bottom: 2px solid var(--survey-slate);
+  border-right: 2px solid var(--survey-slate);
+  pointer-events: none;
+  z-index: 3;
+}
 
 .survey-intro__visual-img {
   width: 100%;
-  height: auto;
-  border-radius: 4px;
+  height: 100%;
+  object-fit: cover;
   display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.survey-intro__visual-frame:hover .survey-intro__visual-img {
+  transform: scale(1.03);
 }
 
 .survey-intro__visual-badge {
-  display: flex;
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  background: rgba(18, 26, 33, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 7px 16px;
+  border-radius: 3px;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: 10px;
-  font-family: 'Geist Mono', monospace;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--survey-slate);
+  z-index: 4;
 }
 
 .survey-intro__visual-badge-dot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background-color: var(--survey-green);
 }
 
-/* ==========================================================================
-   SECTION 3 — CAPABILITIES & SCOPE GRID
-   ========================================================================== */
-.survey-scope {
-  background-color: var(--survey-light-bg);
-  padding: 80px 0;
+.survey-intro__visual-badge-text {
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #FFFFFF;
+  text-transform: uppercase;
 }
 
-.survey-section-header {
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto 50px;
+.survey-intro__content-col {
+  position: relative;
 }
 
-.survey-section-tag {
+.survey-intro__content-card {
+  background-color: #FFFFFF;
+  border-radius: var(--survey-radius);
+  padding: clamp(34px, 4vw, 48px);
+  box-shadow: var(--survey-shadow-lg);
+  border-left: 4px solid var(--survey-green);
+}
+
+.survey-intro__card-tag {
   display: inline-block;
   font-family: 'Geist Mono', monospace;
-  font-size: 0.76rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--survey-green);
-  margin-bottom: 8px;
-}
-
-.survey-section-title {
-  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  font-weight: 800;
-  color: var(--survey-charcoal);
-  margin: 0 0 16px;
-}
-
-.survey-section-desc {
-  font-size: 1rem;
-  line-height: 1.65;
-  color: var(--survey-grey-text);
-  margin: 0;
-}
-
-.survey-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 24px;
-}
-
-.survey-card {
-  background-color: var(--survey-white);
-  border: 1px solid var(--survey-grey-border);
-  border-radius: var(--survey-radius);
-  padding: 30px;
-  transition: var(--survey-transition);
-  display: flex;
-  flex-direction: column;
-}
-
-.survey-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--survey-shadow-md);
-  border-color: var(--survey-slate-light);
-}
-
-.survey-card__num {
-  font-family: 'Geist Mono', monospace;
-  font-size: 0.85rem;
+  font-size: 0.74rem;
   font-weight: 700;
-  color: var(--survey-green);
+  letter-spacing: 0.14em;
+  color: var(--survey-slate);
+  text-transform: uppercase;
   margin-bottom: 12px;
 }
 
-.survey-card__title {
+.survey-intro__card-heading {
   font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 1.22rem;
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 800;
+  color: var(--survey-charcoal);
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+.survey-intro__card-text {
+  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.04rem;
+  line-height: 1.75;
+  color: #334155;
+  margin: 0;
+}
+
+/* ==========================================================================
+   SECTION 3 — SURVEY STATISTICS STRIP (Dark, High-Contrast, 5 Values)
+   ========================================================================== */
+.survey-stats-strip {
+  background: linear-gradient(135deg, #131920 0%, #1A232B 50%, #121A21 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 56px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.survey-stats-strip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+.survey-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+  align-items: center;
+}
+
+.survey-stat-item {
+  text-align: center;
+  padding: 10px 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.survey-stat-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 15%;
+  right: 0;
+  height: 70%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+}
+
+.survey-stat-item__value {
+  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.1rem, 3.2vw, 3rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.survey-stat-item__label {
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--survey-text-light);
+  line-height: 1.45;
+  max-width: 180px;
+}
+
+/* ==========================================================================
+   SECTION 4 — FIELD SURVEY SECTION (Clean White Background)
+   ========================================================================== */
+.survey-field-section {
+  background-color: var(--survey-white);
+  padding: 90px 0 100px;
+  border-bottom: 1px solid var(--survey-border);
+}
+
+.survey-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 48px;
+}
+
+.survey-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.survey-detail-lead {
+  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.18rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--survey-charcoal);
+  margin: 0;
+}
+
+.survey-detail-text {
+  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0;
+}
+
+.survey-spec-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.survey-spec-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #334155;
+  line-height: 1.4;
+}
+
+.survey-spec-icon {
+  color: var(--survey-green);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.survey-detail-visual {
+  position: relative;
+}
+
+.survey-detail-frame {
+  position: relative;
+  background: var(--survey-light-bg);
+  border: 1px solid var(--survey-border);
+  border-radius: var(--survey-radius);
+  overflow: hidden;
+  box-shadow: var(--survey-shadow-md);
+  aspect-ratio: 16 / 11;
+}
+
+.survey-detail-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.survey-feature-pills {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.survey-feature-card {
+  background-color: var(--survey-light-bg);
+  border: 1px solid var(--survey-border);
+  border-radius: var(--survey-radius);
+  padding: 24px;
+  transition: var(--survey-transition);
+}
+
+.survey-feature-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--survey-slate-light);
+  box-shadow: var(--survey-shadow-md);
+  background-color: #FFFFFF;
+}
+
+.survey-feature-card__tag {
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--survey-green);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.survey-feature-card__title {
+  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--survey-charcoal);
   margin: 0 0 10px;
 }
 
-.survey-card__text {
+.survey-feature-card__desc {
   font-size: 0.92rem;
   line-height: 1.6;
   color: #475569;
@@ -394,80 +660,209 @@
 }
 
 /* ==========================================================================
-   SECTION 4 — PROJECTS TABLE
+   SECTION 5 — MOBILE LIDAR SURVEY SECTION (Light Grey Background)
    ========================================================================== */
-.survey-projects {
+.survey-lidar-section {
+  background-color: var(--survey-light-bg);
+  padding: 90px 0 100px;
+  border-bottom: 1px solid var(--survey-border);
+}
+
+.survey-detail-grid--reversed {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ==========================================================================
+   SECTION 6 — DRONE SURVEY SECTION (Clean White Background)
+   ========================================================================== */
+.survey-drone-section {
   background-color: var(--survey-white);
-  padding: 80px 0;
-  border-top: 1px solid var(--survey-grey-border);
+  padding: 90px 0 100px;
+  border-bottom: 1px solid var(--survey-border);
 }
 
-.survey-table-wrap {
-  overflow-x: auto;
-  border: 1px solid var(--survey-grey-border);
+/* ==========================================================================
+   SECTION 7 — PROJECTS SECTION (Structured, Naturally Scrolling Cards)
+   ========================================================================== */
+.survey-projects-section {
+  background-color: var(--survey-white);
+  padding: 90px 0 110px;
+}
+
+.survey-projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.survey-project-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--survey-border);
   border-radius: var(--survey-radius);
-  background: var(--survey-white);
+  padding: 28px 32px;
   box-shadow: var(--survey-shadow-sm);
+  transition: var(--survey-transition);
+  display: grid;
+  grid-template-columns: 1.8fr 1.2fr;
+  gap: 32px;
+  align-items: center;
 }
 
-.survey-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  text-align: left;
+.survey-project-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--survey-slate-light);
+  box-shadow: var(--survey-shadow-md);
 }
 
-.survey-table th {
-  background-color: #F8FAFC;
-  padding: 16px 20px;
-  font-family: 'Geist Mono', monospace;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--survey-slate);
-  border-bottom: 2px solid var(--survey-grey-border);
+.survey-project-card__main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.survey-table td {
-  padding: 18px 20px;
-  border-bottom: 1px solid var(--survey-grey-border);
-  font-size: 0.92rem;
-  line-height: 1.55;
-  color: #334155;
-  vertical-align: top;
-}
-
-.survey-table tr:hover td {
-  background-color: #F8FAFC;
-}
-
-.survey-table__name {
-  font-weight: 600;
-  color: var(--survey-charcoal);
-  display: block;
-}
-
-.survey-table__client {
-  color: #64748B;
-  font-size: 0.88rem;
-}
-
-.survey-table__badge {
-  display: inline-block;
+.survey-project-card__index {
   font-family: 'Geist Mono', monospace;
   font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--survey-green);
+  text-transform: uppercase;
+}
+
+.survey-project-card__title {
+  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--survey-charcoal);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.survey-project-card__details {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+.survey-project-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-left: 24px;
+  border-left: 1px solid var(--survey-border);
+}
+
+.survey-project-card__client-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--survey-text-muted);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.survey-project-card__client-name {
+  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: var(--survey-charcoal);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.survey-project-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.survey-project-badge {
+  display: inline-block;
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.7rem;
   font-weight: 600;
   padding: 4px 10px;
   border-radius: 4px;
   background-color: var(--survey-green-tint);
   color: var(--survey-green);
   border: 1px solid rgba(73, 126, 94, 0.2);
+  white-space: nowrap;
 }
 
-@media (max-width: 900px) {
+/* ==========================================================================
+   RESPONSIVE LAYOUTS (Tablets & Mobile)
+   ========================================================================== */
+@media (max-width: 992px) {
   .survey-intro__grid {
     grid-template-columns: 1fr;
     gap: 36px;
+  }
+
+  .survey-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .survey-stat-item:nth-child(3)::after {
+    display: none;
+  }
+
+  .survey-detail-grid,
+  .survey-detail-grid--reversed {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .survey-feature-pills {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .survey-project-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .survey-project-card__meta {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid var(--survey-border);
+    padding-top: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .survey-hero {
+    min-height: 400px;
+  }
+
+  .survey-hero__bracket-box {
+    padding: 18px 28px;
+  }
+
+  .survey-stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .survey-stat-item::after {
+    display: none !important;
+  }
+
+  .survey-spec-list {
+    grid-template-columns: 1fr;
+  }
+
+  .survey-feature-pills {
+    grid-template-columns: 1fr;
+  }
+
+  .survey-project-card {
+    padding: 22px 20px;
   }
 }

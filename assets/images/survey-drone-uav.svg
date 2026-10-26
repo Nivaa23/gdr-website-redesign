@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380" aria-label="UAV Drone Photogrammetry and Aerial Surveying Schematics">
+  <defs>
+    <linearGradient id="droneBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141C24"/>
+      <stop offset="60%" stop-color="#18242E"/>
+      <stop offset="100%" stop-color="#0E151B"/>
+    </linearGradient>
+    <pattern id="droneGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#35556B" stroke-width="0.75" stroke-opacity="0.25"/>
+    </pattern>
+    <radialGradient id="sensorFrustum" cx="50%" cy="0%" r="90%">
+      <stop offset="0%" stop-color="#497E5E" stop-opacity="0.45"/>
+      <stop offset="60%" stop-color="#497E5E" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#497E5E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="600" height="380" fill="url(#droneBg)"/>
+  <rect width="600" height="380" fill="url(#droneGrid)"/>
+
+  <!-- Technical Telemetry Header Overlay -->
+  <g font-family="'Geist Mono', monospace" font-size="10" fill="#94A3B8" letter-spacing="1.2">
+    <text x="24" y="32">UAV AERIAL PHOTOGRAMMETRY // FLIGHT LINE 04</text>
+    <text x="410" y="32" fill="#497E5E">GSD: 1.8 CM/PIXEL &bull; RTK FIX</text>
+    <line x1="24" y1="42" x2="576" y2="42" stroke="#35556B" stroke-width="1" stroke-opacity="0.5"/>
+  </g>
+
+  <!-- Photogrammetric Camera Frustum Cone from UAV -->
+  <polygon points="300,105 130,320 470,320" fill="url(#sensorFrustum)"/>
+  <line x1="300" y1="105" x2="130" y2="320" stroke="#497E5E" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <line x1="300" y1="105" x2="470" y2="320" stroke="#497E5E" stroke-width="1.2" stroke-dasharray="4 4"/>
+  <line x1="300" y1="105" x2="300" y2="320" stroke="#A3E8BF" stroke-width="1" stroke-opacity="0.7"/>
+
+  <!-- Flight Path Lines with Waypoints -->
+  <g stroke="#35556B" stroke-width="1.5" stroke-dasharray="6 4" fill="none">
+    <path d="M 80,95 L 200,95 L 300,95 L 420,95 L 530,95"/>
+  </g>
+  <circle cx="120" cy="95" r="3.5" fill="#35556B"/>
+  <circle cx="210" cy="95" r="3.5" fill="#35556B"/>
+  <circle cx="300" cy="95" r="4.5" fill="#497E5E"/>
+  <circle cx="390" cy="95" r="3.5" fill="#35556B"/>
+  <circle cx="480" cy="95" r="3.5" fill="#35556B"/>
+
+  <!-- Drone / UAV Schematic (Quadcopter) -->
+  <g transform="translate(300, 95)">
+    <!-- Central Fuselage -->
+    <rect x="-18" y="-9" width="36" height="18" rx="4" fill="#1C2732" stroke="#497E5E" stroke-width="1.8"/>
+    <circle cx="0" cy="0" r="4.5" fill="#497E5E"/>
+    <!-- Quad Arms -->
+    <line x1="-16" y1="-7" x2="-42" y2="-22" stroke="#64748B" stroke-width="2.5"/>
+    <line x1="16" y1="-7" x2="42" y2="-22" stroke="#64748B" stroke-width="2.5"/>
+    <line x1="-16" y1="7" x2="-42" y2="22" stroke="#64748B" stroke-width="2.5"/>
+    <line x1="16" y1="7" x2="42" y2="22" stroke="#64748B" stroke-width="2.5"/>
+    <!-- Rotors -->
+    <ellipse cx="-42" cy="-22" rx="18" ry="4" fill="none" stroke="#A3E8BF" stroke-width="1.2" stroke-opacity="0.8"/>
+    <ellipse cx="42" cy="-22" rx="18" ry="4" fill="none" stroke="#A3E8BF" stroke-width="1.2" stroke-opacity="0.8"/>
+    <ellipse cx="-42" cy="22" rx="18" ry="4" fill="none" stroke="#A3E8BF" stroke-width="1.2" stroke-opacity="0.8"/>
+    <ellipse cx="42" cy="22" rx="18" ry="4" fill="none" stroke="#A3E8BF" stroke-width="1.2" stroke-opacity="0.8"/>
+    <!-- Sensor Gimbal Below -->
+    <circle cx="0" cy="11" r="3" fill="#E2E8F0"/>
+  </g>
+
+  <!-- Ground Plane with Topographic Contours and Ortho Grid -->
+  <g stroke="#35556B" stroke-width="1" fill="none" opacity="0.6">
+    <ellipse cx="300" cy="320" rx="170" ry="24"/>
+    <ellipse cx="300" cy="320" rx="120" ry="17"/>
+    <ellipse cx="300" cy="320" rx="70" ry="10" stroke="#497E5E" stroke-width="1.5"/>
+  </g>
+
+  <!-- Ground Control Point (GCP) Checkered Targets -->
+  <g transform="translate(180, 310)">
+    <rect x="-8" y="-8" width="16" height="16" fill="#FFFFFF" stroke="#0E141A" stroke-width="1"/>
+    <rect x="-8" y="-8" width="8" height="8" fill="#497E5E"/>
+    <rect x="0" y="0" width="8" height="8" fill="#497E5E"/>
+    <text x="12" y="4" font-family="'Geist Mono', monospace" font-size="8" fill="#A3E8BF">GCP-01</text>
+  </g>
+  <g transform="translate(410, 312)">
+    <rect x="-8" y="-8" width="16" height="16" fill="#FFFFFF" stroke="#0E141A" stroke-width="1"/>
+    <rect x="-8" y="-8" width="8" height="8" fill="#497E5E"/>
+    <rect x="0" y="0" width="8" height="8" fill="#497E5E"/>
+    <text x="12" y="4" font-family="'Geist Mono', monospace" font-size="8" fill="#A3E8BF">GCP-02</text>
+  </g>
+
+  <!-- Technical Readout Overlay -->
+  <g transform="translate(30, 235)">
+    <rect width="185" height="105" rx="4" fill="#0F171E" fill-opacity="0.92" stroke="#35556B" stroke-width="1"/>
+    <text x="14" y="24" font-family="'Geist Mono', monospace" font-size="9.5" fill="#497E5E" font-weight="700">PHOTOGRAMMETRIC SPECS</text>
+    <text x="14" y="44" font-family="'Geist Mono', monospace" font-size="8.5" fill="#E2E8F0">SENSOR: 45MP FULL-FRAME</text>
+    <text x="14" y="60" font-family="'Geist Mono', monospace" font-size="8.5" fill="#E2E8F0">FORWARD OVERLAP: 80%</text>
+    <text x="14" y="76" font-family="'Geist Mono', monospace" font-size="8.5" fill="#E2E8F0">SIDE OVERLAP: 70%</text>
+    <text x="14" y="92" font-family="'Geist Mono', monospace" font-size="8.5" fill="#A3E8BF">OUTPUT: DSM, DTM, ORTHO</text>
+  </g>
+
+  <!-- Framing Accents -->
+  <path d="M 12 12 H 24 M 12 12 V 24" stroke="#497E5E" stroke-width="2"/>
+  <path d="M 588 12 H 576 M 588 12 V 24" stroke="#497E5E" stroke-width="2"/>
+  <path d="M 12 368 H 24 M 12 368 V 356" stroke="#497E5E" stroke-width="2"/>
+  <path d="M 588 368 H 576 M 588 368 V 356" stroke="#497E5E" stroke-width="2"/>
+</svg>

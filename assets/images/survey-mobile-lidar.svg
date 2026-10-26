@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380" aria-label="Mobile LiDAR Highway Survey Schematics">
+  <defs>
+    <linearGradient id="lidarBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#151D24"/>
+      <stop offset="60%" stop-color="#1A242D"/>
+      <stop offset="100%" stop-color="#0E141A"/>
+    </linearGradient>
+    <pattern id="lidarGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#35556B" stroke-width="0.75" stroke-opacity="0.25"/>
+    </pattern>
+    <radialGradient id="laserGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#497E5E" stop-opacity="0.6"/>
+      <stop offset="60%" stop-color="#497E5E" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#497E5E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="600" height="380" fill="url(#lidarBg)"/>
+  <rect width="600" height="380" fill="url(#lidarGrid)"/>
+
+  <!-- Technical Telemetry Header Overlay -->
+  <g font-family="'Geist Mono', monospace" font-size="10" fill="#94A3B8" letter-spacing="1.2">
+    <text x="24" y="32">MOBILE LIDAR SCANNER // SYS-360</text>
+    <text x="420" y="32" fill="#497E5E">ACQ. RATE: 1.2M PTS/SEC</text>
+    <line x1="24" y1="42" x2="576" y2="42" stroke="#35556B" stroke-width="1" stroke-opacity="0.5"/>
+  </g>
+
+  <!-- Highway Perspective Corridor Lines (Point Cloud Base) -->
+  <g stroke="#35556B" stroke-width="1.2" opacity="0.6">
+    <!-- Road Bed Outlines -->
+    <line x1="120" y1="340" x2="280" y2="180"/>
+    <line x1="480" y1="340" x2="320" y2="180"/>
+    <!-- Center Line -->
+    <line x1="300" y1="340" x2="300" y2="180" stroke="#497E5E" stroke-dasharray="8 6" stroke-width="1.5"/>
+    <!-- Curb / Pavement Shoulders -->
+    <line x1="70" y1="340" x2="265" y2="180" stroke-dasharray="3 3"/>
+    <line x1="530" y1="340" x2="335" y2="180" stroke-dasharray="3 3"/>
+  </g>
+
+  <!-- 3D Dense LiDAR Point Cloud Grid -->
+  <g fill="#A3E8BF" opacity="0.75">
+    <!-- Point Cloud Clusters Along Pavement -->
+    <circle cx="150" cy="315" r="1.5"/><circle cx="170" cy="320" r="1.5"/><circle cx="190" cy="310" r="1.5"/>
+    <circle cx="220" cy="318" r="1.5"/><circle cx="250" cy="312" r="1.5"/><circle cx="280" cy="322" r="1.5"/>
+    <circle cx="320" cy="318" r="1.5"/><circle cx="350" cy="310" r="1.5"/><circle cx="380" cy="320" r="1.5"/>
+    <circle cx="410" cy="314" r="1.5"/><circle cx="440" cy="322" r="1.5"/><circle cx="465" cy="312" r="1.5"/>
+    
+    <!-- Mid-ground Points -->
+    <circle cx="200" cy="260" r="1.2"/><circle cx="230" cy="255" r="1.2"/><circle cx="260" cy="258" r="1.2"/>
+    <circle cx="300" cy="255" r="1.2"/><circle cx="340" cy="258" r="1.2"/><circle cx="370" cy="254" r="1.2"/>
+    <circle cx="400" cy="262" r="1.2"/>
+
+    <!-- Far Points -->
+    <circle cx="250" cy="215" r="1"/><circle cx="280" cy="210" r="1"/><circle cx="300" cy="212" r="1"/>
+    <circle cx="320" cy="210" r="1"/><circle cx="350" cy="215" r="1"/>
+  </g>
+
+  <!-- Laser Emission Fan from Vehicle Scanner -->
+  <g>
+    <!-- Scanner Origin Position -->
+    <circle cx="300" cy="150" r="50" fill="url(#laserGlow)"/>
+    <circle cx="300" cy="150" r="5" fill="#497E5E"/>
+    <circle cx="300" cy="150" r="8" fill="none" stroke="#A3E8BF" stroke-width="1.5"/>
+    
+    <!-- Rotating Helical Laser Fan Lines -->
+    <line x1="300" y1="150" x2="90" y2="330" stroke="#497E5E" stroke-width="1.5" stroke-opacity="0.8"/>
+    <line x1="300" y1="150" x2="160" y2="330" stroke="#497E5E" stroke-width="1" stroke-opacity="0.6"/>
+    <line x1="300" y1="150" x2="230" y2="330" stroke="#497E5E" stroke-width="1.2" stroke-opacity="0.7"/>
+    <line x1="300" y1="150" x2="300" y2="330" stroke="#A3E8BF" stroke-width="1.5" stroke-opacity="0.9"/>
+    <line x1="300" y1="150" x2="370" y2="330" stroke="#497E5E" stroke-width="1.2" stroke-opacity="0.7"/>
+    <line x1="300" y1="150" x2="440" y2="330" stroke="#497E5E" stroke-width="1" stroke-opacity="0.6"/>
+    <line x1="300" y1="150" x2="510" y2="330" stroke="#497E5E" stroke-width="1.5" stroke-opacity="0.8"/>
+    
+    <!-- Scanner Arc Indicator -->
+    <path d="M 230 190 A 80 80 0 0 1 370 190" fill="none" stroke="#497E5E" stroke-width="1.5" stroke-dasharray="4 4"/>
+  </g>
+
+  <!-- Survey Vehicle Geometric Silhouette -->
+  <g fill="#212C36" stroke="#4A708B" stroke-width="1.5">
+    <!-- Vehicle Roof Rig -->
+    <rect x="278" y="145" width="44" height="12" rx="2" fill="#35556B"/>
+    <!-- Vehicle Body Outline -->
+    <path d="M 265 175 L 280 157 L 320 157 L 335 175 L 350 178 L 350 195 L 250 195 L 250 178 Z" fill="#1C2630"/>
+    <!-- Wheels -->
+    <circle cx="268" cy="195" r="9" fill="#0E141A" stroke="#497E5E" stroke-width="1.5"/>
+    <circle cx="332" cy="195" r="9" fill="#0E141A" stroke="#497E5E" stroke-width="1.5"/>
+  </g>
+
+  <!-- Technical Telemetry Readout Box -->
+  <g transform="translate(380, 240)">
+    <rect width="195" height="100" rx="4" fill="#0F171E" fill-opacity="0.92" stroke="#35556B" stroke-width="1"/>
+    <text x="16" y="24" font-family="'Geist Mono', monospace" font-size="9.5" fill="#497E5E" font-weight="700">SPATIAL TELEMETRY</text>
+    <text x="16" y="44" font-family="'Geist Mono', monospace" font-size="8.5" fill="#E2E8F0">POS ACCURACY: ±5 mm</text>
+    <text x="16" y="60" font-family="'Geist Mono', monospace" font-size="8.5" fill="#E2E8F0">SURFACE ELEV: 184.22 m</text>
+    <text x="16" y="76" font-family="'Geist Mono', monospace" font-size="8.5" fill="#E2E8F0">IMU SYNC: RTK / GNSS LOCK</text>
+    <circle cx="175" cy="22" r="3.5" fill="#497E5E"/>
+  </g>
+
+  <!-- Framing Accents -->
+  <path d="M 12 12 H 24 M 12 12 V 24" stroke="#497E5E" stroke-width="2"/>
+  <path d="M 588 12 H 576 M 588 12 V 24" stroke="#497E5E" stroke-width="2"/>
+  <path d="M 12 368 H 24 M 12 368 V 356" stroke="#497E5E" stroke-width="2"/>
+  <path d="M 588 368 H 576 M 588 368 V 356" stroke="#497E5E" stroke-width="2"/>
+</svg>
