@@ -46,8 +46,8 @@ export const EXPERTISE_SERVICES = {
     division: 'Division 01 — Infrastructure & Civil',
     desc: 'High-precision geodetic surveys using DGPS, airborne & terrestrial LiDAR, bathymetric mapping, drone photogrammetry, and Geographic Information System (GIS) development.',
     image: '/assets/images/expertise-survey.svg',
-    url: '#card-survey',
-    urlAbout: '/index.html#card-survey'
+    url: '/survey.html',
+    urlAbout: '/survey.html'
   },
   'architecture': {
     title: 'Architecture & Master Planning',
@@ -70,8 +70,8 @@ export const EXPERTISE_SERVICES = {
     division: 'Division 02 — Design & Technology',
     desc: 'Integrated mechanical, electrical, plumbing, fire protection, and building automation design prioritizing energy efficiency, life safety, and operational reliability.',
     image: '/assets/images/expertise-mepf.svg',
-    url: '#card-mepf',
-    urlAbout: '/index.html#card-mepf'
+    url: '/mepf.html',
+    urlAbout: '/mepf.html'
   },
   'sustainability': {
     title: 'Environmentally Sustainable Solutions',

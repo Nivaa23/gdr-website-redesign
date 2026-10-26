@@ -24,10 +24,10 @@ export const CANONICAL_ROUTES = {
   lab: '/lab.html', // 6. Laboratory & Material Testing (Active Dedicated Page)
   pmc: '/pmc.html', // 7. Project Management Consultancy (PMC) (Active Dedicated Page)
   structure: '/structure.html', // 8. Structural Engineering (Active Dedicated Page)
+  mepf: '/mepf.html', // 9. MEPF Engineering (Active Dedicated Page)
+  survey: '/survey.html', // 10. Survey & Geomatics (Active Dedicated Page)
 
   // Future Service Pages (to be activated as new pages are implemented):
-  // mepf: '/mepf.html',
-  // survey: '/survey.html',
   // sustainability: '/sustainability.html'
 };
 

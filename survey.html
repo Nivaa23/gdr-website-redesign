@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey &amp; Geomatics | Geo Designs &amp; Research — Multidisciplinary Engineering Consultancy</title>
+  <meta name="description" content="Geo Designs &amp; Research Survey &amp; Geomatics engineering services: high-precision geodetic surveys using DGPS, airborne &amp; terrestrial LiDAR, bathymetric mapping, drone photogrammetry, and GIS development.">
+
+  <!-- Favicon derived from official company logo -->
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/favicon.png">
+
+  <!-- Typography: Hanken Grotesk (Primary) & Geist Mono (Labels exclusively) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/components/Navigation14.css">
+  <link rel="stylesheet" href="/css/survey.css">
+</head>
+<body>
+  <!-- Skip link for keyboard accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top Corporate Utility Bar -->
+  <div class="top-bar" aria-label="Corporate Details">
+    <div class="container top-bar__inner">
+      <div class="top-bar__tagline">
+        <span class="status-indicator"></span> Multidisciplinary Engineering Consultancy &amp; Research
+      </div>
+      <div class="top-bar__meta">
+        <span class="top-bar__badge">Government &amp; Institutional Partner</span>
+        <span class="top-bar__divider" aria-hidden="true">|</span>
+        <span class="top-bar__contact">An ISO 9001:2015 Certified Organization</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Primary Header & Navigation Bar (React Bits Pro Navigation 14) -->
+  <header class="site-header nav14-header" id="site-header">
+    <div class="container site-header__inner nav14-container">
+      <!-- Official Company Logo on Left -->
+      <a href="/index.html" class="brand-link nav14-brand cursor-target" id="brand-link" aria-label="Geo Designs &amp; Research - Return to Homepage">
+        <img 
+          src="/assets/images/gdr-logo.png" 
+          alt="Geo Designs &amp; Research Official Logo" 
+          class="brand-logo nav14-logo" 
+          id="brand-logo"
+          width="78"
+          height="70"
+          loading="eager"
+        >
+        <div class="brand-text nav14-brand-text">
+          <span class="brand-name nav14-brand-name">GEO DESIGNS &amp; RESEARCH</span>
+          <span class="brand-sub nav14-brand-sub">ENGINEERING CONSULTANCY &amp; RESEARCH</span>
+        </div>
+      </a>
+
+      <!-- Primary Navigation Links (Ordered strictly per specifications) -->
+      <nav class="primary-nav nav14-nav" id="primary-nav" aria-label="Primary Navigation">
+        <ul class="nav-list nav14-list" role="menubar">
+          <!-- 1. About Us -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="/about-1.html" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-about">
+              About Us
+            </a>
+          </li>
+
+          <!-- 2. Expertise (React Bits Pro Navigation 14 Mega Panel Dropdown + Featured Card) -->
+          <li class="nav-item nav14-item nav-item--has-dropdown" role="none" id="expertise-nav-item">
+            <button 
+              type="button" 
+              class="nav-link nav14-link nav14-trigger cursor-target" 
+              id="expertise-menu-button" 
+              aria-expanded="false" 
+              aria-haspopup="true" 
+              aria-controls="nav14-mega-panel" 
+              role="menuitem" 
+              data-nav14-trigger
+            >
+              <span>Expertise</span>
+              <svg class="nav-arrow-icon nav14-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+
+            <!-- Navigation 14 Mega Panel Dropdown -->
+            <div 
+              class="nav14-mega-panel" 
+              id="nav14-mega-panel" 
+              role="region" 
+              aria-label="Expertise Capabilities Directory" 
+              hidden 
+              data-nav14-panel
+            >
+              <div class="nav14-panel-inner">
+                <div class="nav14-panel-grid">
+                  <!-- Column 1: Infrastructure & Civil Engineering -->
+                  <div class="nav14-col">
+                    <div class="nav14-col-header">
+                      <span class="nav14-col-tag">DIVISION 01</span>
+                      <h3 class="nav14-col-title">Infrastructure &amp; Civil</h3>
+                    </div>
+                    <ul class="nav14-col-list">
+                      <li>
+                        <a href="/pmc.html" class="nav14-menu-card cursor-target" data-category="pmc">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M5 20V8l7-5 7 5v12M9 12h6M9 16h6"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Project Management Consultancy (PMC)</span>
+                            <span class="nav14-menu-card__desc">Supervision, QA &amp; contract administration</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/hydro.html" class="nav14-menu-card cursor-target" data-category="hydro">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19L20 5M4 5l16 14M12 3v18"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Hydro &amp; Highway DPR</span>
+                            <span class="nav14-menu-card__desc">Alignment, hydrology &amp; detailed reports</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/bridge.html" class="nav14-menu-card cursor-target" data-category="bridge">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 18h20M4 18v-5c0-4.4 3.6-8 8-8s8 3.6 8 8v5M12 5v13M8 18v-7M16 18v-7"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Bridge Engineering</span>
+                            <span class="nav14-menu-card__desc">Structural design, flyovers &amp; ROBs</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/structure.html" class="nav14-menu-card cursor-target" data-category="structure">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Structural Engineering</span>
+                            <span class="nav14-menu-card__desc">Industrial, towers &amp; heavy structures</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/survey.html" class="nav14-menu-card cursor-target is-selected" data-category="survey">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Survey &amp; Geomatics</span>
+                            <span class="nav14-menu-card__desc">DGPS, LiDAR &amp; bathymetric surveys</span>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Column 2: Building Design & Technology -->
+                  <div class="nav14-col">
+                    <div class="nav14-col-header">
+                      <span class="nav14-col-tag">DIVISION 02</span>
+                      <h3 class="nav14-col-title">Design &amp; Technology</h3>
+                    </div>
+                    <ul class="nav14-col-list">
+                      <li>
+                        <a href="/architecture.html" class="nav14-menu-card cursor-target" data-category="architecture">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Architecture &amp; Master Planning</span>
+                            <span class="nav14-menu-card__desc">Institutional, urban &amp; landscape design</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/bim.html" class="nav14-menu-card cursor-target" data-category="bim">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">BIM Modeling &amp; Auditing</span>
+                            <span class="nav14-menu-card__desc">3D-7D BIM clash detection &amp; lifecycle</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/mepf.html" class="nav14-menu-card cursor-target" data-category="mepf">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">MEPF Engineering</span>
+                            <span class="nav14-menu-card__desc">HVAC, electrical, plumbing &amp; fire safety</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/index.html#card-green-building" class="nav14-menu-card cursor-target" data-category="sustainability">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0110 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0112 2zm0 4v8l5 3"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Environmentally Sustainable Solutions</span>
+                            <span class="nav14-menu-card__desc">EIA, green building &amp; solar audit</span>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Column 3: Quality Assurance & Governance -->
+                  <div class="nav14-col">
+                    <div class="nav14-col-header">
+                      <span class="nav14-col-tag">DIVISION 03</span>
+                      <h3 class="nav14-col-title">Testing &amp; Contracts</h3>
+                    </div>
+                    <ul class="nav14-col-list">
+                      <li>
+                        <a href="/lab.html" class="nav14-menu-card cursor-target" data-category="lab">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v7.31L4.1 19.3A2 2 0 005.8 22h12.4a2 2 0 001.7-2.7L14 9.31V2"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Laboratory &amp; Material Testing</span>
+                            <span class="nav14-menu-card__desc">NABL accredited soil, concrete, steel &amp; NDT</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="/commerce.html" class="nav14-menu-card cursor-target" data-category="commerce">
+                          <div class="nav14-menu-card__icon" aria-hidden="true">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+                          </div>
+                          <div class="nav14-menu-card__content">
+                            <span class="nav14-menu-card__title">Commerce &amp; Contract Management</span>
+                            <span class="nav14-menu-card__desc">Quantity survey, BoQ, FIDIC tenders</span>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Column 4: Navigation 14 Signature Featured Card -->
+                  <div class="nav14-featured-col">
+                    <div class="nav14-featured-card">
+                      <div class="nav14-featured-card__media">
+                        <img 
+                          src="/assets/images/expertise-survey.svg" 
+                          alt="Survey &amp; Geomatics" 
+                          class="nav14-featured-card__img"
+                          loading="lazy"
+                          width="310"
+                          height="135"
+                        >
+                        <div class="nav14-featured-card__overlay"></div>
+                        <span class="nav14-featured-card__tag">Division 01 — Infrastructure &amp; Civil</span>
+                      </div>
+                      <div class="nav14-featured-card__body">
+                        <h4 class="nav14-featured-card__title">Survey &amp; Geomatics</h4>
+                        <p class="nav14-featured-card__desc">
+                          High-precision geodetic surveys using DGPS, airborne &amp; terrestrial LiDAR, bathymetric mapping, drone photogrammetry, and Geographic Information System (GIS) development.
+                        </p>
+                        <a href="/survey.html" class="nav14-featured-card__action cursor-target" aria-label="Explore Survey &amp; Geomatics Capabilities">
+                          <span>Explore Capabilities</span>
+                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                            <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Navigation 14 Panel Footer -->
+                <div class="nav14-panel-footer">
+                  <div class="nav14-footer-compliance">
+                    <span class="nav14-compliance-badge">STANDARDS COMPLIANCE</span>
+                    <span class="nav14-compliance-text">IS, IRC, MoRTH, NBC, and International ASTM/AASHTO Engineering Norms.</span>
+                  </div>
+                  <a href="/index.html#contact-us" class="nav14-inquire-link cursor-target">
+                    <span>Inquire About Engineering Services</span>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                      <path d="M2.5 6h7M6 2.5l3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- 3. Credentials -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="/index.html#credentials" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-credentials" data-phase-pending="Credentials documentation is scheduled for Phase 02.">
+              Credentials
+            </a>
+          </li>
+
+          <!-- 4. Downloads -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="/index.html#downloads" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-downloads" data-phase-pending="Corporate downloads portal is scheduled for Phase 02.">
+              Downloads
+            </a>
+          </li>
+
+          <!-- 5. Career -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="/index.html#career" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-career" data-phase-pending="Career opportunities section is scheduled for Phase 02.">
+              Career
+            </a>
+          </li>
+
+          <!-- 6. Projects -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="/index.html#projects" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-projects" data-phase-pending="Project showcase directory is scheduled for Phase 02.">
+              Projects
+            </a>
+          </li>
+
+          <!-- 7. Talk to Us -->
+          <li class="nav-item nav14-item nav14-item--cta" role="none">
+            <a href="/index.html#contact-us" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-contact" data-phase-pending="Contact inquiry module is scheduled for Phase 02.">
+              Talk to Us
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button 
+        type="button" 
+        class="mobile-menu-toggle nav14-mobile-toggle cursor-target" 
+        id="mobile-menu-toggle" 
+        aria-label="Toggle navigation menu" 
+        aria-expanded="false" 
+        aria-controls="mobile-nav-drawer"
+      >
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer" hidden aria-label="Mobile Navigation Menu">
+      <div class="mobile-nav-drawer__inner">
+        <ul class="mobile-nav-list">
+          <li class="mobile-nav-item">
+            <a href="/about-1.html" class="mobile-nav-link">1. About Us</a>
+          </li>
+
+          <li class="mobile-nav-item mobile-nav-item--accordion">
+            <button type="button" class="mobile-nav-link mobile-nav-accordion-btn" id="mobile-expertise-toggle" aria-expanded="false">
+              <span>2. Expertise</span>
+              <svg class="mobile-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 5.5L7 9L10.5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            
+            <!-- Mobile Expertise Accordion List -->
+            <div class="mobile-expertise-content" id="mobile-expertise-content" hidden>
+              <!-- 1. Architecture & Master Planning -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">1. Architecture &amp; Master Planning</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Interior Design</li>
+                  <li>Urban Planning</li>
+                  <li>Green Building Design</li>
+                  <li>Building Information Modelling</li>
+                  <li>Building Performance Analysis</li>
+                  <li><a href="/architecture.html" class="mobile-view-all">View Architecture Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 2. BIM Modeling & Auditing -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">2. BIM Modeling &amp; Auditing</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Architectural &amp; Structural BIM</li>
+                  <li>MEP BIM &amp; Clash Detection</li>
+                  <li>BIM Based Quantity Takeoff &amp; BBS</li>
+                  <li>GFC Drawings Extraction &amp; Fabrication</li>
+                  <li>4D Construction Scheduling &amp; 5D Costing</li>
+                  <li>6D Facility Management &amp; Model Auditing</li>
+                  <li><a href="/bim.html" class="mobile-view-all">View BIM Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 3. Bridge Engineering -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">3. Bridge Engineering</summary>
+                <ul class="mobile-subservice-list">
+                  <li>River Bridges &amp; Flyovers</li>
+                  <li>Railway Over Bridges (ROB) &amp; Interchanges</li>
+                  <li>Bridge Health &amp; Structural Audits</li>
+                  <li>Rehabilitation &amp; Retrofitting</li>
+                  <li>Seismic Analysis &amp; Design</li>
+                  <li><a href="/bridge.html" class="mobile-view-all">View Bridge Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 4. Commerce & Contract Management -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">4. Commerce &amp; Contract Management</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Approximate &amp; Detailed Estimates</li>
+                  <li>Market &amp; Rate Analysis</li>
+                  <li>Internal &amp; External Services</li>
+                  <li>Draft Tender Papers</li>
+                  <li>Detailed Project Reports &amp; FIDIC Contracts</li>
+                  <li><a href="/commerce.html" class="mobile-view-all">View Contracts Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 5. Hydro & Highway DPR -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">5. Hydro &amp; Highway DPR</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Alignment Surveys &amp; Route Studies</li>
+                  <li>Hydrological &amp; Hydraulic Modeling</li>
+                  <li>Pavement &amp; Traffic Engineering</li>
+                  <li>Comprehensive Detailed Project Reports</li>
+                  <li><a href="/hydro.html" class="mobile-view-all">View DPR Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 6. Laboratory & Material Testing -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">6. Laboratory &amp; Material Testing</summary>
+                <ul class="mobile-subservice-list">
+                  <li>High Tech Material &amp; Concrete Lab</li>
+                  <li>Soil Testing &amp; Geotechnical Studies</li>
+                  <li>Metallurgical &amp; Chemical Lab</li>
+                  <li>Highway Material Testing</li>
+                  <li>Non-Destructive Testing (NDT) Lab</li>
+                  <li>Environmental Monitoring &amp; Analysis</li>
+                  <li><a href="/lab.html" class="mobile-view-all">View Laboratory &amp; Material Testing Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 7. MEPF Engineering -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">7. MEPF Engineering</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Illumination, Ventilation &amp; HVAC</li>
+                  <li>Distribution of Electric Supply</li>
+                  <li>ELV Systems (LAN, EPABX, TV)</li>
+                  <li>Fire Detection, Alarm &amp; Fighting Systems</li>
+                  <li>Water Supply, Plumbing &amp; Drainage</li>
+                  <li>Rain Water Harvesting</li>
+                  <li><a href="/mepf.html" class="mobile-view-all">View MEPF Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 8. Project Management Consultancy (PMC) -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">8. Project Management Consultancy (PMC)</summary>
+                <ul class="mobile-subservice-list">
+                  <li>National, State Highways &amp; Toll Roads</li>
+                  <li>Site Supervision &amp; Quality Control</li>
+                  <li>Pavement &amp; Structural Rehabilitation</li>
+                  <li>Traffic Engineering &amp; Transportation Planning</li>
+                  <li>Contract Administration &amp; Audits</li>
+                  <li><a href="/pmc.html" class="mobile-view-all">View PMC Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 9. Structural Engineering -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">9. Structural Engineering</summary>
+                <ul class="mobile-subservice-list">
+                  <li>High-Rise Commercial &amp; Residential Buildings</li>
+                  <li>Institutional &amp; Educational Buildings</li>
+                  <li>Hospital &amp; Auditorium Complexes</li>
+                  <li>Heavy Industrial Structures &amp; Hangars</li>
+                  <li><a href="/structure.html" class="mobile-view-all">View Structural Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 10. Survey & Geomatics -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">10. Survey &amp; Geomatics</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Topography &amp; Contour Surveys</li>
+                  <li>Road, Canal &amp; Railway Alignment Surveys</li>
+                  <li>LiDAR &amp; Drone Aerial Surveys</li>
+                  <li>Bathymetric &amp; Pipeline Surveys</li>
+                  <li>Cadastral &amp; GIS Mapping</li>
+                  <li><a href="/survey.html" class="mobile-view-all">View Survey Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 11. Environmentally Sustainable Solutions -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">11. Environmentally Sustainable Solutions</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Environmental Impact Assessment (EIA)</li>
+                  <li>Green Building Certification Advisory</li>
+                  <li>Energy Performance &amp; Solar Audits</li>
+                  <li>Environmental Management &amp; Compliance</li>
+                  <li><a href="/index.html#card-green-building" class="mobile-view-all">View Sustainable Details &rarr;</a></li>
+                </ul>
+              </details>
+            </div>
+          </li>
+
+          <li class="mobile-nav-item">
+            <a href="/index.html#credentials" class="mobile-nav-link" data-phase-pending="Credentials documentation is scheduled for Phase 02.">3. Credentials</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="/index.html#downloads" class="mobile-nav-link" data-phase-pending="Corporate downloads portal is scheduled for Phase 02.">4. Downloads</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="/index.html#career" class="mobile-nav-link" data-phase-pending="Career opportunities section is scheduled for Phase 02.">5. Career</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="/index.html#projects" class="mobile-nav-link" data-phase-pending="Project showcase directory is scheduled for Phase 02.">6. Projects</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="/index.html#contact-us" class="mobile-nav-link" data-phase-pending="Contact inquiry module is scheduled for Phase 02.">7. Talk to Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       MAIN CONTENT CONTAINER
+       ====================================================================== -->
+  <main id="main-content">
+
+    <!-- ====================================================================
+         SECTION 1 — HERO SECTION
+         ==================================================================== -->
+    <section class="survey-hero" id="survey-hero" aria-labelledby="survey-hero-title">
+      <div class="survey-hero__media" aria-hidden="true">
+        <img 
+          src="/assets/images/hero-infrastructure-bridge.jpg" 
+          alt="Geodetic and topographic survey operations" 
+          class="survey-hero__media-img" 
+          width="1600" 
+          height="900" 
+          loading="eager"
+        >
+      </div>
+      <div class="survey-hero__overlay" aria-hidden="true"></div>
+
+      <div class="survey-hero__inner">
+        <!-- Decorative Corner-Bracket Treatment -->
+        <div class="survey-hero__bracket-box">
+          <div class="corner-accent top-left" aria-hidden="true"></div>
+          <div class="corner-accent top-right" aria-hidden="true"></div>
+          <div class="corner-accent bottom-left" aria-hidden="true"></div>
+          <div class="corner-accent bottom-right" aria-hidden="true"></div>
+          <h1 class="survey-hero__title" id="survey-hero-title">SURVEY &amp; GEOMATICS</h1>
+        </div>
+
+        <nav class="survey-breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/index.html" class="cursor-target" id="breadcrumb-home">Home</a></li>
+            <li aria-current="page">Survey &amp; Geomatics</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 2 — OVERVIEW SECTION
+         ==================================================================== -->
+    <section class="survey-intro" id="survey-intro" aria-labelledby="survey-intro-heading">
+      <div class="container">
+        <div class="survey-intro__grid">
+
+          <!-- Left Column: Heading and Description -->
+          <div class="survey-intro__content-col">
+            <span class="survey-intro__tag">PRECISION GEOMATICS &bull; SPATIAL INTELLIGENCE</span>
+            <h2 class="survey-intro__heading" id="survey-intro-heading">
+              Sub-centimeter geospatial precision for nation-building infrastructure.
+            </h2>
+            <p class="survey-intro__text">
+              Geo Designs &amp; Research provides state-of-the-art surveying and geomatics services for linear infrastructure, water resources, urban development, and industrial corridors. Leveraging DGPS networks, airborne and mobile LiDAR, bathymetric sonar profiling, and drone photogrammetry, our geomatics division delivers the spatial foundation essential for engineering design and project execution.
+            </p>
+
+            <ul class="survey-intro__pills" aria-label="Survey Core Capabilities">
+              <li class="survey-intro__pill">Differential GPS (DGPS)</li>
+              <li class="survey-intro__pill">Airborne &amp; Mobile LiDAR</li>
+              <li class="survey-intro__pill">Drone Photogrammetry</li>
+              <li class="survey-intro__pill">Bathymetric Sonar</li>
+              <li class="survey-intro__pill">GIS Geospatial Modeling</li>
+              <li class="survey-intro__pill">Final Location Surveys</li>
+            </ul>
+          </div>
+
+          <!-- Right Column: Supporting Visual -->
+          <div class="survey-intro__visual-col">
+            <div class="survey-intro__visual-frame">
+              <div class="corner-accent top-left" aria-hidden="true"></div>
+              <div class="corner-accent top-right" aria-hidden="true"></div>
+              <div class="corner-accent bottom-left" aria-hidden="true"></div>
+              <div class="corner-accent bottom-right" aria-hidden="true"></div>
+
+              <img 
+                src="/assets/images/expertise-survey.svg" 
+                alt="High-precision geodetic and topographical survey equipment" 
+                class="survey-intro__visual-img" 
+                width="640" 
+                height="440" 
+                loading="lazy"
+              >
+              <div class="survey-intro__visual-badge">
+                <span class="survey-intro__visual-badge-dot" aria-hidden="true"></span>
+                <span class="survey-intro__visual-badge-text">GEODETIC NETWORK &bull; SUB-CENTIMETER ACCURACY</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 3 — CAPABILITIES & SCOPE GRID
+         ==================================================================== -->
+    <section class="survey-scope" id="survey-scope" aria-labelledby="survey-scope-heading">
+      <div class="container">
+        <div class="survey-section-header">
+          <span class="survey-section-tag">COMPREHENSIVE PRACTICE AREAS</span>
+          <h2 class="survey-section-title" id="survey-scope-heading">Our Geomatics &amp; Survey Services</h2>
+          <p class="survey-section-desc">
+            End-to-end surveying solutions complying with Survey of India, Indian Railways, NHAI, and MoRTH specifications.
+          </p>
+        </div>
+
+        <div class="survey-cards-grid">
+          <!-- Card 1 -->
+          <div class="survey-card">
+            <span class="survey-card__num">01 // TOPOGRAPHY</span>
+            <h3 class="survey-card__title">Topography &amp; Contour Surveys</h3>
+            <p class="survey-card__text">
+              High-density digital ground elevation models, micro-contouring, and planimetric mapping for industrial complexes, township developments, and plant sites using Electronic Total Stations and DGPS.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="survey-card">
+            <span class="survey-card__num">02 // ALIGNMENT</span>
+            <h3 class="survey-card__title">Road, Canal &amp; Railway Alignments</h3>
+            <p class="survey-card__text">
+              Complete Final Location Surveys (FLS), longitudinal and cross-sectional profiling, horizontal and vertical curvature optimization, and Right of Way (ROW) demarcation for transportation and irrigation networks.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="survey-card">
+            <span class="survey-card__num">03 // LIDAR &amp; DRONE</span>
+            <h3 class="survey-card__title">LiDAR &amp; Drone Aerial Surveys</h3>
+            <p class="survey-card__text">
+              UAV photogrammetric surveying and airborne LiDAR point cloud generation producing high-resolution orthomosaics, Digital Surface Models (DSM), and Digital Terrain Models (DTM) across vast terrain.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="survey-card">
+            <span class="survey-card__num">04 // HYDROGRAPHIC</span>
+            <h3 class="survey-card__title">Bathymetric &amp; River Profiling</h3>
+            <p class="survey-card__text">
+              Echo sounder and dual-frequency sonar bathymetry for reservoir capacity evaluation, riverbed scouring studies, barrage sedimentation analysis, and intake structure planning.
+            </p>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="survey-card">
+            <span class="survey-card__num">05 // GEODETIC NETWORKS</span>
+            <h3 class="survey-card__title">DGPS Control Networks</h3>
+            <p class="survey-card__text">
+              Establishment of primary and secondary geodetic control monuments tied to universal datum (WGS-84 / UTM), providing reliable spatial benchmarks for mega-construction projects.
+            </p>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="survey-card">
+            <span class="survey-card__num">06 // GIS &amp; CADASTRAL</span>
+            <h3 class="survey-card__title">GIS Mapping &amp; Land Demarcation</h3>
+            <p class="survey-card__text">
+              Cadastral revenue boundary verification, land acquisition boundary dockets, GIS spatial database integration, and asset management mapping for municipal and state agencies.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 4 — PROJECTS TABLE
+         ==================================================================== -->
+    <section class="survey-projects" id="survey-projects" aria-labelledby="survey-projects-heading">
+      <div class="container">
+        <div class="survey-section-header">
+          <span class="survey-section-tag">PROJECT TRACK RECORD</span>
+          <h2 class="survey-section-title" id="survey-projects-heading">Selected Survey &amp; Geomatics Projects</h2>
+          <p class="survey-section-desc">
+            Proven execution across railway corridors, water resource projects, and multi-district irrigation infrastructure.
+          </p>
+        </div>
+
+        <div class="survey-table-wrap">
+          <table class="survey-table" aria-label="Survey &amp; Geomatics Projects">
+            <thead>
+              <tr>
+                <th scope="col" style="width: 50%;">Project Name &amp; Scope</th>
+                <th scope="col" style="width: 30%;">Client / Authority</th>
+                <th scope="col" style="width: 20%;">Key Services</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span class="survey-table__name">Final Location Survey (FLS), Geo-technical studies, Design &amp; Drawing for New BG Line between Udhna to Jalgaon Section (306.93 Km) of Mumbai Division</span>
+                </td>
+                <td class="survey-table__client">Western Railway, Gujarat &amp; Maharashtra</td>
+                <td><span class="survey-table__badge">Railway FLS &bull; DGPS Network</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="survey-table__name">Consultancy Service to examine Techno-economical feasibility and carry out detailed Field, Geological, Command area survey along with preparing detailed estimate, DPR, DTP for irrigation facility from Ukai Reservoir to Songadh Taluka</span>
+                </td>
+                <td class="survey-table__client">Water Resources Department, Tapi District, Gujarat</td>
+                <td><span class="survey-table__badge">Command Area &bull; Canal Alignment</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="survey-table__name">Consultancy Service for Detailed Field, Geological, Command Area Survey, DPR, DTP for providing irrigation facility to non-irrigated area of Nizar Taluka from Ukai Reservoir</span>
+                </td>
+                <td class="survey-table__client">Water Resources Department, Tapi District, Gujarat</td>
+                <td><span class="survey-table__badge">Topographic Survey &bull; Pipeline Corridor</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="survey-table__name">Consultancy Service for Detailed Field, Geological, Command Area Survey and DPR for providing irrigation facility to non-irrigated area of Uchchhal from Ukai Reservoir</span>
+                </td>
+                <td class="survey-table__client">Water Resources Department, Tapi District, Gujarat</td>
+                <td><span class="survey-table__badge">Field Survey &bull; Contour Mapping</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="survey-table__name">Detailed Field and Geological Survey Planning, Designing, DPR and Tender preparation for SAUNI Yojana Link-2 for filling Gauri Shankar Talav (Bor Talav) &amp; Khodiyar Talav</span>
+                </td>
+                <td class="survey-table__client">Water Resources Department, Bhavnagar, Gujarat</td>
+                <td><span class="survey-table__badge">Hydrological Survey &bull; Bathymetry</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       GLOBAL SHARED FOOTER
+       ====================================================================== -->
+  <footer class="site-footer animated-content" id="site-footer">
+    <div class="footer-wrapper">
+      
+      <!-- 1. UPPER INFORMATION GRID -->
+      <div class="footer-grid-upper animated-content-item" role="region" aria-label="Footer Information Grid">
+        
+        <!-- Cell 1: Developing Ways of Success -->
+        <div class="footer-cell footer-cell--tagline">
+          <p class="footer-tagline">Developing ways of success.</p>
+        </div>
+
+        <!-- Cell 2: Company -->
+        <div class="footer-cell footer-cell--company">
+          <h3 class="footer-cell__heading">COMPANY</h3>
+          <ul class="footer-cell__list" role="list">
+            <li><a href="/index.html#hero-section" class="footer-nav-anchor cursor-target">Home</a></li>
+            <li><a href="/about-1.html" class="footer-nav-anchor cursor-target">About</a></li>
+            <li><a href="/index.html#our-expertise" class="footer-nav-anchor cursor-target">Expertise</a></li>
+            <li><a href="/index.html#our-journey" class="footer-nav-anchor cursor-target">Journey</a></li>
+            <li><a href="/index.html#our-networks" class="footer-nav-anchor cursor-target">Network</a></li>
+            <li><a href="/index.html#our-headquarter" class="footer-nav-anchor cursor-target">Headquarter</a></li>
+            <li><a href="/index.html#other-branches" class="footer-nav-anchor cursor-target">Branches</a></li>
+          </ul>
+        </div>
+
+        <!-- Cell 3: Disciplines -->
+        <div class="footer-cell footer-cell--disciplines">
+          <h3 class="footer-cell__heading">DISCIPLINES</h3>
+          <ul class="footer-cell__list" role="list">
+            <li><a href="/pmc.html" class="cursor-target">Project Management Consultancy</a></li>
+            <li><a href="/hydro.html" class="cursor-target">Hydro &amp; Highway DPR</a></li>
+            <li><a href="/bridge.html" class="cursor-target">Bridge Engineering</a></li>
+            <li><a href="/structure.html" class="cursor-target">Structural Engineering</a></li>
+            <li><a href="/survey.html" class="cursor-target">Survey &amp; Geomatics</a></li>
+            <li><a href="/architecture.html" class="cursor-target">Architecture &amp; Master Planning</a></li>
+            <li><a href="/bim.html" class="cursor-target">BIM Modeling &amp; Auditing</a></li>
+            <li><a href="/mepf.html" class="cursor-target">MEPF Engineering</a></li>
+            <li><a href="/index.html#card-green-building" class="cursor-target">Sustainable Solutions</a></li>
+            <li><a href="/lab.html" class="cursor-target">Laboratory &amp; Material Testing</a></li>
+            <li><a href="/commerce.html" class="cursor-target">Commerce &amp; Contract Management</a></li>
+          </ul>
+        </div>
+
+        <!-- Cell 4: Geometric Interactive Globe -->
+        <div class="footer-cell footer-cell--globe" role="region" aria-label="Interactive 3D Geometric Globe">
+          <div class="footer-globe-container">
+            <svg class="footer-globe-svg" viewBox="0 0 200 200" width="200" height="200" aria-label="Geo Designs 3D Wireframe Globe" id="footer-globe">
+              <defs>
+                <clipPath id="survey-globe-clip">
+                  <circle cx="100" cy="100" r="76" />
+                </clipPath>
+              </defs>
+              <g clip-path="url(#survey-globe-clip)">
+                <circle cx="100" cy="100" r="76" class="globe-base" />
+                <g class="globe-facets-layer" id="globe-facets-layer">
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M51,42 A76,76 0 0,1 80,26 L100,42 L80,42 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M80,26 A76,76 0 0,1 100,24 L100,42 L80,42 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,24 A76,76 0 0,1 120,26 L100,42 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M120,26 A76,76 0 0,1 149,42 L120,42 L100,42 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M29,74 A76,76 0 0,1 51,42 L80,42 L65,74 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M65,74 L80,42 L100,42 L100,74 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,74 L100,42 L120,42 L135,74 Z" />
+                  <path class="globe-facet globe-facet--charcoal" data-color="#343A40" d="M135,74 L120,42 L149,42 A76,76 0 0,1 171,74 Z" />
+                  <path class="globe-facet globe-facet--charcoal" data-color="#343A40" d="M24,100 A76,76 0 0,1 29,74 L65,74 L60,100 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M65,74 L100,74 L78,88 L60,88 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,74 L135,74 L140,88 L122,88 Z" />
+                  <path class="globe-facet globe-facet--charcoal" data-color="#343A40" d="M135,74 A76,76 0 0,1 176,100 L140,100 L140,88 Z" />
+                  <path class="globe-facet globe-facet--badge" data-color="#35556B" d="M60,88 L140,88 L140,112 L60,112 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M24,100 L60,100 L60,112 L25,113 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M60,112 L140,112 L138,132 L62,132 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M140,100 L176,100 A76,76 0 0,1 175,113 L140,112 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M25,113 A76,76 0 0,0 46,154 L75,154 L62,132 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M62,132 L75,154 L100,154 L100,132 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M100,132 L100,154 L125,154 L138,132 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M138,132 L125,154 L154,154 A76,76 0 0,0 175,113 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M46,154 A76,76 0 0,0 80,174 L100,154 L75,154 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M80,174 A76,76 0 0,0 100,176 L100,154 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M100,154 L100,176 A76,76 0 0,0 120,174 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M120,174 A76,76 0 0,0 154,154 L125,154 L100,154 Z" />
+                </g>
+                <text x="100" y="104" text-anchor="middle" class="globe-badge-label" pointer-events="none">GDR</text>
+                <g class="globe-wireframe-lines" pointer-events="none">
+                  <ellipse cx="100" cy="100" rx="24" ry="76" class="globe-wireframe globe-wireframe--meridian" />
+                  <ellipse cx="100" cy="100" rx="52" ry="76" class="globe-wireframe globe-wireframe--meridian" />
+                  <line x1="100" y1="24" x2="100" y2="176" class="globe-wireframe globe-wireframe--axis" />
+                  <ellipse cx="100" cy="42" rx="49" ry="12" class="globe-wireframe globe-wireframe--parallel" />
+                  <ellipse cx="100" cy="74" rx="71" ry="18" class="globe-wireframe globe-wireframe--parallel" />
+                  <ellipse cx="100" cy="100" rx="76" ry="22" class="globe-wireframe globe-wireframe--equator" />
+                  <ellipse cx="100" cy="132" rx="72" ry="18" class="globe-wireframe globe-wireframe--parallel" />
+                  <ellipse cx="100" cy="154" rx="54" ry="12" class="globe-wireframe globe-wireframe--parallel" />
+                </g>
+              </g>
+              <circle cx="100" cy="100" r="76" class="globe-wireframe globe-wireframe--outer" pointer-events="none" />
+              <circle cx="100" cy="24" r="2.5" class="globe-point" pointer-events="none" />
+              <circle cx="100" cy="176" r="2.5" class="globe-point" pointer-events="none" />
+            </svg>
+            <span class="globe-caption">GEO DESIGNS &amp; RESEARCH</span>
+          </div>
+        </div>
+
+        <!-- Cell 5: Headquarters -->
+        <div class="footer-cell footer-cell--headquarters">
+          <h3 class="footer-cell__heading">HEADQUARTERS</h3>
+          <address class="footer-address">
+            Krishna Industrial Estate, B-10, Gorwa Rd, opp. BIDC Gorwa Estate, Gorwa, Vadodara, Gujarat 390003
+          </address>
+          <a 
+            href="https://maps.app.goo.gl/Fm6bpnaN7WWvN8p89" 
+            class="footer-action-link cursor-target" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >Get Directions</a>
+        </div>
+
+        <!-- Cell 6: Social -->
+        <div class="footer-cell footer-cell--social">
+          <h3 class="footer-cell__heading">SOCIAL</h3>
+          <div class="footer-social-wrap">
+            <a 
+              href="https://www.linkedin.com/company/geo-designs-&-research-pvt-ltd-/posts/" 
+              class="footer-social-link cursor-target" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >LinkedIn</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 2. LOWER COPYRIGHT BAR -->
+      <div class="footer-bar-lower animated-content-item">
+        <div class="footer-copyright">
+          &copy; <span id="current-year">2026</span> Geo Designs &amp; Research Pvt. Ltd. All rights reserved.
+        </div>
+        <div class="footer-legal">
+          <a href="#privacy" class="footer-legal-link cursor-target">Privacy Policy</a>
+          <span class="footer-divider" aria-hidden="true">|</span>
+          <a href="#terms" class="footer-legal-link cursor-target">Terms of Service</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script type="module" src="/components/navigation-14.js"></script>
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
