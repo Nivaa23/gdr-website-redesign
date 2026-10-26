@@ -86,8 +86,8 @@ export const EXPERTISE_SERVICES = {
     division: 'Division 03 — Testing & Contracts',
     desc: 'NABL ISO/IEC 17025 accredited physical and chemical testing for soil, aggregates, cement, concrete, steel, bitumen, Non-Destructive Testing (NDT), and geotechnical studies.',
     image: '/assets/images/hero-lab-testing.jpg',
-    url: '#card-lab-testing',
-    urlAbout: '/index.html#card-lab-testing'
+    url: '/lab.html',
+    urlAbout: '/lab.html'
   },
   'commerce': {
     title: 'Commerce & Contract Management',

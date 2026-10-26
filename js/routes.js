@@ -21,9 +21,9 @@ export const CANONICAL_ROUTES = {
   bridge: '/bridge.html', // 3. Bridge Engineering (Active Dedicated Page)
   commerce: '/commerce.html', // 4. Commerce & Contract Management (Active Dedicated Page)
   hydro: '/hydro.html', // 5. Hydro & Highway DPR (Active Dedicated Page)
+  lab: '/lab.html', // 6. Laboratory & Material Testing (Active Dedicated Page)
 
   // Future Service Pages (to be activated as new pages are implemented):
-  // lab: '/lab.html',
   // mepf: '/mepf.html',
   // pmc: '/pmc.html',
   // structure: '/structure.html',

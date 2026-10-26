@@ -1,0 +1,591 @@
+/* ==========================================================================
+   Geo Designs & Research — Laboratory & Material Testing Service Styles
+   File: css/lab.css
+   Reuses the GDR brand palette, typography, and responsive layout conventions.
+   ========================================================================== */
+
+:root {
+  --lmt-slate: #35556B;
+  --lmt-slate-light: #5A7B92;
+  --lmt-green: #497E5E;
+  --lmt-green-light: #A3E8BF;
+  --lmt-charcoal: #1F2429;
+  --lmt-dark: #121A21;
+  --lmt-light-bg: #F6F8FA;
+  --lmt-border: #E2E8F0;
+  --lmt-border-dark: rgba(255, 255, 255, 0.12);
+  --lmt-radius: 6px;
+  --lmt-shadow-sm: 0 2px 10px rgba(33, 37, 41, 0.05);
+  --lmt-shadow-md: 0 6px 20px rgba(33, 37, 41, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 1 — HERO
+   Proportions match the Architecture, BIM, Bridge, and Hydro heroes.
+   -------------------------------------------------------------------------- */
+.lmt-hero {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  height: clamp(520px, 75vh, 760px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--lmt-dark);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lmt-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--lmt-green), var(--lmt-slate), transparent);
+  opacity: 0.75;
+  z-index: 4;
+}
+
+.lmt-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: var(--lmt-dark);
+}
+
+.lmt-hero__media-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.lmt-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 20, 26, 0.52) 0%,
+    rgba(14, 20, 26, 0.7) 50%,
+    rgba(14, 20, 26, 0.92) 100%
+  );
+}
+
+.lmt-hero__inner {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lmt-hero__title {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(2.3rem, 5.8vw, 4.4rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  margin: 0 0 22px;
+  text-shadow: 0 4px 32px rgba(0, 0, 0, 0.75);
+  overflow-wrap: break-word;
+}
+
+/* Breadcrumb */
+.lmt-breadcrumb ol {
+  list-style: none;
+  margin: 0;
+  padding: 8px 18px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(18, 26, 33, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 4px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lmt-breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--lmt-green-light);
+}
+
+.lmt-breadcrumb li + li::before {
+  content: '>';
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.lmt-breadcrumb a {
+  color: #C0D0E0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.lmt-breadcrumb a:hover,
+.lmt-breadcrumb a:focus-visible {
+  color: #FFFFFF;
+}
+
+/* --------------------------------------------------------------------------
+   SHARED SECTION HEADERS & TECHNICAL DIVIDERS
+   -------------------------------------------------------------------------- */
+.lmt-section-header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+}
+
+.lmt-section-tag {
+  display: inline-block;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--lmt-slate);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.lmt-heading {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 800;
+  color: var(--lmt-charcoal);
+  margin: 0 0 16px;
+  line-height: 1.25;
+}
+
+.lmt-divider {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 0 auto 20px;
+}
+
+.lmt-divider-line {
+  display: block;
+  width: 32px;
+  height: 2px;
+  background-color: var(--lmt-slate);
+}
+
+.lmt-divider-line--green {
+  background-color: var(--lmt-green);
+}
+
+.lmt-divider-dot {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--lmt-slate);
+}
+
+.lmt-lead {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #475569;
+  font-weight: 500;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 2 — OVERVIEW & ACCREDITATIONS
+   -------------------------------------------------------------------------- */
+.lmt-overview-section {
+  padding: 90px 0;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--lmt-border);
+}
+
+.lmt-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
+  align-items: center;
+}
+
+.lmt-visual-panel {
+  position: relative;
+  background-color: var(--lmt-light-bg);
+  border: 1px solid var(--lmt-border);
+  border-radius: var(--lmt-radius);
+  overflow: hidden;
+  box-shadow: var(--lmt-shadow-sm);
+  aspect-ratio: 16 / 11;
+}
+
+.lmt-visual-panel__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.lmt-visual-panel__badge {
+  position: absolute;
+  bottom: 16px;
+  left: 20px;
+  right: 20px;
+  width: fit-content;
+  max-width: calc(100% - 40px);
+  background: rgba(18, 26, 33, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 7px 14px;
+  border-radius: 2px;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--lmt-green-light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lmt-content-card {
+  background: #FFFFFF;
+  border: 1px solid var(--lmt-border);
+  border-radius: var(--lmt-radius);
+  padding: clamp(24px, 3.5vw, 40px);
+  box-shadow: var(--lmt-shadow-sm);
+}
+
+.lmt-content-card .lmt-divider {
+  justify-content: flex-start;
+  margin: 0 0 20px 0;
+}
+
+.lmt-badges-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.lmt-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background-color: rgba(53, 85, 107, 0.08);
+  color: var(--lmt-slate);
+  border: 1px solid rgba(53, 85, 107, 0.2);
+}
+
+.lmt-badge-pill--green {
+  background-color: rgba(73, 126, 94, 0.08);
+  color: var(--lmt-green);
+  border: 1px solid rgba(73, 126, 94, 0.25);
+}
+
+.lmt-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  display: grid;
+  gap: 12px;
+}
+
+.lmt-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #475569;
+}
+
+.lmt-bullets svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  color: var(--lmt-green);
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 3 — SPECIALIZED TESTING DIVISIONS & LABORATORIES
+   -------------------------------------------------------------------------- */
+.lmt-divisions-section {
+  padding: 90px 0 100px;
+  background-color: var(--lmt-light-bg);
+  border-bottom: 1px solid var(--lmt-border);
+}
+
+.lmt-divisions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.lmt-division-card {
+  background: #FFFFFF;
+  border: 1px solid var(--lmt-border);
+  border-radius: var(--lmt-radius);
+  padding: 30px 26px;
+  box-shadow: var(--lmt-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.lmt-division-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--lmt-slate-light);
+  box-shadow: var(--lmt-shadow-md);
+}
+
+.lmt-division-card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.lmt-division-card__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  background-color: rgba(53, 85, 107, 0.08);
+  color: var(--lmt-slate);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(53, 85, 107, 0.16);
+}
+
+.lmt-division-card:hover .lmt-division-card__icon {
+  background-color: var(--lmt-slate);
+  color: #FFFFFF;
+}
+
+.lmt-division-card__title {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--lmt-charcoal);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.lmt-division-card__desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0 0 18px;
+}
+
+.lmt-division-card__subtitle {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--lmt-slate);
+  margin: 0 0 10px;
+  display: block;
+}
+
+.lmt-scope-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+  border-top: 1px solid var(--lmt-border);
+  padding-top: 14px;
+  margin-top: auto;
+}
+
+.lmt-scope-list li {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #334155;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.lmt-scope-list li::before {
+  content: '▪';
+  color: var(--lmt-green);
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION 4 & 5 — TECHNICAL TABLES (Equipment & Projects)
+   -------------------------------------------------------------------------- */
+.lmt-table-section {
+  padding: 90px 0 100px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--lmt-border);
+}
+
+.lmt-table-section--alt {
+  background-color: var(--lmt-light-bg);
+}
+
+.lmt-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  background-color: #FFFFFF;
+  border: 1px solid var(--lmt-border);
+  border-radius: var(--lmt-radius);
+  box-shadow: var(--lmt-shadow-sm);
+  -webkit-overflow-scrolling: touch;
+}
+
+.lmt-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 720px;
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+}
+
+.lmt-table thead {
+  background-color: var(--lmt-dark);
+  color: #FFFFFF;
+}
+
+.lmt-table th {
+  padding: 16px 22px;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #E2E8F0;
+  border-bottom: 2px solid var(--lmt-green);
+}
+
+.lmt-table td {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--lmt-border);
+  vertical-align: top;
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.lmt-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.lmt-table tbody tr:nth-child(even) {
+  background-color: #F8FAFC;
+}
+
+.lmt-table tbody tr:hover {
+  background-color: #F1F5F9;
+}
+
+.lmt-table__item-title {
+  font-weight: 700;
+  color: var(--lmt-charcoal);
+  display: block;
+}
+
+.lmt-table__meta {
+  font-weight: 600;
+  color: var(--lmt-slate);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lmt-table__badge {
+  display: inline-block;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 7px;
+  border-radius: 2px;
+  background-color: rgba(73, 126, 94, 0.1);
+  color: var(--lmt-green);
+  border: 1px solid rgba(73, 126, 94, 0.25);
+  margin-top: 4px;
+}
+
+.lmt-table__code {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.78rem;
+  color: var(--lmt-slate);
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .lmt-divisions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .lmt-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .lmt-hero {
+    min-height: 440px;
+    height: 60vh;
+  }
+}
+
+@media (max-width: 640px) {
+  .lmt-divisions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lmt-overview-section,
+  .lmt-divisions-section,
+  .lmt-table-section {
+    padding: 60px 0;
+  }
+
+  .lmt-hero {
+    min-height: 380px;
+    height: 52vh;
+  }
+
+  .lmt-table th,
+  .lmt-table td {
+    padding: 14px 16px;
+  }
+}

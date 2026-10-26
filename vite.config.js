@@ -12,6 +12,7 @@ export default defineConfig({
         bridge: resolve(__dirname, 'bridge.html'),
         commerce: resolve(__dirname, 'commerce.html'),
         hydro: resolve(__dirname, 'hydro.html'),
+        lab: resolve(__dirname, 'lab.html'),
       },
     },
   },
