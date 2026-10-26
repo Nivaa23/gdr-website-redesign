@@ -61,9 +61,9 @@
       <!-- Primary Navigation Links (Ordered strictly per specifications) -->
       <nav class="primary-nav nav14-nav" id="primary-nav" aria-label="Primary Navigation">
         <ul class="nav-list nav14-list" role="menubar">
-          <!-- 1. About Us (Current Page) -->
+          <!-- 1. About Us -->
           <li class="nav-item nav14-item" role="none">
-            <a href="/about-1.html" class="nav-link nav14-link is-active cursor-target" role="menuitem" id="nav-about" aria-current="page">
+            <a href="/about-1.html" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-about">
               About Us
             </a>
           </li>
@@ -352,33 +352,178 @@
     <div class="mobile-nav-drawer" id="mobile-nav-drawer" hidden aria-label="Mobile Navigation Menu">
       <div class="mobile-nav-drawer__inner">
         <ul class="mobile-nav-list">
-          <li><a href="/about-1.html" class="mobile-nav-link is-active">About Us</a></li>
-          <li class="mobile-accordion">
-            <button type="button" class="mobile-accordion-trigger" id="mobile-expertise-toggle" aria-expanded="false">
-              <span>Expertise</span>
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8"/></svg>
+          <li class="mobile-nav-item">
+            <a href="/about-1.html" class="mobile-nav-link">1. About Us</a>
+          </li>
+
+          <li class="mobile-nav-item mobile-nav-item--accordion">
+            <button type="button" class="mobile-nav-link mobile-nav-accordion-btn" id="mobile-expertise-toggle" aria-expanded="false">
+              <span>2. Expertise</span>
+              <svg class="mobile-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 5.5L7 9L10.5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
-            <div class="mobile-accordion-content" id="mobile-expertise-content" hidden>
-              <ul class="mobile-subnav-list">
-                <li><a href="/architecture.html">Architecture &amp; Master Planning</a></li>
-                <li><a href="/bim.html">BIM Modeling &amp; Auditing</a></li>
-                <li><a href="/bridge.html">Bridge Engineering</a></li>
-                <li><a href="/commerce.html">Commerce &amp; Contract Management</a></li>
-                <li><a href="/hydro.html">Hydro &amp; Highway DPR</a></li>
-                <li><a href="/lab.html">Laboratory &amp; Material Testing</a></li>
-                <li><a href="/index.html#card-mepf">MEPF Engineering</a></li>
-                <li><a href="/index.html#card-pmc">Project Management Consultancy (PMC)</a></li>
-                <li><a href="/index.html#card-structure">Structural Engineering</a></li>
-                <li><a href="/index.html#card-survey">Survey &amp; Geomatics</a></li>
-                <li><a href="/index.html#card-green-building">Environmentally Sustainable Solutions</a></li>
-              </ul>
+            
+            <!-- Mobile Expertise Accordion List -->
+            <div class="mobile-expertise-content" id="mobile-expertise-content" hidden>
+              <!-- 1. Architecture & Master Planning -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">1. Architecture &amp; Master Planning</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Interior Design</li>
+                  <li>Urban Planning</li>
+                  <li>Green Building Design</li>
+                  <li>Building Information Modelling</li>
+                  <li>Building Performance Analysis</li>
+                  <li><a href="/architecture.html" class="mobile-view-all">View Architecture Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 2. BIM Modeling & Auditing -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">2. BIM Modeling &amp; Auditing</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Architectural &amp; Structural BIM</li>
+                  <li>MEP BIM &amp; Clash Detection</li>
+                  <li>BIM Based Quantity Takeoff &amp; BBS</li>
+                  <li>GFC Drawings Extraction &amp; Fabrication</li>
+                  <li>4D Construction Scheduling &amp; 5D Costing</li>
+                  <li>6D Facility Management &amp; Model Auditing</li>
+                  <li><a href="/bim.html" class="mobile-view-all">View BIM Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 3. Bridge Engineering -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">3. Bridge Engineering</summary>
+                <ul class="mobile-subservice-list">
+                  <li>River Bridges &amp; Flyovers</li>
+                  <li>Railway Over Bridges (ROB) &amp; Interchanges</li>
+                  <li>Bridge Health &amp; Structural Audits</li>
+                  <li>Rehabilitation &amp; Retrofitting</li>
+                  <li>Seismic Analysis &amp; Design</li>
+                  <li><a href="/bridge.html" class="mobile-view-all">View Bridge Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 4. Commerce & Contract Management -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">4. Commerce &amp; Contract Management</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Approximate &amp; Detailed Estimates</li>
+                  <li>Market &amp; Rate Analysis</li>
+                  <li>Internal &amp; External Services</li>
+                  <li>Draft Tender Papers</li>
+                  <li>Detailed Project Reports &amp; FIDIC Contracts</li>
+                  <li><a href="/commerce.html" class="mobile-view-all">View Contracts Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 5. Hydro & Highway DPR -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">5. Hydro &amp; Highway DPR</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Alignment Surveys &amp; Route Studies</li>
+                  <li>Hydrological &amp; Hydraulic Modeling</li>
+                  <li>Pavement &amp; Traffic Engineering</li>
+                  <li>Comprehensive Detailed Project Reports</li>
+                  <li><a href="/hydro.html" class="mobile-view-all">View DPR Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 6. Laboratory & Material Testing -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">6. Laboratory &amp; Material Testing</summary>
+                <ul class="mobile-subservice-list">
+                  <li>High Tech Material &amp; Concrete Lab</li>
+                  <li>Soil Testing &amp; Geotechnical Studies</li>
+                  <li>Metallurgical &amp; Chemical Lab</li>
+                  <li>Highway Material Testing</li>
+                  <li>Non-Destructive Testing (NDT) Lab</li>
+                  <li>Environmental Monitoring &amp; Analysis</li>
+                  <li><a href="/lab.html" class="mobile-view-all">View Laboratory &amp; Material Testing Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 7. MEPF Engineering -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">7. MEPF Engineering</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Illumination, Ventilation &amp; HVAC</li>
+                  <li>Distribution of Electric Supply</li>
+                  <li>ELV Systems (LAN, EPABX, TV)</li>
+                  <li>Fire Detection, Alarm &amp; Fighting Systems</li>
+                  <li>Water Supply, Plumbing &amp; Drainage</li>
+                  <li>Rain Water Harvesting</li>
+                  <li><a href="/index.html#card-mepf" class="mobile-view-all">View MEPF Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 8. Project Management Consultancy (PMC) -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">8. Project Management Consultancy (PMC)</summary>
+                <ul class="mobile-subservice-list">
+                  <li>National, State Highways &amp; Toll Roads</li>
+                  <li>Site Supervision &amp; Quality Control</li>
+                  <li>Pavement &amp; Structural Rehabilitation</li>
+                  <li>Traffic Engineering &amp; Transportation Planning</li>
+                  <li>Contract Administration &amp; Audits</li>
+                  <li><a href="/index.html#card-pmc" class="mobile-view-all">View PMC Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 9. Structural Engineering -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">9. Structural Engineering</summary>
+                <ul class="mobile-subservice-list">
+                  <li>High-Rise Commercial &amp; Residential Buildings</li>
+                  <li>Institutional &amp; Educational Buildings</li>
+                  <li>Hospital &amp; Auditorium Complexes</li>
+                  <li>Heavy Industrial Structures &amp; Hangars</li>
+                  <li><a href="/index.html#card-structure" class="mobile-view-all">View Structural Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 10. Survey & Geomatics -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">10. Survey &amp; Geomatics</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Topography &amp; Contour Surveys</li>
+                  <li>Road, Canal &amp; Railway Alignment Surveys</li>
+                  <li>LiDAR &amp; Drone Aerial Surveys</li>
+                  <li>Bathymetric &amp; Pipeline Surveys</li>
+                  <li>Cadastral &amp; GIS Mapping</li>
+                  <li><a href="/index.html#card-survey" class="mobile-view-all">View Survey Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 11. Environmentally Sustainable Solutions -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">11. Environmentally Sustainable Solutions</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Environmental Impact Assessment (EIA)</li>
+                  <li>Green Building Certification Advisory</li>
+                  <li>Energy Performance &amp; Solar Audits</li>
+                  <li>Environmental Management &amp; Compliance</li>
+                  <li><a href="/index.html#card-green-building" class="mobile-view-all">View Sustainable Details &rarr;</a></li>
+                </ul>
+              </details>
             </div>
           </li>
-          <li><a href="/index.html#credentials" class="mobile-nav-link">Credentials</a></li>
-          <li><a href="/index.html#downloads" class="mobile-nav-link">Downloads</a></li>
-          <li><a href="/index.html#career" class="mobile-nav-link">Career</a></li>
-          <li><a href="/index.html#projects" class="mobile-nav-link">Projects</a></li>
-          <li><a href="/index.html#contact-us" class="mobile-nav-link mobile-nav-link--cta">Talk to Us</a></li>
+
+          <li class="mobile-nav-item">
+            <a href="/index.html#credentials" class="mobile-nav-link" data-phase-pending="Credentials documentation is scheduled for Phase 02.">3. Credentials</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="/index.html#downloads" class="mobile-nav-link" data-phase-pending="Corporate downloads portal is scheduled for Phase 02.">4. Downloads</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="/index.html#career" class="mobile-nav-link" data-phase-pending="Career opportunities section is scheduled for Phase 02.">5. Career</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="/index.html#projects" class="mobile-nav-link" data-phase-pending="Project showcase directory is scheduled for Phase 02.">6. Projects</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="/index.html#contact-us" class="mobile-nav-link" data-phase-pending="Contact inquiry module is scheduled for Phase 02.">7. Talk to Us</a>
+          </li>
         </ul>
       </div>
     </div>
