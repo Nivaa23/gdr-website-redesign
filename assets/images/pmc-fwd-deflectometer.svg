@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" width="960" height="480">
+  <defs>
+    <linearGradient id="fwdBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141E28"/>
+      <stop offset="60%" stop-color="#0E1620"/>
+      <stop offset="100%" stop-color="#090E14"/>
+    </linearGradient>
+    <pattern id="fwdGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#497E5E" stroke-width="0.6" stroke-opacity="0.2"/>
+    </pattern>
+  </defs>
+
+  <rect width="960" height="480" fill="url(#fwdBg)"/>
+  <rect width="960" height="480" fill="url(#fwdGrid)"/>
+
+  <!-- Technical Coordinate Border & Title Block -->
+  <g stroke="#497E5E" stroke-width="1" opacity="0.45">
+    <path d="M 20 30 L 20 15 L 35 15 M 940 30 L 940 15 L 925 15"/>
+    <path d="M 20 450 L 20 465 L 35 465 M 940 450 L 940 465 L 925 465"/>
+  </g>
+
+  <g font-family="'Geist Mono', monospace" font-size="10" fill="#A3E8BF" letter-spacing="1.5">
+    <text x="30" y="36">FALLING WEIGHT DEFLECTOMETER (FWD) // STRUCTURAL EVALUATION</text>
+    <text x="930" y="36" text-anchor="end" fill="#88A8BF">IRC:115-2014 / ASTM D4694</text>
+  </g>
+
+  <!-- Pavement Base Line -->
+  <line x1="60" y1="375" x2="900" y2="375" stroke="#35556B" stroke-width="2"/>
+  <line x1="60" y1="385" x2="900" y2="385" stroke="#497E5E" stroke-width="1" stroke-dasharray="8 6"/>
+
+  <!-- Tow Vehicle (Left) -->
+  <g id="tow-vehicle" transform="translate(60, 155)">
+    <path d="M 40 180 L 40 130 Q 50 80 110 75 L 230 75 L 290 110 L 330 130 L 340 160 L 340 180 Z" fill="#1C2B38" stroke="#35556B" stroke-width="2"/>
+    <!-- Windows -->
+    <path d="M 120 85 L 180 85 L 180 125 L 120 125 Z" fill="#35556B" opacity="0.6"/>
+    <path d="M 190 85 L 240 85 L 275 125 L 190 125 Z" fill="#35556B" opacity="0.6"/>
+    <rect x="40" y="145" width="300" height="8" fill="#497E5E"/>
+    <!-- Wheels -->
+    <circle cx="100" cy="190" r="28" fill="#0E1419" stroke="#E2E8F0" stroke-width="2.5"/>
+    <circle cx="100" cy="190" r="12" fill="#35556B"/>
+    <circle cx="280" cy="190" r="28" fill="#0E1419" stroke="#E2E8F0" stroke-width="2.5"/>
+    <circle cx="280" cy="190" r="12" fill="#35556B"/>
+    <!-- Tow Hitch -->
+    <line x1="340" y1="180" x2="380" y2="180" stroke="#E2E8F0" stroke-width="4"/>
+    <circle cx="380" cy="180" r="6" fill="#497E5E" stroke="#FFFFFF" stroke-width="2"/>
+  </g>
+
+  <!-- FWD Trailer & Impactive Drop Mechanism (Right) -->
+  <g id="fwd-trailer" transform="translate(420, 130)">
+    <!-- Trailer Chassis -->
+    <rect x="20" y="195" width="460" height="18" fill="#243442" stroke="#E2E8F0" stroke-width="2" rx="2"/>
+    <!-- Tow Bar Connection -->
+    <line x1="0" y1="205" x2="20" y2="205" stroke="#E2E8F0" stroke-width="4"/>
+
+    <!-- Enclosed Trailer Cabin / Protective Hood -->
+    <path d="M 60 195 L 60 90 L 380 90 L 420 195 Z" fill="#182531" stroke="#497E5E" stroke-width="2"/>
+    <rect x="75" y="105" width="290" height="8" fill="#497E5E"/>
+    <text x="85" y="112" font-family="'Geist Mono', monospace" font-size="7.5" fill="#FFFFFF" letter-spacing="1">GEO DESIGNS &amp; RESEARCH • FWD MODULUS UNIT</text>
+
+    <!-- Trailer Axle & Wheels -->
+    <circle cx="340" cy="225" r="26" fill="#0E1419" stroke="#E2E8F0" stroke-width="2.5"/>
+    <circle cx="340" cy="225" r="11" fill="#497E5E"/>
+
+    <!-- INTERNAL MECHANISM CUTAWAY (Tower & Drop Weight) -->
+    <!-- Vertical Guide Column -->
+    <rect x="180" y="98" width="50" height="120" fill="#121D26" stroke="#A3E8BF" stroke-width="1.5"/>
+    <!-- Falling Drop Weights (Steel Masses) -->
+    <rect x="185" y="115" width="40" height="26" fill="#497E5E" stroke="#FFFFFF" stroke-width="1.5"/>
+    <!-- Hydraulic Lift Cylinder -->
+    <line x1="205" y1="100" x2="205" y2="145" stroke="#E2E8F0" stroke-width="3"/>
+    <!-- Buffer Springs -->
+    <rect x="190" y="170" width="30" height="12" fill="#35556B" stroke="#E2E8F0" stroke-width="1"/>
+    <!-- 300mm Loading Plate on Pavement -->
+    <rect x="175" y="240" width="60" height="8" fill="#E2E8F0" stroke="#497E5E" stroke-width="1.5"/>
+    <!-- Load Cell Transducer -->
+    <rect x="192" y="228" width="26" height="12" fill="#FF5555" stroke="#FFFFFF" stroke-width="1.5"/>
+    <!-- Impact Force Waves into Pavement -->
+    <path d="M 160 252 A 45 15 0 0,0 250 252" fill="none" stroke="#FF5555" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <path d="M 130 256 A 75 25 0 0,0 280 256" fill="none" stroke="#FF5555" stroke-width="1.2" stroke-dasharray="4 4"/>
+
+    <!-- GEOPHONE DEFLECTION SENSORS ARRAY (Radial Deflection Basin) -->
+    <g id="geophone-bar">
+      <!-- Horizontal Extension Bar -->
+      <line x1="175" y1="236" x2="480" y2="236" stroke="#A3E8BF" stroke-width="2"/>
+      <!-- Geophone D0 (Center) -->
+      <circle cx="205" cy="242" r="4" fill="#A3E8BF" stroke="#FFFFFF" stroke-width="1"/>
+      <!-- Geophone D1 (+200mm) -->
+      <circle cx="240" cy="242" r="4" fill="#A3E8BF" stroke="#FFFFFF" stroke-width="1"/>
+      <!-- Geophone D2 (+300mm) -->
+      <circle cx="275" cy="242" r="4" fill="#A3E8BF" stroke="#FFFFFF" stroke-width="1"/>
+      <!-- Geophone D3 (+450mm) -->
+      <circle cx="310" cy="242" r="4" fill="#A3E8BF" stroke="#FFFFFF" stroke-width="1"/>
+      <!-- Geophone D4 (+600mm) -->
+      <circle cx="360" cy="242" r="4" fill="#A3E8BF" stroke="#FFFFFF" stroke-width="1"/>
+      <!-- Geophone D5 (+900mm) -->
+      <circle cx="410" cy="242" r="4" fill="#A3E8BF" stroke="#FFFFFF" stroke-width="1"/>
+      <!-- Geophone D6 (+1200mm) -->
+      <circle cx="460" cy="242" r="4" fill="#A3E8BF" stroke="#FFFFFF" stroke-width="1"/>
+    </g>
+  </g>
+
+  <!-- TECHNICAL LABELS & CALLOUTS -->
+  <!-- 1. Drop Weight & Load Cell Callout -->
+  <g transform="translate(620, 80)">
+    <line x1="0" y1="40" x2="-20" y2="40" stroke="#A3E8BF" stroke-width="1.5"/>
+    <circle cx="0" cy="40" r="3" fill="#497E5E"/>
+    <text x="10" y="36" font-family="'Geist Mono', monospace" font-size="9" fill="#FFFFFF">1. HYDRAULIC DROP WEIGHT (7–120 kN IMPACT)</text>
+    <text x="10" y="48" font-family="'Geist Mono', monospace" font-size="8.5" fill="#CBD5E1">DYNAMIC LOAD CELL WITH REAL-TIME PULSE CAPTURE</text>
+  </g>
+
+  <!-- 2. Deflection Geophone Sensors Callout -->
+  <g transform="translate(670, 320)">
+    <line x1="0" y1="0" x2="-35" y2="-40" stroke="#A3E8BF" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="3" fill="#497E5E"/>
+    <text x="10" y="-4" font-family="'Geist Mono', monospace" font-size="9" fill="#FFFFFF">2. 7-CHANNEL SEISMIC GEOPHONE SENSOR ARRAY</text>
+    <text x="10" y="10" font-family="'Geist Mono', monospace" font-size="8.5" fill="#CBD5E1">MEASURES PAVEMENT DEFLECTION BASIN WITH 0.1 µM RESOLUTION</text>
+  </g>
+
+  <!-- Specifications Summary Panel -->
+  <g transform="translate(60, 400)">
+    <rect x="0" y="0" width="840" height="40" rx="3" fill="#141E28" stroke="#35556B" stroke-width="1"/>
+    <text x="14" y="24" font-family="'Geist Mono', monospace" font-size="8.5" fill="#A3E8BF">PRIMARY APPLICATIONS: NON-DESTRUCTIVE STRUCTURAL CAPACITY AUDIT • SUBGRADE ELASTIC MODULUS (Mr) • OVERLAY THICKNESS DESIGN</text>
+  </g>
+</svg>

@@ -14,8 +14,8 @@ export const EXPERTISE_SERVICES = {
     division: 'Division 01 — Infrastructure & Civil',
     desc: 'Comprehensive project management, site supervision, quality assurance, safety audits, and contract administration complying with IRC, IS, and MoRTH standards.',
     image: '/assets/images/hero-infrastructure-bridge.jpg',
-    url: '#card-pmc',
-    urlAbout: '/index.html#card-pmc'
+    url: '/pmc.html',
+    urlAbout: '/pmc.html'
   },
   'hydro': {
     title: 'Hydro & Highway DPR',

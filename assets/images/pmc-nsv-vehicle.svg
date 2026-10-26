@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" width="960" height="480">
+  <defs>
+    <linearGradient id="nsvBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141E28"/>
+      <stop offset="60%" stop-color="#0E1620"/>
+      <stop offset="100%" stop-color="#090E14"/>
+    </linearGradient>
+    <pattern id="nsvGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#35556B" stroke-width="0.6" stroke-opacity="0.2"/>
+    </pattern>
+  </defs>
+
+  <rect width="960" height="480" fill="url(#nsvBg)"/>
+  <rect width="960" height="480" fill="url(#nsvGrid)"/>
+
+  <!-- Technical Coordinate Border & Title Block -->
+  <g stroke="#35556B" stroke-width="1" opacity="0.45">
+    <path d="M 20 30 L 20 15 L 35 15 M 940 30 L 940 15 L 925 15"/>
+    <path d="M 20 450 L 20 465 L 35 465 M 940 450 L 940 465 L 925 465"/>
+  </g>
+
+  <g font-family="'Geist Mono', monospace" font-size="10" fill="#A3E8BF" letter-spacing="1.5">
+    <text x="30" y="36">NETWORK SURVEY VEHICLE (NSV) // TECHNICAL SPECIFICATION</text>
+    <text x="930" y="36" text-anchor="end" fill="#88A8BF">IRC:SP:16 / MoRTH COMPLIANT</text>
+  </g>
+
+  <!-- Road Plane -->
+  <line x1="60" y1="365" x2="900" y2="365" stroke="#497E5E" stroke-width="2"/>
+  <line x1="60" y1="375" x2="900" y2="375" stroke="#35556B" stroke-width="1" stroke-dasharray="8 6"/>
+
+  <!-- Network Survey Vehicle Profile -->
+  <g id="vehicle-body" transform="translate(180, 110)">
+    <!-- Main SUV / Van Body -->
+    <path d="M 70 210 L 70 140 Q 80 80 160 75 L 340 75 L 440 120 L 510 145 L 530 180 L 530 210 Z" fill="#1C2B38" stroke="#E2E8F0" stroke-width="2"/>
+    <!-- Windows & Cabin Glazing -->
+    <path d="M 170 85 L 260 85 L 260 135 L 170 135 Z" fill="#35556B" opacity="0.65" stroke="#A3E8BF" stroke-width="1.2"/>
+    <path d="M 270 85 L 350 85 L 350 135 L 270 135 Z" fill="#35556B" opacity="0.65" stroke="#A3E8BF" stroke-width="1.2"/>
+    <path d="M 360 88 L 430 122 L 430 135 L 360 135 Z" fill="#35556B" opacity="0.75" stroke="#A3E8BF" stroke-width="1.2"/>
+    <!-- GDR Corporate Accent Strip -->
+    <rect x="70" y="160" width="460" height="12" fill="#497E5E"/>
+    <text x="85" y="170" font-family="'Geist Mono', monospace" font-size="8" fill="#FFFFFF" letter-spacing="1">GEO DESIGNS &amp; RESEARCH • NSV 01</text>
+    
+    <!-- Wheels & Suspension -->
+    <!-- Rear Wheel -->
+    <circle cx="160" cy="225" r="32" fill="#0E1419" stroke="#E2E8F0" stroke-width="3"/>
+    <circle cx="160" cy="225" r="14" fill="#35556B" stroke="#A3E8BF" stroke-width="2"/>
+    <!-- DMI Sensor on Rear Wheel -->
+    <circle cx="160" cy="225" r="6" fill="#497E5E" stroke="#FFFFFF" stroke-width="1.5"/>
+    <rect x="156" y="210" width="8" height="15" fill="#E2E8F0"/>
+
+    <!-- Front Wheel -->
+    <circle cx="440" cy="225" r="32" fill="#0E1419" stroke="#E2E8F0" stroke-width="3"/>
+    <circle cx="440" cy="225" r="14" fill="#35556B" stroke="#A3E8BF" stroke-width="2"/>
+  </g>
+
+  <!-- SENSORS & INSTRUMENTATION (CALLOUTS) -->
+
+  <!-- 1. DGPS / GNSS Antenna (Roof Top) -->
+  <g id="callout-dgps">
+    <ellipse cx="440" cy="172" rx="14" ry="5" fill="#E2E8F0" stroke="#497E5E" stroke-width="2"/>
+    <line x1="440" y1="170" x2="440" y2="100" stroke="#A3E8BF" stroke-width="1.5"/>
+    <circle cx="440" cy="100" r="3" fill="#497E5E"/>
+    <line x1="440" y1="100" x2="380" y2="100" stroke="#A3E8BF" stroke-width="1.5"/>
+    <text x="370" y="104" text-anchor="end" font-family="'Geist Mono', monospace" font-size="9.5" fill="#FFFFFF">1. DGPS / GNSS SATELLITE POSITIONING</text>
+  </g>
+
+  <!-- 2. High-Resolution Right-of-Way Camera (Roof Mount) -->
+  <g id="callout-camera-row">
+    <rect x="535" y="195" width="22" height="14" rx="2" fill="#497E5E" stroke="#E2E8F0" stroke-width="1.5"/>
+    <circle cx="550" cy="202" r="4" fill="#A3E8BF"/>
+    <!-- Scan beam -->
+    <path d="M 557 202 L 670 230 L 670 290 Z" fill="rgba(73, 126, 94, 0.15)"/>
+    <line x1="550" y1="195" x2="600" y2="120" stroke="#A3E8BF" stroke-width="1.5"/>
+    <circle cx="600" cy="120" r="3" fill="#497E5E"/>
+    <line x1="600" y1="120" x2="660" y2="120" stroke="#A3E8BF" stroke-width="1.5"/>
+    <text x="670" y="124" font-family="'Geist Mono', monospace" font-size="9.5" fill="#FFFFFF">2. FORWARD RIGHT-OF-WAY (ROW) CAMERAS</text>
+  </g>
+
+  <!-- 3. Front Bumper Laser Profilometer (Roughness / IRI) -->
+  <g id="callout-profiler">
+    <rect x="710" y="300" width="24" height="24" rx="2" fill="#35556B" stroke="#E2E8F0" stroke-width="1.5"/>
+    <!-- Laser beam to pavement -->
+    <line x1="722" y1="324" x2="722" y2="365" stroke="#FF5555" stroke-width="2"/>
+    <circle cx="722" cy="365" r="3" fill="#FF5555"/>
+    <line x1="734" y1="312" x2="810" y2="312" stroke="#A3E8BF" stroke-width="1.5"/>
+    <circle cx="810" cy="312" r="3" fill="#497E5E"/>
+    <text x="820" y="316" font-family="'Geist Mono', monospace" font-size="9.5" fill="#FFFFFF">3. CLASS-1 LASER PROFILOMETER (IRI)</text>
+  </g>
+
+  <!-- 4. Distance Measurement Instrument (DMI) -->
+  <g id="callout-dmi">
+    <line x1="340" y1="335" x2="260" y2="400" stroke="#A3E8BF" stroke-width="1.5"/>
+    <circle cx="260" cy="400" r="3" fill="#497E5E"/>
+    <line x1="260" y1="400" x2="160" y2="400" stroke="#A3E8BF" stroke-width="1.5"/>
+    <text x="150" y="404" text-anchor="end" font-family="'Geist Mono', monospace" font-size="9.5" fill="#FFFFFF">4. HIGH-PRECISION DMI ODOMETER</text>
+  </g>
+
+  <!-- 5. Rear Transverse Laser Scanner (Rutting & Crack Detection) -->
+  <g id="callout-rutting">
+    <rect x="230" y="270" width="18" height="24" rx="2" fill="#497E5E" stroke="#E2E8F0" stroke-width="1.5"/>
+    <line x1="230" y1="282" x2="160" y2="282" stroke="#A3E8BF" stroke-width="1.5"/>
+    <circle cx="160" cy="282" r="3" fill="#497E5E"/>
+    <text x="150" y="286" text-anchor="end" font-family="'Geist Mono', monospace" font-size="9.5" fill="#FFFFFF">5. 3D TRANSVERSE LASER CRACK &amp; RUT SCANNER</text>
+  </g>
+
+  <!-- Specs Box Bottom Right -->
+  <g transform="translate(620, 390)">
+    <rect x="0" y="0" width="310" height="50" rx="3" fill="#141E28" stroke="#35556B" stroke-width="1"/>
+    <text x="12" y="20" font-family="'Geist Mono', monospace" font-size="8.5" fill="#A3E8BF">SPEED: SURVEY AT HIGHWAY TRAFFIC SPEEDS (UP TO 100 KM/H)</text>
+    <text x="12" y="38" font-family="'Geist Mono', monospace" font-size="8.5" fill="#CBD5E1">ACCURACY: ±0.1 MM RUT DEPTH • ±0.05 M/KM IRI</text>
+  </g>
+</svg>

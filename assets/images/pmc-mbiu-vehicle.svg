@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 375" width="600" height="375">
+  <defs>
+    <linearGradient id="mbiuBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141E28"/>
+      <stop offset="100%" stop-color="#0B1117"/>
+    </linearGradient>
+    <pattern id="mbiuGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#35556B" stroke-width="0.5" stroke-opacity="0.25"/>
+    </pattern>
+  </defs>
+
+  <rect width="600" height="375" fill="url(#mbiuBg)"/>
+  <rect width="600" height="375" fill="url(#mbiuGrid)"/>
+
+  <!-- Bridge Superstructure Section -->
+  <g id="bridge-deck">
+    <!-- Concrete Deck Slab -->
+    <rect x="0" y="140" width="600" height="22" fill="#2A3845" stroke="#3F5364" stroke-width="1.5"/>
+    <!-- Crash Barrier / Parapet -->
+    <rect x="0" y="124" width="600" height="16" fill="#1F2A33" stroke="#497E5E" stroke-width="1"/>
+    <!-- Steel / Concrete Girders Beneath -->
+    <rect x="80" y="162" width="28" height="70" fill="#1C2731" stroke="#35556B" stroke-width="1.5"/>
+    <rect x="220" y="162" width="28" height="70" fill="#1C2731" stroke="#35556B" stroke-width="1.5"/>
+    <rect x="360" y="162" width="28" height="70" fill="#1C2731" stroke="#35556B" stroke-width="1.5"/>
+    <rect x="500" y="162" width="28" height="70" fill="#1C2731" stroke="#35556B" stroke-width="1.5"/>
+    <!-- Pier Cap Outline -->
+    <path d="M 60 232 L 540 232 L 510 260 L 90 260 Z" fill="#15202A" stroke="#35556B" stroke-width="1.5"/>
+  </g>
+
+  <!-- MBIU Inspection Truck on Deck -->
+  <g id="truck" transform="translate(140, 68)">
+    <!-- Truck Chassis & Body -->
+    <rect x="60" y="24" width="160" height="32" rx="4" fill="#35556B" stroke="#A3E8BF" stroke-width="1.5"/>
+    <!-- Cabin -->
+    <path d="M 180 24 L 205 24 L 218 38 L 218 56 L 180 56 Z" fill="#497E5E" stroke="#FFFFFF" stroke-width="1.5"/>
+    <!-- Windshield -->
+    <path d="M 185 28 L 202 28 L 212 40 L 185 40 Z" fill="#A3E8BF" opacity="0.85"/>
+    <!-- Wheels -->
+    <circle cx="85" cy="58" r="14" fill="#0E1419" stroke="#E2E8F0" stroke-width="2"/>
+    <circle cx="85" cy="58" r="6" fill="#35556B"/>
+    <circle cx="145" cy="58" r="14" fill="#0E1419" stroke="#E2E8F0" stroke-width="2"/>
+    <circle cx="145" cy="58" r="6" fill="#35556B"/>
+    <circle cx="195" cy="58" r="14" fill="#0E1419" stroke="#E2E8F0" stroke-width="2"/>
+    <circle cx="195" cy="58" r="6" fill="#35556B"/>
+    <!-- Stabilizer Outriggers -->
+    <rect x="62" y="44" width="8" height="16" fill="#E2E8F0"/>
+    <rect x="170" y="44" width="8" height="16" fill="#E2E8F0"/>
+  </g>
+
+  <!-- Articulated Under-Bridge Boom System -->
+  <g id="articulated-boom">
+    <!-- Turret / Base on Truck -->
+    <rect x="235" y="76" width="22" height="16" rx="2" fill="#497E5E" stroke="#E2E8F0" stroke-width="1.5"/>
+    <!-- Main Vertical Column going over barrier -->
+    <path d="M 246 80 L 290 30 L 305 34 L 265 84 Z" fill="#35556B" stroke="#A3E8BF" stroke-width="1.5"/>
+    <circle cx="298" cy="32" r="6" fill="#497E5E" stroke="#FFFFFF" stroke-width="1.5"/>
+    <!-- Upper Reach Boom -->
+    <path d="M 298 32 L 350 48 L 346 60 L 294 44 Z" fill="#35556B" stroke="#E2E8F0" stroke-width="1.5"/>
+    <circle cx="348" cy="54" r="6" fill="#497E5E" stroke="#FFFFFF" stroke-width="1.5"/>
+    <!-- Vertical Drop Arm descending below deck -->
+    <path d="M 348 54 L 348 200 L 336 200 L 336 54 Z" fill="#2A4456" stroke="#A3E8BF" stroke-width="1.5"/>
+    <circle cx="342" cy="200" r="6" fill="#497E5E" stroke="#FFFFFF" stroke-width="1.5"/>
+    <!-- Horizontal Platform reaching underneath deck -->
+    <path d="M 342 200 L 150 200 L 150 210 L 342 210 Z" fill="#497E5E" stroke="#FFFFFF" stroke-width="1.5"/>
+    <!-- Inspection Basket / Platform with Guardrails -->
+    <rect x="150" y="184" width="80" height="26" fill="none" stroke="#E2E8F0" stroke-width="1.5"/>
+    <line x1="170" y1="184" x2="170" y2="210" stroke="#E2E8F0" stroke-width="1.2"/>
+    <line x1="190" y1="184" x2="190" y2="210" stroke="#E2E8F0" stroke-width="1.2"/>
+    <line x1="210" y1="184" x2="210" y2="210" stroke="#E2E8F0" stroke-width="1.2"/>
+    <!-- Inspector Figures -->
+    <circle cx="178" cy="176" r="4.5" fill="#A3E8BF"/>
+    <path d="M 174 184 L 182 184 L 180 196 L 176 196 Z" fill="#E2E8F0"/>
+    <circle cx="202" cy="176" r="4.5" fill="#A3E8BF"/>
+    <path d="M 198 184 L 206 184 L 204 196 L 200 196 Z" fill="#E2E8F0"/>
+    <!-- Laser / Inspection Sensor Beam -->
+    <path d="M 180 174 L 220 162" stroke="#A3E8BF" stroke-width="1.5" stroke-dasharray="3 3"/>
+  </g>
+
+  <!-- Technical Overlay Labels & Drafting Frame -->
+  <g font-family="'Geist Mono', monospace" font-size="9" fill="#A3E8BF" letter-spacing="1">
+    <rect x="24" y="24" width="220" height="24" rx="2" fill="#121A21" stroke="#35556B" stroke-width="1"/>
+    <text x="34" y="40">MBIU // UNDER-BRIDGE UNIT</text>
+    <text x="24" y="340" fill="#CBD5E1" font-size="8.5">BOOM PAYLOAD: 600 KG • REACH: 18.5M UNDER-DECK</text>
+  </g>
+</svg>

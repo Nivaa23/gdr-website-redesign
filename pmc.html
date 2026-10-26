@@ -1,0 +1,2347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Management Consultancy (PMC) | Geo Designs &amp; Research — Multidisciplinary Engineering Consultancy</title>
+  <meta name="description" content="Geo Designs &amp; Research Project Management Consultancy (PMC): Third-party inspection (TPI), quality assurance, construction supervision, bridge inspection, NSV and FWD structural evaluation.">
+
+  <!-- Favicon derived from official company logo -->
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/favicon.png">
+
+  <!-- Typography: Hanken Grotesk (Primary) & Geist Mono (Labels exclusively) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700&family=Hanken+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/components/Navigation14.css">
+  <link rel="stylesheet" href="/css/pmc.css">
+</head>
+<body>
+  <!-- Skip link for keyboard accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top Corporate Utility Bar -->
+  <div class="top-bar" aria-label="Corporate Details">
+    <div class="container top-bar__inner">
+      <div class="top-bar__tagline">
+        <span class="status-indicator"></span> Multidisciplinary Engineering Consultancy &amp; Research
+      </div>
+      <div class="top-bar__meta">
+        <span class="top-bar__badge">Government &amp; Institutional Partner</span>
+        <span class="top-bar__divider" aria-hidden="true">|</span>
+        <span class="top-bar__contact">An ISO 9001:2015 Certified Organization</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Primary Header & Navigation Bar (React Bits Pro Navigation 14) -->
+  <header class="site-header nav14-header" id="site-header">
+    <div class="container site-header__inner nav14-container">
+      <!-- Official Company Logo on Left -->
+      <a href="/index.html" class="brand-link nav14-brand cursor-target" id="brand-link" aria-label="Geo Designs &amp; Research - Return to Homepage">
+        <img 
+          src="/assets/images/gdr-logo.png" 
+          alt="Geo Designs &amp; Research Official Logo" 
+          class="brand-logo nav14-logo" 
+          id="brand-logo"
+          width="78"
+          height="70"
+          loading="eager"
+        >
+        <div class="brand-text nav14-brand-text">
+          <span class="brand-name nav14-brand-name">GEO DESIGNS &amp; RESEARCH</span>
+          <span class="brand-sub nav14-brand-sub">ENGINEERING CONSULTANCY &amp; RESEARCH</span>
+        </div>
+      </a>
+
+      <!-- Primary Navigation Links (Ordered strictly per specifications) -->
+      <nav class="primary-nav nav14-nav" id="primary-nav" aria-label="Primary Navigation">
+        <ul class="nav-list nav14-list" role="menubar">
+          <!-- 1. About Us -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="/about-1.html" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-about">
+              About Us
+            </a>
+          </li>
+
+          <!-- 2. Expertise (React Bits Pro Navigation 14 Mega Panel Dropdown + Featured Card) -->
+          <li class="nav-item nav14-item nav-item--has-dropdown" role="none" id="expertise-nav-item">
+            <button 
+              type="button" 
+              class="nav-link nav14-link nav14-trigger cursor-target" 
+              id="expertise-menu-button" 
+              aria-expanded="false" 
+              aria-haspopup="true" 
+              aria-controls="nav14-mega-panel" 
+              role="menuitem" 
+              data-nav14-trigger
+            >
+              <span>Expertise</span>
+              <svg class="nav-arrow-icon nav14-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+
+            <!-- Navigation 14 Mega Panel Dropdown -->
+            <div 
+              class="nav14-mega-panel" 
+              id="nav14-mega-panel" 
+              role="region" 
+              aria-label="Expertise Capabilities Directory" 
+              hidden 
+              data-nav14-panel
+            >
+              <div class="nav14-panel-inner">
+                <div class="nav14-panel-grid">
+                  <!-- Column 1: Infrastructure & Civil Engineering -->
+                  <div class="nav14-col">
+                    <span class="nav14-col-title">DIVISION 01 — INFRASTRUCTURE</span>
+                    <ul class="nav14-col-list" role="menu">
+                      <li role="none">
+                        <a href="/bridge.html" class="nav14-menu-card cursor-target" data-category="bridge">
+                          <div class="nav14-menu-card__icon">01</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">Bridge Engineering</span>
+                            <span class="nav14-menu-card__desc">River bridges, flyovers, ROBs &amp; viaducts</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="none">
+                        <a href="/hydro.html" class="nav14-menu-card cursor-target" data-category="hydro">
+                          <div class="nav14-menu-card__icon">02</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">Hydro &amp; Highway DPR</span>
+                            <span class="nav14-menu-card__desc">Detailed Project Reports, highway alignment &amp; hydrology</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="none">
+                        <a href="/index.html#card-survey" class="nav14-menu-card cursor-target" data-category="survey">
+                          <div class="nav14-menu-card__icon">03</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">Survey &amp; Geomatics</span>
+                            <span class="nav14-menu-card__desc">Drone LiDAR, topography &amp; GIS mapping</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="none">
+                        <a href="/pmc.html" class="nav14-menu-card cursor-target" data-category="pmc">
+                          <div class="nav14-menu-card__icon">04</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">Project Management Consultancy</span>
+                            <span class="nav14-menu-card__desc">Quality supervision &amp; contract administration</span>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Column 2: Building & Structural Engineering -->
+                  <div class="nav14-col">
+                    <span class="nav14-col-title">DIVISION 02 — BUILDINGS &amp; STRUCTURES</span>
+                    <ul class="nav14-col-list" role="menu">
+                      <li role="none">
+                        <a href="/architecture.html" class="nav14-menu-card cursor-target" data-category="architecture">
+                          <div class="nav14-menu-card__icon">05</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">Architecture &amp; Master Planning</span>
+                            <span class="nav14-menu-card__desc">Urban master planning, institutional &amp; civic design</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="none">
+                        <a href="/bim.html" class="nav14-menu-card cursor-target" data-category="bim">
+                          <div class="nav14-menu-card__icon">06</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">BIM Modeling &amp; Auditing</span>
+                            <span class="nav14-menu-card__desc">LOD 100-500 coordination, clash detection &amp; 4D/5D</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="none">
+                        <a href="/index.html#card-structure" class="nav14-menu-card cursor-target" data-category="structure">
+                          <div class="nav14-menu-card__icon">07</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">Structural Engineering</span>
+                            <span class="nav14-menu-card__desc">High-rise design, seismic compliance &amp; retrofitting</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="none">
+                        <a href="/mepf.html" class="nav14-menu-card cursor-target" data-category="mepf">
+                          <div class="nav14-menu-card__icon">08</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">MEPF Engineering</span>
+                            <span class="nav14-menu-card__desc">HVAC, electrical, plumbing &amp; fire fighting systems</span>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Column 3: Specialized Testing & Management Services -->
+                  <div class="nav14-col">
+                    <span class="nav14-col-title">DIVISION 03 — TESTING &amp; CONTRACTS</span>
+                    <ul class="nav14-col-list" role="menu">
+                      <li role="none">
+                        <a href="/lab.html" class="nav14-menu-card cursor-target" data-category="lab">
+                          <div class="nav14-menu-card__icon">09</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">Laboratory &amp; Material Testing</span>
+                            <span class="nav14-menu-card__desc">NABL accredited geotechnical &amp; NDT material lab</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="none">
+                        <a href="/commerce.html" class="nav14-menu-card cursor-target" data-category="commerce">
+                          <div class="nav14-menu-card__icon">10</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">Commerce &amp; Contract Management</span>
+                            <span class="nav14-menu-card__desc">Estimates, tender preparation, rate analysis &amp; BoQ</span>
+                          </div>
+                        </a>
+                      </li>
+                      <li role="none">
+                        <a href="/index.html#card-green-building" class="nav14-menu-card cursor-target" data-category="sustainability">
+                          <div class="nav14-menu-card__icon">11</div>
+                          <div class="nav14-menu-card__body">
+                            <span class="nav14-menu-card__title">Environmentally Sustainable Solutions</span>
+                            <span class="nav14-menu-card__desc">EIA, IGBC/GRIHA green building compliance</span>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Column 4: Navigation 14 Signature Featured Card -->
+                  <div class="nav14-featured-col">
+                    <div class="nav14-featured-card">
+                      <div class="nav14-featured-card__media">
+                        <img 
+                          src="/assets/images/hero-infrastructure-bridge.jpg" 
+                          alt="Project Management Consultancy (PMC)" 
+                          class="nav14-featured-card__img" 
+                          loading="lazy" 
+                          width="310" 
+                          height="135"
+                        >
+                        <div class="nav14-featured-card__overlay"></div>
+                        <span class="nav14-featured-card__tag">Division 01 — Infrastructure &amp; Civil</span>
+                      </div>
+                      <div class="nav14-featured-card__body">
+                        <h4 class="nav14-featured-card__title">Project Management Consultancy (PMC)</h4>
+                        <p class="nav14-featured-card__desc">
+                          Comprehensive project management, site supervision, quality assurance, safety audits, and contract administration complying with IRC, IS, and MoRTH standards.
+                        </p>
+                        <a href="/pmc.html" class="nav14-featured-card__action cursor-target" aria-label="Explore Project Management Consultancy (PMC) Capabilities">
+                          <span>Explore Capabilities</span>
+                          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                            <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Navigation 14 Panel Footer -->
+                <div class="nav14-panel-footer">
+                  <div class="nav14-footer-compliance">
+                    <span class="nav14-compliance-badge">STANDARDS COMPLIANCE</span>
+                    <span class="nav14-compliance-text">IS, IRC, MoRTH, NBC, and International ASTM/AASHTO Engineering Norms.</span>
+                  </div>
+                  <a href="/index.html#contact-us" class="nav14-inquire-link cursor-target">
+                    <span>Inquire About Engineering Services</span>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                      <path d="M2.5 6h7M6 2.5l3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- 3. Credentials -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="/index.html#credentials" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-credentials" data-phase-pending="Credentials documentation is scheduled for Phase 02.">
+              Credentials
+            </a>
+          </li>
+
+          <!-- 4. Downloads -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="/index.html#downloads" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-downloads" data-phase-pending="Corporate downloads portal is scheduled for Phase 02.">
+              Downloads
+            </a>
+          </li>
+
+          <!-- 5. Career -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="/index.html#career" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-career" data-phase-pending="Career opportunities section is scheduled for Phase 02.">
+              Career
+            </a>
+          </li>
+
+          <!-- 6. Projects -->
+          <li class="nav-item nav14-item" role="none">
+            <a href="/index.html#projects" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-projects" data-phase-pending="Project showcase directory is scheduled for Phase 02.">
+              Projects
+            </a>
+          </li>
+
+          <!-- 7. Talk to Us (Button CTA) -->
+          <li class="nav-item nav14-item nav14-item--cta" role="none">
+            <a href="/index.html#contact-us" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-contact" data-phase-pending="Contact inquiry module is scheduled for Phase 02.">
+              Talk to Us
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button 
+        type="button" 
+        class="mobile-menu-toggle nav14-mobile-toggle cursor-target" 
+        id="mobile-menu-toggle" 
+        aria-label="Toggle navigation menu" 
+        aria-expanded="false" 
+        aria-controls="mobile-nav-drawer"
+      >
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer" hidden aria-label="Mobile Navigation Menu">
+      <div class="mobile-nav-drawer__inner">
+        <ul class="mobile-nav-list">
+          <li class="mobile-nav-item">
+            <a href="/about-1.html" class="mobile-nav-link">1. About Us</a>
+          </li>
+
+          <li class="mobile-nav-item mobile-nav-item--accordion">
+            <button type="button" class="mobile-nav-link mobile-nav-accordion-btn" id="mobile-expertise-toggle" aria-expanded="false">
+              <span>2. Expertise</span>
+              <svg class="mobile-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 5.5L7 9L10.5 5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            
+            <!-- Mobile Expertise Accordion List -->
+            <div class="mobile-expertise-content" id="mobile-expertise-content" hidden>
+              <!-- 1. Architecture & Master Planning -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">1. Architecture &amp; Master Planning</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Interior Design</li>
+                  <li>Urban Planning</li>
+                  <li>Green Building Design</li>
+                  <li>Building Information Modelling</li>
+                  <li>Building Performance Analysis</li>
+                  <li><a href="/architecture.html" class="mobile-view-all">View Architecture Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 2. BIM Modeling & Auditing -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">2. BIM Modeling &amp; Auditing</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Architectural &amp; Structural BIM</li>
+                  <li>MEP BIM &amp; Clash Detection</li>
+                  <li>BIM Based Quantity Takeoff &amp; BBS</li>
+                  <li>GFC Drawings Extraction &amp; Fabrication</li>
+                  <li>4D Construction Scheduling &amp; 5D Costing</li>
+                  <li>6D Facility Management &amp; Model Auditing</li>
+                  <li><a href="/bim.html" class="mobile-view-all">View BIM Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 3. Bridge Engineering -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">3. Bridge Engineering</summary>
+                <ul class="mobile-subservice-list">
+                  <li>River Bridges &amp; Flyovers</li>
+                  <li>Railway Over Bridges (ROB) &amp; Interchanges</li>
+                  <li>Bridge Health &amp; Structural Audits</li>
+                  <li>Rehabilitation &amp; Retrofitting</li>
+                  <li>Seismic Analysis &amp; Design</li>
+                  <li><a href="/bridge.html" class="mobile-view-all">View Bridge Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 4. Commerce & Contract Management -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">4. Commerce &amp; Contract Management</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Approximate &amp; Detailed Estimates</li>
+                  <li>Market &amp; Rate Analysis</li>
+                  <li>Internal &amp; External Services</li>
+                  <li>Draft Tender Papers</li>
+                  <li>Detailed Project Reports &amp; FIDIC Contracts</li>
+                  <li><a href="/commerce.html" class="mobile-view-all">View Contracts Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 5. Hydro & Highway DPR -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">5. Hydro &amp; Highway DPR</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Alignment Surveys &amp; Route Studies</li>
+                  <li>Hydrological &amp; Hydraulic Modeling</li>
+                  <li>Pavement &amp; Traffic Engineering</li>
+                  <li>Comprehensive Detailed Project Reports</li>
+                  <li><a href="/hydro.html" class="mobile-view-all">View DPR Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 6. Laboratory & Material Testing -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">6. Laboratory &amp; Material Testing</summary>
+                <ul class="mobile-subservice-list">
+                  <li>High Tech Material &amp; Concrete Lab</li>
+                  <li>Soil Testing &amp; Geotechnical Studies</li>
+                  <li>Metallurgical &amp; Chemical Lab</li>
+                  <li>Highway Material Testing</li>
+                  <li>Non-Destructive Testing (NDT) Lab</li>
+                  <li>Environmental Monitoring &amp; Analysis</li>
+                  <li><a href="/lab.html" class="mobile-view-all">View Laboratory &amp; Material Testing Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 7. MEPF Engineering -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">7. MEPF Engineering</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Illumination, Ventilation &amp; HVAC</li>
+                  <li>Distribution of Electric Supply</li>
+                  <li>ELV Systems (LAN, EPABX, TV)</li>
+                  <li>Fire Detection, Alarm &amp; Fighting Systems</li>
+                  <li>Water Supply, Plumbing &amp; Drainage</li>
+                  <li>Rain Water Harvesting</li>
+                  <li><a href="/mepf.html" class="mobile-view-all">View MEPF Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 8. Project Management Consultancy (PMC) -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">8. Project Management Consultancy (PMC)</summary>
+                <ul class="mobile-subservice-list">
+                  <li>National, State Highways &amp; Toll Roads</li>
+                  <li>Site Supervision &amp; Quality Control</li>
+                  <li>Pavement &amp; Structural Rehabilitation</li>
+                  <li>Traffic Engineering &amp; Transportation Planning</li>
+                  <li>Contract Administration &amp; Audits</li>
+                  <li><a href="/pmc.html" class="mobile-view-all">View PMC Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 9. Structural Engineering -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">9. Structural Engineering</summary>
+                <ul class="mobile-subservice-list">
+                  <li>High-Rise Commercial &amp; Residential Buildings</li>
+                  <li>Institutional &amp; Educational Buildings</li>
+                  <li>Hospital &amp; Auditorium Complexes</li>
+                  <li>Heavy Industrial Structures &amp; Hangars</li>
+                  <li><a href="/index.html#card-structure" class="mobile-view-all">View Structural Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 10. Survey & Geomatics -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">10. Survey &amp; Geomatics</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Topography &amp; Contour Surveys</li>
+                  <li>Road, Canal &amp; Railway Alignment Surveys</li>
+                  <li>LiDAR &amp; Drone Aerial Surveys</li>
+                  <li>Bathymetric &amp; Pipeline Surveys</li>
+                  <li>Cadastral &amp; GIS Mapping</li>
+                  <li><a href="/index.html#card-survey" class="mobile-view-all">View Survey Details &rarr;</a></li>
+                </ul>
+              </details>
+
+              <!-- 11. Environmentally Sustainable Solutions -->
+              <details class="mobile-category">
+                <summary class="mobile-category__summary">11. Environmentally Sustainable Solutions</summary>
+                <ul class="mobile-subservice-list">
+                  <li>Environmental Impact Assessment (EIA)</li>
+                  <li>Green Building Certification Advisory</li>
+                  <li>Energy Performance &amp; Solar Audits</li>
+                  <li>Environmental Management &amp; Compliance</li>
+                  <li><a href="/index.html#card-green-building" class="mobile-view-all">View Sustainable Details &rarr;</a></li>
+                </ul>
+              </details>
+            </div>
+          </li>
+
+          <li class="mobile-nav-item">
+            <a href="/index.html#credentials" class="mobile-nav-link" data-phase-pending="Credentials documentation is scheduled for Phase 02.">3. Credentials</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="/index.html#downloads" class="mobile-nav-link" data-phase-pending="Corporate downloads portal is scheduled for Phase 02.">4. Downloads</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="/index.html#career" class="mobile-nav-link" data-phase-pending="Career opportunities section is scheduled for Phase 02.">5. Career</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="/index.html#projects" class="mobile-nav-link" data-phase-pending="Project showcase directory is scheduled for Phase 02.">6. Projects</a>
+          </li>
+          <li class="mobile-nav-item">
+            <a href="/index.html#contact-us" class="mobile-nav-link" data-phase-pending="Contact inquiry module is scheduled for Phase 02.">7. Talk to Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       MAIN CONTENT CONTAINER
+       ====================================================================== -->
+  <main id="main-content">
+
+    <!-- ====================================================================
+         SECTION 1 — HERO BANNER
+         Content: Page title "PROJECT MANAGEMENT CONSULTANCY"
+         Breadcrumb: "Home > Project Management Consultancy"
+         ==================================================================== -->
+    <section class="pmc-hero" id="pmc-hero" aria-labelledby="pmc-hero-title">
+      <div class="pmc-hero__media" aria-hidden="true">
+        <img 
+          src="/assets/images/hero-infrastructure-bridge.jpg" 
+          alt="" 
+          class="pmc-hero__media-img" 
+          width="1600" 
+          height="900" 
+          loading="eager"
+        >
+      </div>
+      <div class="pmc-hero__overlay" aria-hidden="true"></div>
+
+      <div class="pmc-hero__inner">
+        <h1 class="pmc-hero__title" id="pmc-hero-title">PROJECT MANAGEMENT CONSULTANCY</h1>
+        <nav class="pmc-breadcrumb" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/index.html" class="cursor-target" id="breadcrumb-home">Home</a></li>
+            <li aria-current="page">Project Management Consultancy</li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 2 — PMC INTRODUCTION SECTION
+         Dark charcoal background with subtle dotted texture.
+         Section heading: PROJECT MANAGEMENT CONSULTANCY
+         Two-column layout: Left image, Right supporting content.
+         ==================================================================== -->
+    <section class="pmc-intro-section" id="pmc-intro" aria-labelledby="pmc-intro-heading">
+      <div class="container">
+
+        <div class="pmc-intro__header">
+          <h2 class="pmc-intro__heading" id="pmc-intro-heading">PROJECT MANAGEMENT CONSULTANCY</h2>
+          <div class="pmc-divider" aria-hidden="true">
+            <span class="pmc-divider-line"></span>
+            <span class="pmc-divider-dot"></span>
+            <span class="pmc-divider-line pmc-divider-line--green"></span>
+          </div>
+        </div>
+
+        <div class="pmc-intro__grid">
+          <!-- Left Column: Construction/Project-Management Image Asset -->
+          <div class="pmc-intro__visual-panel">
+            <div class="pmc-intro__visual-frame">
+              <img 
+                src="/assets/images/hero-infrastructure-bridge.jpg" 
+                alt="Major highway bridge infrastructure project management and site supervision" 
+                class="pmc-intro__visual-img" 
+                width="600" 
+                height="410" 
+                loading="lazy"
+              >
+              <div class="pmc-intro__visual-badge">
+                <span class="pmc-intro__visual-badge-dot" aria-hidden="true"></span>
+                <span class="pmc-intro__visual-badge-text">THIRD PARTY INSPECTION (TPI)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Supporting Content -->
+          <div class="pmc-intro__content-col">
+            <div class="pmc-intro__content-card">
+              <span class="pmc-intro__card-tag">QUALITY ASSURANCE &amp; AUDIT</span>
+              <h3 class="pmc-intro__card-heading">Comprehensive Engineering Supervision &amp; Third Party Inspection</h3>
+              <p class="pmc-intro__card-text">
+                Our Third Party Inspection (TPI) department performs quality assurance review on design drawings to ensure proper design, safety, and compliance to applicable standards. We ensure proper quality management and adherence to the technical information within the project's specifications.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 3 — SCOPE OF SERVICE
+         White section with centered heading and 9 services in a 3-column grid.
+         ==================================================================== -->
+    <section class="pmc-scope-section" id="scope-of-service" aria-labelledby="scope-heading">
+      <div class="container">
+
+        <div class="pmc-scope__header">
+          <h2 class="pmc-scope__heading" id="scope-heading">SCOPE OF SERVICE</h2>
+          <div class="pmc-divider" aria-hidden="true">
+            <span class="pmc-divider-line"></span>
+            <span class="pmc-divider-dot"></span>
+            <span class="pmc-divider-line pmc-divider-line--green"></span>
+          </div>
+        </div>
+
+        <div class="pmc-scope__grid">
+          <!-- 1. National & State Highways & Toll Roads -->
+          <article class="pmc-scope-card">
+            <div class="pmc-scope-card__media">
+              <img 
+                src="/assets/images/hero-infrastructure-bridge.jpg" 
+                alt="National &amp; State Highways &amp; Toll Roads" 
+                class="pmc-scope-card__img" 
+                width="400" 
+                height="250" 
+                loading="lazy"
+              >
+            </div>
+            <div class="pmc-scope-card__caption">
+              <h3 class="pmc-scope-card__title">National &amp; State Highways &amp; Toll Roads</h3>
+              <span class="pmc-scope-card__num">01</span>
+            </div>
+          </article>
+
+          <!-- 2. Bridges, Flyovers, Railway Over Bridges & Interchanges -->
+          <article class="pmc-scope-card">
+            <div class="pmc-scope-card__media">
+              <img 
+                src="/assets/images/bridge-hero.jpg" 
+                alt="Bridges, Flyovers, Railway Over Bridges &amp; Interchanges" 
+                class="pmc-scope-card__img" 
+                width="400" 
+                height="250" 
+                loading="lazy"
+              >
+            </div>
+            <div class="pmc-scope-card__caption">
+              <h3 class="pmc-scope-card__title">Bridges, Flyovers, Railway Over Bridges &amp; Interchanges</h3>
+              <span class="pmc-scope-card__num">02</span>
+            </div>
+          </article>
+
+          <!-- 3. Pavement & Structural Rehabilitation -->
+          <article class="pmc-scope-card">
+            <div class="pmc-scope-card__media">
+              <img 
+                src="/assets/images/expertise-structure.svg" 
+                alt="Pavement &amp; Structural Rehabilitation" 
+                class="pmc-scope-card__img" 
+                width="400" 
+                height="250" 
+                loading="lazy"
+              >
+            </div>
+            <div class="pmc-scope-card__caption">
+              <h3 class="pmc-scope-card__title">Pavement &amp; Structural Rehabilitation</h3>
+              <span class="pmc-scope-card__num">03</span>
+            </div>
+          </article>
+
+          <!-- 4. Traffic Engineering -->
+          <article class="pmc-scope-card">
+            <div class="pmc-scope-card__media">
+              <img 
+                src="/assets/images/expertise-hydro-highway.svg" 
+                alt="Traffic Engineering" 
+                class="pmc-scope-card__img" 
+                width="400" 
+                height="250" 
+                loading="lazy"
+              >
+            </div>
+            <div class="pmc-scope-card__caption">
+              <h3 class="pmc-scope-card__title">Traffic Engineering</h3>
+              <span class="pmc-scope-card__num">04</span>
+            </div>
+          </article>
+
+          <!-- 5. Environmental & Social Studies -->
+          <article class="pmc-scope-card">
+            <div class="pmc-scope-card__media">
+              <img 
+                src="/assets/images/expertise-green-building.svg" 
+                alt="Environmental &amp; Social Studies" 
+                class="pmc-scope-card__img" 
+                width="400" 
+                height="250" 
+                loading="lazy"
+              >
+            </div>
+            <div class="pmc-scope-card__caption">
+              <h3 class="pmc-scope-card__title">Environmental &amp; Social Studies</h3>
+              <span class="pmc-scope-card__num">05</span>
+            </div>
+          </article>
+
+          <!-- 6. Urban, Rural & Local Roads -->
+          <article class="pmc-scope-card">
+            <div class="pmc-scope-card__media">
+              <img 
+                src="/assets/images/hero-architecture-complex.jpg" 
+                alt="Urban, Rural &amp; Local Roads" 
+                class="pmc-scope-card__img" 
+                width="400" 
+                height="250" 
+                loading="lazy"
+              >
+            </div>
+            <div class="pmc-scope-card__caption">
+              <h3 class="pmc-scope-card__title">Urban, Rural &amp; Local Roads</h3>
+              <span class="pmc-scope-card__num">06</span>
+            </div>
+          </article>
+
+          <!-- 7. Railway Engineering -->
+          <article class="pmc-scope-card">
+            <div class="pmc-scope-card__media">
+              <img 
+                src="/assets/images/expertise-commerce-contract.svg" 
+                alt="Railway Engineering" 
+                class="pmc-scope-card__img" 
+                width="400" 
+                height="250" 
+                loading="lazy"
+              >
+            </div>
+            <div class="pmc-scope-card__caption">
+              <h3 class="pmc-scope-card__title">Railway Engineering</h3>
+              <span class="pmc-scope-card__num">07</span>
+            </div>
+          </article>
+
+          <!-- 8. Design of Airport Runway -->
+          <article class="pmc-scope-card">
+            <div class="pmc-scope-card__media">
+              <img 
+                src="/assets/images/architecture/arch-hangar-1.svg" 
+                alt="Design of Airport Runway" 
+                class="pmc-scope-card__img" 
+                width="400" 
+                height="250" 
+                loading="lazy"
+              >
+            </div>
+            <div class="pmc-scope-card__caption">
+              <h3 class="pmc-scope-card__title">Design of Airport Runway</h3>
+              <span class="pmc-scope-card__num">08</span>
+            </div>
+          </article>
+
+          <!-- 9. Transportation Planning -->
+          <article class="pmc-scope-card">
+            <div class="pmc-scope-card__media">
+              <img 
+                src="/assets/images/expertise-pmc.svg" 
+                alt="Transportation Planning" 
+                class="pmc-scope-card__img" 
+                width="400" 
+                height="250" 
+                loading="lazy"
+              >
+            </div>
+            <div class="pmc-scope-card__caption">
+              <h3 class="pmc-scope-card__title">Transportation Planning</h3>
+              <span class="pmc-scope-card__num">09</span>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 4 — MOBILE BRIDGE INSPECTION UNIT
+         Two relevant images side by side on desktop, stacking on mobile.
+         ==================================================================== -->
+    <section class="pmc-equipment-section" id="mbiu-section" aria-labelledby="mbiu-heading">
+      <div class="container">
+
+        <div class="pmc-equipment__header">
+          <h2 class="pmc-equipment__heading" id="mbiu-heading">MOBILE BRIDGE INSPECTION UNIT</h2>
+          <div class="pmc-divider" aria-hidden="true">
+            <span class="pmc-divider-line"></span>
+            <span class="pmc-divider-dot"></span>
+            <span class="pmc-divider-line pmc-divider-line--green"></span>
+          </div>
+        </div>
+
+        <div class="pmc-mbiu-grid">
+          <!-- Image 1: Mobile bridge-inspection vehicle inspecting bridge -->
+          <article class="pmc-equipment-card">
+            <div class="pmc-equipment-card__media">
+              <img 
+                src="/assets/images/pmc-mbiu-vehicle.svg" 
+                alt="Mobile Bridge Inspection Unit vehicle deployed over bridge deck barrier" 
+                class="pmc-equipment-card__img" 
+                width="600" 
+                height="375" 
+                loading="lazy"
+              >
+            </div>
+            <div class="pmc-equipment-card__caption">
+              Mobile Bridge Inspection Unit (MBIU) Specialized Truck &amp; Articulated Crane Arm
+            </div>
+          </article>
+
+          <!-- Image 2: Bridge inspection operation showing equipment deployed -->
+          <article class="pmc-equipment-card">
+            <div class="pmc-equipment-card__media">
+              <img 
+                src="/assets/images/pmc-mbiu-operation.svg" 
+                alt="Bridge inspection team in basket conducting non-destructive bearing testing under superstructure" 
+                class="pmc-equipment-card__img" 
+                width="600" 
+                height="375" 
+                loading="lazy"
+              >
+            </div>
+            <div class="pmc-equipment-card__caption">
+              Under-Deck Structural Health Diagnostics &amp; Bearing Inspection Operation
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 5 — NETWORK SURVEY VEHICLE
+         Centered technical illustration/image with visible survey equipment and callouts.
+         ==================================================================== -->
+    <section class="pmc-equipment-section pmc-equipment-section--alt" id="nsv-section" aria-labelledby="nsv-heading">
+      <div class="container">
+
+        <div class="pmc-equipment__header">
+          <h2 class="pmc-equipment__heading" id="nsv-heading">NETWORK SURVEY VEHICLE</h2>
+          <div class="pmc-divider" aria-hidden="true">
+            <span class="pmc-divider-line"></span>
+            <span class="pmc-divider-dot"></span>
+            <span class="pmc-divider-line pmc-divider-line--green"></span>
+          </div>
+        </div>
+
+        <div class="pmc-single-vehicle-wrap">
+          <div class="pmc-single-vehicle-media">
+            <img 
+              src="/assets/images/pmc-nsv-vehicle.svg" 
+              alt="Network Survey Vehicle (NSV) with DGPS, Laser Profilometer, ROW Cameras, and Transverse Scanner" 
+              class="pmc-single-vehicle-img" 
+              width="960" 
+              height="480" 
+              loading="lazy"
+            >
+          </div>
+          <div class="pmc-single-vehicle-caption">
+            Comprehensive Pavement Asset Management System (RAMS) &bull; IRC:SP:16 Compliant High-Speed Mobile Data Acquisition
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 6 — FALLING WEIGHT DEFLECTOMETER
+         Centered technical image showing FWD testing vehicle and equipment.
+         ==================================================================== -->
+    <section class="pmc-equipment-section" id="fwd-section" aria-labelledby="fwd-heading">
+      <div class="container">
+
+        <div class="pmc-equipment__header">
+          <h2 class="pmc-equipment__heading" id="fwd-heading">FALLING WEIGHT DEFLECTOMETER</h2>
+          <div class="pmc-divider" aria-hidden="true">
+            <span class="pmc-divider-line"></span>
+            <span class="pmc-divider-dot"></span>
+            <span class="pmc-divider-line pmc-divider-line--green"></span>
+          </div>
+        </div>
+
+        <div class="pmc-single-vehicle-wrap">
+          <div class="pmc-single-vehicle-media">
+            <img 
+              src="/assets/images/pmc-fwd-deflectometer.svg" 
+              alt="Falling Weight Deflectometer testing trailer with drop weight mechanism, load cell, and geophones" 
+              class="pmc-single-vehicle-img" 
+              width="960" 
+              height="480" 
+              loading="lazy"
+            >
+          </div>
+          <div class="pmc-single-vehicle-caption">
+            Non-Destructive Structural Pavement Evaluation &bull; Modulus Back-Calculation &bull; IRC:115-2014 &amp; ASTM D4694
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECTION 7 — OUR PROJECTS SECTION
+         Two-column layout: Left category selectors, Right category table.
+         All six project categories included in exact specified order!
+         ==================================================================== -->
+    <section class="pmc-projects-section" id="pmc-projects" aria-labelledby="projects-heading">
+      <div class="container">
+
+        <div class="pmc-projects__header">
+          <h2 class="pmc-projects__heading" id="projects-heading">OUR PROJECTS</h2>
+          <div class="pmc-divider" aria-hidden="true">
+            <span class="pmc-divider-line"></span>
+            <span class="pmc-divider-dot"></span>
+            <span class="pmc-divider-line pmc-divider-line--green"></span>
+          </div>
+        </div>
+
+        <div class="pmc-projects-layout">
+          <!-- Left Column: Category Selector Buttons -->
+          <nav class="pmc-category-nav" role="tablist" aria-label="Project Categories">
+            <button 
+              type="button" 
+              class="pmc-category-btn is-active" 
+              id="tab-cat-1" 
+              role="tab" 
+              aria-selected="true" 
+              aria-controls="panel-cat-1" 
+              data-cat-target="panel-cat-1"
+            >
+              <span>DETAIL PROJECT REPORT – HIGHWAYS</span>
+              <svg class="pmc-category-btn__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 12l4-4-4-4"/></svg>
+            </button>
+
+            <button 
+              type="button" 
+              class="pmc-category-btn" 
+              id="tab-cat-2" 
+              role="tab" 
+              aria-selected="false" 
+              aria-controls="panel-cat-2" 
+              data-cat-target="panel-cat-2"
+            >
+              <span>DETAIL PROJECT REPORT – RAILWAYS</span>
+              <svg class="pmc-category-btn__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 12l4-4-4-4"/></svg>
+            </button>
+
+            <button 
+              type="button" 
+              class="pmc-category-btn" 
+              id="tab-cat-3" 
+              role="tab" 
+              aria-selected="false" 
+              aria-controls="panel-cat-3" 
+              data-cat-target="panel-cat-3"
+            >
+              <span>DPR – MAJOR IRRIGATION &amp; PIPING</span>
+              <svg class="pmc-category-btn__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 12l4-4-4-4"/></svg>
+            </button>
+
+            <button 
+              type="button" 
+              class="pmc-category-btn" 
+              id="tab-cat-4" 
+              role="tab" 
+              aria-selected="false" 
+              aria-controls="panel-cat-4" 
+              data-cat-target="panel-cat-4"
+            >
+              <span>DETAILED ENGINEERING DESIGN</span>
+              <svg class="pmc-category-btn__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 12l4-4-4-4"/></svg>
+            </button>
+
+            <button 
+              type="button" 
+              class="pmc-category-btn" 
+              id="tab-cat-5" 
+              role="tab" 
+              aria-selected="false" 
+              aria-controls="panel-cat-5" 
+              data-cat-target="panel-cat-5"
+            >
+              <span>SUPERVISION – BRIDGES</span>
+              <svg class="pmc-category-btn__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 12l4-4-4-4"/></svg>
+            </button>
+
+            <button 
+              type="button" 
+              class="pmc-category-btn" 
+              id="tab-cat-6" 
+              role="tab" 
+              aria-selected="false" 
+              aria-controls="panel-cat-6" 
+              data-cat-target="panel-cat-6"
+            >
+              <span>SAFETY CONSULTANT</span>
+              <svg class="pmc-category-btn__arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 12l4-4-4-4"/></svg>
+            </button>
+          </nav>
+
+          <!-- Right Column: Active Category Table Container -->
+          <div class="pmc-category-content-wrap">
+            
+            <!-- Category 1: Projects of Detail Project Report – Highways -->
+            <div class="pmc-category-view is-active" id="panel-cat-1" role="tabpanel" aria-labelledby="tab-cat-1">
+              <div class="pmc-category-view__title-wrap">
+                <h3 class="pmc-category-view__title">Projects of Detail Project Report – Highways</h3>
+                <span class="pmc-category-view__count">12 Major DPR Contracts</span>
+              </div>
+              <div class="pmc-table-container" tabindex="0" role="region" aria-label="Highway DPR Projects Table">
+                <table class="pmc-table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 44%;">Project Name</th>
+                      <th scope="col" style="width: 28%;">Client</th>
+                      <th scope="col" style="width: 28%;">Scope of Services</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Consultancy Services for carrying feasibility study for Development of NH No. 8C (New NH No. 147) passing through Chiloda-Gandhinagar-Sarkhej road Km. 0/0 to 44/420 in the state of Gujarat</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">National Highway Division, Ahmedabad.</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 44 Km</li>
+                          <li>Fly Overs = 8 Nos.</li>
+                          <li>Elevated Corridor = 1 No.</li>
+                          <li>Culverts = 60 Nos.</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Feasibility Study and DPR for 4-Laning of Rajkot - Morbi Road State Highway No. 24</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Gujarat State Road Development Corporation (GSRDC)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 65.5 Km</li>
+                          <li>Major Bridges = 4 Nos.</li>
+                          <li>Minor Bridges = 18 Nos.</li>
+                          <li>Culverts = 85 Nos.</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Feasibility Study and DPR for Rehabilitation and Upgradation of NH-31C to 2-lane with paved shoulder from Galgalia to Phansidewa section in West Bengal</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Ministry of Road Transport &amp; Highways (MoRTH)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 54.2 Km</li>
+                          <li>Major Bridges = 6 Nos.</li>
+                          <li>Minor Bridges = 22 Nos.</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Project Report for Upgradation of Old NH-6 to 4/6-lane from Dhule to Maharashtra/Gujarat Border section</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">National Highways Authority of India (NHAI)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 112 Km</li>
+                          <li>Flyovers = 4 Nos.</li>
+                          <li>Major Bridges = 8 Nos.</li>
+                          <li>Underpasses = 12 Nos.</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Consultancy Services for Preparation of DPR for 2-Laning with Paved Shoulders of National Highway 29 in the state of Nagaland</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">National Highways &amp; Infrastructure Development Corporation Ltd (NHIDCL)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 68 Km</li>
+                          <li>Hill Road Engineering</li>
+                          <li>Slope Stabilization &amp; Drainage Structures</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Project Report for Upgradation of Merangkong – Tamlu – Mon Road in the state of Nagaland under SARDP-NE</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">PWD (R&amp;B), Government of Nagaland</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 82 Km</li>
+                          <li>Geometric Improvement &amp; Retaining Structures</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Feasibility Study and DPR for Improvement of Raj – Athagarh – Narshinghpur Road in Odisha</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Works Department, Government of Odisha</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 76 Km</li>
+                          <li>Minor Bridges = 14 Nos.</li>
+                          <li>Cross Drainage Works = 92 Nos.</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Project Report for 2-Lane with Paved Shoulder of Jeypore – Malkangiri Road NH 326</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">National Highway Circle, Bhubaneswar</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 104 Km</li>
+                          <li>Major Bridges = 5 Nos.</li>
+                          <li>Minor Bridges = 28 Nos.</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Consultancy for Detailed Project Report for Internal Arterial Roads at Shapar Veraval Industrial Estate</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Gujarat Industrial Development Corporation (GIDC)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 32 Km</li>
+                          <li>Heavy Duty Pavement Design &amp; Industrial Drainage</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Feasibility Study and DPR for Ahmedabad – Kuha – Athlal – Alasinor – Dev – Namnar – Lunawada – Santrampur – Alod Road</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Roads &amp; Buildings Department, Government of Gujarat</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 148 Km</li>
+                          <li>Major Bridges = 7 Nos.</li>
+                          <li>Minor Bridges = 34 Nos.</li>
+                          <li>Culverts = 160 Nos.</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Preparation of DPR for Upgradation to 2-Lane with Paved Shoulders of Manneguda – Bijapur Road</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">MoRTH, Regional Office Hyderabad</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 92 Km</li>
+                          <li>Pavement Design &amp; Junction Improvements</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Project Report for Upgradation and Improvement of NH 130A in the state of Chhattisgarh</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">National Highway Division, PWD Chhattisgarh</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 86 Km</li>
+                          <li>Bypass Alignments = 2 Nos.</li>
+                          <li>Culverts = 110 Nos.</li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Category 2: Projects of Detail Project Report – Railways -->
+            <div class="pmc-category-view" id="panel-cat-2" role="tabpanel" aria-labelledby="tab-cat-2">
+              <div class="pmc-category-view__title-wrap">
+                <h3 class="pmc-category-view__title">Projects of Detail Project Report – Railways</h3>
+                <span class="pmc-category-view__count">4 Railway Alignments</span>
+              </div>
+              <div class="pmc-table-container" tabindex="0" role="region" aria-label="Railway DPR Projects Table">
+                <table class="pmc-table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 46%;">Project Name</th>
+                      <th scope="col" style="width: 30%;">Client</th>
+                      <th scope="col" style="width: 24%;">Scope of Services</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Carrying out Final Location Survey, Geo technical studies, Preparation of Design &amp; Drawing &amp; other Preliminary activities in connection with Construction of New BG line between Udhna to Jalgaon Section (306.93 Km) of Mumbai Division. Gujarat &amp; Maharashtra.</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Dy Chief Engineer Western Railway Mumbai</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Final Location Survey (FLS)</li>
+                          <li>Geotechnical Investigations</li>
+                          <li>Track &amp; Bridge Design (306.93 Km)</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Consultancy Services for Construction of Major Bridge No. 161 (62 x 18.30 M) &amp; Bridge No. 111 (15 x 18.30 M) - PSC Girders on pile foundation including substructure, protection work and other related works etc. between stations INDIRANAGAR and SURBARAI in connection with Doubling of VIRAMGAM-SAMAKHIYALI BG section of Western Railway. Gujarat.</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Dy Chief Engineer (C) Western Railway Ahmedabad.</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Major Bridge No. 161 (62 x 18.30 M)</li>
+                          <li>Major Bridge No. 111 (15 x 18.30 M)</li>
+                          <li>PSC Girders on Pile Foundation</li>
+                          <li>Substructure &amp; River Protection</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Providing Consultancy services for preparing General Arrangement Drawings, Detailed Design and Drawings for Viaduct, Minor Bridges, Box Culverts in Railway Alignment and Road Over Bridges on road crossings, and other allied consultancy works as per schedule in connection with the Construction of a new dual gauge Agartala to Akhaura Rail Link Project, India portion only.</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Director (Works), IRCON International Ltd.</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>General Arrangement Drawings (GADs)</li>
+                          <li>Viaduct &amp; Minor Bridges Design</li>
+                          <li>Box Culverts &amp; Railway ROBs</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Providing Consultancy services for preparing GADs for Bridges, Detailed design &amp; drawings and other allied work as per schedule in connection with proposed doubling of existing railway line between Katni-Singrauli 261 km long West Central Railway.</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">General Manager, IRCON International Ltd.</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>GADs for Railway Bridges (261 Km)</li>
+                          <li>Detailed Structural Design &amp; Drawings</li>
+                          <li>Doubling Alignment Verification</li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Category 3: Projects of DPR – Major Irrigation & Piping -->
+            <div class="pmc-category-view" id="panel-cat-3" role="tabpanel" aria-labelledby="tab-cat-3">
+              <div class="pmc-category-view__title-wrap">
+                <h3 class="pmc-category-view__title">Projects of DPR – Major Irrigation &amp; Piping</h3>
+                <span class="pmc-category-view__count">4 Regional Irrigation Systems</span>
+              </div>
+              <div class="pmc-table-container" tabindex="0" role="region" aria-label="Irrigation DPR Projects Table">
+                <table class="pmc-table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 48%;">Project Name</th>
+                      <th scope="col" style="width: 28%;">Client</th>
+                      <th scope="col" style="width: 24%;">Scope of Services</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Consultancy Service to examine Techno-economical feasibility and carry out detailed Field, Geological, Command area survey along with preparing detailed estimate, DPR, DTP for providing irrigation facility to the non-irrigated area of Songadh Taluka of Tapi district from Ukai Reservoir.</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Executive Engineer, Ukai Division On-1, Ukai</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Techno-economical Feasibility</li>
+                          <li>Field &amp; Geological Survey</li>
+                          <li>Command Area Irrigation Planning</li>
+                          <li>Detailed Estimate, DPR &amp; Tender Papers (DTP)</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Consultancy Service to examine Techno-economical feasibility and carry out detailed Field, Geological, Command area survey along with preparing detailed estimate, DOR, DTP for providing irrigation facility to the non-irrigated area of Nizar Taluka of Tapi district from Ukai Reservoir.</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Executive Engineer, Ukai Division On-1, Ukai</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Techno-economical Feasibility</li>
+                          <li>Field &amp; Geological Survey</li>
+                          <li>Pipeline &amp; Command Area Survey</li>
+                          <li>Detailed Estimate, DOR &amp; DTP</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Consultancy Service to examine Techno-economical feasibility and carry out detailed Field, Geological, Command area survey along with preparing detailed estimate, DOR, DTP for providing irrigation facility to the non-irrigated area of Uchchhal of Tapi district from Ukai Reservoir.</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Executive Engineer, Ukai Division On-1, Ukai</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Techno-economical Feasibility</li>
+                          <li>Field &amp; Geological Survey</li>
+                          <li>Lift Irrigation / Gravity Piping Network</li>
+                          <li>Detailed Estimate, DOR &amp; DTP</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Providing Consultancy Service to examine Techno-economical feasibility and carry out detailed Field and Geological Survey planning, Designing and Preparation and Submission of Detailed estimate with preparing DPR, DTP/Tender for SAUNI Yojana link -2 for filling Gauri Shankar Talav (Bor Talav) &amp; Khodiyar Talav of Bhavnagar District.</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Executive Engineer, Bhavnagar Irrigation project circle</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Field &amp; Geological Survey</li>
+                          <li>SAUNI Yojana Link-2 Pipeline Designing</li>
+                          <li>Detailed Project Report &amp; Estimate</li>
+                          <li>Tender Documentation (DTP)</li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Category 4: Projects of Detailed Engineering Design -->
+            <div class="pmc-category-view" id="panel-cat-4" role="tabpanel" aria-labelledby="tab-cat-4">
+              <div class="pmc-category-view__title-wrap">
+                <h3 class="pmc-category-view__title">Projects of Detailed Engineering Design</h3>
+                <span class="pmc-category-view__count">25 Engineering Design Contracts</span>
+              </div>
+              <div class="pmc-table-container" tabindex="0" role="region" aria-label="Detailed Engineering Design Projects Table">
+                <table class="pmc-table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 48%;">Project Name</th>
+                      <th scope="col" style="width: 28%;">Client</th>
+                      <th scope="col" style="width: 24%;">Scope of Services</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for 4-Laning of Rajkot – Morbi Road SH No. 24</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Gujarat State Road Development Corporation (GSRDC)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>4-Lane Pavement Design</li>
+                          <li>Geometric Design of Alignment</li>
+                          <li>Major &amp; Minor Bridge Detailing</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for NH-31C in West Bengal (Galgalia – Phansidewa)</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Ministry of Road Transport &amp; Highways (MoRTH)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>2-Lane with Paved Shoulder Design</li>
+                          <li>Substructure &amp; Superstructure Detailing</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for Old NH-6 in Maharashtra (Dhule Section)</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">National Highways Authority of India (NHAI)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>4/6-Lane Expressway Standard Design</li>
+                          <li>Interchange &amp; Underpass Structural Design</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for National Highway 29 in Nagaland</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">NHIDCL</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Hilly Terrain Geometric Optimization</li>
+                          <li>Reinforced Soil Walls &amp; Landslide Mitigation</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for Merangkong – Tamlu – Mon Road in Nagaland</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">PWD (R&amp;B), Government of Nagaland</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Alignment Geometry &amp; Slope Stabilization</li>
+                          <li>Cross-Drainage Culvert Detailing</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for Raj – Athagarh – Narshinghpur Road in Odisha</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Works Department, Government of Odisha</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Pavement Crust Design</li>
+                          <li>Bridge Substructure &amp; Foundation Drawings</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for Jeypore – Malkangiri Road NH 326</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">National Highway Circle, Bhubaneswar</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Widening &amp; Strengthening Structural Design</li>
+                          <li>Hydraulic Sizing of Minor Bridges</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for Shapar Veraval Industrial Estate</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Gujarat Industrial Development Corporation (GIDC)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Industrial Grade Flexible &amp; Rigid Pavements</li>
+                          <li>Storm Water &amp; Utility Corridor Layouts</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for Ahmedabad – Kuha – Athlal – Alasinor – Dev – Namnar – Lunawada – Santrampur – Alod Road</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Roads &amp; Buildings Department, Gujarat</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>148 Km Comprehensive Engineering Drawings</li>
+                          <li>Bridge &amp; Culvert Structural Design</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for Manneguda – Bijapur Road</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">MoRTH, Regional Office Hyderabad</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>High-Speed Corridor Geometric Alignment</li>
+                          <li>Paved Shoulder Detailing</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for NH 130A in Chhattisgarh</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">National Highway Division, PWD Chhattisgarh</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Highway Alignment &amp; Junction Modeling</li>
+                          <li>Box Culvert Standard Design</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for Nandakumar – Contai – Chandaneswar Road</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Public Works Department, West Bengal</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Coastal Terrain Embankment Design</li>
+                          <li>Flexible Pavement Crust Composition</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for Seepat – Baloda – Urga Road</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Chhattisgarh Road Development Corporation (CGRDC)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Heavy Coal-Freight Corridor Design</li>
+                          <li>Rigid Pavement &amp; Bridge Design</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for Seepat – Baloda – Urga Road</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Chhattisgarh Road Development Corporation (CGRDC)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Heavy Coal-Freight Corridor Design</li>
+                          <li>Junction &amp; Intersection Detailing</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for NH 42 in Andhra Pradesh</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Roads &amp; Buildings Department (NH), Andhra Pradesh</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>2/4-Lane Geometric Alignment Design</li>
+                          <li>Bridge &amp; Culvert Structural Drawings</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for NH 544DD in Andhra Pradesh</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">MoRTH / AP PWD (NH)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Paved Shoulder Upgrade Engineering</li>
+                          <li>Traffic Calming &amp; Safety Furniture Design</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for Pathapatnam – Nasarnapeta Road</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">R&amp;B Department, Government of Andhra Pradesh</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Road Alignment Optimization</li>
+                          <li>Retaining Wall &amp; Scour Protection</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for Pfutsero – Phek Road in Nagaland</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">NHIDCL</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Hill Road Engineering &amp; Slope Cut Profiles</li>
+                          <li>Bio-Engineering &amp; Breast Wall Detailing</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for Talegaon – Gonapur section of NH-347A</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Public Works Department (NH), Maharashtra</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Highway Expansion Engineering</li>
+                          <li>Grade Separator Structural Drawings</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for NH-161E Nagzari – Kherda</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">MoRTH / Maharashtra PWD</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>2-Lane with Paved Shoulder Structural Design</li>
+                          <li>Minor Bridge &amp; Culvert Drawings</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for NH-161E Dastapur – Washim</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">MoRTH / Maharashtra PWD</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Pavement Reconstruction &amp; Overlay Design</li>
+                          <li>Intersection Redesign</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for Wardha – Hinganghat – Jam – Warora section of NH-347A</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">National Highway Division, Nagpur</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>4-Lane Highway Detailed Engineering</li>
+                          <li>Flyover &amp; Underpass Drawings</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for NH-161E Karanja – Dastapur</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">MoRTH / Maharashtra PWD</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Highway Widening Design</li>
+                          <li>Drainage &amp; Signage Plans</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for Dhoridungri – Garasiyawada and Lunawada – Garasiyawada works</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Roads &amp; Buildings Department, Gujarat</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Rural-Urban Linkage Road Design</li>
+                          <li>Embankment Stability &amp; Culvert Details</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Detailed Engineering Design for Dhoridungri – Garasiyawada and Lunawada – Garasiyawada works</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Roads &amp; Buildings Department, Gujarat</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Rural-Urban Linkage Road Design</li>
+                          <li>Cross-Drainage &amp; Safety Infrastructure</li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Category 5: Projects of Supervision – Bridges -->
+            <div class="pmc-category-view" id="panel-cat-5" role="tabpanel" aria-labelledby="tab-cat-5">
+              <div class="pmc-category-view__title-wrap">
+                <h3 class="pmc-category-view__title">Projects of Supervision – Bridges</h3>
+                <span class="pmc-category-view__count">8 Major Bridge Supervision Contracts</span>
+              </div>
+              <div class="pmc-table-container" tabindex="0" role="region" aria-label="Bridge Supervision Projects Table">
+                <table class="pmc-table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 48%;">Project Name</th>
+                      <th scope="col" style="width: 28%;">Client</th>
+                      <th scope="col" style="width: 24%;">Scope of Services</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Providing project management consultancy (PMC) for construction of ROB at km 258/20-258/22 at Siddharth nagar canal on Surat-Mumbai main railway line joining Surat-Navsari main road and karadva area. (Work no.4) EPC.</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Executive Engineer, Bridge Cell, Surat Municipal Corporation, Surat.</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 979.40 Mt.</li>
+                          <li>ROB = 01 Nos.</li>
+                          <li>Construction Supervision &amp; Quality Audit</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Project Management Consultancy (PMC) for Construction of Multi-Span Cable Stayed / Extradosed Bridge across River Tapi in Surat</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Surat Municipal Corporation (SMC)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 1,420 Mt.</li>
+                          <li>River Bridge with Cable Stayed Span</li>
+                          <li>Foundation, Piling &amp; QA/QC Supervision</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Construction Supervision and PMC for 4-Lane Flyover at Odhav Junction on SP Ring Road, Ahmedabad</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Ahmedabad Urban Development Authority (AUDA)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 1,280 Mt.</li>
+                          <li>4-Lane Elevated Flyover &amp; Approaches</li>
+                          <li>Composite Steel-Concrete Girders</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Project Management Consultancy for Construction of Flyover / ROB on Katargam – Ashwinikumar Road, Surat</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Surat Municipal Corporation (SMC)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 1,150 Mt.</li>
+                          <li>ROB &amp; Elevated Grade Separator</li>
+                          <li>PSC Girders &amp; RE Wall Supervision</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Third Party Inspection &amp; PMC for Construction of Major High Level Bridge across Mahi River near Lunawada</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Roads &amp; Buildings Department, Government of Gujarat</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 860 Mt.</li>
+                          <li>Multi-Span High Level River Bridge</li>
+                          <li>Deep Well Foundation Quality Assurance</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">PMC Services for Construction of Railway Over Bridges (ROBs) under Valsad DFCC Alignment</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Dedicated Freight Corridor Corporation of India (DFCCIL)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>ROBs = 2 Nos.</li>
+                          <li>Bowstring Steel Girder Superstructure</li>
+                          <li>Electrified Track Clearance Supervision</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Project Management Consultancy for Construction of 4-Lane ROB on Bharuch – Dahej Road</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Dahej SEZ Ltd / GSRDC</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 840 Mt.</li>
+                          <li>Heavy Industrial Corridor ROB</li>
+                          <li>Precast Girders &amp; Deck Slab Supervision</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Supervision Consultancy for Construction of Road Over Bridge at Dhanera on Western Railway Section</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Western Railway &amp; R&amp;B Division Palanpur</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 720 Mt.</li>
+                          <li>ROB = 01 Nos.</li>
+                          <li>Pile Foundation &amp; Safety Audit</li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Category 6: Projects of Safety Consultant -->
+            <div class="pmc-category-view" id="panel-cat-6" role="tabpanel" aria-labelledby="tab-cat-6">
+              <div class="pmc-category-view__title-wrap">
+                <h3 class="pmc-category-view__title">Projects of Safety Consultant</h3>
+                <span class="pmc-category-view__count">11 Safety Audit Contracts</span>
+              </div>
+              <div class="pmc-table-container" tabindex="0" role="region" aria-label="Safety Consultant Projects Table">
+                <table class="pmc-table">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 48%;">Project Name</th>
+                      <th scope="col" style="width: 28%;">Client</th>
+                      <th scope="col" style="width: 24%;">Scope of Services</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Safety Consultant Services for 2-Lane with Paved Shoulder of NH-353 in the state of Odisha</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">National Highway Authority of India (NHAI) / MoRTH</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 78.4 Km</li>
+                          <li>Road Safety Audit (Design, Construction &amp; Pre-Opening)</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Road Safety Audit and Safety Consultancy for Upgradation of NH-26 in Odisha</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">NHAI / Odisha PWD (NH)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 85.2 Km</li>
+                          <li>Blackspot Identification &amp; Geometric Hazard Mitigation</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Safety Consultant Services for Surat – Olpad – Sahol Road</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Roads &amp; Buildings Department, Gujarat</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 46.8 Km</li>
+                          <li>High Traffic Industrial Corridor Safety Review</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Safety Audit of State Highways and Major District Roads in Panchmahal and Dahod districts</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Gujarat State Road Safety Authority (GSRSA)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 114.6 Km</li>
+                          <li>Comprehensive Corridor Safety Inspection &amp; Retrofit Audit</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Safety Consultant for Nandakumar – Contai – Chandaneswar Road</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Public Works Department, West Bengal</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 82.5 Km</li>
+                          <li>Construction Zone Traffic Management &amp; Safety Audit</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Road Safety Audit for Seepat – Baloda – Urga Road</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">Chhattisgarh Road Development Corporation (CGRDC)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 54.3 Km</li>
+                          <li>Industrial &amp; Heavy Freight Corridor Crash Analysis</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Safety Consultant for Selud – Jamgaon – Ranitarai – Patan Road</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">PWD Chhattisgarh</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 42.1 Km</li>
+                          <li>Rural-Urban Transition Safety Evaluation</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Independent Safety Consultant for 6-Laning of Panipat – Jalandhar section of NH-1</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">National Highways Authority of India (NHAI)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 291.0 Km</li>
+                          <li>High-Speed Expressway Safety Audit &amp; Incident Analysis</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Road Safety Audit for 6-Laning of Anandpuram – Pendurthi – Anakapalli section of NH-5/NH-16</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">NHAI Project Implementation Unit, Visakhapatnam</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 64.2 Km</li>
+                          <li>Coastal Highway Grade Separation Safety Validation</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Safety Consultant Services for 4-Laning of Narasannapeta – Ranasthalam section of NH-16</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">National Highways Authority of India (NHAI)</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 54.0 Km</li>
+                          <li>Junction Safety &amp; Pedestrian Underpass Inspection</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <span class="pmc-table__project-name">Independent Safety Consultant for 4-Laning of Ludhiana – Talwandi section of NH-95</span>
+                      </td>
+                      <td>
+                        <span class="pmc-table__client-name">NHAI PIU, Ludhiana</span>
+                      </td>
+                      <td>
+                        <ul class="pmc-table__scope-list">
+                          <li>Length = 78.0 Km</li>
+                          <li>Work Zone Safety &amp; Traffic Diversion Audit</li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================================
+       SHARED CORPORATE FOOTER
+       Architectural Grid, Interactive 3D Globe & Dynamic Wordmark
+       ====================================================================== -->
+  <footer class="site-footer animated-content" id="site-footer">
+    <div class="footer-wrapper">
+      
+      <!-- 1. UPPER INFORMATION GRID -->
+      <div class="footer-grid-upper animated-content-item" role="region" aria-label="Footer Information Grid">
+        
+        <!-- Cell 1: Developing Ways of Success (Row 1, Column 1) -->
+        <div class="footer-cell footer-cell--tagline">
+          <p class="footer-tagline">Developing ways of success.</p>
+        </div>
+
+        <!-- Cell 2: Company (Row 1, Column 2) -->
+        <div class="footer-cell footer-cell--company">
+          <h3 class="footer-cell__heading">COMPANY</h3>
+          <ul class="footer-cell__list" role="list">
+            <li><a href="/index.html#hero-section" class="footer-nav-anchor cursor-target">Home</a></li>
+            <li><a href="/about-1.html" class="footer-nav-anchor cursor-target">About</a></li>
+            <li><a href="/index.html#contact-us" class="footer-nav-anchor cursor-target">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Cell 3: Expertise (Row 1, Columns 3–4) -->
+        <div class="footer-cell footer-cell--expertise">
+          <h3 class="footer-cell__heading">EXPERTISE</h3>
+          <ul class="footer-cell__list" role="list">
+            <li><a href="/index.html#category-infrastructure" class="footer-nav-anchor cursor-target">Infrastructure</a></li>
+            <li><a href="/index.html#category-building" class="footer-nav-anchor cursor-target">Building</a></li>
+            <li><a href="/index.html#category-testing" class="footer-nav-anchor cursor-target">Testing</a></li>
+          </ul>
+        </div>
+
+        <!-- Cell 4: Geo Logo Tall Panel (Row 1–2, Columns 5–6) -->
+        <div class="footer-cell footer-cell--logo-panel" id="footer-logo-cell">
+          <div 
+            class="footer-globe-container" 
+            id="footer-globe-container" 
+            role="img" 
+            tabindex="0" 
+            aria-label="Geo Designs &amp; Research Interactive 3D Brand Globe"
+          >
+            <!-- 3D Outlined Sphere Construction with Individually Targetable Geometric Facets -->
+            <svg 
+              class="footer-globe-svg" 
+              id="footer-globe-svg" 
+              viewBox="0 0 200 200" 
+              width="280" 
+              height="280" 
+              aria-hidden="true"
+            >
+              <defs>
+                <clipPath id="globe-clip">
+                  <circle cx="100" cy="100" r="76" />
+                </clipPath>
+              </defs>
+
+              <!-- Group clipped to sphere -->
+              <g clip-path="url(#globe-clip)">
+                <!-- Dark Base Fill -->
+                <circle cx="100" cy="100" r="76" class="globe-base" />
+
+                <!-- INDEPENDENTLY TARGETABLE 3D GEOMETRIC FACETS -->
+                <g class="globe-facets-layer" id="globe-facets-layer">
+                  <!-- North Polar Tier (Slate Blue #35556B) -->
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M51,42 A76,76 0 0,1 80,26 L100,42 L80,42 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M80,26 A76,76 0 0,1 100,24 L100,42 L80,42 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,24 A76,76 0 0,1 120,26 L100,42 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M120,26 A76,76 0 0,1 149,42 L120,42 L100,42 Z" />
+
+                  <!-- North Temperate Tier -->
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M29,74 A76,76 0 0,1 51,42 L80,42 L65,74 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M65,74 L80,42 L100,42 L100,74 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,74 L100,42 L120,42 L135,74 Z" />
+                  <path class="globe-facet globe-facet--charcoal" data-color="#343A40" d="M135,74 L120,42 L149,42 A76,76 0 0,1 171,74 Z" />
+
+                  <!-- Equatorial Tier (Flanks & Central GDR Monogram Emblem) -->
+                  <path class="globe-facet globe-facet--charcoal" data-color="#343A40" d="M24,100 A76,76 0 0,1 29,74 L65,74 L60,100 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M65,74 L100,74 L78,88 L60,88 Z" />
+                  <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,74 L135,74 L140,88 L122,88 Z" />
+                  <path class="globe-facet globe-facet--charcoal" data-color="#343A40" d="M135,74 A76,76 0 0,1 176,100 L140,100 L140,88 Z" />
+
+                  <!-- Central GDR Engineering Badge (Independently Active Surface) -->
+                  <path class="globe-facet globe-facet--badge" data-color="#35556B" d="M60,88 L140,88 L140,112 L60,112 Z" />
+
+                  <!-- Below Badge Transition -->
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M24,100 L60,100 L60,112 L25,113 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M60,112 L140,112 L138,132 L62,132 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M140,100 L176,100 A76,76 0 0,1 175,113 L140,112 Z" />
+
+                  <!-- South Temperate Tier (Muted Green #497E5E) -->
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M25,113 A76,76 0 0,0 46,154 L75,154 L62,132 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M62,132 L75,154 L100,154 L100,132 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M100,132 L100,154 L125,154 L138,132 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M138,132 L125,154 L154,154 A76,76 0 0,0 175,113 Z" />
+
+                  <!-- South Polar Tier (Muted Green #497E5E) -->
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M46,154 A76,76 0 0,0 80,174 L100,154 L75,154 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M80,174 A76,76 0 0,0 100,176 L100,154 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M100,154 L100,176 A76,76 0 0,0 120,174 Z" />
+                  <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M120,174 A76,76 0 0,0 154,154 L125,154 L100,154 Z" />
+                </g>
+
+                <!-- GDR Central Text Overlay (pointer-events: none) -->
+                <text x="100" y="104" text-anchor="middle" class="globe-badge-label" pointer-events="none">GDR</text>
+
+                <!-- Clean Spherical Wireframe Meridians & Parallels (Overlay, pointer-events: none) -->
+                <g class="globe-wireframe-lines" pointer-events="none">
+                  <ellipse cx="100" cy="100" rx="24" ry="76" class="globe-wireframe globe-wireframe--meridian" />
+                  <ellipse cx="100" cy="100" rx="52" ry="76" class="globe-wireframe globe-wireframe--meridian" />
+                  <line x1="100" y1="24" x2="100" y2="176" class="globe-wireframe globe-wireframe--axis" />
+                  <ellipse cx="100" cy="42" rx="49" ry="12" class="globe-wireframe globe-wireframe--parallel" />
+                  <ellipse cx="100" cy="74" rx="71" ry="18" class="globe-wireframe globe-wireframe--parallel" />
+                  <ellipse cx="100" cy="100" rx="76" ry="22" class="globe-wireframe globe-wireframe--equator" />
+                  <ellipse cx="100" cy="132" rx="72" ry="18" class="globe-wireframe globe-wireframe--parallel" />
+                  <ellipse cx="100" cy="154" rx="54" ry="12" class="globe-wireframe globe-wireframe--parallel" />
+                </g>
+              </g>
+
+              <!-- Outer Boundary Circle & Polar Points -->
+              <circle cx="100" cy="100" r="76" class="globe-wireframe globe-wireframe--outer" pointer-events="none" />
+              <circle cx="100" cy="24" r="2.5" class="globe-point" pointer-events="none" />
+              <circle cx="100" cy="176" r="2.5" class="globe-point" pointer-events="none" />
+            </svg>
+            <span class="globe-caption">GEO DESIGNS &amp; RESEARCH</span>
+          </div>
+        </div>
+
+        <!-- Cell 5: Headquarters (Row 2, Column 1) -->
+        <div class="footer-cell footer-cell--headquarters">
+          <h3 class="footer-cell__heading">HEADQUARTERS</h3>
+          <address class="footer-address">
+            Krishna Industrial Estate, B-10, Gorwa Rd, opp. BIDC Gorwa Estate, Gorwa, Vadodara, Gujarat 390003
+          </address>
+          <a 
+            href="https://maps.app.goo.gl/Fm6bpnaN7WWvN8p89" 
+            class="footer-action-link cursor-target" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >Get Directions</a>
+        </div>
+
+        <!-- Cell 6: Social (Row 2, Column 2) -->
+        <div class="footer-cell footer-cell--social">
+          <h3 class="footer-cell__heading">SOCIAL</h3>
+          <div class="footer-social-wrap">
+            <a 
+              href="https://www.linkedin.com/company/geo-designs-&-research-pvt-ltd-/posts/" 
+              class="footer-social-link cursor-target" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >LinkedIn</a>
+          </div>
+        </div>
+
+        <!-- Cell 7: Other Branches (Row 2, Columns 3–4) -->
+        <div class="footer-cell footer-cell--branches">
+          <h3 class="footer-cell__heading">OTHER BRANCHES</h3>
+          <div class="footer-branches-grid">
+            <ul class="footer-branches-subcol" role="list">
+              <li><a href="/index.html#branch-card-bharuch" class="footer-branch-link cursor-target">Bharuch</a></li>
+              <li><a href="/index.html#branch-card-bhuj" class="footer-branch-link cursor-target">Bhuj</a></li>
+              <li><a href="/index.html#branch-card-gandhinagar" class="footer-branch-link cursor-target">Gandhinagar</a></li>
+              <li><a href="/index.html#branch-card-junagadh" class="footer-branch-link cursor-target">Junagadh</a></li>
+            </ul>
+            <ul class="footer-branches-subcol" role="list">
+              <li><a href="/index.html#branch-card-nadiad" class="footer-branch-link cursor-target">Nadiad</a></li>
+              <li><a href="/index.html#branch-card-navsari" class="footer-branch-link cursor-target">Navsari</a></li>
+              <li><a href="/index.html#branch-card-jaisalmer" class="footer-branch-link cursor-target">Jaisalmer</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 2. OVERSIZED TWO-LINE OUTLINED WORDMARK REGION -->
+      <div class="footer-wordmark-panel animated-content-item" id="footer-wordmark-panel" tabindex="0" role="region" aria-label="Geo Designs &amp; Research Architectural Wordmark">
+        <svg 
+          class="wordmark-svg" 
+          id="wordmark-svg" 
+          viewBox="0 0 1320 280" 
+          width="100%" 
+          height="auto" 
+          preserveAspectRatio="xMidYMid meet" 
+          aria-hidden="true"
+        >
+          <defs>
+            <!-- Cursor-driven localized mask: reveals white fill ONLY within pointer proximity -->
+            <mask id="wordmark-cursor-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1320" height="280">
+              <rect x="0" y="0" width="1320" height="280" fill="#000000" />
+              <circle 
+                id="wordmark-spotlight" 
+                cx="-500" 
+                cy="-500" 
+                r="0" 
+                fill="url(#wordmark-radial-gradient)" 
+              />
+            </mask>
+
+            <!-- Soft radial gradient for smooth fluid travel across nearby letter strokes -->
+            <radialGradient id="wordmark-radial-gradient" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+              <stop offset="65%" stop-color="#ffffff" stop-opacity="0.9" />
+              <stop offset="85%" stop-color="#ffffff" stop-opacity="0.45" />
+              <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+
+          <!-- Technical Architectural Drafting Coordinate Marks -->
+          <g class="wordmark-drafting-ticks" stroke="#BEBEBE" stroke-width="1" opacity="0.45">
+            <!-- Corner Registration Marks -->
+            <path d="M 20 35 L 20 15 L 40 15" fill="none" />
+            <path d="M 1300 35 L 1300 15 L 1280 15" fill="none" />
+            <path d="M 20 245 L 20 265 L 40 265" fill="none" />
+            <path d="M 1300 245 L 1300 265 L 1280 265" fill="none" />
+            <!-- Dimension / Alignment Center Crosses -->
+            <path d="M 15 140 H 25 M 20 135 V 145" fill="none" />
+            <path d="M 1295 140 H 1305 M 1300 135 V 145" fill="none" />
+            <path d="M 660 10 V 18" fill="none" />
+            <path d="M 660 262 V 270" fill="none" />
+          </g>
+
+          <!-- LAYER 1: Base Outlined Lettering (Idle State - Dark Background Visible Inside) -->
+          <g class="wordmark-layer wordmark-layer--outline">
+            <text x="50%" y="118" text-anchor="middle" class="wordmark-text wordmark-text--outline">GEO DESIGNS</text>
+            <text x="50%" y="242" text-anchor="middle" class="wordmark-text wordmark-text--outline">&amp; RESEARCH</text>
+          </g>
+
+          <!-- LAYER 2: Localized White Fill Layer (Masked strictly to cursor-driven radius) -->
+          <g class="wordmark-layer wordmark-layer--fill" mask="url(#wordmark-cursor-mask)">
+            <text x="50%" y="118" text-anchor="middle" class="wordmark-text wordmark-text--fill">GEO DESIGNS</text>
+            <text x="50%" y="242" text-anchor="middle" class="wordmark-text wordmark-text--fill">&amp; RESEARCH</text>
+          </g>
+
+          <!-- LAYER 3: Crisp Top Stroke Layer (Ensures outlines remain razor-sharp above fill) -->
+          <g class="wordmark-layer wordmark-layer--top-stroke" aria-hidden="true" pointer-events="none">
+            <text x="50%" y="118" text-anchor="middle" class="wordmark-text wordmark-text--top-stroke">GEO DESIGNS</text>
+            <text x="50%" y="242" text-anchor="middle" class="wordmark-text wordmark-text--top-stroke">&amp; RESEARCH</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- 3. BOTTOM COPYRIGHT STRIP -->
+      <div class="footer-copyright-strip animated-content-item">
+        <p class="footer-copyright-text">
+          &copy; <span id="current-year">2026</span> Geo Designs &amp; Research. All rights reserved.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script type="module" src="/js/main.js"></script>
+
+  <!-- Interactive Project Category Switcher Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.pmc-category-btn');
+      const panels = document.querySelectorAll('.pmc-category-view');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const targetId = tab.getAttribute('data-cat-target');
+
+          tabs.forEach(t => {
+            t.classList.remove('is-active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          panels.forEach(p => {
+            p.classList.remove('is-active');
+          });
+
+          tab.classList.add('is-active');
+          tab.setAttribute('aria-selected', 'true');
+
+          const activePanel = document.getElementById(targetId);
+          if (activePanel) {
+            activePanel.classList.add('is-active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

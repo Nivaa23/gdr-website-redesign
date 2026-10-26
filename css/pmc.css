@@ -1,0 +1,880 @@
+/* ==========================================================================
+   Geo Designs & Research — Project Management Consultancy (PMC) Styles
+   File: css/pmc.css
+   Brand Palette: Slate (#35556B), Green (#497E5E), Charcoal (#1A1F24)
+   ========================================================================== */
+
+:root {
+  --pmc-slate: #35556B;
+  --pmc-slate-light: #527A94;
+  --pmc-green: #497E5E;
+  --pmc-green-light: #A3E8BF;
+  --pmc-charcoal: #1A1F24;
+  --pmc-dark: #121A21;
+  --pmc-darker: #0E1419;
+  --pmc-light-bg: #F8FAFC;
+  --pmc-border: #E2E8F0;
+  --pmc-border-dark: rgba(255, 255, 255, 0.12);
+  --pmc-radius: 6px;
+  --pmc-shadow-sm: 0 2px 10px rgba(33, 37, 41, 0.05);
+  --pmc-shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --pmc-shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.35);
+}
+
+/* ==========================================================================
+   SECTION 1 — HERO BANNER
+   ========================================================================== */
+.pmc-hero {
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+  height: clamp(480px, 60vh, 650px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--pmc-dark);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pmc-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--pmc-green), var(--pmc-slate), transparent);
+  opacity: 0.85;
+  z-index: 4;
+}
+
+.pmc-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at 25% 35%, rgba(53, 85, 107, 0.55) 0%, transparent 65%),
+    radial-gradient(ellipse at 75% 70%, rgba(73, 126, 94, 0.4) 0%, transparent 60%),
+    var(--pmc-dark);
+}
+
+.pmc-hero__media-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.35;
+  display: block;
+}
+
+.pmc-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 20, 26, 0.6) 0%,
+    rgba(14, 20, 26, 0.75) 50%,
+    rgba(14, 20, 26, 0.92) 100%
+  );
+}
+
+.pmc-hero__inner {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pmc-hero__title {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(2.2rem, 5.2vw, 3.8rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.15;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+  text-shadow: 0 4px 32px rgba(0, 0, 0, 0.85);
+}
+
+.pmc-breadcrumb ol {
+  list-style: none;
+  margin: 0;
+  padding: 8px 20px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(18, 26, 33, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 4px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pmc-breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--pmc-green-light);
+}
+
+.pmc-breadcrumb li + li::before {
+  content: '>';
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.pmc-breadcrumb a {
+  color: #C0D0E0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.pmc-breadcrumb a:hover,
+.pmc-breadcrumb a:focus-visible {
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   COMMON HEADING & DECORATIVE ACCENTS
+   ========================================================================== */
+.pmc-divider {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto;
+}
+
+.pmc-divider-line {
+  width: 48px;
+  height: 2px;
+  background-color: var(--pmc-slate);
+}
+
+.pmc-divider-line--green {
+  background-color: var(--pmc-green);
+}
+
+.pmc-divider-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--pmc-green-light);
+}
+
+/* ==========================================================================
+   SECTION 2 — PMC INTRODUCTION SECTION
+   Dark charcoal section with subtle dotted texture.
+   ========================================================================== */
+.pmc-intro-section {
+  position: relative;
+  background-color: var(--pmc-charcoal);
+  padding: 84px 0 100px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pmc-intro-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.08) 1.2px, transparent 1.2px),
+    linear-gradient(rgba(53, 85, 107, 0.04) 1px, transparent 1px);
+  background-size: 26px 26px, 130px 130px;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.pmc-intro__header {
+  text-align: center;
+  margin-bottom: 54px;
+  position: relative;
+  z-index: 2;
+}
+
+.pmc-intro__heading {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(2rem, 3.6vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+}
+
+.pmc-intro__grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pmc-intro__visual-panel {
+  position: relative;
+}
+
+.pmc-intro__visual-frame {
+  position: relative;
+  background-color: var(--pmc-darker);
+  border: 1px solid var(--pmc-border-dark);
+  border-radius: var(--pmc-radius);
+  overflow: hidden;
+  box-shadow: var(--pmc-shadow-lg);
+  aspect-ratio: 16 / 11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pmc-intro__visual-frame::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+  border-top: 2px solid var(--pmc-green);
+  border-left: 2px solid var(--pmc-green);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.pmc-intro__visual-frame::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  border-bottom: 2px solid var(--pmc-slate);
+  border-right: 2px solid var(--pmc-slate);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.pmc-intro__visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pmc-intro__visual-frame:hover .pmc-intro__visual-img {
+  transform: scale(1.03);
+}
+
+.pmc-intro__visual-badge {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  background: rgba(18, 26, 33, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 7px 16px;
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 4;
+}
+
+.pmc-intro__visual-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--pmc-green);
+}
+
+.pmc-intro__visual-badge-text {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+
+.pmc-intro__content-card {
+  background-color: #FFFFFF;
+  border-radius: var(--pmc-radius);
+  padding: clamp(34px, 4vw, 48px);
+  box-shadow: var(--pmc-shadow-lg);
+  border-left: 4px solid var(--pmc-green);
+}
+
+.pmc-intro__card-tag {
+  display: inline-block;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--pmc-slate);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.pmc-intro__card-heading {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 800;
+  color: var(--pmc-charcoal);
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
+.pmc-intro__card-text {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: 1.04rem;
+  line-height: 1.75;
+  color: #334155;
+  margin: 0;
+}
+
+/* ==========================================================================
+   SECTION 3 — SCOPE OF SERVICE (9 CARDS IN 3-COLUMN GRID)
+   ========================================================================== */
+.pmc-scope-section {
+  padding: 90px 0 100px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--pmc-border);
+}
+
+.pmc-scope__header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 54px;
+}
+
+.pmc-scope__heading {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(2.2rem, 3.8vw, 3rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--pmc-charcoal);
+  text-transform: uppercase;
+  margin: 0 0 16px;
+}
+
+.pmc-scope__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.pmc-scope-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--pmc-border);
+  border-radius: var(--pmc-radius);
+  overflow: hidden;
+  box-shadow: var(--pmc-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.pmc-scope-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--pmc-shadow-md);
+  border-color: var(--pmc-green);
+}
+
+.pmc-scope-card__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--pmc-light-bg);
+}
+
+.pmc-scope-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pmc-scope-card:hover .pmc-scope-card__img {
+  transform: scale(1.05);
+}
+
+.pmc-scope-card__caption {
+  padding: 18px 20px;
+  background-color: #FFFFFF;
+  border-top: 1px solid var(--pmc-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 72px;
+}
+
+.pmc-scope-card__title {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--pmc-charcoal);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.pmc-scope-card__num {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--pmc-green);
+  background-color: rgba(73, 126, 94, 0.1);
+  padding: 3px 8px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   SECTION 4, 5, 6 — TECHNICAL EQUIPMENT SECTIONS
+   ========================================================================== */
+.pmc-equipment-section {
+  padding: 85px 0 95px;
+  background-color: var(--pmc-light-bg);
+  border-bottom: 1px solid var(--pmc-border);
+}
+
+.pmc-equipment-section--alt {
+  background-color: #FFFFFF;
+}
+
+.pmc-equipment__header {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 48px;
+}
+
+.pmc-equipment__heading {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(2rem, 3.4vw, 2.7rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--pmc-charcoal);
+  text-transform: uppercase;
+  margin: 0 0 16px;
+}
+
+/* Mobile Bridge Inspection Unit Side-by-Side Composition */
+.pmc-mbiu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pmc-equipment-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--pmc-border);
+  border-radius: var(--pmc-radius);
+  overflow: hidden;
+  box-shadow: var(--pmc-shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.pmc-equipment-card__media {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--pmc-darker);
+  position: relative;
+}
+
+.pmc-equipment-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pmc-equipment-card__caption {
+  padding: 16px 20px;
+  background-color: #FFFFFF;
+  border-top: 1px solid var(--pmc-border);
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--pmc-slate);
+  text-align: center;
+}
+
+/* Centered Technical Vehicle Display */
+.pmc-single-vehicle-wrap {
+  max-width: 1050px;
+  margin: 0 auto;
+  background-color: #FFFFFF;
+  border: 1px solid var(--pmc-border);
+  border-radius: var(--pmc-radius);
+  overflow: hidden;
+  box-shadow: var(--pmc-shadow-sm);
+}
+
+.pmc-single-vehicle-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: var(--pmc-darker);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pmc-single-vehicle-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.pmc-single-vehicle-caption {
+  padding: 16px 24px;
+  background-color: #FFFFFF;
+  border-top: 1px solid var(--pmc-border);
+  text-align: center;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--pmc-slate);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   SECTION 7 — OUR PROJECTS SECTION
+   Two-column layout: Left category selectors, Right category table.
+   ========================================================================== */
+.pmc-projects-section {
+  padding: 95px 0 115px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--pmc-border);
+}
+
+.pmc-projects__header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 54px;
+}
+
+.pmc-projects__heading {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: clamp(2.2rem, 3.8vw, 3rem);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--pmc-charcoal);
+  text-transform: uppercase;
+  margin: 0 0 16px;
+}
+
+.pmc-projects-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* Left Column: Category Selector Buttons */
+.pmc-category-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: sticky;
+  top: 90px;
+}
+
+.pmc-category-btn {
+  background-color: var(--pmc-light-bg);
+  border: 1px solid var(--pmc-border);
+  border-radius: var(--pmc-radius);
+  padding: 16px 20px;
+  text-align: left;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--pmc-charcoal);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pmc-category-btn:hover {
+  background-color: #F1F5F9;
+  border-color: var(--pmc-slate);
+  color: var(--pmc-slate);
+}
+
+.pmc-category-btn.is-active {
+  background-color: var(--pmc-green);
+  border-color: var(--pmc-green);
+  color: #FFFFFF;
+  box-shadow: 0 4px 14px rgba(73, 126, 94, 0.35);
+}
+
+.pmc-category-btn__arrow {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.pmc-category-btn.is-active .pmc-category-btn__arrow {
+  transform: translateX(4px);
+}
+
+/* Right Column: Active Category Container & Table */
+.pmc-category-view {
+  display: none;
+}
+
+.pmc-category-view.is-active {
+  display: block;
+}
+
+.pmc-category-view__title-wrap {
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--pmc-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pmc-category-view__title {
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--pmc-charcoal);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.pmc-category-view__count {
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--pmc-green);
+  background-color: rgba(73, 126, 94, 0.1);
+  padding: 4px 10px;
+  border-radius: 3px;
+  border: 1px solid rgba(73, 126, 94, 0.25);
+}
+
+/* Table Container & Custom Scrollbars */
+.pmc-table-container {
+  width: 100%;
+  max-height: 680px;
+  overflow-y: auto;
+  overflow-x: auto;
+  background-color: #FFFFFF;
+  border: 1px solid var(--pmc-border);
+  border-radius: var(--pmc-radius);
+  box-shadow: var(--pmc-shadow-sm);
+  -webkit-overflow-scrolling: touch;
+}
+
+.pmc-table-container::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+.pmc-table-container::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+.pmc-table-container::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+.pmc-table-container::-webkit-scrollbar-thumb:hover {
+  background: var(--pmc-slate);
+}
+
+/* Table Design */
+.pmc-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+  font-family: var(--font-sans, 'Hanken Grotesk', sans-serif);
+  min-width: 680px;
+}
+
+.pmc-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.pmc-table th {
+  background-color: var(--pmc-charcoal);
+  color: #FFFFFF;
+  padding: 16px 20px;
+  font-family: var(--font-mono, 'Geist Mono', monospace);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--pmc-green);
+  white-space: nowrap;
+}
+
+.pmc-table td {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--pmc-border);
+  vertical-align: top;
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: #334155;
+  background-color: #FFFFFF;
+  transition: background-color 0.15s ease;
+}
+
+.pmc-table tbody tr:nth-child(even) td {
+  background-color: #F8FAFC;
+}
+
+.pmc-table tbody tr:hover td {
+  background-color: #F1F5F9;
+}
+
+.pmc-table__project-name {
+  font-weight: 700;
+  color: var(--pmc-charcoal);
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.pmc-table__client-name {
+  font-weight: 600;
+  color: var(--pmc-slate);
+  display: block;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.pmc-table__scope-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pmc-table__scope-list li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: #475569;
+}
+
+.pmc-table__scope-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--pmc-green);
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 1080px) {
+  .pmc-projects-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .pmc-category-nav {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+@media (max-width: 991px) {
+  .pmc-intro__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .pmc-scope__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .pmc-mbiu-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .pmc-hero {
+    min-height: 380px;
+    height: 48vh;
+  }
+
+  .pmc-scope__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pmc-category-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .pmc-intro-section,
+  .pmc-scope-section,
+  .pmc-equipment-section,
+  .pmc-projects-section {
+    padding: 60px 0 75px;
+  }
+}

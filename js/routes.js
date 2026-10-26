@@ -22,10 +22,10 @@ export const CANONICAL_ROUTES = {
   commerce: '/commerce.html', // 4. Commerce & Contract Management (Active Dedicated Page)
   hydro: '/hydro.html', // 5. Hydro & Highway DPR (Active Dedicated Page)
   lab: '/lab.html', // 6. Laboratory & Material Testing (Active Dedicated Page)
+  pmc: '/pmc.html', // 7. Project Management Consultancy (PMC) (Active Dedicated Page)
 
   // Future Service Pages (to be activated as new pages are implemented):
   // mepf: '/mepf.html',
-  // pmc: '/pmc.html',
   // structure: '/structure.html',
   // survey: '/survey.html',
   // sustainability: '/sustainability.html'

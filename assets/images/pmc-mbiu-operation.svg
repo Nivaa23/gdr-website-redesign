@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 375" width="600" height="375">
+  <defs>
+    <linearGradient id="opsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#152431"/>
+      <stop offset="100%" stop-color="#0E1620"/>
+    </linearGradient>
+    <pattern id="opsGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#497E5E" stroke-width="0.5" stroke-opacity="0.2"/>
+    </pattern>
+  </defs>
+
+  <rect width="600" height="375" fill="url(#opsBg)"/>
+  <rect width="600" height="375" fill="url(#opsGrid)"/>
+
+  <!-- Bridge Substructure & Bearing Detail (Close-Up Operation) -->
+  <g id="bridge-bearing">
+    <!-- Pier Column -->
+    <rect x="80" y="160" width="140" height="215" fill="#1C2731" stroke="#35556B" stroke-width="2"/>
+    <!-- Pier Cap -->
+    <polygon points="50,160 250,160 230,130 70,130" fill="#243340" stroke="#35556B" stroke-width="1.5"/>
+    <!-- Elastomeric / Pot Bearings -->
+    <rect x="95" y="116" width="40" height="14" rx="2" fill="#497E5E" stroke="#A3E8BF" stroke-width="1.5"/>
+    <rect x="165" y="116" width="40" height="14" rx="2" fill="#497E5E" stroke="#A3E8BF" stroke-width="1.5"/>
+    <!-- Longitudinal Superstructure Girders -->
+    <rect x="60" y="50" width="540" height="66" fill="#2A3845" stroke="#3F5364" stroke-width="1.5"/>
+    <rect x="60" y="30" width="540" height="20" fill="#1A242E" stroke="#497E5E" stroke-width="1.5"/>
+    <!-- Diaphragm Beam -->
+    <rect x="135" y="54" width="30" height="58" fill="#1E2C38" stroke="#35556B" stroke-width="1.5"/>
+  </g>
+
+  <!-- MBIU Inspection Basket & Operations Team -->
+  <g id="basket-op" transform="translate(180, 20)">
+    <!-- Suspended Articulated Jib Arm -->
+    <path d="M 360 0 L 320 180 L 290 180" fill="none" stroke="#497E5E" stroke-width="4"/>
+    <circle cx="320" cy="180" r="7" fill="#35556B" stroke="#FFFFFF" stroke-width="2"/>
+
+    <!-- Modular Work Platform / Basket -->
+    <rect x="140" y="170" width="160" height="40" fill="rgba(20, 35, 47, 0.85)" stroke="#A3E8BF" stroke-width="2" rx="3"/>
+    <!-- Guard Rails -->
+    <line x1="140" y1="145" x2="300" y2="145" stroke="#E2E8F0" stroke-width="2"/>
+    <line x1="140" y1="145" x2="140" y2="170" stroke="#E2E8F0" stroke-width="2"/>
+    <line x1="180" y1="145" x2="180" y2="170" stroke="#E2E8F0" stroke-width="1.5"/>
+    <line x1="220" y1="145" x2="220" y2="170" stroke="#E2E8F0" stroke-width="1.5"/>
+    <line x1="260" y1="145" x2="260" y2="170" stroke="#E2E8F0" stroke-width="1.5"/>
+    <line x1="300" y1="145" x2="300" y2="170" stroke="#E2E8F0" stroke-width="2"/>
+
+    <!-- Senior QA/QC Bridge Engineers -->
+    <!-- Engineer 1 with Ultrasonic Flaw Detector -->
+    <circle cx="170" cy="132" r="6" fill="#A3E8BF"/>
+    <path d="M 162 144 L 178 144 L 176 170 L 164 170 Z" fill="#E2E8F0"/>
+    <!-- Sensor Cable to Girder -->
+    <path d="M 176 142 Q 130 110 50 118" fill="none" stroke="#A3E8BF" stroke-width="1.8" stroke-dasharray="3 2"/>
+    <circle cx="50" cy="118" r="4" fill="#497E5E" stroke="#FFFFFF" stroke-width="1"/>
+
+    <!-- Engineer 2 with Optical Crack Gauge -->
+    <circle cx="230" cy="132" r="6" fill="#A3E8BF"/>
+    <path d="M 222 144 L 238 144 L 236 170 L 224 170 Z" fill="#E2E8F0"/>
+    <!-- Laser Measuring Beam -->
+    <line x1="222" y1="135" x2="140" y2="90" stroke="#497E5E" stroke-width="1.5" stroke-dasharray="2 2"/>
+  </g>
+
+  <!-- Diagnostic Scope Data Callout -->
+  <g transform="translate(320, 240)">
+    <rect x="0" y="0" width="250" height="90" rx="3" fill="#121C24" stroke="#497E5E" stroke-width="1.2"/>
+    <text x="14" y="24" font-family="'Geist Mono', monospace" font-size="8.5" fill="#A3E8BF" letter-spacing="1">MBIU LIVE INSPECTION METRICS</text>
+    <line x1="14" y1="32" x2="236" y2="32" stroke="#35556B" stroke-width="1"/>
+    <text x="14" y="50" font-family="'Hanken Grotesk', sans-serif" font-size="11" fill="#E2E8F0">Bearing Displacement: Nominal (0.4mm)</text>
+    <text x="14" y="68" font-family="'Hanken Grotesk', sans-serif" font-size="11" fill="#E2E8F0">Concrete Carbonation Depth: Pass (IRC:SP:35)</text>
+    <text x="14" y="86" font-family="'Hanken Grotesk', sans-serif" font-size="11" fill="#A3E8BF">Superstructure Rating: Category 01 / Fit</text>
+  </g>
+
+  <text x="24" y="38" font-family="'Geist Mono', monospace" font-size="9" fill="#A3E8BF" letter-spacing="1">BRIDGE HEALTH MONITORING // ON-SITE DIAGNOSTICS</text>
+</svg>
