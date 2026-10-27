@@ -31,68 +31,94 @@
   --sus-transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Base resets & utilities for sustainability page */
+.env-section {
+  padding: 80px 0 90px;
+  position: relative;
+}
+
 /* ==========================================================================
    COMMON HEADING & DECORATIVE ACCENTS
    ========================================================================== */
-.sus-divider {
+.sus-divider,
+.env-section__divider,
+.env-esg__divider {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--sus-slate), var(--sus-green));
+  margin: 0 auto 18px;
+}
+
+.env-esg__divider {
+  background: linear-gradient(90deg, var(--sus-green), var(--sus-green-light));
+}
+
+.sus-section-header,
+.env-section__header,
+.env-esg__header {
+  text-align: center;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sus-section-tag,
+.env-section__tag,
+.env-esg__tag {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin: 0 auto;
-}
-
-.sus-divider-line {
-  width: 48px;
-  height: 2px;
-  background-color: var(--sus-slate);
-}
-
-.sus-divider-line--green {
-  background-color: var(--sus-green);
-}
-
-.sus-divider-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--sus-green-light);
-}
-
-.sus-section-header {
-  text-align: center;
-  margin-bottom: 50px;
-  position: relative;
-  z-index: 2;
-}
-
-.sus-section-tag {
-  display: inline-block;
   font-family: 'Geist Mono', monospace;
   font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--sus-green);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-.sus-section-title {
+.env-esg__tag {
+  color: var(--sus-green-light);
+}
+
+.env-section__tag-dot,
+.env-esg__tag-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--sus-green);
+  display: inline-block;
+}
+
+.env-esg__tag-dot {
+  background-color: var(--sus-green-light);
+}
+
+.sus-section-title,
+.env-section__title,
+.env-esg__title,
+.env-netzero__title {
   font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1.85rem, 3.2vw, 2.6rem);
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--sus-charcoal);
   margin: 0 0 14px;
+  line-height: 1.25;
 }
 
-.sus-section-title--light {
+.env-esg__title {
   color: #FFFFFF;
 }
 
-.sus-section-desc {
+.sus-section-desc,
+.env-section__intro {
   font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   line-height: 1.7;
   color: var(--sus-text-muted);
   max-width: 760px;
@@ -102,11 +128,12 @@
 /* ==========================================================================
    SECTION 1 — HERO
    ========================================================================== */
-.sus-hero {
+.sus-hero,
+.env-hero {
   position: relative;
   width: 100%;
-  min-height: 480px;
-  height: clamp(480px, 55vh, 580px);
+  min-height: 440px;
+  height: clamp(440px, 50vh, 540px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -115,7 +142,8 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.sus-hero::after {
+.sus-hero::after,
+.env-hero::after {
   content: '';
   position: absolute;
   top: 0;
@@ -127,10 +155,15 @@
   z-index: 4;
 }
 
-.sus-hero__media {
+.sus-hero__media,
+.env-hero__bg {
   position: absolute;
   inset: 0;
   z-index: 1;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.35;
 }
 
 .sus-hero__media-img {
@@ -144,7 +177,8 @@
   display: block;
 }
 
-.sus-hero__overlay {
+.sus-hero__overlay,
+.env-hero__overlay {
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -157,7 +191,8 @@
   );
 }
 
-.sus-hero__inner {
+.sus-hero__inner,
+.env-hero__container {
   position: relative;
   z-index: 3;
   width: 100%;
@@ -171,73 +206,83 @@
   justify-content: center;
 }
 
-.sus-hero__bracket-box {
+.sus-hero__bracket-box,
+.env-hero__title-box {
   position: relative;
   display: inline-block;
-  padding: 24px 48px;
-  margin-bottom: 22px;
+  padding: 22px 44px;
+  margin-top: 14px;
 }
 
-.sus-hero__bracket-box .corner-accent {
+.sus-hero__bracket-box .corner-accent,
+.env-hero__bracket {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border-color: var(--sus-green);
   border-style: solid;
   pointer-events: none;
 }
 
-.sus-hero__bracket-box .corner-accent.top-left {
+.sus-hero__bracket-box .corner-accent.top-left,
+.env-hero__bracket--tl {
   top: 0;
   left: 0;
   border-width: 2px 0 0 2px;
 }
 
-.sus-hero__bracket-box .corner-accent.top-right {
+.sus-hero__bracket-box .corner-accent.top-right,
+.env-hero__bracket--tr {
   top: 0;
   right: 0;
   border-width: 2px 2px 0 0;
 }
 
-.sus-hero__bracket-box .corner-accent.bottom-left {
+.sus-hero__bracket-box .corner-accent.bottom-left,
+.env-hero__bracket--bl {
   bottom: 0;
   left: 0;
   border-width: 0 0 2px 2px;
 }
 
-.sus-hero__bracket-box .corner-accent.bottom-right {
+.sus-hero__bracket-box .corner-accent.bottom-right,
+.env-hero__bracket--br {
   bottom: 0;
   right: 0;
   border-width: 0 2px 2px 0;
 }
 
-.sus-hero__title {
+.sus-hero__title,
+.env-hero__title {
   font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(2rem, 4.4vw, 3.4rem);
+  font-size: clamp(1.8rem, 3.8vw, 3rem);
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #FFFFFF;
   margin: 0;
-  line-height: 1.15;
-  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.7);
+  line-height: 1.2;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
 }
 
-.sus-breadcrumb {
+.sus-breadcrumb,
+.env-hero__breadcrumb {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 12px;
 }
 
-.sus-breadcrumb ol {
+.sus-breadcrumb ol,
+.env-hero__breadcrumb-list {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   list-style: none;
-  padding: 8px 18px;
+  padding: 6px 16px;
   margin: 0;
   font-family: 'Geist Mono', monospace;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   background: rgba(14, 20, 26, 0.55);
@@ -245,41 +290,44 @@
   border-radius: 4px;
 }
 
-.sus-breadcrumb li {
+.sus-breadcrumb li,
+.env-hero__breadcrumb-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   color: rgba(255, 255, 255, 0.6);
 }
 
-.sus-breadcrumb li:not(:last-child)::after {
-  content: '/';
-  color: var(--sus-green-light);
-  font-weight: 600;
-}
-
-.sus-breadcrumb a {
+.sus-breadcrumb a,
+.env-hero__breadcrumb-link {
   color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .sus-breadcrumb a:hover,
-.sus-breadcrumb a:focus-visible {
+.env-hero__breadcrumb-link:hover {
   color: var(--sus-green-light);
 }
 
-.sus-breadcrumb li[aria-current="page"] {
+.env-hero__breadcrumb-separator {
+  color: var(--sus-green-light);
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+.sus-breadcrumb li[aria-current="page"],
+.env-hero__breadcrumb-item--current {
   color: var(--sus-green-light);
   font-weight: 600;
 }
 
 /* ==========================================================================
-   SECTION 2 — FIELD MONITORING AND ANALYSIS (5 Cards: 3 Top, 2 Bottom)
+   SECTION 2 — FIELD MONITORING AND ANALYSIS (5 Cards: 3 Top, 2 Centered Bottom)
    ========================================================================== */
-.sus-monitoring-section {
+.sus-monitoring-section,
+.env-monitoring {
   background-color: var(--sus-white);
-  padding: 90px 0 100px;
   border-bottom: 1px solid var(--sus-border);
 }
 
@@ -298,7 +346,17 @@
   margin: 0 auto;
 }
 
-.sus-card {
+.env-monitoring__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+  max-width: 1180px;
+  margin: 0 auto 64px;
+}
+
+.sus-card,
+.env-card {
   background-color: var(--sus-light-bg);
   border: 1px solid var(--sus-border);
   border-radius: var(--sus-radius);
@@ -307,24 +365,34 @@
   display: flex;
   flex-direction: column;
   transition: var(--sus-transition);
+  width: calc(33.333% - 20px);
+  min-width: 300px;
+  max-width: 380px;
+  flex-grow: 1;
 }
 
-.sus-card:hover {
+.sus-card:hover,
+.env-card:hover {
   transform: translateY(-3px);
   border-color: var(--sus-slate-light);
   box-shadow: var(--sus-shadow-md);
   background-color: #FFFFFF;
 }
 
-.sus-card__visual {
+.sus-card__visual,
+.env-card__media {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  background-color: var(--sus-dark);
+  height: 210px;
+  background-color: var(--sus-darker);
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.sus-card__img {
+.sus-card__img,
+.env-card__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -332,18 +400,21 @@
   transition: transform 0.4s ease;
 }
 
-.sus-card:hover .sus-card__img {
+.sus-card:hover .sus-card__img,
+.env-card:hover .env-card__img {
   transform: scale(1.03);
 }
 
-.sus-card__body {
-  padding: 24px;
+.sus-card__body,
+.env-card__body {
+  padding: 22px 20px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-.sus-card__tag {
+.sus-card__tag,
+.env-card__tag {
   font-family: 'Geist Mono', monospace;
   font-size: 0.72rem;
   font-weight: 700;
@@ -354,18 +425,34 @@
   display: block;
 }
 
-.sus-card__title {
+.env-card__media .env-card__tag {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  background: rgba(14, 20, 26, 0.8);
+  color: var(--sus-green-light);
+  font-size: 0.68rem;
+  padding: 3px 8px;
+  border-radius: 3px;
+  backdrop-filter: blur(4px);
+  margin-bottom: 0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sus-card__title,
+.env-card__title {
   font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.08rem;
   font-weight: 700;
   color: var(--sus-charcoal);
   margin: 0 0 10px;
   line-height: 1.4;
 }
 
-.sus-card__desc {
-  font-size: 0.94rem;
-  line-height: 1.65;
+.sus-card__desc,
+.env-card__desc {
+  font-size: 0.92rem;
+  line-height: 1.62;
   color: #475569;
   margin: 0;
 }
@@ -373,65 +460,118 @@
 /* ==========================================================================
    SECTION 2B — 9 ENVIRONMENTAL MANAGEMENT SERVICE ROWS (Alternating Layouts)
    ========================================================================== */
-.sus-services-section {
+.sus-services-section,
+.env-management-flow {
   background-color: var(--sus-white);
-  padding: 40px 0 100px;
-  border-bottom: 1px solid var(--sus-border);
+  padding: 56px 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  border-top: 1px solid var(--sus-border);
+}
+
+.env-management-flow__intro {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 12px;
+}
+
+.env-management-flow__heading {
+  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--sus-charcoal);
+  margin: 8px 0 12px;
+}
+
+.env-management-flow__lead {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--sus-text-muted);
+  margin: 0;
 }
 
 .sus-rows-wrap {
   display: flex;
   flex-direction: column;
-  gap: 72px;
+  gap: 60px;
 }
 
-.sus-service-row {
+.sus-service-row,
+.env-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 52px;
+  gap: 48px;
   align-items: center;
+  padding: 24px;
+  background-color: var(--sus-light-bg);
+  border: 1px solid var(--sus-border);
+  border-radius: var(--sus-radius);
+  box-shadow: var(--sus-shadow-sm);
+  transition: var(--sus-transition);
 }
 
-.sus-service-row--reversed {
-  grid-template-columns: 1fr 1fr;
+.env-row:hover {
+  border-color: var(--sus-slate-light);
+  box-shadow: var(--sus-shadow-md);
+  background-color: #FFFFFF;
 }
 
-.sus-service-row--reversed .sus-service-row__visual {
+.sus-service-row--reversed .sus-service-row__visual,
+.env-row--right-img .env-row__media {
   order: 2;
 }
 
-.sus-service-row--reversed .sus-service-row__content {
+.sus-service-row--reversed .sus-service-row__content,
+.env-row--right-img .env-row__content {
   order: 1;
 }
 
-.sus-service-row__visual {
-  position: relative;
+.env-row--left-img .env-row__media {
+  order: 1;
 }
 
-.sus-service-row__frame {
+.env-row--left-img .env-row__content {
+  order: 2;
+}
+
+.sus-service-row__frame,
+.env-row__media {
   position: relative;
   background-color: var(--sus-darker);
   border: 1px solid var(--sus-border);
   border-radius: var(--sus-radius);
   overflow: hidden;
-  box-shadow: var(--sus-shadow-md);
+  box-shadow: var(--sus-shadow-sm);
   aspect-ratio: 16 / 10;
+  min-height: 260px;
+  max-height: 340px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.sus-service-row__img {
+.sus-service-row__img,
+.env-row__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.sus-service-row__content {
+.sus-service-row__content,
+.env-row__content {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
+  padding: 12px 16px;
 }
 
-.sus-service-row__num {
+.sus-service-row__num,
+.env-row__index {
   font-family: 'Geist Mono', monospace;
   font-size: 0.74rem;
   font-weight: 700;
@@ -440,60 +580,38 @@
   text-transform: uppercase;
 }
 
-.sus-service-row__heading {
+.sus-service-row__heading,
+.env-row__title {
   font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
   font-weight: 800;
   color: var(--sus-charcoal);
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.32;
 }
 
-.sus-service-row__desc {
-  font-size: 1rem;
-  line-height: 1.7;
+.sus-service-row__desc,
+.env-row__desc {
+  font-size: 0.96rem;
+  line-height: 1.72;
   color: #475569;
   margin: 0;
 }
 
-.sus-service-row__list {
-  list-style: none;
-  padding: 0;
-  margin: 6px 0 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-.sus-service-row__item {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  font-family: 'Geist Mono', monospace;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: #334155;
-  line-height: 1.4;
-}
-
-.sus-service-row__item::before {
-  content: '•';
-  color: var(--sus-green);
-  font-weight: bold;
-}
-
 /* ==========================================================================
-   SECTION 3 — ESG SOLUTIONS (Dark Charcoal / Slate Feature)
+   SECTION 3 — ESG SOLUTIONS (Dark Charcoal Feature)
    ========================================================================== */
-.sus-esg-section {
+.sus-esg-section,
+.env-esg {
   position: relative;
   background-color: var(--sus-charcoal);
-  padding: 84px 0 100px;
+  padding: 80px 0 90px;
   overflow: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.sus-esg-section::before {
+.sus-esg-section::before,
+.env-esg::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -505,18 +623,20 @@
   opacity: 0.8;
 }
 
-.sus-esg-grid {
+.sus-esg-grid,
+.env-esg__grid {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 52px;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 48px;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1160px;
   margin: 0 auto;
 }
 
-.sus-esg-visual-frame {
+.sus-esg-visual-frame,
+.env-esg__media {
   position: relative;
   background-color: var(--sus-darker);
   border: 1px solid var(--sus-border-dark);
@@ -524,60 +644,74 @@
   overflow: hidden;
   box-shadow: var(--sus-shadow-lg);
   aspect-ratio: 16 / 11;
+  min-height: 320px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.sus-esg-visual-img {
+.sus-esg-visual-img,
+.env-esg__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.sus-esg-card {
+.sus-esg-card,
+.env-esg__panel {
   background-color: #FFFFFF;
   border-radius: var(--sus-radius);
-  padding: clamp(34px, 4vw, 48px);
+  padding: clamp(30px, 4vw, 44px);
   box-shadow: var(--sus-shadow-lg);
   border-left: 4px solid var(--sus-green);
 }
 
-.sus-esg-card__tag {
-  display: inline-block;
-  font-family: 'Geist Mono', monospace;
-  font-size: 0.74rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: var(--sus-green);
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-.sus-esg-card__heading {
+.env-esg__panel-title {
   font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
   font-weight: 800;
   color: var(--sus-charcoal);
   margin: 0 0 16px;
-  line-height: 1.3;
+  line-height: 1.32;
 }
 
-.sus-esg-card__text {
-  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 1.04rem;
-  line-height: 1.75;
+.env-esg__panel-desc {
+  font-size: 0.98rem;
+  line-height: 1.72;
   color: #334155;
-  margin: 0;
+  margin: 0 0 14px;
+}
+
+.env-esg__panel-desc:last-of-type {
+  margin-bottom: 22px;
+}
+
+.env-esg__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.env-esg__pill {
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--sus-green-tint);
+  color: var(--sus-green);
+  border: 1px solid rgba(73, 126, 94, 0.25);
+  padding: 6px 14px;
+  border-radius: 20px;
 }
 
 /* ==========================================================================
    SECTION 4 — HOLISTIC SUSTAINABLE BUSINESS STRATEGY IMBIBING (8 Cards)
    ========================================================================== */
-.sus-strategy-section {
+.sus-strategy-section,
+.env-strategy {
   background-color: var(--sus-white);
-  padding: 90px 0 100px;
   border-bottom: 1px solid var(--sus-border);
 }
 
@@ -596,19 +730,35 @@
   margin: 0 auto;
 }
 
-.sus-strategy-card {
+.env-strategy__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.sus-strategy-card,
+.env-strategy__card {
   background-color: var(--sus-light-bg);
   border: 1px solid var(--sus-border);
   border-top: 3px solid var(--sus-green);
   border-radius: var(--sus-radius);
-  padding: 26px 24px;
+  padding: 24px 22px;
   transition: var(--sus-transition);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+  width: calc(33.333% - 18px);
+  min-width: 280px;
+  max-width: 360px;
+  flex-grow: 1;
+  box-shadow: var(--sus-shadow-sm);
 }
 
-.sus-strategy-card:hover {
+.sus-strategy-card:hover,
+.env-strategy__card:hover {
   transform: translateY(-3px);
   border-color: var(--sus-slate-light);
   border-top-color: var(--sus-green-light);
@@ -616,38 +766,30 @@
   background-color: #FFFFFF;
 }
 
-.sus-strategy-card__header {
+.env-strategy__icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  background-color: var(--sus-green-tint);
+  color: var(--sus-green);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  margin-bottom: 2px;
 }
 
-.sus-strategy-card__num {
-  font-family: 'Geist Mono', monospace;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--sus-green);
-}
-
-.sus-strategy-card__marker {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: var(--sus-green);
-  opacity: 0.75;
-}
-
-.sus-strategy-card__title {
+.sus-strategy-card__title,
+.env-strategy__card-title {
   font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 1.12rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--sus-charcoal);
   margin: 0;
   line-height: 1.4;
 }
 
-.sus-strategy-card__desc {
+.sus-strategy-card__desc,
+.env-strategy__card-desc {
   font-size: 0.92rem;
   line-height: 1.65;
   color: #475569;
@@ -657,72 +799,74 @@
 /* ==========================================================================
    SECTION 5 — NET ZERO, ZERO WASTE OR ZERO LIQUID DISCHARGE (Feature Panel)
    ========================================================================== */
-.sus-netzero-section {
+.sus-netzero-section,
+.env-netzero {
   background-color: var(--sus-light-bg);
-  padding: 90px 0 80px;
   border-bottom: 1px solid var(--sus-border);
+  padding: 80px 0 84px;
 }
 
-.sus-netzero-panel {
+.sus-netzero-panel,
+.env-netzero__card {
   background-color: #FFFFFF;
   border: 1px solid var(--sus-border);
   border-radius: var(--sus-radius);
-  padding: clamp(36px, 5vw, 56px);
+  padding: clamp(34px, 4.5vw, 54px);
   box-shadow: var(--sus-shadow-md);
-  max-width: 1040px;
+  max-width: 1100px;
   margin: 0 auto;
+  text-align: center;
 }
 
-.sus-netzero-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 40px;
-  align-items: center;
-}
-
-.sus-netzero-lead {
+.sus-netzero-lead,
+.env-netzero__lead {
   font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 1.15rem;
-  font-weight: 600;
-  line-height: 1.65;
-  color: var(--sus-charcoal);
-  margin-bottom: 14px;
-}
-
-.sus-netzero-text {
-  font-size: 0.98rem;
+  font-size: 1.05rem;
   line-height: 1.7;
-  color: #475569;
-  margin: 0;
+  color: var(--sus-text-muted);
+  max-width: 820px;
+  margin: 0 auto 36px;
 }
 
-.sus-netzero-pillars {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+.env-netzero__pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: left;
 }
 
-.sus-netzero-pillar-item {
+.env-netzero__pillar {
   background-color: var(--sus-light-bg);
   border: 1px solid var(--sus-border);
   border-left: 3px solid var(--sus-green);
   border-radius: 4px;
-  padding: 14px 18px;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.sus-netzero-pillar-title {
+.env-netzero__pillar-badge {
   font-family: 'Geist Mono', monospace;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--sus-slate);
+  letter-spacing: 0.1em;
+  color: var(--sus-green);
   text-transform: uppercase;
-  margin: 0 0 4px;
 }
 
-.sus-netzero-pillar-desc {
-  font-size: 0.88rem;
-  line-height: 1.5;
+.env-netzero__pillar-title {
+  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--sus-charcoal);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.env-netzero__pillar-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
   color: #475569;
   margin: 0;
 }
@@ -730,44 +874,57 @@
 /* ==========================================================================
    SECTION 6 — SUSTAINABLE SOLUTIONS CALL TO ACTION (Compact Strip)
    ========================================================================== */
-.sus-cta-section {
+.sus-cta-section,
+.env-cta {
   background: linear-gradient(135deg, #1A2E26 0%, #152420 50%, #0E1A16 100%);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 56px 0;
+  padding: 48px 0;
   position: relative;
   overflow: hidden;
+  color: #FFFFFF;
 }
 
-.sus-cta-inner {
+.sus-cta-inner,
+.env-cta__container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 32px;
-  max-width: 1040px;
+  max-width: 1140px;
   margin: 0 auto;
+  padding: 0 24px;
 }
 
-.sus-cta-heading {
+.env-cta__content {
+  max-width: 680px;
+}
+
+.sus-cta-heading,
+.env-cta__title {
   font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem);
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: #FFFFFF;
-  margin: 0 0 6px;
+  margin: 0 0 8px;
+  line-height: 1.25;
 }
 
-.sus-cta-subtext {
-  font-family: 'Geist Mono', monospace;
-  font-size: 0.85rem;
-  color: var(--sus-green-light);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.env-cta__desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
   margin: 0;
 }
 
-.sus-cta-btn {
+.env-cta__action {
+  flex-shrink: 0;
+}
+
+.sus-cta-btn,
+.env-cta__btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -776,9 +933,9 @@
   font-family: 'Geist Mono', monospace;
   font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 14px 28px;
+  padding: 14px 26px;
   border-radius: 4px;
   text-decoration: none;
   transition: var(--sus-transition);
@@ -786,7 +943,8 @@
   white-space: nowrap;
 }
 
-.sus-cta-btn:hover {
+.sus-cta-btn:hover,
+.env-cta__btn:hover {
   background-color: #3b684c;
   color: #FFFFFF;
   transform: translateY(-2px);
@@ -796,27 +954,30 @@
 /* ==========================================================================
    SECTION 7 — CERTIFICATIONS AND AWARDS (Light Grey Background)
    ========================================================================== */
-.sus-certifications-section {
+.sus-certifications-section,
+.env-certs {
   background-color: var(--sus-light-alt);
-  padding: 80px 0 90px;
+  padding: 76px 0 84px;
   border-bottom: 1px solid var(--sus-border);
 }
 
-.sus-cert-grid {
+.sus-cert-grid,
+.env-certs__grid {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: 24px;
   max-width: 1100px;
   margin: 0 auto;
 }
 
-.sus-cert-card {
+.sus-cert-card,
+.env-certs__item {
   background-color: #FFFFFF;
   border: 1px solid var(--sus-border);
   border-radius: var(--sus-radius);
-  padding: 20px 24px;
+  padding: 20px 22px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -826,94 +987,122 @@
   transition: var(--sus-transition);
 }
 
-.sus-cert-card:hover {
+.sus-cert-card:hover,
+.env-certs__item:hover {
   transform: translateY(-3px);
   border-color: var(--sus-green);
   box-shadow: var(--sus-shadow-md);
 }
 
-.sus-cert-img {
-  width: 90px;
+.env-certs__logo-box {
+  width: 100px;
   height: 90px;
-  object-fit: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 12px;
 }
 
-.sus-cert-title {
-  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 0.88rem;
-  font-weight: 700;
-  color: var(--sus-charcoal);
-  margin: 0 0 4px;
+.sus-cert-img,
+.env-certs__img {
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
 }
 
-.sus-cert-subtitle {
+.env-certs__label {
   font-family: 'Geist Mono', monospace;
-  font-size: 0.7rem;
-  color: var(--sus-text-muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--sus-charcoal);
   text-transform: uppercase;
-  margin: 0;
+  letter-spacing: 0.06em;
 }
 
 /* ==========================================================================
    RESPONSIVE STYLES
    ========================================================================== */
 @media (max-width: 1024px) {
-  .sus-monitoring-grid-top {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .sus-monitoring-grid-bottom {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: none;
-  }
-  .sus-strategy-grid-top {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .sus-monitoring-grid-top,
+  .sus-monitoring-grid-bottom,
+  .sus-strategy-grid-top,
   .sus-strategy-grid-bottom {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .env-card {
+    width: calc(50% - 16px);
     max-width: none;
   }
-  .sus-netzero-grid {
-    grid-template-columns: 1fr;
+
+  .env-strategy__card {
+    width: calc(50% - 16px);
+    max-width: none;
   }
+
   .sus-service-row,
-  .sus-service-row--reversed {
+  .env-row {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 28px;
   }
-  .sus-service-row--reversed .sus-service-row__visual {
+
+  .sus-service-row--reversed .sus-service-row__visual,
+  .env-row--right-img .env-row__media {
     order: 1;
   }
-  .sus-service-row--reversed .sus-service-row__content {
+
+  .sus-service-row--reversed .sus-service-row__content,
+  .env-row--right-img .env-row__content {
     order: 2;
   }
-  .sus-esg-grid {
+
+  .sus-esg-grid,
+  .env-esg__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .env-netzero__pillars {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 768px) {
-  .sus-monitoring-grid-top,
-  .sus-monitoring-grid-bottom {
-    grid-template-columns: 1fr;
+  .env-section {
+    padding: 60px 0;
   }
-  .sus-strategy-grid-top,
-  .sus-strategy-grid-bottom {
-    grid-template-columns: 1fr;
+
+  .env-card,
+  .env-strategy__card {
+    width: 100%;
+    min-width: 0;
   }
-  .sus-cta-inner {
+
+  .env-row {
+    padding: 16px;
+  }
+
+  .env-row__media {
+    min-height: 200px;
+    max-height: 240px;
+  }
+
+  .sus-cta-inner,
+  .env-cta__container {
     flex-direction: column;
     text-align: center;
+    gap: 24px;
   }
-  .sus-cert-card {
+
+  .sus-cert-card,
+  .env-certs__item {
     width: 140px;
     padding: 16px 12px;
   }
-  .sus-cert-img {
-    width: 75px;
-    height: 75px;
-  }
-  .sus-service-row__list {
-    grid-template-columns: 1fr;
+
+  .sus-cert-img,
+  .env-certs__img {
+    width: 70px;
+    height: 70px;
   }
 }
