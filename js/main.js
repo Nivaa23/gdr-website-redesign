@@ -5,7 +5,6 @@
 
 import { mountConcaveCarousel, JOURNEY_MILESTONES } from '../components/concave-carousel.js';
 import { mountDepthCarousel } from '../components/depth-carousel.js';
-import { mountTargetCursor } from '../components/target-cursor.js';
 import { initAnimatedContent } from '../components/animated-content.js';
 import { initNavigation14 } from '../components/navigation-14.js';
 import { mountCircularGallery, CLIENT_LOGOS } from '../components/circular-gallery.js';
@@ -16,7 +15,6 @@ import heroArchitectureComplex from '../assets/images/hero-architecture-complex.
 import heroLabTesting from '../assets/images/hero-lab-testing.jpg';
 
 document.addEventListener('DOMContentLoaded', () => {
-  initTargetCursor();
   initNavigation14();
   initMobileNavigation();
   initCinematicScroll();
@@ -52,33 +50,6 @@ function initBridgeScrollStack() {
       baseScale: 0.9,
       dimAmount: 0.16
     });
-  });
-}
-
-/* --------------------------------------------------------------------------
-   0. React Bits TargetCursor Integration
-   Restrained, precise engineering reticle with background-aware colors & 1.2s spin
-   Snaps and expands corner accents outward around cards on hover
-   -------------------------------------------------------------------------- */
-function initTargetCursor() {
-  mountTargetCursor({
-    targetSelector: '.cursor-target, .expertise-card, .philosophy-card, .value-card, .branch-card, .network-service-card, .headquarter-map-card',
-    cursorColor: '#497E5E',
-    lightCursorColor: '#497E5E',
-    darkCursorColor: '#FFFFFF',
-    spinDuration: 1.2,
-    hoverDuration: 0.16,
-    parallaxOn: false,
-    hideDefaultCursor: true,
-    size: 24,
-    cornerSize: 8,
-    thickness: 2,
-    padding: 4,
-    matchRadius: true,
-    dotSize: 3,
-    blendMode: 'normal',
-    showLabel: false,
-    clickEffect: true
   });
 }
 
