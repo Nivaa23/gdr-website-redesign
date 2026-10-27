@@ -1,0 +1,201 @@
+/* ==========================================================================
+   Geo Designs & Research — Cinematic Scrolling Stylesheet
+   Inspired by Hubtown Limited & Shader Development Studio reference aesthetics
+   Two Modes: Mode A (Cinematic Storytelling on Homepage) & Mode B (Subtle on Subpages)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Document Smooth Scroll Base
+   -------------------------------------------------------------------------- */
+html.has-smooth-scroll {
+  scroll-behavior: auto !important;
+}
+
+html.has-smooth-scroll body {
+  overscroll-behavior-y: none;
+}
+
+/* --------------------------------------------------------------------------
+   2. Mode A: Homepage Cinematic Chapter Styles
+   -------------------------------------------------------------------------- */
+.is-homepage main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section Chapter Wrapper */
+.is-homepage section {
+  position: relative;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+/* Soft Chapter Atmospheric Transitions */
+.is-homepage .metrics-band {
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+}
+
+.is-homepage .about-section {
+  position: relative;
+  background-color: var(--color-white);
+  overflow: hidden;
+}
+
+.is-homepage .about-director-image {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.is-homepage .expertise-main-section {
+  position: relative;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+}
+
+.is-homepage .expertise-card {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+  will-change: transform;
+}
+
+.is-homepage .expertise-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 16px 36px rgba(53, 85, 107, 0.12);
+}
+
+.is-homepage .journey-section {
+  position: relative;
+  background-color: var(--color-white);
+}
+
+.is-homepage .networks-section {
+  position: relative;
+  background-color: #F8FAFC;
+  overflow: hidden;
+}
+
+.is-homepage .network-map-frame {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* Atmospheric Glow on Pillars (Hubtown-inspired green accent) */
+.is-homepage .overline-pillar,
+.is-homepage .about-section__overline .overline-pillar,
+.is-homepage .expertise-pillar,
+.is-homepage .journey-pillar,
+.is-homepage .networks-pillar,
+.is-homepage .branches-pillar {
+  box-shadow: 0 0 12px rgba(73, 126, 94, 0.65), 0 0 4px rgba(163, 232, 191, 0.8);
+  animation: cinematicPillarPulse 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes cinematicPillarPulse {
+  0% {
+    box-shadow: 0 0 6px rgba(73, 126, 94, 0.4), 0 0 2px rgba(163, 232, 191, 0.6);
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 14px rgba(73, 126, 94, 0.85), 0 0 6px rgba(163, 232, 191, 1);
+    transform: scale(1.15);
+  }
+}
+
+/* Cinematic Section Headings Reveal Effect */
+.is-homepage .hero-slide__title,
+.is-homepage .about-section__heading,
+.is-homepage .expertise-main-heading,
+.is-homepage .journey-heading,
+.is-homepage .networks-heading,
+.is-homepage .headquarter-heading,
+.is-homepage .branches-heading {
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Parallax Depth Transform Classes */
+.parallax-subtle {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* Subtle Network Pins Shimmer when in view */
+.is-homepage .network-pin {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  transform-origin: center;
+}
+
+.is-homepage .networks-section.is-in-view .network-pin {
+  animation: pinShimmer 4s ease-in-out infinite alternate;
+}
+
+@keyframes pinShimmer {
+  0% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+}
+
+/* Headquarter Map Card Elevation */
+.is-homepage .headquarter-map-card {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.is-homepage .headquarter-map-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12);
+}
+
+/* Branch Cards Layered Entrance */
+.is-homepage .branch-card {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.is-homepage .branch-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(33, 37, 41, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   3. Mode B: Non-homepage Subtle Scrolling
+   -------------------------------------------------------------------------- */
+body:not(.is-homepage) {
+  /* Retain 100% natural document flow */
+  scroll-behavior: smooth;
+}
+
+/* --------------------------------------------------------------------------
+   4. Reduced Motion (WCAG Accessibility Compliance)
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html, body, * {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+  
+  .is-homepage section,
+  .is-homepage .about-director-image,
+  .is-homepage .expertise-card,
+  .is-homepage .network-map-frame,
+  .is-homepage .branch-card {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

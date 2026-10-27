@@ -10,6 +10,7 @@ import { initAnimatedContent } from '../components/animated-content.js';
 import { initNavigation14 } from '../components/navigation-14.js';
 import { mountCircularGallery, CLIENT_LOGOS } from '../components/circular-gallery.js';
 import { mountScrollStack } from '../components/scroll-stack.js';
+import { initCinematicScroll } from '../components/cinematic-scroll.js';
 import heroInfrastructureBridge from '../assets/images/hero-infrastructure-bridge.jpg';
 import heroArchitectureComplex from '../assets/images/hero-architecture-complex.jpg';
 import heroLabTesting from '../assets/images/hero-lab-testing.jpg';
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTargetCursor();
   initNavigation14();
   initMobileNavigation();
+  initCinematicScroll();
   initHeroCarousel();
   initBridgeScrollStack();
   initJourneyTimeline();
