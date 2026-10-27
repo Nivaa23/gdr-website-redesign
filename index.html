@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Geo Designs & Research</title>
-  <meta name="description" content="Geo Designs & Research is an established multidisciplinary engineering consultancy delivering infrastructure, architectural design, BIM, lab testing, and project management services for government, institutional, and corporate clients.">
+  <title>Geo Designs &amp; Research — WebGL Scrollytelling</title>
+  <meta name="description" content="Geo Designs &amp; Research is an established multidisciplinary engineering consultancy delivering infrastructure, architectural design, BIM, lab testing, and project management services for government, institutional, and corporate clients.">
   
   <!-- Favicon derived from official company logo -->
   <link rel="icon" type="image/png" href="/assets/favicon.png">
@@ -19,8 +19,12 @@
   <link rel="stylesheet" href="/components/Navigation14.css">
   <link rel="stylesheet" href="/components/AnimatedContent.css">
   <link rel="stylesheet" href="/components/CinematicScroll.css">
+  <link rel="stylesheet" href="/components/WebglScrollytelling.css">
 </head>
-<body>
+<body class="is-homepage">
+  <!-- Persistent WebGL 3D Canvas -->
+  <canvas id="gdr-webgl-canvas" class="gdr-webgl-canvas" aria-hidden="true"></canvas>
+
   <!-- Skip link for keyboard accessibility -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -42,10 +46,10 @@
   <header class="site-header nav14-header" id="site-header">
     <div class="container site-header__inner nav14-container">
       <!-- Official Company Logo on Left -->
-      <a href="#" class="brand-link nav14-brand cursor-target" id="brand-link" aria-label="Geo Designs & Research - Return to Homepage">
+      <a href="#" class="brand-link nav14-brand cursor-target" id="brand-link" aria-label="Geo Designs &amp; Research - Return to Homepage">
         <img 
           src="/assets/images/gdr-logo.png" 
-          alt="Geo Designs & Research Official Logo" 
+          alt="Geo Designs &amp; Research Official Logo" 
           class="brand-logo nav14-logo" 
           id="brand-logo"
           width="78"
@@ -279,15 +283,13 @@
                   </div>
                 </div>
 
-
-
                 <!-- Navigation 14 Panel Footer -->
                 <div class="nav14-panel-footer">
                   <div class="nav14-footer-compliance">
                     <span class="nav14-compliance-badge">STANDARDS COMPLIANCE</span>
                     <span class="nav14-compliance-text">IS, IRC, MoRTH, NBC, and International ASTM/AASHTO Engineering Norms.</span>
                   </div>
-                  <a href="#contact-us" class="nav14-inquire-link cursor-target">
+                  <a href="#site-footer" class="nav14-inquire-link cursor-target">
                     <span>Inquire About Engineering Services</span>
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                       <path d="M2.5 6h7M6 2.5l3.5 3.5-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -300,35 +302,35 @@
 
           <!-- 3. Credentials -->
           <li class="nav-item nav14-item" role="none">
-            <a href="#credentials" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-credentials" data-phase-pending="Credentials documentation is scheduled for Phase 02.">
+            <a href="#site-footer" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-credentials">
               Credentials
             </a>
           </li>
 
           <!-- 4. Downloads -->
           <li class="nav-item nav14-item" role="none">
-            <a href="#downloads" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-downloads" data-phase-pending="Corporate downloads portal is scheduled for Phase 02.">
+            <a href="#site-footer" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-downloads">
               Downloads
             </a>
           </li>
 
           <!-- 5. Career -->
           <li class="nav-item nav14-item" role="none">
-            <a href="#career" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-career" data-phase-pending="Career opportunities section is scheduled for Phase 02.">
+            <a href="#site-footer" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-career">
               Career
             </a>
           </li>
 
           <!-- 6. Projects -->
           <li class="nav-item nav14-item" role="none">
-            <a href="#projects" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-projects" data-phase-pending="Project showcase directory is scheduled for Phase 02.">
+            <a href="/pmc.html" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-projects">
               Projects
             </a>
           </li>
 
           <!-- 7. Talk to Us -->
           <li class="nav-item nav14-item nav14-item--cta" role="none">
-            <a href="#contact-us" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-contact" data-phase-pending="Contact inquiry module is scheduled for Phase 02.">
+            <a href="#site-footer" class="nav-link nav14-link cursor-target" role="menuitem" id="nav-contact">
               Talk to Us
             </a>
           </li>
@@ -476,7 +478,6 @@
               <details class="mobile-category">
                 <summary class="mobile-category__summary">9. Structural Engineering</summary>
                 <ul class="mobile-subservice-list">
-                  <li>High-Rise Commercial &amp; Residential Buildings</li>
                   <li>Institutional &amp; Educational Buildings</li>
                   <li>Hospital &amp; Auditorium Complexes</li>
                   <li>Heavy Industrial Structures &amp; Hangars</li>
@@ -512,990 +513,241 @@
           </li>
 
           <li class="mobile-nav-item">
-            <a href="#credentials" class="mobile-nav-link" data-phase-pending="Credentials documentation is scheduled for Phase 02.">3. Credentials</a>
+            <a href="#site-footer" class="mobile-nav-link">3. Credentials</a>
           </li>
           <li class="mobile-nav-item">
-            <a href="#downloads" class="mobile-nav-link" data-phase-pending="Corporate downloads portal is scheduled for Phase 02.">4. Downloads</a>
+            <a href="#site-footer" class="mobile-nav-link">4. Downloads</a>
           </li>
           <li class="mobile-nav-item">
-            <a href="#career" class="mobile-nav-link" data-phase-pending="Career opportunities section is scheduled for Phase 02.">5. Career</a>
+            <a href="#site-footer" class="mobile-nav-link">5. Career</a>
           </li>
           <li class="mobile-nav-item">
-            <a href="#projects" class="mobile-nav-link" data-phase-pending="Project showcase directory is scheduled for Phase 02.">6. Projects</a>
+            <a href="/pmc.html" class="mobile-nav-link">6. Projects</a>
           </li>
           <li class="mobile-nav-item">
-            <a href="#contact-us" class="mobile-nav-link" data-phase-pending="Contact inquiry module is scheduled for Phase 02.">7. Talk to Us</a>
+            <a href="#site-footer" class="mobile-nav-link">7. Talk to Us</a>
           </li>
         </ul>
       </div>
     </div>
   </header>
 
-  <!-- Main Content Anchor -->
+  <!-- ======================================================================
+       MAIN CONTENT: WEBGL 3D SCROLLYTELLING ARCHITECTURE
+       Hubtown-inspired camera rail flight through dynamic infrastructure topography
+       ====================================================================== -->
   <main id="main-content">
-    <!-- HOMEPAGE HERO SECTION -->
-    <section 
-      class="hero-section" 
-      id="hero-section" 
-      aria-label="Core Engineering Disciplines Showcase"
-    >
-      <div class="container hero-container">
-        <div class="hero-split-grid">
-          
-          <!-- Left column — 50% width: Slide-specific active content -->
-          <div class="hero-content-col">
-            
-            <!-- Slide 1 Content -->
-            <article 
-              class="hero-slide-content is-active" 
-              id="hero-slide-1" 
-              role="group" 
-              aria-roledescription="slide" 
-              aria-label="1 of 3: Multidisciplinary Engineering Consultancy &amp; Infrastructure Solutions"
-              data-slide-index="0"
-            >
-              <div class="hero-slide__overline">
-                <span class="overline-pillar"></span>
-                <span>PMC &amp; Infrastructure Engineering</span>
-              </div>
-              <h1 class="hero-slide__title">
-                Multidisciplinary Engineering Consultancy &amp; Infrastructure Solutions
-              </h1>
-              <p class="hero-slide__desc">
-                Partnering with central, state, and institutional authorities to engineer resilient highways, major bridges, and foundational national infrastructure.
-              </p>
-              <div class="hero-slide__action-group">
-                <!-- Verified CTA label reference: MORE ABOUT (Destination reported as Phase 02 dependency) -->
-                <a 
-                  href="#about-us" 
-                  class="btn btn--primary cursor-target" 
-                  id="hero-cta-1"
-                  data-phase-pending="MORE ABOUT action destination is an unresolved dependency pending approved Phase 02 route specification."
-                >
-                  <span>MORE ABOUT</span>
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3.33334 8H12.6667M12.6667 8L8.66668 4M12.6667 8L8.66668 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </a>
-                <button type="button" class="btn btn--outline cursor-target" id="hero-secondary-1" data-target-tab="pmc">
-                  Explore Project Capabilities
-                </button>
-              </div>
-            </article>
+    <!-- Parent Virtual Scroll Track (600vh height drives scrub progress) -->
+    <div class="gdr-scrolly-track" id="gdr-scrolly-track" aria-hidden="true"></div>
 
-            <!-- Slide 2 Content -->
-            <article 
-              class="hero-slide-content" 
-              id="hero-slide-2" 
-              role="group" 
-              aria-roledescription="slide" 
-              aria-label="2 of 3: Comprehensive Architectural Design, Structural Engineering &amp; BIM Solutions"
-              data-slide-index="1"
-              aria-hidden="true"
-            >
-              <div class="hero-slide__overline">
-                <span class="overline-pillar"></span>
-                <span>Architecture, Structure &amp; BIM Services</span>
-              </div>
-              <h2 class="hero-slide__title">
-                Comprehensive Architectural Design, Structural Engineering &amp; BIM Solutions
-              </h2>
-              <p class="hero-slide__desc">
-                Delivering complete lifecycle intelligence from urban planning and seismic structural design to full 6D BIM facility management.
-              </p>
-              <div class="hero-slide__action-group">
-                <a 
-                  href="#about-us" 
-                  class="btn btn--primary cursor-target" 
-                  id="hero-cta-2"
-                  data-phase-pending="MORE ABOUT action destination is an unresolved dependency pending approved Phase 02 route specification."
-                >
-                  <span>MORE ABOUT</span>
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3.33334 8H12.6667M12.6667 8L8.66668 4M12.6667 8L8.66668 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </a>
-                <button type="button" class="btn btn--outline cursor-target" id="hero-secondary-2" data-target-tab="architecture">
-                  View Architectural Portfolio
-                </button>
-              </div>
-            </article>
-
-            <!-- Slide 3 Content -->
-            <article 
-              class="hero-slide-content" 
-              id="hero-slide-3" 
-              role="group" 
-              aria-roledescription="slide" 
-              aria-label="3 of 3: Advanced Material Testing, Geotechnical Investigation &amp; Survey Services"
-              data-slide-index="2"
-              aria-hidden="true"
-            >
-              <div class="hero-slide__overline">
-                <span class="overline-pillar"></span>
-                <span>Testing Laboratories &amp; Field Investigation</span>
-              </div>
-              <h2 class="hero-slide__title">
-                Advanced Material Testing, Geotechnical Investigation &amp; Survey Services
-              </h2>
-              <p class="hero-slide__desc">
-                NABL-aligned precision testing laboratories, non-destructive testing (NDT), and high-accuracy LiDAR geodetic surveys safeguarding quality.
-              </p>
-              <div class="hero-slide__action-group">
-                <a 
-                  href="#about-us" 
-                  class="btn btn--primary cursor-target" 
-                  id="hero-cta-3"
-                  data-phase-pending="MORE ABOUT action destination is an unresolved dependency pending approved Phase 02 route specification."
-                >
-                  <span>MORE ABOUT</span>
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3.33334 8H12.6667M12.6667 8L8.66668 4M12.6667 8L8.66668 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </a>
-                <button type="button" class="btn btn--outline cursor-target" id="hero-secondary-3" data-target-tab="lab">
-                  Explore Testing Capabilities
-                </button>
-              </div>
-            </article>
-
-          </div>
-
-          <!-- Right column — 50% width: DepthCarousel -->
-          <div class="hero-carousel-col">
-            <div id="hero-depth-carousel" class="depth-carousel-wrapper"></div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         PHASE 02: BUSINESS METRICS
-         Order: Hero Section -> Business Metrics Band
-         ====================================================================== -->
-    <section class="metrics-band animated-content" id="business-metrics" aria-label="Key Business Metrics">
-      <div class="container">
-        <div class="metrics-band__grid">
-          <div class="metric-item animated-content-item">
-            <span class="metric-item__value">₹105+</span>
-            <span class="metric-item__label">Crores Turnover</span>
-          </div>
-          <div class="metric-item animated-content-item">
-            <span class="metric-item__value">33+</span>
-            <span class="metric-item__label">Years of Experience</span>
-          </div>
-          <div class="metric-item animated-content-item">
-            <span class="metric-item__value">1150+</span>
-            <span class="metric-item__label">Employees Strength</span>
-          </div>
-          <div class="metric-item animated-content-item">
-            <span class="metric-item__value">12+</span>
-            <span class="metric-item__label">Business Verticals</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         PHASE 03: ABOUT COMPANY SECTION
-         ====================================================================== -->
-    <section class="about-section animated-content" id="about-us" aria-labelledby="about-section-heading">
-      <div class="container">
-        <!-- Eyebrow / Overline at the top of the section (Authoritative Wireframe Reference) -->
-        <div class="about-section__header animated-content-item">
-          <div class="about-section__overline">
-            <span class="overline-pillar" aria-hidden="true"></span>
-            <span class="about-section__eyebrow">ABOUT COMPANY</span>
-          </div>
-        </div>
-
-        <div class="about-section__grid">
-          
-          <!-- Left Column: Managing Director Photograph -->
-          <div class="about-section__media-col animated-content-item">
-            <div class="about-image-container cursor-target" id="about-image-container">
-              <img 
-                src="/assets/images/managing-director.png" 
-                alt="Managing Director Mr. Pradip Chauhan reviewing civil engineering project drawings with senior engineers" 
-                class="about-director-image" 
-                id="about-director-image"
-                loading="eager"
-              >
-            </div>
-          </div>
-
-          <!-- Right Column: Company Information (Heading -> 2 Paragraphs -> Read More CTA) -->
-          <div class="about-section__content-col animated-content-item">
-            <h2 class="about-section__heading" id="about-section-heading">
-              Committed to superior quality and results.
-            </h2>
-            
-            <div class="about-section__body">
-              <p class="about-section__text">
-                Geo Design &amp; Research (P) Ltd. founded in 2007 took over the business of Geo Test House in 2014 which was founded by Mr. Pradip Chauhan (ME Civil - Gold Medalist) in 1991 who is marvellous in the field of civil engineering.
-              </p>
-              <p class="about-section__text">
-                Under the leadership and vision of Mr. Pradip Chauhan, we have delivered top notch civil engineering services in the market, under one roof.
-              </p>
-            </div>
-
-            <div class="about-section__action">
-              <a 
-                href="#about-us" 
-                class="btn about-section__btn cursor-target" 
-                id="about-read-more-btn"
-                data-phase-pending="Dedicated About Us page requires separate implementation."
-              >Read More</a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         PHASE 04: OUR EXPERTISE SECTION
-         Order: Infrastructure -> Building -> Testing
-         ====================================================================== -->
-    <section class="expertise-main-section" id="our-expertise" aria-labelledby="expertise-main-heading">
-      <div class="container">
+    <!-- Fixed HUD & Scrollytelling Overlay Layer -->
+    <div class="gdr-scrolly-overlay" id="gdr-scrolly-overlay">
+      
+      <!-- Vertical Journey Tracker (Left Rail) -->
+      <nav class="gdr-journey-tracker" aria-label="Waypoint Journey Rail">
+        <div class="gdr-tracker-progress-line" aria-hidden="true"></div>
         
-        <!-- Section Header -->
-        <div class="expertise-main-header animated-content">
-          <div class="expertise-heading-wrap">
-            <span class="expertise-pillar" aria-hidden="true"></span>
-            <h2 class="expertise-main-heading" id="expertise-main-heading">OUR EXPERTISE</h2>
-          </div>
-        </div>
+        <button type="button" class="gdr-tracker-item is-active" data-wp="0" aria-label="Jump to Waypoint 01: Overview">
+          <span class="gdr-tracker-node">01</span>
+          <span class="gdr-tracker-label">Overview</span>
+        </button>
 
-        <!-- Category 1: Infrastructure -->
-        <div class="expertise-category-block animated-content" id="category-infrastructure">
-          <aside class="expertise-category-rail animated-content-item" aria-label="Category: Infrastructure">
-            <span class="expertise-category-label">Infrastructure</span>
-          </aside>
-          <div class="expertise-cards-grid" role="list">
-            
-            <!-- Card 1: Bridge Engineering -->
-            <a href="/bridge.html" class="expertise-card cursor-target animated-content-item" role="listitem" id="card-bridge-engineering">
-              <div class="expertise-card__media">
-                <img 
-                  src="/assets/images/hero-infrastructure-bridge.jpg" 
-                  alt="Bridge Engineering infrastructure services" 
-                  class="expertise-card__img"
-                  width="400"
-                  height="190"
-                  loading="lazy"
-                >
-              </div>
-              <div class="expertise-card__body">
-                <h3 class="expertise-card__title">Bridge Engineering</h3>
-              </div>
-            </a>
+        <button type="button" class="gdr-tracker-item" data-wp="1" aria-label="Jump to Waypoint 02: Infrastructure &amp; Civil">
+          <span class="gdr-tracker-node">02</span>
+          <span class="gdr-tracker-label">Infrastructure</span>
+        </button>
 
-            <!-- Card 2: Hydro & Highway DPR -->
-            <a href="/hydro.html" class="expertise-card cursor-target animated-content-item" role="listitem" id="card-hydro-highway-dpr">
-              <div class="expertise-card__media">
-                <img 
-                  src="/assets/images/expertise-hydro-highway.svg" 
-                  alt="Hydro &amp; Highway DPR engineering services" 
-                  class="expertise-card__img"
-                  width="400"
-                  height="190"
-                  loading="lazy"
-                >
-              </div>
-              <div class="expertise-card__body">
-                <h3 class="expertise-card__title">Hydro &amp; Highway DPR</h3>
-              </div>
-            </a>
+        <button type="button" class="gdr-tracker-item" data-wp="2" aria-label="Jump to Waypoint 03: Design &amp; Technology">
+          <span class="gdr-tracker-node">03</span>
+          <span class="gdr-tracker-label">Design &amp; BIM</span>
+        </button>
 
-            <!-- Card 3: Project Management Consultancy -->
-            <a href="/pmc.html" class="expertise-card cursor-target animated-content-item" role="listitem" id="card-pmc">
-              <div class="expertise-card__media">
-                <img 
-                  src="/assets/images/expertise-pmc.svg" 
-                  alt="Project Management Consultancy engineering services" 
-                  class="expertise-card__img"
-                  width="400"
-                  height="190"
-                  loading="lazy"
-                >
-              </div>
-              <div class="expertise-card__body">
-                <h3 class="expertise-card__title">Project Management Consultancy</h3>
-              </div>
-            </a>
+        <button type="button" class="gdr-tracker-item" data-wp="3" aria-label="Jump to Waypoint 04: Testing &amp; Commerce">
+          <span class="gdr-tracker-node">04</span>
+          <span class="gdr-tracker-label">Testing &amp; Labs</span>
+        </button>
 
-          </div>
-        </div>
+        <button type="button" class="gdr-tracker-item" data-wp="4" aria-label="Jump to Waypoint 05: Engineering Future / Partnership">
+          <span class="gdr-tracker-node">05</span>
+          <span class="gdr-tracker-label">Partnership</span>
+        </button>
+      </nav>
 
-        <!-- Category 2: Building -->
-        <div class="expertise-category-block animated-content" id="category-building">
-          <aside class="expertise-category-rail animated-content-item" aria-label="Category: Building">
-            <span class="expertise-category-label">Building</span>
-          </aside>
-          <div class="expertise-cards-grid" role="list">
-            
-            <!-- Card 1: Architecture -->
-            <a href="/architecture.html" class="expertise-card cursor-target animated-content-item" role="listitem" id="card-architecture">
-              <div class="expertise-card__media">
-                <img 
-                  src="/assets/images/hero-architecture-complex.jpg" 
-                  alt="Architecture services" 
-                  class="expertise-card__img"
-                  width="400"
-                  height="190"
-                  loading="lazy"
-                >
-              </div>
-              <div class="expertise-card__body">
-                <h3 class="expertise-card__title">Architecture</h3>
-              </div>
-            </a>
-
-            <!-- Card 2: Structure -->
-            <a href="/structure.html" class="expertise-card cursor-target animated-content-item" role="listitem" id="card-structure">
-              <div class="expertise-card__media">
-                <img 
-                  src="/assets/images/expertise-structure.svg" 
-                  alt="Structural Engineering services" 
-                  class="expertise-card__img"
-                  width="400"
-                  height="190"
-                  loading="lazy"
-                >
-              </div>
-              <div class="expertise-card__body">
-                <h3 class="expertise-card__title">Structural Engineering</h3>
-              </div>
-            </a>
-
-            <!-- Card 3: MEPF -->
-            <a href="/mepf.html" class="expertise-card cursor-target animated-content-item" role="listitem" id="card-mepf">
-              <div class="expertise-card__media">
-                <img 
-                  src="/assets/images/expertise-mepf.svg" 
-                  alt="MEPF Engineering services" 
-                  class="expertise-card__img"
-                  width="400"
-                  height="190"
-                  loading="lazy"
-                >
-              </div>
-              <div class="expertise-card__body">
-                <h3 class="expertise-card__title">MEPF</h3>
-              </div>
-            </a>
-
-            <!-- Card 4: BIM -->
-            <a href="/bim.html" class="expertise-card cursor-target animated-content-item" role="listitem" id="card-bim">
-              <div class="expertise-card__media">
-                <img 
-                  src="/assets/images/expertise-bim.svg" 
-                  alt="Building Information Modelling services" 
-                  class="expertise-card__img"
-                  width="400"
-                  height="190"
-                  loading="lazy"
-                >
-              </div>
-              <div class="expertise-card__body">
-                <h3 class="expertise-card__title">BIM</h3>
-              </div>
-            </a>
-
-            <!-- Card 5: Green Building (Environmentally Sustainable Solutions) -->
-            <a href="/sustainability.html" class="expertise-card cursor-target animated-content-item" role="listitem" id="card-green-building">
-              <div class="expertise-card__media">
-                <img 
-                  src="/assets/images/expertise-green-building.svg" 
-                  alt="Green Building sustainability services" 
-                  class="expertise-card__img"
-                  width="400"
-                  height="190"
-                  loading="lazy"
-                >
-              </div>
-              <div class="expertise-card__body">
-                <h3 class="expertise-card__title">Green Building</h3>
-              </div>
-            </a>
-
-            <!-- Card 6: Commerce & Contract Management -->
-            <a href="/commerce.html" class="expertise-card cursor-target animated-content-item" role="listitem" id="card-commerce-contract">
-              <div class="expertise-card__media">
-                <img 
-                  src="/assets/images/expertise-commerce-contract.svg" 
-                  alt="Commerce &amp; Contract Management services" 
-                  class="expertise-card__img"
-                  width="400"
-                  height="190"
-                  loading="lazy"
-                >
-              </div>
-              <div class="expertise-card__body">
-                <h3 class="expertise-card__title">Commerce &amp; Contract Management</h3>
-              </div>
-            </a>
-
-          </div>
-        </div>
-
-        <!-- Category 3: Testing -->
-        <div class="expertise-category-block animated-content" id="category-testing">
-          <aside class="expertise-category-rail animated-content-item" aria-label="Category: Testing">
-            <span class="expertise-category-label">Testing</span>
-          </aside>
-          <div class="expertise-cards-grid" role="list">
-            
-            <!-- Card 1: Lab & Testing -->
-            <a href="/lab.html" class="expertise-card cursor-target animated-content-item" role="listitem" id="card-lab-testing">
-              <div class="expertise-card__media">
-                <img 
-                  src="/assets/images/hero-lab-testing.jpg" 
-                  alt="Laboratory and Material Testing engineering services" 
-                  class="expertise-card__img"
-                  width="400"
-                  height="190"
-                  loading="lazy"
-                >
-              </div>
-              <div class="expertise-card__body">
-                <h3 class="expertise-card__title">Laboratory &amp; Material Testing</h3>
-              </div>
-            </a>
-
-            <!-- Card 2: Survey -->
-            <a href="/survey.html" class="expertise-card cursor-target animated-content-item" role="listitem" id="card-survey">
-              <div class="expertise-card__media">
-                <img 
-                  src="/assets/images/expertise-survey.svg" 
-                  alt="Geodetic Survey engineering services" 
-                  class="expertise-card__img"
-                  width="400"
-                  height="190"
-                  loading="lazy"
-                >
-              </div>
-              <div class="expertise-card__body">
-                <h3 class="expertise-card__title">Survey</h3>
-              </div>
-            </a>
-
-            <!-- 3rd Grid Position left empty per requirement 7 -->
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         PHASE 05: OUR JOURNEY SECTION (VERIFIED COMPANY HISTORY)
-         Milestones: 1991 through 2021 (14 Milestones)
-         ====================================================================== -->
-    <section class="journey-section" id="our-journey" aria-labelledby="journey-heading">
-      <div class="container">
+      <!-- Waypoint Narrative Typography Cards (Pinned Center-Bottom) -->
+      <div class="gdr-waypoint-container" aria-live="polite">
         
-        <!-- Section Header -->
-        <div class="journey-header animated-content">
-          <div class="journey-heading-wrap">
-            <span class="journey-pillar" aria-hidden="true"></span>
-            <h2 class="journey-heading" id="journey-heading">OUR JOURNEY</h2>
+        <!-- Waypoint 01: Overview (0% - 15% Scroll Progress) -->
+        <article class="gdr-waypoint-card is-active" id="waypoint-01">
+          <div class="gdr-waypoint-header">
+            <span class="gdr-waypoint-badge">
+              <span class="gdr-waypoint-badge-dot"></span>
+              Geo Designs &amp; Research &bull; Est. 2000
+            </span>
+            <span class="gdr-waypoint-index">WAYPOINT 01 // OVERVIEW</span>
           </div>
-        </div>
-
-        <!-- Concave Carousel Container (Official React Bits Pro Component) -->
-        <div class="journey-concave-wrapper animated-content" id="journey-concave-wrapper">
-          <div class="journey-concave-container" id="journey-concave-container" role="region" aria-label="Chronological Company History 1991 to 2021"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         PHASE 06: OUR NETWORKS SECTION
-         Order: Hero -> Metrics -> Intro Expertise -> About Company -> Our Expertise -> Our Journey -> Our Networks
-         ====================================================================== -->
-    <section class="networks-section" id="our-networks" aria-labelledby="networks-heading">
-      <div class="container">
-        
-        <!-- Section Heading -->
-        <div class="networks-header animated-content">
-          <div class="networks-heading-wrap">
-            <span class="networks-pillar" aria-hidden="true"></span>
-            <h2 class="networks-heading" id="networks-heading">OUR NETWORKS</h2>
+          <h1 class="gdr-waypoint-title">Pioneering National Infrastructure</h1>
+          <p class="gdr-waypoint-desc">
+            Multidisciplinary engineering consultancy delivering precision geomatics, DPR route engineering, and advanced structural solutions for landmark government and institutional infrastructure corridors.
+          </p>
+          <div class="gdr-waypoint-pillars">
+            <span class="gdr-waypoint-pill">ISO 9001:2015 Certified</span>
+            <span class="gdr-waypoint-pill">NABL Accredited Testing</span>
+            <span class="gdr-waypoint-pill">MoRTH &amp; IRC Compliant</span>
+            <span class="gdr-waypoint-pill">25+ Years Proven Delivery</span>
           </div>
-        </div>
-
-        <!-- Two-Column Desktop Layout -->
-        <div class="networks-grid animated-content">
-          
-          <!-- Left Column: India Network Map -->
-          <div class="network-map-col animated-content-item">
-            <div class="network-map-frame" id="network-map-frame">
-              <div class="network-map-container" role="img" aria-label="India network map illustrating Geo Designs &amp; Research distributed network of locations">
-                <svg class="network-map-svg" viewBox="0 0 483 513" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="India network map displaying project locations across the country">
-                  <!-- India Geographic Base Map Asset preserving state boundaries -->
-                  <image href="/assets/images/india-network-base-map.png" x="0" y="0" width="483" height="513" preserveAspectRatio="xMidYMid meet" />
-
-                  <!-- Categorized Project Location Pins -->
-                  <g class="network-pins-layer" id="network-pins-layer">
-                  <circle class="network-pin" data-category="tpqa" cx="128.1" cy="74.5" r="5" fill="#487CB7" />
-                  <circle class="network-pin" data-category="survey" cx="167.1" cy="101" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="design" cx="136.7" cy="104.3" r="5" fill="#497E5E" />
-                  <circle class="network-pin" data-category="geotech" cx="141" cy="107" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="tpqa" cx="184" cy="118" r="5" fill="#487CB7" />
-                  <circle class="network-pin" data-category="geotech" cx="139.9" cy="123.8" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="survey" cx="125.5" cy="130.8" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="survey" cx="144.1" cy="131.3" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="design" cx="161.1" cy="133.1" r="5" fill="#497E5E" />
-                  <circle class="network-pin" data-category="geotech" cx="183.1" cy="133.8" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="survey" cx="185" cy="141.7" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="geotech" cx="172.2" cy="156.2" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="survey" cx="130.8" cy="176.6" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="geotech" cx="105.6" cy="181.2" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="survey" cx="217.4" cy="189" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="design" cx="238" cy="190" r="5" fill="#497E5E" />
-                  <circle class="network-pin" data-category="survey" cx="433" cy="190.8" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="geotech" cx="69" cy="200" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="geotech" cx="339.2" cy="206.7" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="geotech" cx="274.2" cy="207.3" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="design" cx="125.9" cy="208" r="5" fill="#497E5E" />
-                  <circle class="network-pin" data-category="geotech" cx="381" cy="207.7" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="tpqa" cx="389.5" cy="207.8" r="5" fill="#487CB7" />
-                  <circle class="network-pin" data-category="geotech" cx="399.2" cy="209.6" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="survey" cx="373.6" cy="210" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="tpqa" cx="427" cy="210" r="5" fill="#487CB7" />
-                  <circle class="network-pin" data-category="survey" cx="101.2" cy="211.4" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="survey" cx="296.3" cy="212.8" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="survey" cx="183.5" cy="220.9" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="design" cx="288.1" cy="220.9" r="5" fill="#497E5E" />
-                  <circle class="network-pin" data-category="geotech" cx="114.3" cy="231.2" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="design" cx="203.4" cy="233.8" r="5" fill="#497E5E" />
-                  <circle class="network-pin" data-category="design" cx="111.7" cy="239.4" r="5" fill="#497E5E" />
-                  <circle class="network-pin" data-category="geotech" cx="209.8" cy="240.6" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="survey" cx="396.1" cy="249.9" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="geotech" cx="89.5" cy="253.3" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="design" cx="198.5" cy="251.4" r="5" fill="#497E5E" />
-                  <circle class="network-pin" data-category="survey" cx="212.8" cy="251.4" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="geotech" cx="53.2" cy="253.1" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="geotech" cx="275.3" cy="252.8" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="tpqa" cx="401.2" cy="254.2" r="5" fill="#487CB7" />
-                  <circle class="network-pin" data-category="survey" cx="291.2" cy="254.4" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="geotech" cx="146.9" cy="260" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="geotech" cx="167.9" cy="260.9" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="survey" cx="314.2" cy="261.3" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="geotech" cx="326.2" cy="261.3" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="survey" cx="206.9" cy="262" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="survey" cx="94.3" cy="264.7" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="survey" cx="68.1" cy="268" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="survey" cx="80.7" cy="268.8" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="survey" cx="172.5" cy="269.1" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="design" cx="98.6" cy="271.4" r="5" fill="#497E5E" />
-                  <circle class="network-pin" data-category="tpqa" cx="93.1" cy="271.3" r="5" fill="#487CB7" />
-                  <circle class="network-pin" data-category="survey" cx="248.7" cy="275.6" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="survey" cx="103.6" cy="276.4" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="design" cx="116.2" cy="276.4" r="5" fill="#497E5E" />
-                  <circle class="network-pin" data-category="survey" cx="88" cy="285.1" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="geotech" cx="49.9" cy="287.1" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="design" cx="74" cy="288" r="5" fill="#497E5E" />
-                  <circle class="network-pin" data-category="survey" cx="62.3" cy="289.2" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="design" cx="110" cy="293" r="5" fill="#497E5E" />
-                  <circle class="network-pin" data-category="geotech" cx="228.8" cy="295" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="survey" cx="291.9" cy="303.1" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="survey" cx="267.8" cy="311.5" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="tpqa" cx="163.5" cy="311.9" r="5" fill="#487CB7" />
-                  <circle class="network-pin" data-category="geotech" cx="112.9" cy="313.9" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="geotech" cx="255" cy="315" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="survey" cx="136.4" cy="315.8" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="tpqa" cx="145" cy="316.4" r="5" fill="#487CB7" />
-                  <circle class="network-pin" data-category="design" cx="295.3" cy="316.8" r="5" fill="#497E5E" />
-                  <circle class="network-pin" data-category="tpqa" cx="99" cy="322.3" r="5" fill="#487CB7" />
-                  <circle class="network-pin" data-category="tpqa" cx="184.9" cy="319" r="5" fill="#487CB7" />
-                  <circle class="network-pin" data-category="geotech" cx="166.4" cy="327.4" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="survey" cx="127.3" cy="328.2" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="survey" cx="142.7" cy="329.8" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="geotech" cx="103.7" cy="337.4" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="survey" cx="193.8" cy="338.7" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="geotech" cx="178.4" cy="347.6" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="tpqa" cx="116.3" cy="350.7" r="5" fill="#487CB7" />
-                  <circle class="network-pin" data-category="design" cx="255.8" cy="350.5" r="5" fill="#497E5E" />
-                  <circle class="network-pin" data-category="geotech" cx="238" cy="356.2" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="design" cx="233.6" cy="362.4" r="5" fill="#497E5E" />
-                  <circle class="network-pin" data-category="geotech" cx="176.8" cy="365.3" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="design" cx="214.6" cy="377.2" r="5" fill="#497E5E" />
-                  <circle class="network-pin" data-category="geotech" cx="123.8" cy="379.4" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="geotech" cx="177.1" cy="379.9" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="survey" cx="115.7" cy="383.6" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="tpqa" cx="148.8" cy="387.2" r="5" fill="#487CB7" />
-                  <circle class="network-pin" data-category="design" cx="200.3" cy="387.2" r="5" fill="#497E5E" />
-                  <circle class="network-pin" data-category="design" cx="118.7" cy="390.2" r="5" fill="#497E5E" />
-                  <circle class="network-pin" data-category="survey" cx="139.8" cy="409.5" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="geotech" cx="143" cy="419" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="survey" cx="193.2" cy="420.4" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="tpqa" cx="170.5" cy="424.2" r="5" fill="#487CB7" />
-                  <circle class="network-pin" data-category="design" cx="160" cy="431" r="5" fill="#497E5E" />
-                  <circle class="network-pin" data-category="design" cx="204" cy="440" r="5" fill="#497E5E" />
-                  <circle class="network-pin" data-category="geotech" cx="187.3" cy="457.8" r="5" fill="#FFE000" />
-                  <circle class="network-pin" data-category="tpqa" cx="149.6" cy="461.8" r="5" fill="#487CB7" />
-                  <circle class="network-pin" data-category="survey" cx="178.5" cy="471.1" r="5" fill="#FF9900" />
-                  <circle class="network-pin" data-category="design" cx="158.2" cy="481.2" r="5" fill="#497E5E" />
-                  </g>
-                </svg>
-              </div>
-            </div>
+          <div class="gdr-waypoint-actions">
+            <a href="#infrastructure" class="scrolly-btn scrolly-btn--primary" id="btn-explore-divisions">
+              <span>Explore Divisions</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="/about-1.html" class="scrolly-btn scrolly-btn--outline">
+              <span>Corporate Profile</span>
+            </a>
           </div>
+        </article>
 
-          <!-- Right Column: Service Categories -->
-          <div class="network-services-col animated-content-item">
-            <div class="network-services-list animated-content" role="list">
-              
-              <!-- Category 1: TPQA, PMC, IE Jobs -->
-              <div class="network-service-card cursor-target animated-content-item" role="listitem" id="network-category-tpqa" data-category="tpqa" tabindex="0" aria-label="TPQA, PMC, IE Jobs">
-                <span class="network-service-text">TPQA, PMC, IE Jobs</span>
-              </div>
-
-              <!-- Category 2: Design & DPR Jobs -->
-              <div class="network-service-card cursor-target animated-content-item" role="listitem" id="network-category-design" data-category="design" tabindex="0" aria-label="Design &amp; DPR Jobs">
-                <span class="network-service-text">Design &amp; DPR Jobs</span>
-              </div>
-
-              <!-- Category 3: Field Survey -->
-              <div class="network-service-card cursor-target animated-content-item" role="listitem" id="network-category-survey" data-category="survey" tabindex="0" aria-label="Field Survey">
-                <span class="network-service-text">Field Survey</span>
-              </div>
-
-              <!-- Category 4: Geotech Investigation -->
-              <div class="network-service-card cursor-target animated-content-item" role="listitem" id="network-category-geotech" data-category="geotech" tabindex="0" aria-label="Geotech Investigation">
-                <span class="network-service-text">Geotech Investigation</span>
-              </div>
-
-            </div>
+        <!-- Waypoint 02: Infrastructure & Civil (20% - 40% Scroll Progress) -->
+        <article class="gdr-waypoint-card" id="waypoint-02">
+          <div class="gdr-waypoint-header">
+            <span class="gdr-waypoint-badge">
+              <span class="gdr-waypoint-badge-dot"></span>
+              Division 01 &bull; Heavy Civil Engineering
+            </span>
+            <span class="gdr-waypoint-index">WAYPOINT 02 // CIVIL ALIGNMENTS</span>
           </div>
+          <h2 class="gdr-waypoint-title">Infrastructure &amp; Civil Engineering</h2>
+          <p class="gdr-waypoint-desc">
+            Engineering high-capacity transit corridors, expressway alignments, major river bridges, and hydro projects with end-to-end Project Management Consultancy (PMC) complying with IRC &amp; MoRTH standards.
+          </p>
+          <div class="gdr-waypoint-pillars">
+            <span class="gdr-waypoint-pill">Highway DPR &amp; Geometrics</span>
+            <span class="gdr-waypoint-pill">Cable-Stayed &amp; ROB Bridges</span>
+            <span class="gdr-waypoint-pill">Hydro &amp; Canal Modeling</span>
+            <span class="gdr-waypoint-pill">PMC Site Supervision</span>
+          </div>
+          <div class="gdr-waypoint-actions">
+            <a href="/pmc.html" class="scrolly-btn scrolly-btn--primary">
+              <span>Explore Infrastructure Capabilities</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="/bridge.html" class="scrolly-btn scrolly-btn--outline">
+              <span>Bridge Engineering</span>
+            </a>
+          </div>
+        </article>
 
-        </div>
+        <!-- Waypoint 03: Design & Technology (45% - 65% Scroll Progress) -->
+        <article class="gdr-waypoint-card" id="waypoint-03">
+          <div class="gdr-waypoint-header">
+            <span class="gdr-waypoint-badge">
+              <span class="gdr-waypoint-badge-dot"></span>
+              Division 02 &bull; Digital Twin &amp; Architecture
+            </span>
+            <span class="gdr-waypoint-index">WAYPOINT 03 // DIGITAL TWIN</span>
+          </div>
+          <h2 class="gdr-waypoint-title">Design &amp; Technology</h2>
+          <p class="gdr-waypoint-desc">
+            Transforming complex architectural and structural programs through full-lifecycle 3D-to-7D BIM modeling, automated clash detection, parametric structural engineering, and sustainable energy advisory.
+          </p>
+          <div class="gdr-waypoint-pillars">
+            <span class="gdr-waypoint-pill">Architectural Master Planning</span>
+            <span class="gdr-waypoint-pill">3D to 7D BIM Modeling</span>
+            <span class="gdr-waypoint-pill">MEPF Clash Detection</span>
+            <span class="gdr-waypoint-pill">Green Building &amp; EIA</span>
+          </div>
+          <div class="gdr-waypoint-actions">
+            <a href="/bim.html" class="scrolly-btn scrolly-btn--primary">
+              <span>View Design &amp; BIM Workflows</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="/architecture.html" class="scrolly-btn scrolly-btn--outline">
+              <span>Architecture &amp; Master Planning</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Waypoint 04: Testing & Commerce (70% - 85% Scroll Progress) -->
+        <article class="gdr-waypoint-card" id="waypoint-04">
+          <div class="gdr-waypoint-header">
+            <span class="gdr-waypoint-badge">
+              <span class="gdr-waypoint-badge-dot"></span>
+              Division 03 &bull; Quality &amp; Contracts
+            </span>
+            <span class="gdr-waypoint-index">WAYPOINT 04 // MATERIAL INTEGRITY</span>
+          </div>
+          <h2 class="gdr-waypoint-title">Testing &amp; Commerce</h2>
+          <p class="gdr-waypoint-desc">
+            High-precision material verification through NABL-accredited geotechnical and civil laboratories, non-destructive testing (NDT), structural health audits, and FIDIC-standard contract administration.
+          </p>
+          <div class="gdr-waypoint-pillars">
+            <span class="gdr-waypoint-pill">NABL Accredited Lab Testing</span>
+            <span class="gdr-waypoint-pill">Soil &amp; Geotechnical Studies</span>
+            <span class="gdr-waypoint-pill">NDT &amp; Ultrasonic Rebound</span>
+            <span class="gdr-waypoint-pill">FIDIC Contract &amp; BoQ</span>
+          </div>
+          <div class="gdr-waypoint-actions">
+            <a href="/lab.html" class="scrolly-btn scrolly-btn--primary">
+              <span>Explore Laboratory Services</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="/commerce.html" class="scrolly-btn scrolly-btn--outline">
+              <span>Contracts &amp; Commercial</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Waypoint 05: Engineering the Future of Mobility (90% - 100% Scroll Progress) -->
+        <article class="gdr-waypoint-card" id="waypoint-05">
+          <div class="gdr-waypoint-header">
+            <span class="gdr-waypoint-badge">
+              <span class="gdr-waypoint-badge-dot"></span>
+              Conversion &bull; Strategic Collaboration
+            </span>
+            <span class="gdr-waypoint-index">WAYPOINT 05 // NATIONAL NETWORK</span>
+          </div>
+          <h2 class="gdr-waypoint-title">Engineering the Future of Mobility</h2>
+          <p class="gdr-waypoint-desc">
+            Ready to partner on your next landmark DPR, smart highway alignment, or multidisciplinary PMC mandate? Engage GDR’s certified engineers and nationwide branch network today.
+          </p>
+          <div class="gdr-waypoint-pillars">
+            <span class="gdr-waypoint-pill">Vadodara Headquarters</span>
+            <span class="gdr-waypoint-pill">7+ Regional Hubs</span>
+            <span class="gdr-waypoint-pill">Pan-India Mobilization</span>
+            <span class="gdr-waypoint-pill">Government DPR Ready</span>
+          </div>
+          <div class="gdr-waypoint-actions">
+            <button type="button" class="scrolly-btn scrolly-btn--primary" id="btn-tender-inquiry">
+              <span>Initiate Tender Inquiry</span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <a href="/about-1.html" class="scrolly-btn scrolly-btn--outline">
+              <span>Our Heritage &amp; Leadership</span>
+            </a>
+          </div>
+        </article>
 
       </div>
-    </section>
 
-    <!-- ======================================================================
-         PHASE 08: OUR HEADQUARTER SECTION
-         Order: Hero -> Metrics -> Intro Expertise -> About Company -> Our Expertise -> Our Journey -> Our Networks -> Our Headquarter
-         ====================================================================== -->
-    <section class="headquarter-section animated-content" id="our-headquarter" aria-labelledby="headquarter-heading">
-      <div class="container">
-        
-        <!-- Two-Column Desktop Layout: Info (40-45%) + Real Google Maps Visual (55-60%) -->
-        <div class="headquarter-grid">
-          
-          <!-- Left Column: Headquarters Information -->
-          <div class="headquarter-info-col animated-content-item">
-            
-            <div class="headquarter-header">
-              <div class="headquarter-heading-wrap">
-                <h2 class="headquarter-heading" id="headquarter-heading">OUR HEADQUARTER</h2>
-              </div>
-            </div>
-
-            <div class="headquarter-details">
-              <h3 class="headquarter-company-name">Geo Designs &amp; Research Pvt. Ltd.</h3>
-              <address class="headquarter-address">
-                FP No. 55, B/h. Makarpura Railway Station, Maneja, Vadodara, Gujarat, Pin, Gujarat 390013
-              </address>
-            </div>
-
-            <div class="headquarter-action">
-              <a 
-                href="https://maps.app.goo.gl/h2DAS61DJ47te7z18" 
-                class="btn headquarter-cta-btn cursor-target" 
-                id="headquarter-directions-btn"
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <span>Get Directions</span>
-                <svg class="headquarter-cta-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M3.33334 8H12.6667M12.6667 8L8.66668 4M12.6667 8L8.66668 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
-            </div>
-
-          </div>
-
-          <!-- Right Column: Actual Google Maps Location Visual (55-60% width) -->
-          <div class="headquarter-visual-col animated-content-item">
-            <a 
-              href="https://maps.app.goo.gl/h2DAS61DJ47te7z18" 
-              class="headquarter-map-card cursor-target" 
-              id="headquarter-map-link"
-              target="_blank" 
-              rel="noopener noreferrer"
-              aria-label="Open Geo Designs &amp; Research headquarters location in Google Maps"
-            >
-              <img 
-                src="/assets/images/geo-headquarters-map.png" 
-                alt="Google Maps view of Geo Designs &amp; Research Pvt. Ltd. headquarters location at Krishna Industrial Estate, Gorwa, Vadodara" 
-                class="headquarter-map-img"
-                width="800"
-                height="450"
-                loading="lazy"
-              >
-            </a>
-          </div>
-
-        </div>
-
+      <!-- Bottom Center Scroll Prompt -->
+      <div class="gdr-scroll-prompt" aria-hidden="true">
+        <span>SCROLL TO EXPLORE</span>
+        <svg class="gdr-scroll-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
       </div>
-    </section>
 
-    <!-- ======================================================================
-         PHASE 09: OTHER BRANCHES SECTION
-         Order: Hero -> Metrics -> Intro Expertise -> About Company -> Our Expertise -> Our Journey -> Our Networks -> Our Headquarter -> Other Branches
-         ====================================================================== -->
-    <section class="branches-section" id="other-branches" aria-labelledby="branches-heading">
-      <div class="container">
-        
-        <div class="branches-header animated-content">
-          <div class="branches-heading-wrap">
-            <span class="branches-pillar" aria-hidden="true"></span>
-            <h2 class="branches-heading" id="branches-heading">OTHER BRANCHES</h2>
-          </div>
-        </div>
-
-        <div class="branches-grid animated-content" id="branches-grid">
-
-          <!-- Card 1 — Bharuch, Gujarat -->
-          <article class="branch-card animated-content-item cursor-target" id="branch-card-bharuch">
-            <a 
-              href="https://maps.app.goo.gl/JLHQj97jqhRD87jD9" 
-              class="branch-card__map-wrap" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              aria-label="Open Bharuch, Gujarat branch location in Google Maps"
-            >
-              <img 
-                src="/assets/images/branch-bharuch-map.png" 
-                alt="Google Maps view showing Geo Designs &amp; Research Bharuch branch location" 
-                class="branch-card__map-img" 
-                width="600" 
-                height="340" 
-                loading="lazy"
-              >
-            </a>
-            <div class="branch-card__content">
-              <h3 class="branch-card__name">Bharuch, Gujarat</h3>
-              <address class="branch-card__address">
-                Plot No. 34-35, Near Old RTO, Near Over Bridge, Nandelav / Nilamnagar Society, Bharuch, Gujarat 392001
-              </address>
-              <div class="branch-card__action">
-                <a 
-                  href="https://maps.app.goo.gl/JLHQj97jqhRD87jD9" 
-                  class="branch-card__link" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  aria-label="View Bharuch branch on Google Maps"
-                >
-                  <span>View on Map</span>
-                  <svg class="branch-card__icon" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3.33334 8H12.6667M12.6667 8L8.66668 4M12.6667 8L8.66668 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 2 — Bhuj, Gujarat -->
-          <article class="branch-card animated-content-item cursor-target" id="branch-card-bhuj">
-            <a 
-              href="https://maps.app.goo.gl/3yJZDSYMMYPckDkF6" 
-              class="branch-card__map-wrap" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              aria-label="Open Bhuj, Gujarat branch location in Google Maps"
-            >
-              <img 
-                src="/assets/images/branch-bhuj-map.png" 
-                alt="Google Maps view showing Geo Designs &amp; Research Bhuj branch location" 
-                class="branch-card__map-img" 
-                width="600" 
-                height="340" 
-                loading="lazy"
-              >
-            </a>
-            <div class="branch-card__content">
-              <h3 class="branch-card__name">Bhuj, Gujarat</h3>
-              <address class="branch-card__address">
-                Aa46, Muslim Colony, Bhuj, Atmaram Marg, Kotda, Kutch - 370605, Gujarat, India
-              </address>
-              <div class="branch-card__action">
-                <a 
-                  href="https://maps.app.goo.gl/3yJZDSYMMYPckDkF6" 
-                  class="branch-card__link" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  aria-label="View Bhuj branch on Google Maps"
-                >
-                  <span>View on Map</span>
-                  <svg class="branch-card__icon" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3.33334 8H12.6667M12.6667 8L8.66668 4M12.6667 8L8.66668 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 3 — Gandhinagar, Gujarat -->
-          <article class="branch-card animated-content-item cursor-target" id="branch-card-gandhinagar">
-            <a 
-              href="https://maps.app.goo.gl/r7WsDUoT4wPeCrv98" 
-              class="branch-card__map-wrap" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              aria-label="Open Gandhinagar, Gujarat branch location in Google Maps"
-            >
-              <img 
-                src="/assets/images/branch-gandhinagar-map.png" 
-                alt="Google Maps view showing Geo Designs &amp; Research Gandhinagar branch location" 
-                class="branch-card__map-img" 
-                width="600" 
-                height="340" 
-                loading="lazy"
-              >
-            </a>
-            <div class="branch-card__content">
-              <h3 class="branch-card__name">Gandhinagar, Gujarat</h3>
-              <address class="branch-card__address">
-                5JMM+WGF, Saptrushi Society Rd, Urjanagar 1, Kudasan, Gandhinagar, Gujarat 382419
-              </address>
-              <div class="branch-card__action">
-                <a 
-                  href="https://maps.app.goo.gl/r7WsDUoT4wPeCrv98" 
-                  class="branch-card__link" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  aria-label="View Gandhinagar branch on Google Maps"
-                >
-                  <span>View on Map</span>
-                  <svg class="branch-card__icon" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3.33334 8H12.6667M12.6667 8L8.66668 4M12.6667 8L8.66668 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 4 — Junagadh, Gujarat -->
-          <article class="branch-card animated-content-item cursor-target" id="branch-card-junagadh">
-            <a 
-              href="https://maps.app.goo.gl/DKNWDHG2a2kyD5ER8" 
-              class="branch-card__map-wrap" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              aria-label="Open Junagadh, Gujarat branch location in Google Maps"
-            >
-              <img 
-                src="/assets/images/branch-junagadh-map.png" 
-                alt="Google Maps view showing Geo Designs &amp; Research Junagadh branch location" 
-                class="branch-card__map-img" 
-                width="600" 
-                height="340" 
-                loading="lazy"
-              >
-            </a>
-            <div class="branch-card__content">
-              <h3 class="branch-card__name">Junagadh, Gujarat</h3>
-              <address class="branch-card__address">
-                B15, Dolatpara, Junagadh, Gujarat 362037
-              </address>
-              <div class="branch-card__action">
-                <a 
-                  href="https://maps.app.goo.gl/DKNWDHG2a2kyD5ER8" 
-                  class="branch-card__link" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  aria-label="View Junagadh branch on Google Maps"
-                >
-                  <span>View on Map</span>
-                  <svg class="branch-card__icon" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3.33334 8H12.6667M12.6667 8L8.66668 4M12.6667 8L8.66668 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 5 — Nadiad, Gujarat -->
-          <article class="branch-card branch-card--simple animated-content-item cursor-target" id="branch-card-nadiad">
-            <div class="branch-card__content">
-              <h3 class="branch-card__name">Nadiad, Gujarat</h3>
-            </div>
-          </article>
-
-          <!-- Card 6 — Navsari, Gujarat -->
-          <article class="branch-card animated-content-item cursor-target" id="branch-card-navsari">
-            <a 
-              href="https://maps.app.goo.gl/AsaBLyuHq4mkzxN78" 
-              class="branch-card__map-wrap" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              aria-label="Open Navsari, Gujarat branch location in Google Maps"
-            >
-              <img 
-                src="/assets/images/branch-navsari-map.png" 
-                alt="Google Maps view showing Geo Designs &amp; Research Navsari branch location" 
-                class="branch-card__map-img" 
-                width="600" 
-                height="340" 
-                loading="lazy"
-              >
-            </a>
-            <div class="branch-card__content">
-              <h3 class="branch-card__name">Navsari, Gujarat</h3>
-              <address class="branch-card__address">
-                Plot No.486, Bardoli Rd, New GIDC, Kabilpore, Navsari, Gujarat 396427
-              </address>
-              <div class="branch-card__action">
-                <a 
-                  href="https://maps.app.goo.gl/AsaBLyuHq4mkzxN78" 
-                  class="branch-card__link" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  aria-label="View Navsari branch on Google Maps"
-                >
-                  <span>View on Map</span>
-                  <svg class="branch-card__icon" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3.33334 8H12.6667M12.6667 8L8.66668 4M12.6667 8L8.66668 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Card 7 — Jaisalmer, Rajasthan -->
-          <article class="branch-card branch-card--simple animated-content-item cursor-target" id="branch-card-jaisalmer">
-            <div class="branch-card__content">
-              <h3 class="branch-card__name">Jaisalmer, Rajasthan</h3>
-            </div>
-          </article>
-
-        </div>
-
+      <!-- Coordinates HUD Telemetry (Top Right) -->
+      <div class="gdr-hud-telemetry" id="gdr-hud-coords" aria-hidden="true">
+        GEO // LAT: 22.3072° N &bull; LON: 73.1812° E<br>
+        CAMERA Z: 95m &bull; CAM_Y: 28m<br>
+        MILESTONE: OVERVIEW [0%]
       </div>
-    </section>
+
+    </div>
   </main>
 
   <!-- ======================================================================
        PHASE 10: GEO DESIGNS & RESEARCH CORPORATE FOOTER
-       Order: Hero -> Metrics -> Intro Expertise -> About Company -> Our Expertise -> Our Journey -> Our Networks -> Our Headquarter -> Other Branches -> Footer
-       ====================================================================== -->
-  <!-- ======================================================================
-       GEO DESIGNS & RESEARCH ARCHITECTURAL FOOTER
-       Mandatory Grid Structure based on hand-drawn reference:
-       1. Upper information grid (6 columns: 22%, 14%, 17%, 17%, 15%, 15%)
-          Row 1: Developing Ways of Success | Company | Expertise | Geo Logo Panel (spans Row 1-2, Cols 5-6)
-          Row 2: Headquarters | Social | Other Branches
-       2. Oversized wordmark region: GEO DESIGNS / & RESEARCH
-       3. Bottom copyright strip: © 2026 Geo Designs & Research. All rights reserved.
        ====================================================================== -->
   <footer class="site-footer animated-content" id="site-footer">
     <div class="footer-wrapper">
@@ -1512,9 +764,9 @@
         <div class="footer-cell footer-cell--company">
           <h3 class="footer-cell__heading">COMPANY</h3>
           <ul class="footer-cell__list" role="list">
-            <li><a href="#hero-section" class="footer-nav-anchor cursor-target">Home</a></li>
-            <li><a href="#about-us" class="footer-nav-anchor cursor-target">About</a></li>
-            <li><a href="#contact-us" class="footer-nav-anchor cursor-target">Contact</a></li>
+            <li><a href="#main-content" class="footer-nav-anchor cursor-target">Home</a></li>
+            <li><a href="/about-1.html" class="footer-nav-anchor cursor-target">About</a></li>
+            <li><a href="#site-footer" class="footer-nav-anchor cursor-target">Contact</a></li>
           </ul>
         </div>
 
@@ -1522,9 +774,9 @@
         <div class="footer-cell footer-cell--expertise">
           <h3 class="footer-cell__heading">EXPERTISE</h3>
           <ul class="footer-cell__list" role="list">
-            <li><a href="#category-infrastructure" class="footer-nav-anchor cursor-target">Infrastructure</a></li>
-            <li><a href="#category-building" class="footer-nav-anchor cursor-target">Building</a></li>
-            <li><a href="#category-testing" class="footer-nav-anchor cursor-target">Testing</a></li>
+            <li><a href="/pmc.html" class="footer-nav-anchor cursor-target">Infrastructure</a></li>
+            <li><a href="/architecture.html" class="footer-nav-anchor cursor-target">Building</a></li>
+            <li><a href="/lab.html" class="footer-nav-anchor cursor-target">Testing</a></li>
           </ul>
         </div>
 
@@ -1645,8 +897,11 @@
               href="https://www.linkedin.com/company/geo-designs-&-research-pvt-ltd-/posts/" 
               class="footer-social-link cursor-target" 
               target="_blank" 
-              rel="noopener noreferrer"
-            >LinkedIn</a>
+              rel="noopener noreferrer" 
+              aria-label="Geo Designs &amp; Research LinkedIn"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
           </div>
         </div>
 
@@ -1655,15 +910,15 @@
           <h3 class="footer-cell__heading">OTHER BRANCHES</h3>
           <div class="footer-branches-grid">
             <ul class="footer-branches-subcol" role="list">
-              <li><a href="#branch-card-bharuch" class="footer-branch-link cursor-target">Bharuch</a></li>
-              <li><a href="#branch-card-bhuj" class="footer-branch-link cursor-target">Bhuj</a></li>
-              <li><a href="#branch-card-gandhinagar" class="footer-branch-link cursor-target">Gandhinagar</a></li>
-              <li><a href="#branch-card-junagadh" class="footer-branch-link cursor-target">Junagadh</a></li>
+              <li><span class="footer-branch-link cursor-target">Bharuch</span></li>
+              <li><span class="footer-branch-link cursor-target">Bhuj</span></li>
+              <li><span class="footer-branch-link cursor-target">Gandhinagar</span></li>
+              <li><span class="footer-branch-link cursor-target">Junagadh</span></li>
             </ul>
             <ul class="footer-branches-subcol" role="list">
-              <li><a href="#branch-card-nadiad" class="footer-branch-link cursor-target">Nadiad</a></li>
-              <li><a href="#branch-card-navsari" class="footer-branch-link cursor-target">Navsari</a></li>
-              <li><a href="#branch-card-jaisalmer" class="footer-branch-link cursor-target">Jaisalmer</a></li>
+              <li><span class="footer-branch-link cursor-target">Nadiad</span></li>
+              <li><span class="footer-branch-link cursor-target">Navsari</span></li>
+              <li><span class="footer-branch-link cursor-target">Jaisalmer</span></li>
             </ul>
           </div>
         </div>

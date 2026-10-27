@@ -1,0 +1,506 @@
+/* ==========================================================================
+   Geo Designs & Research — WebGL Scrollytelling Stylesheet
+   Dark Engineering Atmosphere (#050B14, Cyan Neon #00D2FF, Blueprint Green #497E5E)
+   Inspired by Hubtown infrastructure topography & dynamic camera rail journey
+   ========================================================================== */
+
+:root {
+  --scrolly-navy: #050B14;
+  --scrolly-navy-dark: #03070D;
+  --scrolly-cyan: #00D2FF;
+  --scrolly-cyan-glow: rgba(0, 210, 255, 0.4);
+  --scrolly-green: #497E5E;
+  --scrolly-green-light: #A3E8BF;
+  --scrolly-white: #FFFFFF;
+  --scrolly-card-bg: rgba(5, 11, 20, 0.82);
+  --scrolly-border: rgba(0, 210, 255, 0.2);
+  --scrolly-border-light: rgba(255, 255, 255, 0.12);
+  --scrolly-text-muted: #8E9BAE;
+}
+
+/* --------------------------------------------------------------------------
+   1. Canvas & Fixed Scrollytelling Viewport
+   -------------------------------------------------------------------------- */
+.gdr-webgl-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  background-color: var(--scrolly-navy);
+}
+
+/* Parent Virtual Scroll Track (600vh height to drive scrub progress) */
+.gdr-scrolly-track {
+  position: relative;
+  width: 100%;
+  height: 600vh;
+  pointer-events: none;
+  background: transparent;
+}
+
+/* Fixed HUD & Overlay Content Layer */
+.gdr-scrolly-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* Interactive elements inside fixed overlay must enable pointer events */
+.gdr-scrolly-overlay a,
+.gdr-scrolly-overlay button,
+.gdr-scrolly-overlay .gdr-tracker-item,
+.gdr-scrolly-overlay .scrolly-btn {
+  pointer-events: auto;
+}
+
+/* --------------------------------------------------------------------------
+   2. Vertical Journey Tracker (Left Rail)
+   -------------------------------------------------------------------------- */
+.gdr-journey-tracker {
+  position: fixed;
+  left: clamp(20px, 3.2vw, 48px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 25;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  pointer-events: auto;
+}
+
+/* Connecting Slender Vertical Track Line */
+.gdr-journey-tracker::before {
+  content: '';
+  position: absolute;
+  left: 11px;
+  top: 14px;
+  bottom: 14px;
+  width: 2px;
+  background: linear-gradient(180deg, 
+    rgba(0, 210, 255, 0.4) 0%, 
+    rgba(73, 126, 94, 0.3) 50%, 
+    rgba(0, 210, 255, 0.2) 100%
+  );
+  z-index: 0;
+}
+
+/* Active Progress Line Filler */
+.gdr-tracker-progress-line {
+  position: absolute;
+  left: 11px;
+  top: 14px;
+  width: 2px;
+  height: 0%;
+  background: var(--scrolly-cyan);
+  box-shadow: 0 0 8px var(--scrolly-cyan);
+  z-index: 1;
+  transition: height 0.15s linear;
+}
+
+.gdr-tracker-item {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: transparent;
+  border: none;
+  padding: 4px 0;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gdr-tracker-node {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--scrolly-navy);
+  border: 1.5px solid rgba(0, 210, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--scrolly-text-muted);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(5, 11, 20, 0.9);
+}
+
+.gdr-tracker-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  transform: translateX(-4px);
+  opacity: 0.7;
+}
+
+/* Active Waypoint State */
+.gdr-tracker-item.is-active .gdr-tracker-node {
+  background: var(--scrolly-cyan);
+  color: var(--scrolly-navy);
+  border-color: #FFFFFF;
+  box-shadow: 0 0 16px var(--scrolly-cyan), 0 0 6px #FFFFFF;
+  transform: scale(1.18);
+}
+
+.gdr-tracker-item.is-active .gdr-tracker-label {
+  color: var(--scrolly-cyan);
+  opacity: 1;
+  transform: translateX(0);
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(0, 210, 255, 0.5);
+}
+
+.gdr-tracker-item:hover .gdr-tracker-label {
+  color: #FFFFFF;
+  opacity: 0.95;
+}
+
+/* --------------------------------------------------------------------------
+   3. Waypoint Narrative Typography Cards (Pinned Center-Bottom)
+   -------------------------------------------------------------------------- */
+.gdr-waypoint-container {
+  position: absolute;
+  bottom: clamp(32px, 6vh, 60px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92vw, 860px);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.gdr-waypoint-card {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--scrolly-card-bg);
+  border: 1px solid var(--scrolly-border);
+  border-radius: 8px;
+  padding: clamp(24px, 3.5vw, 36px) clamp(24px, 4vw, 44px);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(28px) scale(0.98);
+  filter: blur(6px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.6s;
+  pointer-events: none;
+}
+
+.gdr-waypoint-card.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  filter: blur(0px);
+  pointer-events: auto;
+}
+
+/* Micro Header / Badge Row */
+.gdr-waypoint-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gdr-waypoint-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--scrolly-cyan);
+  background: rgba(0, 210, 255, 0.1);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.gdr-waypoint-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--scrolly-cyan);
+  box-shadow: 0 0 6px var(--scrolly-cyan);
+}
+
+.gdr-waypoint-index {
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--scrolly-green-light);
+}
+
+/* Title & Description */
+.gdr-waypoint-title {
+  font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(1.4rem, 2.6vw, 2.1rem);
+  font-weight: 800;
+  color: var(--scrolly-white);
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+
+.gdr-waypoint-desc {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: clamp(0.92rem, 1.1vw, 1.05rem);
+  line-height: 1.65;
+  color: var(--scrolly-text-muted);
+  margin: 0 0 20px;
+}
+
+/* Pillar Highlights Row */
+.gdr-waypoint-pillars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.gdr-waypoint-pill {
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--scrolly-border-light);
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+/* Actions Row */
+.gdr-waypoint-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.scrolly-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scrolly-btn--primary {
+  background: linear-gradient(135deg, #00D2FF 0%, #0084FF 100%);
+  color: #03070D;
+  border: none;
+  box-shadow: 0 4px 18px rgba(0, 210, 255, 0.35);
+}
+
+.scrolly-btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(0, 210, 255, 0.6);
+  color: #000000;
+}
+
+.scrolly-btn--outline {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--scrolly-white);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+}
+
+.scrolly-btn--outline:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: var(--scrolly-cyan);
+  color: var(--scrolly-cyan);
+}
+
+/* --------------------------------------------------------------------------
+   4. Bottom Scroll Prompt & HUD Status
+   -------------------------------------------------------------------------- */
+.gdr-scroll-prompt {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 22;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(0, 210, 255, 0.75);
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.gdr-scroll-prompt.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.gdr-scroll-chevron {
+  animation: scrollyPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollyPulse {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+/* Coordinates HUD Watermark (Top Right) */
+.gdr-hud-telemetry {
+  position: fixed;
+  right: clamp(20px, 3.2vw, 48px);
+  bottom: clamp(32px, 6vh, 60px);
+  z-index: 15;
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: rgba(142, 155, 174, 0.5);
+  pointer-events: none;
+  text-align: right;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   5. Compact Fixed Header Backdrop Overlay Enhancement
+   -------------------------------------------------------------------------- */
+body.is-homepage .site-header {
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  background: rgba(5, 11, 20, 0.78) !important;
+  border-bottom: 1px solid rgba(0, 210, 255, 0.14) !important;
+}
+
+body.is-homepage .top-bar {
+  background: rgba(3, 7, 13, 0.9) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Footer Section Styling within Scrollytelling Flow */
+body.is-homepage .site-footer {
+  position: relative;
+  z-index: 20;
+  background-color: var(--scrolly-navy-dark);
+  border-top: 1px solid rgba(0, 210, 255, 0.16);
+}
+
+/* --------------------------------------------------------------------------
+   6. Responsive Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .gdr-journey-tracker {
+    left: 16px;
+    gap: 14px;
+  }
+  .gdr-tracker-label {
+    display: none;
+  }
+  .gdr-waypoint-container {
+    width: 94vw;
+    bottom: 24px;
+  }
+  .gdr-hud-telemetry {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .gdr-waypoint-card {
+    padding: 18px 20px;
+  }
+  .gdr-waypoint-title {
+    font-size: 1.25rem;
+  }
+  .gdr-waypoint-desc {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+  }
+  .gdr-waypoint-pillars {
+    display: none;
+  }
+  .scrolly-btn {
+    padding: 10px 18px;
+    font-size: 0.75rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. Reduced Motion Support
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .gdr-webgl-canvas {
+    display: none !important;
+  }
+  .gdr-scrolly-track {
+    height: auto !important;
+  }
+  .gdr-scrolly-overlay {
+    position: static !important;
+    height: auto !important;
+    display: block !important;
+  }
+  .gdr-waypoint-container {
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+  }
+  .gdr-waypoint-card {
+    position: relative !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    filter: none !important;
+    margin-bottom: 24px !important;
+  }
+  .gdr-journey-tracker,
+  .gdr-scroll-prompt {
+    display: none !important;
+  }
+}
