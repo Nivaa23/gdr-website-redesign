@@ -1,10 +1,13 @@
 /**
- * GEO DESIGNS & RESEARCH — WEBGL 3D SCROLLYTELLING ENGINE
+ * GEO DESIGNS & RESEARCH — WEBGL 3D SCROLLYTELLING ENGINE (LIGHT THEME ARCHITECTURE)
  * 
- * Inspired by:
- * - Hubtown web experience: Camera rail flight over dynamic infrastructure topography
- * - Visual Metaphor: Low-poly DEM terrain, Highway DPR alignment ribbon,
- *   BIM structural nodes, NABL holographic testing cube, and national network horizon.
+ * Hubtown-inspired camera rail flight through dynamic architectural infrastructure topography:
+ * - Clean Architectural Clay DEM terrain with Blueprint Slate contours (#94A3B8)
+ * - Engineering Cobalt (#0284C7) & Precision Teal (#0D9488) highway vector splines
+ * - Architectural clay & CAD wireframe volumetric engineering nodes
+ * - Continuous background canvas pinned fixed behind frosted glass grounded stages
+ * - Interactive Waypoint 05 sector filtering (TPQA, Design, Survey, Geotech)
+ * - Automatic Curtain Footer measurement and synchronization
  */
 
 import * as THREE from 'three';
@@ -14,7 +17,7 @@ let activeWaypointIndex = 0;
 
 export function initWebglScrollytelling() {
   const canvas = document.getElementById('gdr-webgl-canvas');
-  const track = document.getElementById('gdr-scrolly-track');
+  const track = document.getElementById('scroll-stage-track') || document.getElementById('gdr-scrolly-track');
   if (!canvas || !track) return null;
 
   // Reduced motion preference check
@@ -22,41 +25,41 @@ export function initWebglScrollytelling() {
   if (prefersReduced) return null;
 
   // --------------------------------------------------------------------------
-  // 1. Scene, Camera, Fog & Renderer Setup
+  // 1. Scene, Camera, Light-Theme Fog & High-Performance Renderer Setup
   // --------------------------------------------------------------------------
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x050B14);
-  scene.fog = new THREE.FogExp2(0x050B14, 0.0075);
+  scene.background = new THREE.Color(0xF8FAFC);
+  scene.fog = new THREE.FogExp2(0xF8FAFC, 0.012);
 
   const camera = new THREE.PerspectiveCamera(52, window.innerWidth / window.innerHeight, 0.1, 1000);
 
   const renderer = new THREE.WebGLRenderer({
     canvas,
     antialias: true,
-    alpha: false,
+    alpha: true,
     powerPreference: 'high-performance'
   });
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.25;
+  renderer.toneMappingExposure = 1.15;
 
   // --------------------------------------------------------------------------
-  // 2. Lighting Rig
+  // 2. High-Contrast Architectural Light-Theme Lighting Rig
   // --------------------------------------------------------------------------
-  const ambientLight = new THREE.AmbientLight(0x0B1B2B, 1.6);
+  const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
   scene.add(ambientLight);
 
-  const cyanKeyLight = new THREE.DirectionalLight(0x00D2FF, 2.2);
-  cyanKeyLight.position.set(40, 70, 30);
-  scene.add(cyanKeyLight);
+  const dirLight = new THREE.DirectionalLight(0xe2e8f0, 2.0);
+  dirLight.position.set(20, 40, 20);
+  scene.add(dirLight);
 
-  const greenRimLight = new THREE.DirectionalLight(0x497E5E, 1.8);
-  greenRimLight.position.set(-50, 45, -120);
-  scene.add(greenRimLight);
+  const keyLight = new THREE.DirectionalLight(0x0284C7, 1.4);
+  keyLight.position.set(45, 80, 40);
+  scene.add(keyLight);
 
-  // Dynamic Beacon Light attached near camera
-  const beaconLight = new THREE.PointLight(0x00D2FF, 3.5, 60);
+  // Dynamic Camera Beacon Light (Engineering Cobalt #0284C7)
+  const beaconLight = new THREE.PointLight(0x0284C7, 2.4, 75);
   scene.add(beaconLight);
 
   // --------------------------------------------------------------------------
@@ -89,7 +92,7 @@ export function initWebglScrollytelling() {
   const targetSpline = new THREE.CatmullRomCurve3(targetRailPoints, false, 'catmullrom', 0.5);
 
   // --------------------------------------------------------------------------
-  // 4. Procedural Low-Poly Topography Mesh (Digital Elevation Model - DEM)
+  // 4. Procedural Clean Architectural Clay DEM Topography
   // --------------------------------------------------------------------------
   const terrainGeo = new THREE.PlaneGeometry(380, 560, 95, 140);
   terrainGeo.rotateX(-Math.PI / 2);
@@ -115,28 +118,29 @@ export function initWebglScrollytelling() {
   }
   terrainGeo.computeVertexNormals();
 
+  // Architectural Clay Solid Material
   const terrainMat = new THREE.MeshStandardMaterial({
-    color: 0x06111D,
-    roughness: 0.88,
-    metalness: 0.15,
+    color: 0xEEF2F6,
+    roughness: 0.94,
+    metalness: 0.06,
     flatShading: true
   });
   const terrainMesh = new THREE.Mesh(terrainGeo, terrainMat);
   scene.add(terrainMesh);
 
-  // Holographic Wireframe Topography Overlay
+  // High-Contrast Opaque Dark Graphite Topography Wireframe Overlay (#444444, opacity 0.85)
   const terrainWireMat = new THREE.MeshBasicMaterial({
-    color: 0x11364F,
+    color: 0x444444,
     wireframe: true,
     transparent: true,
-    opacity: 0.45
+    opacity: 0.85
   });
   const terrainWireMesh = new THREE.Mesh(terrainGeo, terrainWireMat);
   terrainWireMesh.position.y += 0.06;
   scene.add(terrainWireMesh);
 
   // --------------------------------------------------------------------------
-  // 5. Glowing Infrastructure Alignment Line (Highway DPR Ribbon & Bridges)
+  // 5. Dark Graphite Highway Spline (#444444)
   // --------------------------------------------------------------------------
   const alignmentPoints = [
     new THREE.Vector3(0, 0.5, 45),
@@ -152,235 +156,306 @@ export function initWebglScrollytelling() {
   ];
   const alignmentCurve = new THREE.CatmullRomCurve3(alignmentPoints, false, 'catmullrom', 0.5);
 
-  // Primary Cyan Glowing Tube
-  const tubeGeo = new THREE.TubeGeometry(alignmentCurve, 320, 0.55, 8, false);
-  const tubeMat = new THREE.MeshBasicMaterial({
-    color: 0x00D2FF,
-    wireframe: true,
-    transparent: true,
-    opacity: 0.88
+  // Opaque Dark Graphite Vector Ribbon (#444444)
+  const tubeGeo = new THREE.TubeGeometry(alignmentCurve, 320, 0.65, 8, false);
+  const tubeMat = new THREE.MeshStandardMaterial({
+    color: 0x444444,
+    emissive: 0x222222,
+    emissiveIntensity: 0.25,
+    roughness: 0.4,
+    metalness: 0.15
   });
   const alignmentTube = new THREE.Mesh(tubeGeo, tubeMat);
   scene.add(alignmentTube);
 
-  // Parallel Secondary Blueprint Rail (Green)
-  const parallelTubeGeo = new THREE.TubeGeometry(alignmentCurve, 220, 0.16, 6, false);
-  const parallelMat = new THREE.MeshBasicMaterial({
-    color: 0x497E5E,
-    transparent: true,
-    opacity: 0.8
-  });
-  const parallelTube = new THREE.Mesh(parallelTubeGeo, parallelMat);
-  parallelTube.position.x += 2.2;
-  scene.add(parallelTube);
+  // High-Contrast Charcoal Centerline Ribbon (#222222)
+  const centerTubeGeo = new THREE.TubeGeometry(alignmentCurve, 160, 0.18, 6, false);
+  const centerTubeMat = new THREE.MeshBasicMaterial({ color: 0x222222 });
+  const centerTube = new THREE.Mesh(centerTubeGeo, centerTubeMat);
+  scene.add(centerTube);
 
-  // Light Pulses Traveling along Corridor
-  const pulseGroup = new THREE.Group();
+  // Traveling Light Pulses along the Corridor (#444444 / #666666)
   const pulseSpheres = [];
-  const pulseGeometry = new THREE.SphereGeometry(0.5, 8, 8);
-  const pulseMaterial = new THREE.MeshBasicMaterial({
-    color: 0xA3E8BF,
+  const pulseGeo = new THREE.SphereGeometry(0.65, 8, 8);
+  const pulseMat = new THREE.MeshStandardMaterial({
+    color: 0x444444,
+    emissive: 0x666666,
+    emissiveIntensity: 0.8
+  });
+  for (let i = 0; i < 4; i++) {
+    const pulseMesh = new THREE.Mesh(pulseGeo, pulseMat);
+    scene.add(pulseMesh);
+    pulseSpheres.push({
+      mesh: pulseMesh,
+      t: i * 0.25,
+      speed: 0.08 + i * 0.02
+    });
+  }
+
+  // --------------------------------------------------------------------------
+  // 6. Volumetric Structural Engineering Nodes (Clay + CAD Vectors)
+  // --------------------------------------------------------------------------
+
+  // NODE 1 (Waypoint 01): Rotating Foundation Cube (Sky-100 Solid Inner + Sky-600 Outer Wireframe)
+  const coreNodeGroup = new THREE.Group();
+  coreNodeGroup.position.set(0, 4.5, 0);
+
+  // Inner Architectural Clay Core (color: 0xE2E8F0, roughness: 0.35, metalness: 0.05, opacity: 0.9, transparent: true)
+  const coreInnerGeo = new THREE.DodecahedronGeometry(2.5, 0);
+  const coreInnerMat = new THREE.MeshStandardMaterial({
+    color: 0xE2E8F0,
+    roughness: 0.35,
+    metalness: 0.05,
+    opacity: 0.9,
+    transparent: true
+  });
+  const coreInnerMesh = new THREE.Mesh(coreInnerGeo, coreInnerMat);
+  coreNodeGroup.add(coreInnerMesh);
+
+  // Outer Wireframe Cage (Opaque Dark Graphite #444444)
+  const coreOuterGeo = new THREE.DodecahedronGeometry(3.3, 0);
+  const coreOuterMat = new THREE.MeshBasicMaterial({
+    color: 0x444444,
+    wireframe: true,
+    transparent: true,
+    opacity: 1.0
+  });
+  const coreOuterMesh = new THREE.Mesh(coreOuterGeo, coreOuterMat);
+  coreNodeGroup.add(coreOuterMesh);
+
+  // Dark Graphite Orbit Ring (#444444)
+  const ringGeo = new THREE.TorusGeometry(5.2, 0.1, 8, 48);
+  const ringMat = new THREE.MeshBasicMaterial({
+    color: 0x444444,
+    transparent: true,
+    opacity: 0.85
+  });
+  const ringMesh = new THREE.Mesh(ringGeo, ringMat);
+  ringMesh.rotation.x = Math.PI / 2;
+  coreNodeGroup.add(ringMesh);
+  scene.add(coreNodeGroup);
+
+  // NODE 2 (Waypoint 02): Cable-Stayed Bridge Pylon Structure (Dark Graphite #444444)
+  const bridgeGroup = new THREE.Group();
+  bridgeGroup.position.set(-22, 0, -85);
+
+  const pylonMat = new THREE.MeshBasicMaterial({
+    color: 0x444444,
+    wireframe: true,
     transparent: true,
     opacity: 0.95
   });
 
-  for (let i = 0; i < 14; i++) {
-    const pMesh = new THREE.Mesh(pulseGeometry, pulseMaterial);
-    pulseGroup.add(pMesh);
-    pulseSpheres.push({
-      mesh: pMesh,
-      t: i / 14,
-      speed: 0.045 + Math.random() * 0.025
-    });
-  }
-  scene.add(pulseGroup);
+  // Left Pylon Tower (38m elevation)
+  const pylonGeo = new THREE.CylinderGeometry(0.4, 1.4, 38, 4);
+  const leftPylon = new THREE.Mesh(pylonGeo, pylonMat);
+  leftPylon.position.set(-6, 19, 0);
+  leftPylon.rotation.z = -0.06;
+  bridgeGroup.add(leftPylon);
 
-  // --------------------------------------------------------------------------
-  // 6. Volumetric Structural Nodes at Waypoints
-  // --------------------------------------------------------------------------
+  // Right Pylon Tower
+  const rightPylon = new THREE.Mesh(pylonGeo, pylonMat);
+  rightPylon.position.set(6, 19, 0);
+  rightPylon.rotation.z = 0.06;
+  bridgeGroup.add(rightPylon);
 
-  // NODE 1 (Origin): Iconic Precision Geometric Core
-  const coreNodeGroup = new THREE.Group();
-  coreNodeGroup.position.set(0, 4.5, 0);
-
-  const outerCubeGeo = new THREE.BoxGeometry(6.5, 6.5, 6.5);
-  const outerCubeMat = new THREE.MeshBasicMaterial({
-    color: 0x00D2FF,
-    wireframe: true,
+  // Dark Graphite Pylon Stay Cables (#444444)
+  const cableMat = new THREE.LineBasicMaterial({
+    color: 0x444444,
     transparent: true,
     opacity: 0.85
   });
-  const outerCube = new THREE.Mesh(outerCubeGeo, outerCubeMat);
-  coreNodeGroup.add(outerCube);
-
-  const innerCubeGeo = new THREE.BoxGeometry(4.2, 4.2, 4.2);
-  const innerCubeMat = new THREE.MeshStandardMaterial({
-    color: 0x497E5E,
-    roughness: 0.3,
-    metalness: 0.8,
-    emissive: 0x1B3828,
-    emissiveIntensity: 0.6
-  });
-  const innerCube = new THREE.Mesh(innerCubeGeo, innerCubeMat);
-  coreNodeGroup.add(innerCube);
-
-  // Orbital coordinate ring
-  const ringGeo = new THREE.TorusGeometry(5.4, 0.08, 8, 48);
-  const ringMat = new THREE.MeshBasicMaterial({ color: 0xA3E8BF, transparent: true, opacity: 0.75 });
-  const ringMesh = new THREE.Mesh(ringGeo, ringMat);
-  ringMesh.rotation.x = Math.PI / 3;
-  coreNodeGroup.add(ringMesh);
-
-  scene.add(coreNodeGroup);
-
-  // NODE 2 (Waypoint 02): Cable-Stayed Bridge Pylon Structure
-  const bridgePylonGroup = new THREE.Group();
-  bridgePylonGroup.position.set(-22, 6.2, -85);
-
-  // Pylon Towers (A-Frame Towers)
-  const pylonMat = new THREE.MeshStandardMaterial({
-    color: 0x1A354A,
-    roughness: 0.4,
-    metalness: 0.7,
-    emissive: 0x071D2D
-  });
-  const towerGeo = new THREE.CylinderGeometry(0.6, 1.2, 26, 6);
-  const towerLeft = new THREE.Mesh(towerGeo, pylonMat);
-  towerLeft.position.set(-4.5, 8, 0);
-  towerLeft.rotation.z = -0.12;
-  bridgePylonGroup.add(towerLeft);
-
-  const towerRight = new THREE.Mesh(towerGeo, pylonMat);
-  towerRight.position.set(4.5, 8, 0);
-  towerRight.rotation.z = 0.12;
-  bridgePylonGroup.add(towerRight);
-
-  // Stay cables
-  const cableMat = new THREE.LineBasicMaterial({ color: 0x00D2FF, transparent: true, opacity: 0.65 });
-  for (let k = 1; k <= 5; k++) {
-    const cablePointsLeft = [
-      new THREE.Vector3(-4.5, 14 - k * 1.5, 0),
-      new THREE.Vector3(-14 - k * 3.5, -2, 0)
-    ];
-    const cableGeoLeft = new THREE.BufferGeometry().setFromPoints(cablePointsLeft);
-    bridgePylonGroup.add(new THREE.Line(cableGeoLeft, cableMat));
-
-    const cablePointsRight = [
-      new THREE.Vector3(4.5, 14 - k * 1.5, 0),
-      new THREE.Vector3(14 + k * 3.5, -2, 0)
-    ];
-    const cableGeoRight = new THREE.BufferGeometry().setFromPoints(cablePointsRight);
-    bridgePylonGroup.add(new THREE.Line(cableGeoRight, cableMat));
+  for (let c = 0; c < 8; c++) {
+    const cableY = 12 + c * 3;
+    const cableZ = (c - 3.5) * 6;
+    const cableGeo = new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(0, cableY, 0),
+      new THREE.Vector3(0, 6.2, cableZ)
+    ]);
+    const cableLine = new THREE.Line(cableGeo, cableMat);
+    bridgeGroup.add(cableLine);
   }
-  scene.add(bridgePylonGroup);
+  scene.add(bridgeGroup);
 
-  // NODE 3 (Waypoint 03): Modular Architectural & 7D BIM Wireframe Complex
+  // NODE 3 (Waypoint 03): Architectural Clay 7D BIM Building Volumes (Dark Graphite #444444)
   const bimGroup = new THREE.Group();
-  bimGroup.position.set(8, 10, -160);
+  bimGroup.position.set(8, 10, -165);
 
-  const bimMatCyan = new THREE.MeshBasicMaterial({ color: 0x00D2FF, wireframe: true, transparent: true, opacity: 0.7 });
-  const bimMatGreen = new THREE.MeshBasicMaterial({ color: 0x497E5E, wireframe: true, transparent: true, opacity: 0.75 });
+  const bimClayMat = new THREE.MeshStandardMaterial({
+    color: 0xF1F5F9,
+    roughness: 0.9,
+    metalness: 0.05
+  });
+  const bimWireMat = new THREE.MeshBasicMaterial({
+    color: 0x444444,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.95
+  });
 
-  // Multi-tier BIM blocks
-  const block1 = new THREE.Mesh(new THREE.BoxGeometry(10, 16, 10), bimMatCyan);
-  block1.position.set(0, 4, 0);
-  bimGroup.add(block1);
+  // Building Tower A (Clay + Slate Wireframe)
+  const towerAGeo = new THREE.BoxGeometry(10, 26, 10);
+  const towerA = new THREE.Mesh(towerAGeo, bimClayMat);
+  const towerAWire = new THREE.Mesh(towerAGeo, bimWireMat);
+  towerA.add(towerAWire);
+  towerA.position.set(-4, 13, 0);
+  bimGroup.add(towerA);
 
-  const block2 = new THREE.Mesh(new THREE.BoxGeometry(7, 22, 7), bimMatGreen);
-  block2.position.set(7, 7, -6);
-  bimGroup.add(block2);
+  // Building Tower B (Stepped)
+  const towerBGeo = new THREE.BoxGeometry(8, 18, 8);
+  const towerB = new THREE.Mesh(towerBGeo, bimClayMat);
+  const towerBWire = new THREE.Mesh(towerBGeo, bimWireMat);
+  towerB.add(towerBWire);
+  towerB.position.set(6, 9, -4);
+  bimGroup.add(towerB);
 
-  const block3 = new THREE.Mesh(new THREE.BoxGeometry(8, 12, 12), bimMatCyan);
-  block3.position.set(-6, 2, 5);
-  bimGroup.add(block3);
-
+  // MEPF Conduit Lines (Dark Graphite #444444)
+  const mepLinePoints = [
+    new THREE.Vector3(-8, 2, -6),
+    new THREE.Vector3(-4, 14, -6),
+    new THREE.Vector3(6, 14, -4),
+    new THREE.Vector3(6, 22, -4)
+  ];
+  const mepLineGeo = new THREE.BufferGeometry().setFromPoints(mepLinePoints);
+  const mepLineMat = new THREE.LineBasicMaterial({ color: 0x444444, linewidth: 2 });
+  const mepLine = new THREE.Line(mepLineGeo, mepLineMat);
+  bimGroup.add(mepLine);
   scene.add(bimGroup);
 
-  // NODE 4 (Waypoint 04): Holographic NABL Structural Material Testing Cube
+  // NODE 4 (Waypoint 04): Material Testing Stress-Test Cube with CAD Dimension Ticks (Dark Graphite #444444)
   const testNodeGroup = new THREE.Group();
   testNodeGroup.position.set(-14, 7.5, -258);
 
   const testFrameGeo = new THREE.BoxGeometry(8, 8, 8);
   const testFrameMat = new THREE.MeshBasicMaterial({
-    color: 0x00D2FF,
+    color: 0x444444,
     wireframe: true,
     transparent: true,
-    opacity: 0.9
+    opacity: 1.0
   });
   const testFrame = new THREE.Mesh(testFrameGeo, testFrameMat);
   testNodeGroup.add(testFrame);
 
-  // Internal stress-line grid
+  // Internal Soil Density Stratum / Octahedron
   const stressGeo = new THREE.OctahedronGeometry(3.6, 2);
   const stressMat = new THREE.MeshBasicMaterial({
-    color: 0xA3E8BF,
+    color: 0x444444,
     wireframe: true,
     transparent: true,
-    opacity: 0.7
+    opacity: 0.85
   });
   const stressMesh = new THREE.Mesh(stressGeo, stressMat);
   testNodeGroup.add(stressMesh);
 
-  // Orbiting material test particles
+  // Geotechnical Soil Density Layer Discs (#444444)
+  for (let s = -3; s <= 3; s += 2) {
+    const discGeo = new THREE.RingGeometry(0.8, 3.2, 16);
+    discGeo.rotateX(Math.PI / 2);
+    const discMat = new THREE.MeshBasicMaterial({
+      color: 0x444444,
+      wireframe: true,
+      transparent: true,
+      opacity: 0.7
+    });
+    const disc = new THREE.Mesh(discGeo, discMat);
+    disc.position.y = s;
+    testNodeGroup.add(disc);
+  }
+
+  // Material Test Orbiting Particles (#444444)
   const particleGeo = new THREE.BufferGeometry();
-  const particleCount = 120;
+  const particleCount = 90;
   const particleArray = new Float32Array(particleCount * 3);
   for (let p = 0; p < particleCount * 3; p += 3) {
-    particleArray[p] = (Math.random() - 0.5) * 14;
-    particleArray[p + 1] = (Math.random() - 0.5) * 14;
-    particleArray[p + 2] = (Math.random() - 0.5) * 14;
+    particleArray[p] = (Math.random() - 0.5) * 12;
+    particleArray[p + 1] = (Math.random() - 0.5) * 12;
+    particleArray[p + 2] = (Math.random() - 0.5) * 12;
   }
   particleGeo.setAttribute('position', new THREE.BufferAttribute(particleArray, 3));
   const particleMat = new THREE.PointsMaterial({
     size: 0.35,
-    color: 0x00D2FF,
+    color: 0x444444,
     transparent: true,
-    opacity: 0.85
+    opacity: 0.95
   });
   const particlePoints = new THREE.Points(particleGeo, particleMat);
   testNodeGroup.add(particlePoints);
-
   scene.add(testNodeGroup);
 
-  // NODE 5 (Waypoint 05): Nationwide Smart Infrastructure Constellation
+  // NODE 5 (Waypoint 05): Categorized National Network Pin Constellation
   const networkGroup = new THREE.Group();
   networkGroup.position.set(0, 10, -380);
 
-  const beaconGeo = new THREE.CylinderGeometry(0.15, 0.4, 45, 6);
-  const beaconMat = new THREE.MeshBasicMaterial({
-    color: 0x00D2FF,
-    transparent: true,
-    opacity: 0.35
-  });
+  const beaconGeo = new THREE.CylinderGeometry(0.12, 0.35, 45, 6);
 
-  const nodeLocations = [
-    [0, 0, 0],       // Vadodara HQ
-    [-28, -2, -15],  // Bharuch
-    [-42, -4, 25],   // Bhuj
-    [18, -1, 35],    // Gandhinagar
-    [-35, -3, 50],   // Junagadh
-    [-15, -2, -30],  // Navsari
-    [-65, 0, 80]     // Jaisalmer
+  // 16 Categorized Regional Projects across India (High-Contrast Light Theme)
+  const SECTOR_COLORS = {
+    tpqa: 0x0284C7,     // Cobalt: TPQA, PMC, IE Jobs
+    design: 0x0D9488,   // Teal: Design & DPR Jobs
+    survey: 0xD97706,   // Amber: Field Survey
+    geotech: 0x7C3AED   // Violet: Geotech Investigation
+  };
+
+  const categorizedNodes = [
+    // TPQA & PMC Jobs
+    { pos: [0, 0, 0], sector: 'tpqa', label: 'Vadodara Central HQ' },
+    { pos: [-24, -2, -18], sector: 'tpqa', label: 'Bharuch Corridor' },
+    { pos: [22, -1, 35], sector: 'tpqa', label: 'Gandhinagar Institutional' },
+    { pos: [-38, -3, 45], sector: 'tpqa', label: 'Junagadh Bridge QA' },
+    // Design & DPR Jobs
+    { pos: [-12, 2, -30], sector: 'design', label: 'Navsari Highway DPR' },
+    { pos: [14, 3, -15], sector: 'design', label: 'Surat Express Alignment' },
+    { pos: [-30, 1, 20], sector: 'design', label: 'Rajkot Ring Road DPR' },
+    { pos: [32, 2, -40], sector: 'design', label: 'Ahmedabad Metro BIM' },
+    // Field Survey (LiDAR & Drone)
+    { pos: [-45, -4, 25], sector: 'survey', label: 'Bhuj Port Survey' },
+    { pos: [-65, 0, 80], sector: 'survey', label: 'Jaisalmer Solar LiDAR' },
+    { pos: [10, -2, -60], sector: 'survey', label: 'Narmada Canal Geomatics' },
+    { pos: [-50, 2, -10], sector: 'survey', label: 'Kutch Coastal Bathymetry' },
+    // Geotech Investigation
+    { pos: [5, -1, 20], sector: 'geotech', label: 'Anand Foundation Testing' },
+    { pos: [-20, -2, 50], sector: 'geotech', label: 'Somnath Deep Drilling' },
+    { pos: [28, -3, 10], sector: 'geotech', label: 'Godhra Dam Exploration' },
+    { pos: [-35, 0, -40], sector: 'geotech', label: 'Dahej Industrial Geotech' }
   ];
 
-  nodeLocations.forEach(([nx, ny, nz]) => {
-    // Upward beacon beam
-    const beam = new THREE.Mesh(beaconGeo, beaconMat);
+  const networkMarkers = [];
+
+  categorizedNodes.forEach(item => {
+    const colorHex = SECTOR_COLORS[item.sector] || 0x0284C7;
+    const [nx, ny, nz] = item.pos;
+
+    // Upward coordinate beacon
+    const beamMat = new THREE.MeshBasicMaterial({
+      color: colorHex,
+      transparent: true,
+      opacity: 0.35
+    });
+    const beam = new THREE.Mesh(beaconGeo, beamMat);
     beam.position.set(nx, ny + 22.5, nz);
     networkGroup.add(beam);
 
-    // Glowing node marker
-    const marker = new THREE.Mesh(
-      new THREE.SphereGeometry(1.2, 8, 8),
-      new THREE.MeshBasicMaterial({ color: 0xA3E8BF })
-    );
+    // Glowing node marker sphere
+    const markerMat = new THREE.MeshBasicMaterial({
+      color: colorHex,
+      transparent: true,
+      opacity: 0.95
+    });
+    const marker = new THREE.Mesh(new THREE.SphereGeometry(1.2, 8, 8), markerMat);
     marker.position.set(nx, ny, nz);
     networkGroup.add(marker);
+
+    networkMarkers.push({
+      sector: item.sector,
+      beam,
+      marker,
+      baseColor: colorHex
+    });
   });
   scene.add(networkGroup);
 
   // --------------------------------------------------------------------------
-  // 7. Scroll Tracking, Camera Spline Interpolation & HUD Waypoint Sync
+  // 7. Pacing & Waypoint Mapping across 500vh Virtual Track
   // --------------------------------------------------------------------------
   const waypoints = Array.from(document.querySelectorAll('.gdr-waypoint-card'));
   const trackerItems = Array.from(document.querySelectorAll('.gdr-tracker-item'));
@@ -389,17 +464,18 @@ export function initWebglScrollytelling() {
   const hudCoordText = document.getElementById('gdr-hud-coords');
 
   const WAYPOINT_RANGES = [
-    { index: 0, start: 0.00, end: 0.18, targetProgress: 0.00, label: 'OVERVIEW' },
-    { index: 1, start: 0.19, end: 0.42, targetProgress: 0.28, label: 'INFRASTRUCTURE' },
-    { index: 2, start: 0.43, end: 0.66, targetProgress: 0.54, label: 'DESIGN & BIM' },
-    { index: 3, start: 0.67, end: 0.88, targetProgress: 0.77, label: 'TESTING & LABS' },
-    { index: 4, start: 0.89, end: 1.00, targetProgress: 0.96, label: 'PARTNERSHIP' }
+    { index: 0, start: 0.00, end: 0.18, targetProgress: 0.05, label: 'FOUNDATION & SCALE' },
+    { index: 1, start: 0.19, end: 0.38, targetProgress: 0.28, label: 'CIVIL & INFRASTRUCTURE' },
+    { index: 2, start: 0.39, end: 0.58, targetProgress: 0.48, label: 'DESIGN & 7D BIM' },
+    { index: 3, start: 0.59, end: 0.78, targetProgress: 0.68, label: 'TESTING & COMMERCE' },
+    { index: 4, start: 0.79, end: 1.00, targetProgress: 0.92, label: 'NATIONAL FOOTPRINT' }
   ];
 
   let rawScrollProgress = 0;
   let smoothedProgress = 0;
   activeWaypointIndex = 0;
   const startTime = performance.now();
+  let currentActiveSector = 'all';
 
   function calculateScrollProgress() {
     const scrollY = window.scrollY;
@@ -411,7 +487,7 @@ export function initWebglScrollytelling() {
     return Math.max(0, Math.min(1, progress));
   }
 
-  // Waypoint Tracker Click Handler
+  // Left-Rail Waypoint Tracker Click Handler
   trackerItems.forEach((btn, idx) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -428,10 +504,10 @@ export function initWebglScrollytelling() {
     });
   });
 
-  // Waypoint CTA Inquire / Explore Buttons
-  const exploreDivisionsBtn = document.getElementById('btn-explore-divisions');
-  if (exploreDivisionsBtn) {
-    exploreDivisionsBtn.addEventListener('click', (e) => {
+  // Waypoint 01 CTA [Explore Capabilities ↓]
+  const exploreCapabilitiesBtn = document.getElementById('btn-explore-capabilities');
+  if (exploreCapabilitiesBtn) {
+    exploreCapabilitiesBtn.addEventListener('click', (e) => {
       e.preventDefault();
       const wp = WAYPOINT_RANGES[1]; // Waypoint 02
       const trackRect = track.getBoundingClientRect();
@@ -444,23 +520,65 @@ export function initWebglScrollytelling() {
     });
   }
 
-  const tenderInquiryBtn = document.getElementById('btn-tender-inquiry');
+  // Waypoint 05 CTA [Submit Tender Inquiry / RFP] -> routes to executive CTA banner
+  const tenderInquiryBtn = document.getElementById('btn-submit-tender');
   if (tenderInquiryBtn) {
     tenderInquiryBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      const footer = document.getElementById('site-footer');
-      if (footer) {
-        footer.scrollIntoView({ behavior: 'smooth' });
+      const ctaBanner = document.getElementById('tender-cta-banner') || document.getElementById('tender-portal');
+      if (ctaBanner) {
+        ctaBanner.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.location.href = '/contact-us.html';
       }
     });
   }
 
+  // Interactive Sector Filter Buttons in Waypoint 05
+  const sectorFilterButtons = Array.from(document.querySelectorAll('.network-filter-btn'));
+  sectorFilterButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const sector = btn.getAttribute('data-sector');
+      if (currentActiveSector === sector) {
+        currentActiveSector = 'all';
+        sectorFilterButtons.forEach(b => b.classList.remove('is-active'));
+      } else {
+        currentActiveSector = sector;
+        sectorFilterButtons.forEach(b => b.classList.toggle('is-active', b === btn));
+      }
+    });
+  });
+
   // --------------------------------------------------------------------------
-  // 8. Main Render & Animation Loop
+  // 8. Dynamic Footer Reveal Margin Synchronization
   // --------------------------------------------------------------------------
+  const updateFooterOffset = () => {
+    const footer = document.querySelector('footer') || document.getElementById('site-footer');
+    const contentWrapper = document.getElementById('page-content-wrapper') || document.querySelector('.content-wrapper');
+    if (footer && contentWrapper) {
+      const footerH = footer.offsetHeight;
+      contentWrapper.style.marginBottom = `${footerH}px`;
+      document.documentElement.style.setProperty('--curtain-footer-height', `${footerH}px`);
+    }
+  };
+  window.addEventListener('resize', updateFooterOffset);
+  window.addEventListener('load', updateFooterOffset);
+  const footerEl = document.getElementById('site-footer') || document.querySelector('footer');
+  if (footerEl && window.ResizeObserver) {
+    new ResizeObserver(updateFooterOffset).observe(footerEl);
+  }
+  updateFooterOffset();
+
+  // --------------------------------------------------------------------------
+  // 9. Continuous WebGL Animation Loop (Remains active across full page)
+  // --------------------------------------------------------------------------
+  let isLoopRunning = true;
   let animationFrameId = 0;
 
   function renderLoop() {
+    if (!isLoopRunning) return;
+
     const elapsedTime = (performance.now() - startTime) * 0.001;
 
     // 1. Smoothly interpolate scroll progress for camera rail inertia
@@ -472,7 +590,7 @@ export function initWebglScrollytelling() {
     const camPos = cameraSpline.getPointAt(p);
     const targetPos = targetSpline.getPointAt(p);
 
-    // Subtle natural floating idle breathing (Hubtown style)
+    // Subtle natural floating idle breathing
     const floatY = Math.sin(elapsedTime * 1.2) * 0.45;
     const floatX = Math.cos(elapsedTime * 0.9) * 0.35;
     camera.position.set(camPos.x + floatX, camPos.y + floatY, camPos.z);
@@ -482,27 +600,47 @@ export function initWebglScrollytelling() {
     beaconLight.position.copy(camera.position);
 
     // 3. Animate Structural Nodes
-    // Node 1 rotating core
     coreNodeGroup.rotation.y = elapsedTime * 0.35;
     coreNodeGroup.rotation.x = Math.sin(elapsedTime * 0.25) * 0.15;
     ringMesh.rotation.z = elapsedTime * 0.5;
 
-    // Node 3 BIM block subtle hover
     bimGroup.position.y = 10 + Math.sin(elapsedTime * 1.4) * 0.6;
 
-    // Node 4 test cube internal stress rotation
     stressMesh.rotation.x = elapsedTime * 0.6;
     stressMesh.rotation.y = elapsedTime * 0.8;
     particlePoints.rotation.y = elapsedTime * 0.15;
 
     // 4. Advance Corridor Light Pulses
     pulseSpheres.forEach(item => {
-      item.t = (item.t + item.speed * 0.02) % 1;
+      item.t = (item.t + item.speed * 0.018) % 1;
       const point = alignmentCurve.getPointAt(item.t);
       item.mesh.position.copy(point);
     });
 
-    // 5. Synchronize Narrative Cards & Journey Tracker
+    // 5. Update Network Sector Pin Highlights (Dark Graphite #444444 default)
+    networkMarkers.forEach(pin => {
+      if (currentActiveSector === 'all') {
+        pin.marker.scale.set(1.0, 1.0, 1.0);
+        pin.marker.material.color.setHex(0x444444);
+        pin.marker.material.opacity = 0.95;
+        pin.beam.material.color.setHex(0x444444);
+        pin.beam.material.opacity = 0.4;
+      } else if (pin.sector === currentActiveSector) {
+        pin.marker.scale.set(1.4, 1.4, 1.4);
+        pin.marker.material.color.setHex(pin.baseColor);
+        pin.marker.material.opacity = 1.0;
+        pin.beam.material.color.setHex(pin.baseColor);
+        pin.beam.material.opacity = 0.6;
+      } else {
+        pin.marker.scale.set(0.7, 0.7, 0.7);
+        pin.marker.material.color.setHex(0x94A3B8);
+        pin.marker.material.opacity = 0.25;
+        pin.beam.material.color.setHex(0x94A3B8);
+        pin.beam.material.opacity = 0.1;
+      }
+    });
+
+    // 6. Synchronize Narrative Cards & Journey Tracker
     let currentWaypoint = 0;
     for (let i = 0; i < WAYPOINT_RANGES.length; i++) {
       const range = WAYPOINT_RANGES[i];
@@ -539,7 +677,7 @@ export function initWebglScrollytelling() {
     // Update HUD Telemetry text
     if (hudCoordText) {
       const activeRange = WAYPOINT_RANGES[activeWaypointIndex];
-      hudCoordText.innerHTML = `GEO // LAT: 22.3072° N &bull; LON: 73.1812° E<br>CAMERA Z: ${camPos.z.toFixed(0)}m &bull; CAM_Y: ${camPos.y.toFixed(0)}m<br>MILESTONE: ${activeRange.label} [${(rawScrollProgress * 100).toFixed(0)}%]`;
+      hudCoordText.innerHTML = `GEO // LAT: 22.3072° N &bull; LON: 73.1812° E<br>CAMERA Z: ${camPos.z.toFixed(0)}m &bull; CAM_Y: ${camPos.y.toFixed(0)}m<br>STAGE: ${activeRange.label} [${(rawScrollProgress * 100).toFixed(0)}%]`;
     }
 
     // Render WebGL frame
@@ -547,12 +685,13 @@ export function initWebglScrollytelling() {
     animationFrameId = requestAnimationFrame(renderLoop);
   }
 
-  // Window Resize
+  // Window Resize Handler
   function handleResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    updateFooterOffset();
   }
   window.addEventListener('resize', handleResize);
 
@@ -561,8 +700,10 @@ export function initWebglScrollytelling() {
 
   return {
     destroy: () => {
+      isLoopRunning = false;
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', updateFooterOffset);
       renderer.dispose();
       terrainGeo.dispose();
       terrainMat.dispose();
