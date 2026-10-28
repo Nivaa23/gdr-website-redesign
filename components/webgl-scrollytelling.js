@@ -11,6 +11,8 @@
  */
 
 import * as THREE from 'three';
+import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
+import { Application } from '@splinetool/runtime';
 import './WebglScrollytelling.css';
 
 let activeWaypointIndex = 0;
@@ -51,6 +53,12 @@ export function initWebglScrollytelling() {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.15;
+
+  // Neutral HDRI Studio Environment for Architectural Glass & Satin Titanium
+  const pmremGenerator = new THREE.PMREMGenerator(renderer);
+  pmremGenerator.compileEquirectangularShader();
+  const neutralStudioEnv = pmremGenerator.fromScene(new RoomEnvironment(), 0.04).texture;
+  scene.environment = neutralStudioEnv;
 
   // --------------------------------------------------------------------------
   // 2. High-Contrast Architectural Light-Theme Lighting Rig
@@ -204,44 +212,198 @@ export function initWebglScrollytelling() {
   // 6. Volumetric Structural Engineering Nodes (Clay + CAD Vectors)
   // --------------------------------------------------------------------------
 
-  // NODE 1 (Waypoint 01): Rotating Foundation Cube (Sky-100 Solid Inner + Sky-600 Outer Wireframe)
+  // NODE 1 (Waypoint 01): Multidisciplinary Architectural 3D Core ("Engineering_Core")
   const coreNodeGroup = new THREE.Group();
-  coreNodeGroup.position.set(0, 4.5, 0);
+  coreNodeGroup.name = 'Engineering_Core';
+  coreNodeGroup.position.set(0, 5.2, 0);
 
-  // Inner Architectural Clay Core (color: 0xE2E8F0, roughness: 0.35, metalness: 0.05, opacity: 0.9, transparent: true)
-  const coreInnerGeo = new THREE.DodecahedronGeometry(2.5, 0);
-  const coreInnerMat = new THREE.MeshStandardMaterial({
+  // 1A. Outer Kinetic Cage: Geodesic Icosahedron Space-Frame Truss in Matte Satin Aluminum / Titanium
+  const outerKineticCage = new THREE.Group();
+  outerKineticCage.name = 'Outer_Kinetic_Cage';
+
+  const titaniumStrutMat = new THREE.MeshStandardMaterial({
     color: 0xE2E8F0,
-    roughness: 0.35,
+    roughness: 0.25,
+    metalness: 0.85
+  });
+
+  const cageTemplateGeo = new THREE.IcosahedronGeometry(3.6, 1);
+  const cageEdgesGeo = new THREE.EdgesGeometry(cageTemplateGeo, 1);
+  const edgePositions = cageEdgesGeo.attributes.position;
+  const strutUp = new THREE.Vector3(0, 1, 0);
+  const uniqueVertexKeys = new Set();
+
+  for (let i = 0; i < edgePositions.count; i += 2) {
+    const vStart = new THREE.Vector3().fromBufferAttribute(edgePositions, i);
+    const vEnd = new THREE.Vector3().fromBufferAttribute(edgePositions, i + 1);
+    const dir = new THREE.Vector3().subVectors(vEnd, vStart);
+    const len = dir.length();
+
+    const strutGeo = new THREE.CylinderGeometry(0.055, 0.055, len, 8);
+    const strutMesh = new THREE.Mesh(strutGeo, titaniumStrutMat);
+    strutMesh.position.copy(vStart).add(vEnd).multiplyScalar(0.5);
+    strutMesh.quaternion.setFromUnitVectors(strutUp, dir.normalize());
+    outerKineticCage.add(strutMesh);
+
+    [vStart, vEnd].forEach((v) => {
+      const key = `${v.x.toFixed(2)},${v.y.toFixed(2)},${v.z.toFixed(2)}`;
+      if (!uniqueVertexKeys.has(key)) {
+        uniqueVertexKeys.add(key);
+        const jointMesh = new THREE.Mesh(new THREE.SphereGeometry(0.095, 10, 10), titaniumStrutMat);
+        jointMesh.position.copy(v);
+        outerKineticCage.add(jointMesh);
+      }
+    });
+  }
+  coreNodeGroup.add(outerKineticCage);
+
+  // 1B. Internal Core Anchor: Structural Architectural Glass with Cobalt Blue (#0284C7) Refraction
+  const internalCoreAnchor = new THREE.Group();
+  internalCoreAnchor.name = 'Internal_Core_Anchor';
+
+  const coreInnerGeo = new THREE.IcosahedronGeometry(2.1, 0);
+  const coreGlassMat = new THREE.MeshPhysicalMaterial({
+    color: 0xE0F2FE,
+    transmission: 0.92,
+     opacity: 1.0,
+    transparent: true,
+    roughness: 0.08,
     metalness: 0.05,
-    opacity: 0.9,
-    transparent: true
+    ior: 1.52,
+    thickness: 2.4,
+    attenuationColor: new THREE.Color(0x0284C7),
+    attenuationDistance: 3.2,
+    clearcoat: 1.0,
+    clearcoatRoughness: 0.06
   });
-  const coreInnerMesh = new THREE.Mesh(coreInnerGeo, coreInnerMat);
-  coreNodeGroup.add(coreInnerMesh);
+  const coreInnerMesh = new THREE.Mesh(coreInnerGeo, coreGlassMat);
+  internalCoreAnchor.add(coreInnerMesh);
 
-  // Outer Wireframe Cage (Opaque Dark Graphite #444444)
-  const coreOuterGeo = new THREE.DodecahedronGeometry(3.3, 0);
-  const coreOuterMat = new THREE.MeshBasicMaterial({
-    color: 0x444444,
-    wireframe: true,
-    transparent: true,
-    opacity: 1.0
-  });
-  const coreOuterMesh = new THREE.Mesh(coreOuterGeo, coreOuterMat);
-  coreNodeGroup.add(coreOuterMesh);
+  // Inner Cobalt Refractive Nucleus & Crisp Facet Edges
+  const coreNucleusMesh = new THREE.Mesh(
+    new THREE.OctahedronGeometry(0.95, 0),
+    new THREE.MeshStandardMaterial({
+      color: 0x0284C7,
+      emissive: 0x0284C7,
+      emissiveIntensity: 0.35,
+      roughness: 0.2,
+      metalness: 0.7
+    })
+  );
+  internalCoreAnchor.add(coreNucleusMesh);
 
-  // Dark Graphite Orbit Ring (#444444)
-  const ringGeo = new THREE.TorusGeometry(5.2, 0.1, 8, 48);
-  const ringMat = new THREE.MeshBasicMaterial({
-    color: 0x444444,
+  const coreFacetLines = new THREE.LineSegments(
+    new THREE.EdgesGeometry(coreInnerGeo),
+    new THREE.LineBasicMaterial({
+      color: 0x0284C7,
+      transparent: true,
+      opacity: 0.55
+    })
+  );
+  internalCoreAnchor.add(coreFacetLines);
+  coreNodeGroup.add(internalCoreAnchor);
+
+  // 1C. CAD Orbit Rings: Two Concentric Razor-Thin Datum Gimbal Rings (X: 25 deg, Z: -15 deg)
+  const datumRingsGroup = new THREE.Group();
+  datumRingsGroup.name = 'CAD_Orbit_Rings';
+
+  const datumRingMat = new THREE.MeshStandardMaterial({
+    color: 0x0284C7,
+    emissive: 0x0284C7,
+    emissiveIntensity: 0.2,
+    roughness: 0.3,
+    metalness: 0.6,
     transparent: true,
-    opacity: 0.85
+    opacity: 0.92
   });
-  const ringMesh = new THREE.Mesh(ringGeo, ringMat);
+
+  // Primary Datum Ring (Tilted X: 25°, Z: -15°)
+  const ringGimbalA = new THREE.Group();
+  ringGimbalA.rotation.x = THREE.MathUtils.degToRad(25);
+  ringGimbalA.rotation.z = THREE.MathUtils.degToRad(-15);
+  const ringGeo = new THREE.TorusGeometry(5.0, 0.042, 12, 96);
+  const ringMesh = new THREE.Mesh(ringGeo, datumRingMat);
   ringMesh.rotation.x = Math.PI / 2;
-  coreNodeGroup.add(ringMesh);
+  ringGimbalA.add(ringMesh);
+
+  // Waypoint Nodes along Primary Datum Ring
+  for (let n = 0; n < 4; n++) {
+    const angle = (n * Math.PI) / 2;
+    const nodeDot = new THREE.Mesh(new THREE.SphereGeometry(0.12, 12, 12), datumRingMat);
+    nodeDot.position.set(Math.cos(angle) * 5.0, 0, Math.sin(angle) * 5.0);
+    ringGimbalA.add(nodeDot);
+  }
+  datumRingsGroup.add(ringGimbalA);
+
+  // Secondary Concentric LiDAR Scan Plane Ring (Counter-tilted)
+  const ringGimbalB = new THREE.Group();
+  ringGimbalB.rotation.x = THREE.MathUtils.degToRad(-25);
+  ringGimbalB.rotation.z = THREE.MathUtils.degToRad(15);
+  const ringGeoB = new THREE.TorusGeometry(5.65, 0.032, 12, 96);
+  const ringMeshB = new THREE.Mesh(ringGeoB, datumRingMat);
+  ringMeshB.rotation.x = Math.PI / 2;
+  ringGimbalB.add(ringMeshB);
+
+  for (let n = 0; n < 6; n++) {
+    const angle = (n * Math.PI) / 3;
+    const nodeDot = new THREE.Mesh(new THREE.SphereGeometry(0.09, 10, 10), datumRingMat);
+    nodeDot.position.set(Math.cos(angle) * 5.65, 0, Math.sin(angle) * 5.65);
+    ringGimbalB.add(nodeDot);
+  }
+  datumRingsGroup.add(ringGimbalB);
+
+  coreNodeGroup.add(datumRingsGroup);
   scene.add(coreNodeGroup);
+
+  // Cursor Proximity / Magnetic Tilt State (Max 5° constraint + Datum Ring Expansion)
+  const corePointerState = {
+    targetTiltX: 0,
+    targetTiltZ: 0,
+    currentTiltX: 0,
+    currentTiltZ: 0,
+    targetRingScale: 1.0,
+    currentRingScale: 1.0
+  };
+  const MAX_MAGNETIC_TILT_RAD = THREE.MathUtils.degToRad(5);
+
+  window.addEventListener('pointermove', (e) => {
+    const nx = (e.clientX / window.innerWidth) * 2 - 1;
+    const ny = (e.clientY / window.innerHeight) * 2 - 1;
+    const dist = Math.hypot(nx, ny);
+    corePointerState.targetTiltZ = -nx * MAX_MAGNETIC_TILT_RAD;
+    corePointerState.targetTiltX = ny * MAX_MAGNETIC_TILT_RAD;
+    corePointerState.targetRingScale = dist < 0.85 ? 1.07 : 1.0;
+  }, { passive: true });
+
+  // Optional Spline Runtime Integration for #waypoint-01-3d-target
+  let splineApp = null;
+  let splineCoreObject = null;
+  const waypoint01Anchor = document.querySelector('#waypoint-01-3d-target');
+  const configuredSplineScene = (waypoint01Anchor && waypoint01Anchor.getAttribute('data-spline-scene')) || window.GDR_SPLINE_CORE_SCENE;
+
+  function mountSplineCoreScene(sceneUrl) {
+    if (!waypoint01Anchor || !sceneUrl) return;
+    waypoint01Anchor.innerHTML = '<canvas id="spline-hero-core" class="w-full h-full block"></canvas>';
+    const splineCanvas = document.getElementById('spline-hero-core');
+    if (!splineCanvas) return;
+
+    splineApp = new Application(splineCanvas);
+    splineApp.load(sceneUrl)
+      .then(() => {
+        splineCoreObject = splineApp.findObjectByName('Engineering_Core');
+        coreNodeGroup.visible = false;
+        console.log('Spline Architectural Core initialized successfully at Waypoint 01.');
+      })
+      .catch((err) => {
+        coreNodeGroup.visible = true;
+        console.error('Failed to load Spline core:', err);
+      });
+  }
+
+  if (configuredSplineScene) {
+    mountSplineCoreScene(configuredSplineScene);
+  }
+  window.loadWaypoint01SplineScene = mountSplineCoreScene;
 
   // NODE 2 (Waypoint 02): Cable-Stayed Bridge Pylon Structure (Dark Graphite #444444)
   const bridgeGroup = new THREE.Group();
@@ -644,10 +806,33 @@ export function initWebglScrollytelling() {
     // Move beacon light with camera
     beaconLight.position.copy(camera.position);
 
-    // 3. Animate Structural Nodes
-    coreNodeGroup.rotation.y = elapsedTime * 0.35;
-    coreNodeGroup.rotation.x = Math.sin(elapsedTime * 0.25) * 0.15;
-    ringMesh.rotation.z = elapsedTime * 0.5;
+    // 3. Animate Structural Nodes (Waypoint 01 Architectural Core + Micro-Interactions)
+    const scrollRotationOffset = p * Math.PI * 2;
+    // Counter-rotation between Outer Kinetic Cage (0.2 rad/s) & Internal Glass Core (0.5 rad/s)
+    outerKineticCage.rotation.y = -elapsedTime * 0.2 + scrollRotationOffset * 0.5;
+    outerKineticCage.rotation.x = Math.sin(elapsedTime * 0.22) * 0.08;
+    internalCoreAnchor.rotation.y = elapsedTime * 0.5 + scrollRotationOffset;
+    internalCoreAnchor.rotation.z = Math.cos(elapsedTime * 0.35) * 0.1;
+    coreNucleusMesh.rotation.y = -elapsedTime * 0.8;
+
+    // Subtle vertical floating hover (±6px / ±0.35 world units sine wave)
+    coreNodeGroup.position.y = 5.2 + Math.sin(elapsedTime * 1.5) * 0.35;
+
+    // Magnetic cursor proximity tilt (5° max constraint) & outer datum ring expansion
+    corePointerState.currentTiltX += (corePointerState.targetTiltX - corePointerState.currentTiltX) * 0.08;
+    corePointerState.currentTiltZ += (corePointerState.targetTiltZ - corePointerState.currentTiltZ) * 0.08;
+    corePointerState.currentRingScale += (corePointerState.targetRingScale - corePointerState.currentRingScale) * 0.08;
+
+    coreNodeGroup.rotation.x = corePointerState.currentTiltX;
+    coreNodeGroup.rotation.z = corePointerState.currentTiltZ;
+
+    ringGimbalA.rotation.y = elapsedTime * 0.32;
+    ringGimbalB.rotation.y = -elapsedTime * 0.24;
+    datumRingsGroup.scale.setScalar(corePointerState.currentRingScale);
+
+    if (splineCoreObject) {
+      splineCoreObject.rotation.y = scrollRotationOffset;
+    }
 
     bimGroup.position.y = 10 + Math.sin(elapsedTime * 1.4) * 0.6;
 

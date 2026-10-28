@@ -12,6 +12,7 @@
     "vite": "^6.0.0"
   },
   "dependencies": {
+    "@splinetool/runtime": "^2.0.114",
     "three": "^0.186.1"
   }
 }
