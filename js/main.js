@@ -456,9 +456,9 @@ function initWordmarkCursorEffect() {
   // Accessible keyboard focus behavior
   panel.addEventListener('focus', () => {
     isHovered = true;
-    targetX = 660; // Center coordinate
-    targetY = 140;
-    targetRadius = 240;
+    targetX = 800; // Center coordinate
+    targetY = 110;
+    targetRadius = 220;
     startLoop();
   });
 
