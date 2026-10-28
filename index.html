@@ -412,213 +412,273 @@
           </div>
 
           <!-- Layer 2: HUD UI & Storytelling Overlays (Z-Index: 10) -->
-          <div class="relative z-10 w-full h-full flex flex-col justify-between p-6 md:p-10 pointer-events-none">
-            
-            <!-- Top Bar: Waypoint / Telemetry Tracker (Top Right) -->
-            <div class="flex justify-end items-start pointer-events-auto">
-              <div id="hud-telemetry" class="px-4 py-2 rounded-lg bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-sm text-xs font-mono text-slate-600">
-                GEO // LAT: 22.3072° N • LON: 73.1812° E | STAGE: 01 // OVERVIEW
+          <div 
+            id="hero-hud-layer" 
+            style="position: absolute; inset: 0; width: 100vw; height: 100vh; z-index: 10; pointer-events: none; overflow: hidden;"
+          >
+
+            <!-- Telemetry Tracker (Top Right) -->
+            <div style="position: absolute; top: 32px; right: 40px; z-index: 20; pointer-events: auto;">
+              <div id="hud-telemetry" style="padding: 6px 14px; border-radius: 6px; background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(226, 232, 240, 0.9); font-family: monospace; font-size: 11px; color: #64748B; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                GEO // LAT: 22.3072° N • LON: 73.1812° E | STAGE: 01 // FOUNDATION &amp; SCALE
               </div>
             </div>
 
-            <!-- Left Rail: Vertical Waypoint Indicator (Pinned Left Center) -->
-            <nav class="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 flex flex-col gap-4 pointer-events-auto" aria-label="Waypoint Navigation">
-              <!-- Render waypoint indicators 01 to 05 -->
-              <button class="flex items-center gap-3 text-left group" data-waypoint="0">
-                <span class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold bg-[#0284C7] text-white shadow-md shadow-sky-500/20">01</span>
-                <span class="text-xs font-semibold uppercase tracking-wider text-slate-800">Foundation</span>
+            <!-- Left Waypoint Rail (Pinned Left Center) -->
+            <nav 
+              style="position: absolute; left: 40px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 16px; z-index: 20; pointer-events: auto;"
+              aria-label="Waypoint Navigation"
+            >
+              <button style="display: flex; align-items: center; gap: 12px; background: none; border: none; cursor: pointer; text-align: left; padding: 0;" data-waypoint="0">
+                <span style="width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; background: #0284C7; color: #FFFFFF; box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);">01</span>
+                <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #0F172A; align-self: center;">Foundation</span>
               </button>
-              <button class="flex items-center gap-3 text-left group opacity-60 hover:opacity-100 transition-opacity" data-waypoint="1">
-                <span class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold bg-white border border-slate-300 text-slate-600">02</span>
-                <span class="text-xs font-semibold uppercase tracking-wider text-slate-600">Infrastructure</span>
+              <button style="display: flex; align-items: center; gap: 12px; background: none; border: none; cursor: pointer; text-align: left; opacity: 0.6; padding: 0;" data-waypoint="1">
+                <span style="width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; background: #FFFFFF; border: 1px solid #CBD5E1; color: #64748B;">02</span>
+                <span style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; align-self: center;">Infrastructure</span>
               </button>
-              <button class="flex items-center gap-3 text-left group opacity-60 hover:opacity-100 transition-opacity" data-waypoint="2">
-                <span class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold bg-white border border-slate-300 text-slate-600">03</span>
-                <span class="text-xs font-semibold uppercase tracking-wider text-slate-600">Design & BIM</span>
+              <button style="display: flex; align-items: center; gap: 12px; background: none; border: none; cursor: pointer; text-align: left; opacity: 0.6; padding: 0;" data-waypoint="2">
+                <span style="width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; background: #FFFFFF; border: 1px solid #CBD5E1; color: #64748B;">03</span>
+                <span style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; align-self: center;">Design &amp; BIM</span>
               </button>
-              <button class="flex items-center gap-3 text-left group opacity-60 hover:opacity-100 transition-opacity" data-waypoint="3">
-                <span class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold bg-white border border-slate-300 text-slate-600">04</span>
-                <span class="text-xs font-semibold uppercase tracking-wider text-slate-600">Testing & Labs</span>
+              <button style="display: flex; align-items: center; gap: 12px; background: none; border: none; cursor: pointer; text-align: left; opacity: 0.6; padding: 0;" data-waypoint="3">
+                <span style="width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; background: #FFFFFF; border: 1px solid #CBD5E1; color: #64748B;">04</span>
+                <span style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; align-self: center;">Testing &amp; Labs</span>
               </button>
-              <button class="flex items-center gap-3 text-left group opacity-60 hover:opacity-100 transition-opacity" data-waypoint="4">
-                <span class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold bg-white border border-slate-300 text-slate-600">05</span>
-                <span class="text-xs font-semibold uppercase tracking-wider text-slate-600">National Footprint</span>
+              <button style="display: flex; align-items: center; gap: 12px; background: none; border: none; cursor: pointer; text-align: left; opacity: 0.6; padding: 0;" data-waypoint="4">
+                <span style="width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; background: #FFFFFF; border: 1px solid #CBD5E1; color: #64748B;">05</span>
+                <span style="font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; align-self: center;">National Footprint</span>
               </button>
             </nav>
 
-            <!-- Bottom Center: Waypoint 01 Narrative Group (Lower Third) -->
-            <div id="narrative-container" class="w-full max-w-4xl mx-auto mb-4 text-center pointer-events-auto flex flex-col items-center">
-              
+            <!-- Pinned Right-Aligned, Vertically Centered Glassmorphic Narrative Card -->
+            <aside 
+              id="narrative-container" 
+              style="position: absolute !important; right: 48px !important; top: 50% !important; transform: translateY(-50%) !important; width: 440px !important; max-width: calc(100vw - 96px) !important; background: rgba(255, 255, 255, 0.88) !important; backdrop-filter: blur(16px) !important; -webkit-backdrop-filter: blur(16px) !important; border: 1px solid rgba(226, 232, 240, 0.95) !important; border-radius: 16px !important; padding: 32px 28px !important; box-shadow: 0 12px 36px -4px rgba(15, 23, 42, 0.08) !important; z-index: 20 !important; pointer-events: auto !important; margin: 0 !important; display: flex !important; flex-direction: column !important; box-sizing: border-box !important;"
+            >
               <!-- Waypoint 01 Card -->
-              <div class="gdr-waypoint-card w-full flex flex-col items-center is-active" id="waypoint-01" data-wp-card="0">
-                <!-- Institutional Tag -->
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 shadow-sm text-xs font-bold uppercase tracking-widest text-[#0284C7] mb-3">
-                  <span class="w-2 h-2 rounded-full bg-[#0284C7]"></span>
-                  Government & Institutional Partner • ISO 9001:2015
+              <div class="gdr-waypoint-card w-full flex flex-col is-active" id="waypoint-01" data-wp-card="0" style="width: 100%; display: flex; flex-direction: column;">
+                <!-- Header Badge -->
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                  <span style="font-family: monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #64748B;">
+                    WAYPOINT 01 // OVERVIEW
+                  </span>
+                  <span style="display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 9999px; background: #E0F2FE; border: 1px solid #BAE6FD; font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #0284C7;">
+                    <span style="width: 6px; height: 6px; border-radius: 50%; background: #0284C7;"></span>
+                    ISO 9001:2015
+                  </span>
                 </div>
 
-                <!-- Primary Display Headline -->
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0F172A] tracking-tight leading-[1.1] max-w-3xl mb-4">
+                <!-- Main Headline -->
+                <h1 style="font-size: 26px; line-height: 1.15; font-weight: 800; color: #0F172A; letter-spacing: -0.02em; margin: 0 0 12px 0; text-align: left;">
                   SHAPING NATIONAL INFRASTRUCTURE FROM THE GROUND UP.
                 </h1>
 
-                <!-- Supporting Subtext -->
-                <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl leading-relaxed mb-6 font-normal">
+                <!-- Narrative Paragraph -->
+                <p style="font-size: 13px; line-height: 1.6; color: #475569; margin: 0 0 20px 0; text-align: left; border-left: 2px solid #0284C7; padding-left: 12px;">
                   Multidisciplinary engineering practice delivering landmark DPR alignments, major bridges, and integrated Project Management Consultancy (PMC) for tier-one public and institutional authorities.
                 </p>
 
-                <!-- Executive Proof Metrics Strip -->
-                <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 px-6 py-2.5 rounded-full bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-sm text-xs sm:text-sm text-slate-600 mb-6">
-                  <div class="flex items-center gap-1.5">
-                    <span class="font-extrabold text-[#0F172A] text-sm sm:text-base">₹105+ Cr</span>
-                    <span class="text-slate-500 uppercase text-[11px] font-medium tracking-wider">Turnover</span>
+                <!-- Metrics Strip -->
+                <div style="display: flex; flex-direction: column; gap: 10px; padding: 14px 0; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0; margin-bottom: 24px;">
+                  <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                    <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #64748B;">Turnover</span>
+                    <span style="font-size: 16px; font-weight: 800; color: #0F172A;">₹105+ Cr</span>
                   </div>
-                  <span class="text-slate-300">•</span>
-                  <div class="flex items-center gap-1.5">
-                    <span class="font-extrabold text-[#0F172A] text-sm sm:text-base">33+ Years</span>
-                    <span class="text-slate-500 uppercase text-[11px] font-medium tracking-wider">Experience</span>
+                  <div style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px dashed #E2E8F0; padding-top: 8px;">
+                    <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #64748B;">Experience</span>
+                    <span style="font-size: 16px; font-weight: 800; color: #0F172A;">33+ Years</span>
                   </div>
-                  <span class="text-slate-300">•</span>
-                  <div class="flex items-center gap-1.5">
-                    <span class="font-extrabold text-[#0F172A] text-sm sm:text-base">1150+</span>
-                    <span class="text-slate-500 uppercase text-[11px] font-medium tracking-wider">Team Strength</span>
+                  <div style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px dashed #E2E8F0; padding-top: 8px;">
+                    <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #64748B;">Team Strength</span>
+                    <span style="font-size: 16px; font-weight: 800; color: #0F172A;">1150+</span>
                   </div>
-                  <span class="text-slate-300">•</span>
-                  <div class="flex items-center gap-1.5">
-                    <span class="font-extrabold text-[#0F172A] text-sm sm:text-base">12+</span>
-                    <span class="text-slate-500 uppercase text-[11px] font-medium tracking-wider">Verticals</span>
+                  <div style="display: flex; justify-content: space-between; align-items: baseline; border-top: 1px dashed #E2E8F0; padding-top: 8px;">
+                    <span style="font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #64748B;">Business Verticals</span>
+                    <span style="font-size: 16px; font-weight: 800; color: #0F172A;">12+</span>
                   </div>
                 </div>
 
-                <!-- Primary Action CTAs -->
-                <div class="flex items-center gap-4">
-                  <a href="#expertise" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#0284C7] hover:bg-[#0369A1] text-white text-sm font-semibold tracking-wide transition-all duration-200 shadow-md shadow-sky-500/20 active:scale-95">
+                <!-- Action Buttons -->
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <a 
+                    href="#expertise" 
+                    id="btn-explore-capabilities"
+                    style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 18px; border-radius: 10px; background: #0284C7; color: #FFFFFF; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; text-decoration: none; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25); box-sizing: border-box;"
+                  >
                     <span>Explore Capabilities</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                    <svg style="width: 14px; height: 14px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                     </svg>
                   </a>
-                  <a href="/about-1.html" class="inline-flex items-center px-6 py-3 rounded-lg bg-white/90 hover:bg-white text-slate-800 border border-slate-300 text-sm font-semibold tracking-wide transition-all duration-200 shadow-sm active:scale-95">
+                  <a 
+                    href="/about-1.html" 
+                    style="display: flex; align-items: center; justify-content: center; width: 100%; padding: 11px 18px; border-radius: 10px; background: #F8FAFC; border: 1px solid #CBD5E1; color: #334155; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; text-decoration: none; box-sizing: border-box;"
+                  >
                     Corporate Profile
                   </a>
                 </div>
               </div>
 
               <!-- Waypoint 02 Card -->
-              <div class="gdr-waypoint-card w-full flex flex-col items-center" id="waypoint-02" data-wp-card="1">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 shadow-sm text-xs font-bold uppercase tracking-widest text-[#0284C7] mb-3">
-                  <span class="w-2 h-2 rounded-full bg-[#0284C7]"></span>
-                  DIVISION 01 — INFRASTRUCTURE &amp; CIVIL
+              <div class="gdr-waypoint-card w-full flex flex-col" id="waypoint-02" data-wp-card="1">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-[10px] font-mono font-semibold uppercase tracking-widest text-slate-400">
+                    Waypoint 02 // Highways &amp; Bridges
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-50 border border-sky-200/80 text-[10px] font-bold uppercase tracking-wider text-[#0284C7]">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#0284C7]"></span>
+                    DIVISION 01
+                  </span>
                 </div>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight leading-[1.15] max-w-3xl mb-3">
+                <h2 class="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight leading-[1.15] mb-3 text-left">
                   PRECISION HIGHWAY DPR, BRIDGES &amp; PMC SUPERVISION.
                 </h2>
-                <div class="flex flex-wrap items-center justify-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">Highway DPR</span>
-                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">Bridge Engineering</span>
-                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">PMC Supervision</span>
-                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">Hydrology Studies</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-500 font-medium mb-5">
-                  Strictly Adhering to IRC, IS &amp; MoRTH Specifications
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 text-left font-normal border-l-2 border-sky-500/40 pl-3">
+                  Comprehensive highway alignment, major bridge engineering, robotic traffic studies, and continuous PMC supervision adhering to IRC, IS &amp; MoRTH standards.
                 </p>
-                <div class="flex items-center gap-4">
-                  <a href="/pmc.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#0284C7] hover:bg-[#0369A1] text-white text-sm font-semibold tracking-wide transition-all duration-200 shadow-md shadow-sky-500/20 active:scale-95">
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 text-[11px] font-medium text-slate-700">Highway DPR</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 text-[11px] font-medium text-slate-700">Bridge Engineering</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 text-[11px] font-medium text-slate-700">PMC Supervision</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 text-[11px] font-medium text-slate-700">Hydrology Studies</span>
+                </div>
+                <div class="flex flex-col gap-2.5 mt-2">
+                  <a 
+                    href="/pmc.html" 
+                    class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#0284C7] hover:bg-[#0369A1] text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-sm shadow-sky-500/20 active:scale-[0.99]"
+                  >
                     <span>Explore Infrastructure Division &rarr;</span>
                   </a>
-                  <a href="/bridge.html" class="inline-flex items-center px-6 py-3 rounded-lg bg-white/90 hover:bg-white text-slate-800 border border-slate-300 text-sm font-semibold tracking-wide transition-all duration-200 shadow-sm active:scale-95">
+                  <a 
+                    href="/bridge.html" 
+                    class="w-full flex items-center justify-center py-2.5 px-4 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200/90 text-xs font-bold uppercase tracking-wider transition-colors active:scale-[0.99]"
+                  >
                     Bridge Engineering
                   </a>
                 </div>
               </div>
 
               <!-- Waypoint 03 Card -->
-              <div class="gdr-waypoint-card w-full flex flex-col items-center" id="waypoint-03" data-wp-card="2">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 shadow-sm text-xs font-bold uppercase tracking-widest text-[#0284C7] mb-3">
-                  <span class="w-2 h-2 rounded-full bg-[#0284C7]"></span>
-                  DIVISION 02 — DESIGN &amp; DIGITAL INTEGRATION
+              <div class="gdr-waypoint-card w-full flex flex-col" id="waypoint-03" data-wp-card="2">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-[10px] font-mono font-semibold uppercase tracking-widest text-slate-400">
+                    Waypoint 03 // Architecture &amp; BIM
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-50 border border-sky-200/80 text-[10px] font-bold uppercase tracking-wider text-[#0284C7]">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#0284C7]"></span>
+                    DIVISION 02
+                  </span>
                 </div>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight leading-[1.15] max-w-3xl mb-3">
+                <h2 class="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight leading-[1.15] mb-3 text-left">
                   VIRTUAL LIFECYCLES FROM CONCEPT TO COMMISSION.
                 </h2>
-                <div class="flex flex-wrap items-center justify-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">3D–7D BIM Modeling</span>
-                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">Clash Auditing</span>
-                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">MEPF Systems</span>
-                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">Green Building</span>
-                </div>
-                <p class="text-sm sm:text-base text-slate-600 max-w-2xl leading-relaxed mb-5 font-normal">
-                  Resolving structural and service clashes digitally prior to physical construction.
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 text-left font-normal border-l-2 border-sky-500/40 pl-3">
+                  Resolving structural and MEPF service clashes digitally prior to physical construction with Level-of-Detail 500 digital twinning and BIM.
                 </p>
-                <div class="flex items-center gap-4">
-                  <a href="/bim.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#0284C7] hover:bg-[#0369A1] text-white text-sm font-semibold tracking-wide transition-all duration-200 shadow-md shadow-sky-500/20 active:scale-95">
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 text-[11px] font-medium text-slate-700">3D–7D BIM</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 text-[11px] font-medium text-slate-700">Clash Detection</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 text-[11px] font-medium text-slate-700">MEPF Systems</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 text-[11px] font-medium text-slate-700">Green Building</span>
+                </div>
+                <div class="flex flex-col gap-2.5 mt-2">
+                  <a 
+                    href="/bim.html" 
+                    class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#0284C7] hover:bg-[#0369A1] text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-sm shadow-sky-500/20 active:scale-[0.99]"
+                  >
                     <span>Explore Design &amp; BIM &rarr;</span>
                   </a>
-                  <a href="/architecture.html" class="inline-flex items-center px-6 py-3 rounded-lg bg-white/90 hover:bg-white text-slate-800 border border-slate-300 text-sm font-semibold tracking-wide transition-all duration-200 shadow-sm active:scale-95">
+                  <a 
+                    href="/architecture.html" 
+                    class="w-full flex items-center justify-center py-2.5 px-4 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200/90 text-xs font-bold uppercase tracking-wider transition-colors active:scale-[0.99]"
+                  >
                     Architecture &amp; Master Planning
                   </a>
                 </div>
               </div>
 
               <!-- Waypoint 04 Card -->
-              <div class="gdr-waypoint-card w-full flex flex-col items-center" id="waypoint-04" data-wp-card="3">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 shadow-sm text-xs font-bold uppercase tracking-widest text-[#0284C7] mb-3">
-                  <span class="w-2 h-2 rounded-full bg-[#0284C7]"></span>
-                  DIVISION 03 — TESTING &amp; CONTRACT ADMINISTRATION
+              <div class="gdr-waypoint-card w-full flex flex-col" id="waypoint-04" data-wp-card="3">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-[10px] font-mono font-semibold uppercase tracking-widest text-slate-400">
+                    Waypoint 04 // Laboratories &amp; Audit
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-50 border border-sky-200/80 text-[10px] font-bold uppercase tracking-wider text-[#0284C7]">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#0284C7]"></span>
+                    DIVISION 03
+                  </span>
                 </div>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight leading-[1.15] max-w-3xl mb-3">
+                <h2 class="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight leading-[1.15] mb-3 text-left">
                   NABL-ACCREDITED MATERIAL RIGOR &amp; COMMERCE.
                 </h2>
-                <div class="flex flex-wrap items-center justify-center gap-2 mb-4">
-                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">Geotechnical Soil Testing</span>
-                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">Concrete &amp; Steel Lab</span>
-                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">NDT Structural Audits</span>
-                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">FIDIC Tenders &amp; BoQ</span>
-                </div>
-                <p class="text-sm sm:text-base text-slate-600 max-w-2xl leading-relaxed mb-5 font-normal">
-                  Independent testing laboratory verifying structural integrity for high-stakes public contracts.
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 text-left font-normal border-l-2 border-sky-500/40 pl-3">
+                  Independent testing laboratory verifying soil mechanics, concrete durability, steel tensile strength, and FIDIC commercial contracts.
                 </p>
-                <div class="flex items-center gap-4">
-                  <a href="/lab.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#0284C7] hover:bg-[#0369A1] text-white text-sm font-semibold tracking-wide transition-all duration-200 shadow-md shadow-sky-500/20 active:scale-95">
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 text-[11px] font-medium text-slate-700">Geotechnical Lab</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 text-[11px] font-medium text-slate-700">Concrete &amp; Steel</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 text-[11px] font-medium text-slate-700">NDT Audits</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 text-[11px] font-medium text-slate-700">FIDIC Tenders</span>
+                </div>
+                <div class="flex flex-col gap-2.5 mt-2">
+                  <a 
+                    href="/lab.html" 
+                    class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#0284C7] hover:bg-[#0369A1] text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-sm shadow-sky-500/20 active:scale-[0.99]"
+                  >
                     <span>Explore Testing Laboratory &rarr;</span>
                   </a>
-                  <a href="/commerce.html" class="inline-flex items-center px-6 py-3 rounded-lg bg-white/90 hover:bg-white text-slate-800 border border-slate-300 text-sm font-semibold tracking-wide transition-all duration-200 shadow-sm active:scale-95">
+                  <a 
+                    href="/commerce.html" 
+                    class="w-full flex items-center justify-center py-2.5 px-4 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200/90 text-xs font-bold uppercase tracking-wider transition-colors active:scale-[0.99]"
+                  >
                     Contracts &amp; Commercial
                   </a>
                 </div>
               </div>
 
               <!-- Waypoint 05 Card -->
-              <div class="gdr-waypoint-card w-full flex flex-col items-center" id="waypoint-05" data-wp-card="4">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 shadow-sm text-xs font-bold uppercase tracking-widest text-[#0284C7] mb-3">
-                  <span class="w-2 h-2 rounded-full bg-[#0284C7]"></span>
-                  NATIONAL REACH • PAN-INDIA MOBILIZATION
+              <div class="gdr-waypoint-card w-full flex flex-col" id="waypoint-05" data-wp-card="4">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-[10px] font-mono font-semibold uppercase tracking-widest text-slate-400">
+                    Waypoint 05 // Pan-India Network
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-50 border border-sky-200/80 text-[10px] font-bold uppercase tracking-wider text-[#0284C7]">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#0284C7]"></span>
+                    PAN-INDIA
+                  </span>
                 </div>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight leading-[1.15] max-w-3xl mb-3">
+                <h2 class="text-2xl sm:text-3xl font-black text-[#0F172A] tracking-tight leading-[1.15] mb-3 text-left">
                   OUR NETWORKS: NATIONAL PROJECT FOOTPRINT.
                 </h2>
-                <!-- Category Filter Buttons -->
-                <div class="flex flex-wrap items-center justify-center gap-2 mb-4">
-                  <button type="button" class="network-filter-btn is-active px-3 py-1 rounded-full bg-[#0284C7] text-white text-xs font-semibold" data-sector="all">All Projects</button>
-                  <button type="button" class="network-filter-btn px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-slate-700 text-xs font-semibold" data-sector="tpqa">TPQA / PMC</button>
-                  <button type="button" class="network-filter-btn px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-slate-700 text-xs font-semibold" data-sector="design">Design &amp; DPR</button>
-                  <button type="button" class="network-filter-btn px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-slate-700 text-xs font-semibold" data-sector="survey">Field Survey</button>
-                  <button type="button" class="network-filter-btn px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-slate-700 text-xs font-semibold" data-sector="geotech">Geotech</button>
+                <div class="w-full flex flex-wrap gap-2 mb-3">
+                  <button type="button" class="network-filter-btn is-active px-3 py-1 rounded-full bg-[#0284C7] text-white text-[11px] font-semibold cursor-pointer" data-sector="all">All Projects</button>
+                  <button type="button" class="network-filter-btn px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-[11px] font-semibold cursor-pointer" data-sector="tpqa">TPQA / PMC</button>
+                  <button type="button" class="network-filter-btn px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-[11px] font-semibold cursor-pointer" data-sector="design">Design &amp; DPR</button>
+                  <button type="button" class="network-filter-btn px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-[11px] font-semibold cursor-pointer" data-sector="survey">Field Survey</button>
+                  <button type="button" class="network-filter-btn px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-[11px] font-semibold cursor-pointer" data-sector="geotech">Geotech</button>
                 </div>
-                <p class="text-sm sm:text-base text-slate-600 max-w-2xl leading-relaxed mb-5 font-normal">
-                  Over 1,200 landmark assignments successfully executed across highway authorities, public works departments, irrigation boards, and premier infrastructure concessionaires.
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 text-left font-normal border-l-2 border-sky-500/40 pl-3">
+                  Over 1,200 landmark assignments executed across highway authorities, public works departments, irrigation boards, and premier concessionaires.
                 </p>
-                <div class="flex items-center gap-4">
-                  <button type="button" id="btn-submit-tender" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#0284C7] hover:bg-[#0369A1] text-white text-sm font-semibold tracking-wide transition-all duration-200 shadow-md shadow-sky-500/20 active:scale-95">
+                <div class="flex flex-col gap-2.5 mt-2">
+                  <button 
+                    type="button" 
+                    id="btn-submit-tender" 
+                    class="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-[#0284C7] hover:bg-[#0369A1] text-white text-xs font-bold uppercase tracking-wider transition-colors shadow-sm shadow-sky-500/20 active:scale-[0.99] cursor-pointer"
+                  >
                     <span>Submit Tender Inquiry / RFP &darr;</span>
                   </button>
-                  <a href="#about-us" class="inline-flex items-center px-6 py-3 rounded-lg bg-white/90 hover:bg-white text-slate-800 border border-slate-300 text-sm font-semibold tracking-wide transition-all duration-200 shadow-sm active:scale-95">
+                  <a 
+                    href="#about-us" 
+                    class="w-full flex items-center justify-center py-2.5 px-4 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200/90 text-xs font-bold uppercase tracking-wider transition-colors active:scale-[0.99]"
+                  >
                     Corporate Lineage
                   </a>
                 </div>
               </div>
 
-            </div>
+            </aside>
 
           </div>
         </div>
