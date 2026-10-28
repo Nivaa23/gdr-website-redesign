@@ -21,7 +21,7 @@ export const EXPERTISE_SERVICES = {
     title: 'Hydro & Highway DPR',
     division: 'Division 01 — Infrastructure & Civil',
     desc: 'Alignment surveys, hydrological studies, traffic investigations, pavement design, and Detailed Project Reports (DPR) for highways, expressways, and water infrastructure.',
-    image: '/assets/images/expertise-hydro-highway.svg',
+    image: '/assets/images/service-hydro-highway.jpg',
     url: '/hydro.html',
     urlAbout: '/hydro.html'
   },
@@ -37,7 +37,7 @@ export const EXPERTISE_SERVICES = {
     title: 'Structural Engineering',
     division: 'Division 01 — Infrastructure & Civil',
     desc: 'Advanced structural design and finite element analysis for heavy industrial plants, commercial towers, institutional complexes, and civic structures.',
-    image: '/assets/images/expertise-structure.svg',
+    image: '/assets/images/service-structural-framing.jpg',
     url: '/structure.html',
     urlAbout: '/structure.html'
   },
@@ -45,7 +45,7 @@ export const EXPERTISE_SERVICES = {
     title: 'Survey & Geomatics',
     division: 'Division 01 — Infrastructure & Civil',
     desc: 'High-precision geodetic surveys using DGPS, airborne & terrestrial LiDAR, bathymetric mapping, drone photogrammetry, and Geographic Information System (GIS) development.',
-    image: '/assets/images/expertise-survey.svg',
+    image: '/assets/images/service-survey-geomatics.jpg',
     url: '/survey.html',
     urlAbout: '/survey.html'
   },
@@ -61,7 +61,7 @@ export const EXPERTISE_SERVICES = {
     title: 'BIM Modeling & Auditing',
     division: 'Division 02 — Design & Technology',
     desc: 'Multi-disciplinary 3D-7D Building Information Modelling, automated clash detection, quantity takeoff, construction simulation (4D/5D), and BIM model auditing.',
-    image: '/assets/images/expertise-bim.svg',
+    image: '/assets/images/service-bim-modeling.jpg',
     url: '/bim.html',
     urlAbout: '/bim.html'
   },
@@ -69,7 +69,7 @@ export const EXPERTISE_SERVICES = {
     title: 'MEPF Engineering',
     division: 'Division 02 — Design & Technology',
     desc: 'Integrated mechanical, electrical, plumbing, fire protection, and building automation design prioritizing energy efficiency, life safety, and operational reliability.',
-    image: '/assets/images/expertise-mepf.svg',
+    image: '/assets/images/service-mepf-systems.jpg',
     url: '/mepf.html',
     urlAbout: '/mepf.html'
   },
@@ -77,7 +77,7 @@ export const EXPERTISE_SERVICES = {
     title: 'Environmentally Sustainable Solutions',
     division: 'Division 02 — Design & Technology',
     desc: 'Environmental Impact Assessment (EIA), green building certification advisory (GRIHA, LEED, IGBC), energy performance simulations, and environmental compliance audits.',
-    image: '/assets/images/Sustainbility.png',
+    image: '/assets/images/service-sustainability.jpg',
     url: '/sustainability.html',
     urlAbout: '/sustainability.html'
   },
@@ -93,7 +93,7 @@ export const EXPERTISE_SERVICES = {
     title: 'Commerce & Contract Management',
     division: 'Division 03 — Testing & Contracts',
     desc: 'Pre- and post-contract management, Bill of Quantities (BoQ) preparation, detailed cost estimation, rate analysis, tender documentation, and FIDIC contract advisory.',
-    image: '/assets/images/expertise-commerce-contract.svg',
+    image: '/assets/images/service-commerce-contracts.jpg',
     url: '/commerce.html',
     urlAbout: '/commerce.html'
   }
@@ -195,32 +195,44 @@ export function mountNavigation14(headerElement, options = {}) {
   document.addEventListener('keydown', handleKeyDown);
 
   // 6. Service Selection & Right Panel Details Interaction
-  const menuCards = megaPanel ? Array.from(megaPanel.querySelectorAll('.nav14-menu-card')) : [];
+  const menuCards = megaPanel ? Array.from(megaPanel.querySelectorAll('.nav14-menu-card, [data-preview-title]')) : [];
   const featuredCard = megaPanel ? megaPanel.querySelector('.nav14-featured-card') : null;
-  const featuredTag = featuredCard ? featuredCard.querySelector('.nav14-featured-card__tag') : null;
-  const featuredTitle = featuredCard ? featuredCard.querySelector('.nav14-featured-card__title') : null;
-  const featuredDesc = featuredCard ? featuredCard.querySelector('.nav14-featured-card__desc') : null;
-  const featuredImg = featuredCard ? featuredCard.querySelector('.nav14-featured-card__img') : null;
-  const featuredAction = featuredCard ? (featuredCard.querySelector('.nav14-featured-card__action') || featuredCard.querySelector('.nav14-featured-card__link')) : null;
+  const featuredTag = (featuredCard && featuredCard.querySelector('.nav14-featured-card__tag')) || document.getElementById('nav-preview-badge');
+  const featuredTitle = (featuredCard && featuredCard.querySelector('.nav14-featured-card__title')) || document.getElementById('nav-preview-title');
+  const featuredDesc = (featuredCard && featuredCard.querySelector('.nav14-featured-card__desc')) || document.getElementById('nav-preview-desc');
+  const featuredImg = (featuredCard && featuredCard.querySelector('.nav14-featured-card__img')) || document.getElementById('nav-preview-image');
+  const featuredAction = (featuredCard && (featuredCard.querySelector('.nav14-featured-card__action') || featuredCard.querySelector('.nav14-featured-card__link'))) || document.getElementById('nav-preview-link');
 
   function selectService(categoryKey, cardEl) {
-    const service = EXPERTISE_SERVICES[categoryKey];
-    if (!service || !featuredCard) return;
+    const service = categoryKey ? EXPERTISE_SERVICES[categoryKey] : null;
+    const title = (cardEl && cardEl.getAttribute('data-preview-title')) || (service && service.title);
+    const desc = (cardEl && cardEl.getAttribute('data-preview-desc')) || (service && service.desc);
+    const img = (cardEl && cardEl.getAttribute('data-preview-img')) || (service && service.image);
+    const badge = (cardEl && cardEl.getAttribute('data-preview-badge')) || (service && service.division);
+    const link = (cardEl && cardEl.getAttribute('data-preview-link')) || (service && service.url);
+
+    if (!title && !service) return;
 
     menuCards.forEach(c => c.classList.remove('is-selected'));
     if (cardEl) cardEl.classList.add('is-selected');
 
-    if (featuredTitle) featuredTitle.textContent = service.title;
-    if (featuredTag) featuredTag.textContent = service.division;
-    if (featuredDesc) featuredDesc.textContent = service.desc;
-    if (featuredImg) {
-      featuredImg.src = service.image;
-      featuredImg.alt = service.title;
+    if (featuredTitle && title) featuredTitle.textContent = title;
+    if (featuredTag && badge) featuredTag.textContent = badge;
+    if (featuredDesc && desc) featuredDesc.textContent = desc;
+    if (featuredImg && img) {
+      featuredImg.src = img;
+      if (title) featuredImg.alt = title;
     }
     if (featuredAction) {
-      const isSubpage = window.location.pathname !== '/' && !window.location.pathname.endsWith('/index.html') && !window.location.pathname.endsWith('/');
-      featuredAction.href = getServiceRoute(categoryKey, isSubpage);
-      featuredAction.setAttribute('aria-label', `Explore ${service.title} Capabilities`);
+      if (categoryKey && service) {
+        const isSubpage = window.location.pathname !== '/' && !window.location.pathname.endsWith('/index.html') && !window.location.pathname.endsWith('/');
+        featuredAction.href = getServiceRoute(categoryKey, isSubpage);
+      } else if (link) {
+        featuredAction.href = link;
+      }
+      if (title) {
+        featuredAction.setAttribute('aria-label', `Explore ${title} Capabilities`);
+      }
     }
   }
 
