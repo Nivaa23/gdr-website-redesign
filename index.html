@@ -437,12 +437,12 @@
       <!-- STAGE 1: PINNED SCROLLYTELLING STAGE (0vh to 500vh) -->
       <section id="hero-stage" class="relative w-full h-[500vh] bg-[#F8FAFC]">
         <!-- Pinned 100vh Viewport -->
-        <div class="sticky top-0 left-0 w-full h-screen overflow-hidden pointer-events-none">
+        <div class="sticky top-0 left-0 w-full h-screen overflow-hidden">
           
           <!-- Layer 1: WebGL Canvas (Z-Index: 0) -->
-          <div id="webgl-canvas-container" class="absolute inset-0 z-0 pointer-events-none">
+          <div id="webgl-canvas-container" class="absolute inset-0 z-0 pointer-events-auto">
             <!-- Three.js Canvas mounts here -->
-            <canvas id="gdr-webgl-canvas" class="gdr-webgl-canvas w-full h-full block" aria-hidden="true"></canvas>
+            <canvas id="gdr-webgl-canvas" class="gdr-webgl-canvas w-full h-full block pointer-events-auto" aria-hidden="true"></canvas>
             <!-- Spline Runtime Anchor for Waypoint 01 Architectural Core -->
             <div id="waypoint-01-3d-target" class="absolute inset-0 z-[1] pointer-events-none"></div>
           </div>
