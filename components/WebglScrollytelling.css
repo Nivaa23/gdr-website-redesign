@@ -860,7 +860,33 @@ body.is-homepage {
   }
 }
 
-/* SECTION 03: FULL 11-SERVICE VISUAL MATRIX (REBALANCED 3x2) */
+/* SECTION 03: COMPREHENSIVE ENGINEERING DIRECTORY (SCROLL STACK - REVEAL) */
+#engineering-directory {
+  position: relative;
+  width: 100%;
+  background-color: #F8FAFC;
+  overflow: visible !important;
+}
+
+#engineering-scroll-stack {
+  position: relative;
+  width: 100%;
+  overflow: visible !important;
+}
+
+[data-reveal-stack-viewport] {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
 .services-matrix-divisions {
   display: flex;
   flex-direction: column;

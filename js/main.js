@@ -8,7 +8,7 @@ import { mountDepthCarousel } from '../components/depth-carousel.js';
 import { initAnimatedContent } from '../components/animated-content.js';
 import { initNavigation14 } from '../components/navigation-14.js';
 import { mountCircularGallery, CLIENT_LOGOS } from '../components/circular-gallery.js';
-import { mountScrollStack } from '../components/scroll-stack.js';
+import { mountScrollStack, mountRevealScrollStack } from '../components/scroll-stack.js';
 import { initCinematicScroll } from '../components/cinematic-scroll.js';
 import { initWebglScrollytelling } from '../components/webgl-scrollytelling.js';
 import heroInfrastructureBridge from '../assets/images/hero-infrastructure-bridge.jpg';
@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initWebglScrollytelling();
   initHeroCarousel();
   initBridgeScrollStack();
+  initEngineeringScrollStack();
   initJourneyTimeline();
   initFooterYear();
   initWordmarkCursorEffect();
@@ -37,6 +38,28 @@ document.addEventListener('DOMContentLoaded', () => {
     once: true
   });
 });
+
+function initEngineeringScrollStack() {
+  const engineeringStack = document.getElementById('engineering-scroll-stack');
+  if (!engineeringStack) return;
+
+  mountRevealScrollStack(engineeringStack, {
+    variant: 'reveal',
+    scrollLength: '1.0vh',
+    peek: '26px',
+    scaleStep: 0.070,
+    blur: '4.0px',
+    dim: 0.28,
+    smooth: 0.16,
+    depth: 3,
+    cardWidth: '880px',
+    cardHeight: 0.68,
+    borderRadius: '22px',
+    perspective: '1400px',
+    showProgress: true,
+    showCounter: true
+  });
+}
 
 function initBridgeScrollStack() {
   // Shared React Bits Pro Scroll Stack mount (Bridge projects + Commerce services)
