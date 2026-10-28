@@ -39,6 +39,7 @@
 }
 
 /* Virtual 500vh scroll depth track */
+#hero-stage,
 .scroll-stage-track,
 #hero-scrollytelling-wrapper {
   position: relative;
@@ -49,27 +50,56 @@
 }
 
 /* Sticky 100vh viewport container */
+#hero-stage > div.sticky,
 .scroll-stage {
   position: sticky;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
   z-index: 10;
   background-color: var(--scrolly-bg); /* Solid, opaque off-white #F8FAFC */
 }
 
-/* WebGL 3D Canvas inside .scroll-stage */
+/* WebGL 3D Canvas inside #webgl-canvas-container / .scroll-stage */
+#webgl-canvas-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+}
+
+#webgl-canvas-container canvas,
 .scroll-stage .gdr-webgl-canvas,
 .gdr-webgl-canvas {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0;
   pointer-events: none;
+  display: block;
   background-color: var(--scrolly-bg);
+}
+
+#narrative-container {
+  position: relative;
+  z-index: 10;
+}
+
+[data-wp-card] {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+[data-wp-card]:not(.is-active) {
+  display: none !important;
+}
+
+[data-wp-card].is-active {
+  display: flex !important;
 }
 
 /* Pinned Slate-Navy Curtain Footer Revealed Underneath with Exact Padding */
@@ -93,6 +123,7 @@
   padding: 0 !important;
   width: 100% !important;
   box-sizing: border-box !important;
+}
 
 /* Lower-Third Atmospheric Light Vignette (ensures text legibility while keeping upper 75% clear) */
 .gdr-scrolly-vignette {
@@ -1202,5 +1233,4 @@
   .executive-cta-banner {
     padding: 2.5rem 1.5rem;
   }
-}
 }

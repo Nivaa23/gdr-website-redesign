@@ -20,6 +20,9 @@
   <link rel="stylesheet" href="/components/AnimatedContent.css">
   <link rel="stylesheet" href="/components/CinematicScroll.css">
   <link rel="stylesheet" href="/components/WebglScrollytelling.css">
+
+  <!-- Tailwind CSS CDN for utility overlay architecture -->
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="is-homepage">
   <!-- Skip link for keyboard accessibility -->
@@ -398,248 +401,228 @@
     <main id="main-content">
       
       <!-- STAGE 1: PINNED SCROLLYTELLING STAGE (0vh to 500vh) -->
-      <div class="scroll-stage-track" id="scroll-stage-track">
-        <div class="scroll-stage" id="scroll-stage">
+      <section id="hero-stage" class="relative w-full h-[500vh] bg-[#F8FAFC]">
+        <!-- Pinned 100vh Viewport -->
+        <div class="sticky top-0 left-0 w-full h-screen overflow-hidden pointer-events-none">
           
-          <!-- Persistent Three.js WebGL 3D Canvas -->
-          <canvas id="gdr-webgl-canvas" class="gdr-webgl-canvas" aria-hidden="true"></canvas>
+          <!-- Layer 1: WebGL Canvas (Z-Index: 0) -->
+          <div id="webgl-canvas-container" class="absolute inset-0 z-0 pointer-events-none">
+            <!-- Three.js Canvas mounts here -->
+            <canvas id="gdr-webgl-canvas" class="gdr-webgl-canvas w-full h-full block" aria-hidden="true"></canvas>
+          </div>
 
-          <!-- Lower-Third Light Vignette (Keeps top 75% clear for 3D camera travel) -->
-          <div class="gdr-scrolly-vignette" aria-hidden="true"></div>
-
-          <!-- Vertical Journey Tracker (Left Rail) -->
-          <nav class="gdr-journey-tracker" aria-label="Waypoint Journey Rail">
-            <div class="gdr-tracker-progress-line" aria-hidden="true"></div>
+          <!-- Layer 2: HUD UI & Storytelling Overlays (Z-Index: 10) -->
+          <div class="relative z-10 w-full h-full flex flex-col justify-between p-6 md:p-10 pointer-events-none">
             
-            <button type="button" class="gdr-tracker-item is-active" data-wp="0" aria-label="Jump to Waypoint 01: Foundation & Scale">
-              <span class="gdr-tracker-node">01</span>
-              <span class="gdr-tracker-label">Foundation</span>
-            </button>
-
-            <button type="button" class="gdr-tracker-item" data-wp="1" aria-label="Jump to Waypoint 02: Infrastructure & Civil">
-              <span class="gdr-tracker-node">02</span>
-              <span class="gdr-tracker-label">Infrastructure</span>
-            </button>
-
-            <button type="button" class="gdr-tracker-item" data-wp="2" aria-label="Jump to Waypoint 03: Design & BIM">
-              <span class="gdr-tracker-node">03</span>
-              <span class="gdr-tracker-label">Design &amp; BIM</span>
-            </button>
-
-            <button type="button" class="gdr-tracker-item" data-wp="3" aria-label="Jump to Waypoint 04: Testing & Commerce">
-              <span class="gdr-tracker-node">04</span>
-              <span class="gdr-tracker-label">Testing &amp; Labs</span>
-            </button>
-
-            <button type="button" class="gdr-tracker-item" data-wp="4" aria-label="Jump to Waypoint 05: Pan-India Footprint">
-              <span class="gdr-tracker-node">05</span>
-              <span class="gdr-tracker-label">National Footprint</span>
-            </button>
-          </nav>
-
-          <!-- Coordinates HUD Telemetry (Top Right) -->
-          <div class="gdr-hud-telemetry" id="gdr-hud-coords" aria-hidden="true">
-            GEO // LAT: 22.3072° N &bull; LON: 73.1812° E<br>
-            CAMERA Z: 60m &bull; CAM_Y: 24m<br>
-            STAGE: FOUNDATION &amp; SCALE [0%]
-          </div>
-
-          <!-- Lower-Third Pinned Waypoint Narrative (Unblocked Central Viewport) -->
-          <div class="gdr-waypoint-container" id="gdr-waypoint-container" aria-live="polite">
-            
-            <!-- Waypoint 01: The Foundation & Executive Scale (0% - 18%) -->
-            <article class="gdr-waypoint-card is-active" id="waypoint-01">
-              <div class="gdr-waypoint-subtag">
-                <span class="gdr-waypoint-subtag-dot"></span>
-                GOVERNMENT &amp; INSTITUTIONAL CONSULTANCY &bull; ISO 9001:2015
+            <!-- Top Bar: Waypoint / Telemetry Tracker (Top Right) -->
+            <div class="flex justify-end items-start pointer-events-auto">
+              <div id="hud-telemetry" class="px-4 py-2 rounded-lg bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-sm text-xs font-mono text-slate-600">
+                GEO // LAT: 22.3072° N • LON: 73.1812° E | STAGE: 01 // OVERVIEW
               </div>
-              <h1 class="gdr-waypoint-title">SHAPING NATIONAL INFRASTRUCTURE FROM THE GROUND UP.</h1>
-              <p class="gdr-waypoint-desc">
-                Multidisciplinary engineering practice delivering landmark DPR alignments, major bridges, and integrated Project Management Consultancy (PMC) for tier-one public and institutional authorities.
-              </p>
+            </div>
+
+            <!-- Left Rail: Vertical Waypoint Indicator (Pinned Left Center) -->
+            <nav class="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 flex flex-col gap-4 pointer-events-auto" aria-label="Waypoint Navigation">
+              <!-- Render waypoint indicators 01 to 05 -->
+              <button class="flex items-center gap-3 text-left group" data-waypoint="0">
+                <span class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold bg-[#0284C7] text-white shadow-md shadow-sky-500/20">01</span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-slate-800">Foundation</span>
+              </button>
+              <button class="flex items-center gap-3 text-left group opacity-60 hover:opacity-100 transition-opacity" data-waypoint="1">
+                <span class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold bg-white border border-slate-300 text-slate-600">02</span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-slate-600">Infrastructure</span>
+              </button>
+              <button class="flex items-center gap-3 text-left group opacity-60 hover:opacity-100 transition-opacity" data-waypoint="2">
+                <span class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold bg-white border border-slate-300 text-slate-600">03</span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-slate-600">Design & BIM</span>
+              </button>
+              <button class="flex items-center gap-3 text-left group opacity-60 hover:opacity-100 transition-opacity" data-waypoint="3">
+                <span class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold bg-white border border-slate-300 text-slate-600">04</span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-slate-600">Testing & Labs</span>
+              </button>
+              <button class="flex items-center gap-3 text-left group opacity-60 hover:opacity-100 transition-opacity" data-waypoint="4">
+                <span class="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold bg-white border border-slate-300 text-slate-600">05</span>
+                <span class="text-xs font-semibold uppercase tracking-wider text-slate-600">National Footprint</span>
+              </button>
+            </nav>
+
+            <!-- Bottom Center: Waypoint 01 Narrative Group (Lower Third) -->
+            <div id="narrative-container" class="w-full max-w-4xl mx-auto mb-4 text-center pointer-events-auto flex flex-col items-center">
               
-              <!-- Floating Executive Proof Strip -->
-              <div class="executive-proof-strip">
-                <div class="proof-item">
-                  <span class="proof-val">&#8377;105+ Cr</span>
-                  <span class="proof-lbl">Turnover</span>
+              <!-- Waypoint 01 Card -->
+              <div class="gdr-waypoint-card w-full flex flex-col items-center is-active" id="waypoint-01" data-wp-card="0">
+                <!-- Institutional Tag -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 shadow-sm text-xs font-bold uppercase tracking-widest text-[#0284C7] mb-3">
+                  <span class="w-2 h-2 rounded-full bg-[#0284C7]"></span>
+                  Government & Institutional Partner • ISO 9001:2015
                 </div>
-                <span class="proof-sep">&bull;</span>
-                <div class="proof-item">
-                  <span class="proof-val">33+ Years</span>
-                  <span class="proof-lbl">Experience</span>
+
+                <!-- Primary Display Headline -->
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0F172A] tracking-tight leading-[1.1] max-w-3xl mb-4">
+                  SHAPING NATIONAL INFRASTRUCTURE FROM THE GROUND UP.
+                </h1>
+
+                <!-- Supporting Subtext -->
+                <p class="text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl leading-relaxed mb-6 font-normal">
+                  Multidisciplinary engineering practice delivering landmark DPR alignments, major bridges, and integrated Project Management Consultancy (PMC) for tier-one public and institutional authorities.
+                </p>
+
+                <!-- Executive Proof Metrics Strip -->
+                <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 px-6 py-2.5 rounded-full bg-white/80 backdrop-blur-md border border-slate-200/80 shadow-sm text-xs sm:text-sm text-slate-600 mb-6">
+                  <div class="flex items-center gap-1.5">
+                    <span class="font-extrabold text-[#0F172A] text-sm sm:text-base">₹105+ Cr</span>
+                    <span class="text-slate-500 uppercase text-[11px] font-medium tracking-wider">Turnover</span>
+                  </div>
+                  <span class="text-slate-300">•</span>
+                  <div class="flex items-center gap-1.5">
+                    <span class="font-extrabold text-[#0F172A] text-sm sm:text-base">33+ Years</span>
+                    <span class="text-slate-500 uppercase text-[11px] font-medium tracking-wider">Experience</span>
+                  </div>
+                  <span class="text-slate-300">•</span>
+                  <div class="flex items-center gap-1.5">
+                    <span class="font-extrabold text-[#0F172A] text-sm sm:text-base">1150+</span>
+                    <span class="text-slate-500 uppercase text-[11px] font-medium tracking-wider">Team Strength</span>
+                  </div>
+                  <span class="text-slate-300">•</span>
+                  <div class="flex items-center gap-1.5">
+                    <span class="font-extrabold text-[#0F172A] text-sm sm:text-base">12+</span>
+                    <span class="text-slate-500 uppercase text-[11px] font-medium tracking-wider">Verticals</span>
+                  </div>
                 </div>
-                <span class="proof-sep">&bull;</span>
-                <div class="proof-item">
-                  <span class="proof-val">1150+</span>
-                  <span class="proof-lbl">Team Strength</span>
+
+                <!-- Primary Action CTAs -->
+                <div class="flex items-center gap-4">
+                  <a href="#expertise" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#0284C7] hover:bg-[#0369A1] text-white text-sm font-semibold tracking-wide transition-all duration-200 shadow-md shadow-sky-500/20 active:scale-95">
+                    <span>Explore Capabilities</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                    </svg>
+                  </a>
+                  <a href="/about-1.html" class="inline-flex items-center px-6 py-3 rounded-lg bg-white/90 hover:bg-white text-slate-800 border border-slate-300 text-sm font-semibold tracking-wide transition-all duration-200 shadow-sm active:scale-95">
+                    Corporate Profile
+                  </a>
                 </div>
-                <span class="proof-sep">&bull;</span>
-                <div class="proof-item">
-                  <span class="proof-val">12+</span>
-                  <span class="proof-lbl">Verticals</span>
+              </div>
+
+              <!-- Waypoint 02 Card -->
+              <div class="gdr-waypoint-card w-full flex flex-col items-center" id="waypoint-02" data-wp-card="1">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 shadow-sm text-xs font-bold uppercase tracking-widest text-[#0284C7] mb-3">
+                  <span class="w-2 h-2 rounded-full bg-[#0284C7]"></span>
+                  DIVISION 01 — INFRASTRUCTURE &amp; CIVIL
+                </div>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight leading-[1.15] max-w-3xl mb-3">
+                  PRECISION HIGHWAY DPR, BRIDGES &amp; PMC SUPERVISION.
+                </h2>
+                <div class="flex flex-wrap items-center justify-center gap-2 mb-4">
+                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">Highway DPR</span>
+                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">Bridge Engineering</span>
+                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">PMC Supervision</span>
+                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">Hydrology Studies</span>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-500 font-medium mb-5">
+                  Strictly Adhering to IRC, IS &amp; MoRTH Specifications
+                </p>
+                <div class="flex items-center gap-4">
+                  <a href="/pmc.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#0284C7] hover:bg-[#0369A1] text-white text-sm font-semibold tracking-wide transition-all duration-200 shadow-md shadow-sky-500/20 active:scale-95">
+                    <span>Explore Infrastructure Division &rarr;</span>
+                  </a>
+                  <a href="/bridge.html" class="inline-flex items-center px-6 py-3 rounded-lg bg-white/90 hover:bg-white text-slate-800 border border-slate-300 text-sm font-semibold tracking-wide transition-all duration-200 shadow-sm active:scale-95">
+                    Bridge Engineering
+                  </a>
                 </div>
               </div>
 
-              <div class="gdr-waypoint-actions">
-                <button type="button" class="scrolly-btn scrolly-btn--primary" id="btn-explore-capabilities">
-                  <span>Explore Capabilities &darr;</span>
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-                <a href="/about-1.html" class="scrolly-btn scrolly-btn--outline">
-                  <span>Corporate Profile</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- Waypoint 02: Division 01 — Infrastructure & Civil (22% - 38%) -->
-            <article class="gdr-waypoint-card" id="waypoint-02">
-              <div class="gdr-waypoint-subtag">
-                <span class="gdr-waypoint-subtag-dot"></span>
-                DIVISION 01 &mdash; INFRASTRUCTURE &amp; CIVIL
-              </div>
-              <h2 class="gdr-waypoint-title">PRECISION HIGHWAY DPR, BRIDGES &amp; PMC SUPERVISION.</h2>
-              
-              <div class="gdr-service-chips">
-                <span class="gdr-service-chip">Highway DPR</span>
-                <span class="gdr-service-chip">Bridge Engineering</span>
-                <span class="gdr-service-chip">PMC Supervision</span>
-                <span class="gdr-service-chip">Hydrology Studies</span>
-              </div>
-
-              <div class="gdr-compliance-tag">
-                Strictly Adhering to IRC, IS &amp; MoRTH Specifications
+              <!-- Waypoint 03 Card -->
+              <div class="gdr-waypoint-card w-full flex flex-col items-center" id="waypoint-03" data-wp-card="2">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 shadow-sm text-xs font-bold uppercase tracking-widest text-[#0284C7] mb-3">
+                  <span class="w-2 h-2 rounded-full bg-[#0284C7]"></span>
+                  DIVISION 02 — DESIGN &amp; DIGITAL INTEGRATION
+                </div>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight leading-[1.15] max-w-3xl mb-3">
+                  VIRTUAL LIFECYCLES FROM CONCEPT TO COMMISSION.
+                </h2>
+                <div class="flex flex-wrap items-center justify-center gap-2 mb-4">
+                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">3D–7D BIM Modeling</span>
+                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">Clash Auditing</span>
+                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">MEPF Systems</span>
+                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">Green Building</span>
+                </div>
+                <p class="text-sm sm:text-base text-slate-600 max-w-2xl leading-relaxed mb-5 font-normal">
+                  Resolving structural and service clashes digitally prior to physical construction.
+                </p>
+                <div class="flex items-center gap-4">
+                  <a href="/bim.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#0284C7] hover:bg-[#0369A1] text-white text-sm font-semibold tracking-wide transition-all duration-200 shadow-md shadow-sky-500/20 active:scale-95">
+                    <span>Explore Design &amp; BIM &rarr;</span>
+                  </a>
+                  <a href="/architecture.html" class="inline-flex items-center px-6 py-3 rounded-lg bg-white/90 hover:bg-white text-slate-800 border border-slate-300 text-sm font-semibold tracking-wide transition-all duration-200 shadow-sm active:scale-95">
+                    Architecture &amp; Master Planning
+                  </a>
+                </div>
               </div>
 
-              <div class="gdr-waypoint-actions">
-                <a href="/pmc.html" class="scrolly-btn scrolly-btn--primary">
-                  <span>Explore Infrastructure Division &rarr;</span>
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-                <a href="/bridge.html" class="scrolly-btn scrolly-btn--outline">
-                  <span>Bridge Engineering</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- Waypoint 03: Division 02 — Design & Technology (42% - 58%) -->
-            <article class="gdr-waypoint-card" id="waypoint-03">
-              <div class="gdr-waypoint-subtag">
-                <span class="gdr-waypoint-subtag-dot"></span>
-                DIVISION 02 &mdash; DESIGN &amp; DIGITAL INTEGRATION
-              </div>
-              <h2 class="gdr-waypoint-title">VIRTUAL LIFECYCLES FROM CONCEPT TO COMMISSION.</h2>
-              
-              <div class="gdr-service-chips">
-                <span class="gdr-service-chip">3D&ndash;7D BIM Modeling</span>
-                <span class="gdr-service-chip">Clash Auditing</span>
-                <span class="gdr-service-chip">MEPF Systems</span>
-                <span class="gdr-service-chip">Green Building</span>
-              </div>
-
-              <p class="gdr-waypoint-desc">
-                Resolving structural and service clashes digitally prior to physical construction.
-              </p>
-
-              <div class="gdr-waypoint-actions">
-                <a href="/bim.html" class="scrolly-btn scrolly-btn--primary">
-                  <span>Explore Design &amp; BIM &rarr;</span>
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-                <a href="/architecture.html" class="scrolly-btn scrolly-btn--outline">
-                  <span>Architecture &amp; Master Planning</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- Waypoint 04: Division 03 — Testing & Commerce (62% - 78%) -->
-            <article class="gdr-waypoint-card" id="waypoint-04">
-              <div class="gdr-waypoint-subtag">
-                <span class="gdr-waypoint-subtag-dot"></span>
-                DIVISION 03 &mdash; TESTING &amp; CONTRACT ADMINISTRATION
-              </div>
-              <h2 class="gdr-waypoint-title">NABL-ACCREDITED MATERIAL RIGOR &amp; COMMERCE.</h2>
-              
-              <div class="gdr-service-chips">
-                <span class="gdr-service-chip">Geotechnical Soil Testing</span>
-                <span class="gdr-service-chip">Concrete &amp; Steel Lab</span>
-                <span class="gdr-service-chip">NDT Structural Audits</span>
-                <span class="gdr-service-chip">FIDIC Tenders &amp; BoQ</span>
+              <!-- Waypoint 04 Card -->
+              <div class="gdr-waypoint-card w-full flex flex-col items-center" id="waypoint-04" data-wp-card="3">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 shadow-sm text-xs font-bold uppercase tracking-widest text-[#0284C7] mb-3">
+                  <span class="w-2 h-2 rounded-full bg-[#0284C7]"></span>
+                  DIVISION 03 — TESTING &amp; CONTRACT ADMINISTRATION
+                </div>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight leading-[1.15] max-w-3xl mb-3">
+                  NABL-ACCREDITED MATERIAL RIGOR &amp; COMMERCE.
+                </h2>
+                <div class="flex flex-wrap items-center justify-center gap-2 mb-4">
+                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">Geotechnical Soil Testing</span>
+                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">Concrete &amp; Steel Lab</span>
+                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">NDT Structural Audits</span>
+                  <span class="px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-xs font-semibold text-slate-700">FIDIC Tenders &amp; BoQ</span>
+                </div>
+                <p class="text-sm sm:text-base text-slate-600 max-w-2xl leading-relaxed mb-5 font-normal">
+                  Independent testing laboratory verifying structural integrity for high-stakes public contracts.
+                </p>
+                <div class="flex items-center gap-4">
+                  <a href="/lab.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#0284C7] hover:bg-[#0369A1] text-white text-sm font-semibold tracking-wide transition-all duration-200 shadow-md shadow-sky-500/20 active:scale-95">
+                    <span>Explore Testing Laboratory &rarr;</span>
+                  </a>
+                  <a href="/commerce.html" class="inline-flex items-center px-6 py-3 rounded-lg bg-white/90 hover:bg-white text-slate-800 border border-slate-300 text-sm font-semibold tracking-wide transition-all duration-200 shadow-sm active:scale-95">
+                    Contracts &amp; Commercial
+                  </a>
+                </div>
               </div>
 
-              <p class="gdr-waypoint-desc">
-                Independent testing laboratory verifying structural integrity for high-stakes public contracts.
-              </p>
-
-              <div class="gdr-waypoint-actions">
-                <a href="/lab.html" class="scrolly-btn scrolly-btn--primary">
-                  <span>Explore Testing Laboratory &rarr;</span>
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </a>
-                <a href="/commerce.html" class="scrolly-btn scrolly-btn--outline">
-                  <span>Contracts &amp; Commercial</span>
-                </a>
-              </div>
-            </article>
-
-            <!-- Waypoint 05: Pan-India Footprint & Network (82% - 100%) -->
-            <article class="gdr-waypoint-card" id="waypoint-05">
-              <div class="gdr-waypoint-subtag">
-                <span class="gdr-waypoint-subtag-dot"></span>
-                NATIONAL REACH &bull; PAN-INDIA MOBILIZATION
-              </div>
-              <h2 class="gdr-waypoint-title">OUR NETWORKS: NATIONAL PROJECT FOOTPRINT.</h2>
-              
-              <!-- Interactive Category Filter Buttons (Light Style) -->
-              <div class="network-filter-strip">
-                <button type="button" class="network-filter-btn is-active" data-sector="all">
-                  <span>All Projects</span>
-                </button>
-                <button type="button" class="network-filter-btn" data-sector="tpqa">
-                  <span class="filter-dot" style="background:#0284C7;"></span>
-                  <span>TPQA, PMC, IE Jobs</span>
-                </button>
-                <button type="button" class="network-filter-btn" data-sector="design">
-                  <span class="filter-dot" style="background:#0D9488;"></span>
-                  <span>Design &amp; DPR Jobs</span>
-                </button>
-                <button type="button" class="network-filter-btn" data-sector="survey">
-                  <span class="filter-dot" style="background:#D97706;"></span>
-                  <span>Field Survey</span>
-                </button>
-                <button type="button" class="network-filter-btn" data-sector="geotech">
-                  <span class="filter-dot" style="background:#7C3AED;"></span>
-                  <span>Geotech Investigation</span>
-                </button>
+              <!-- Waypoint 05 Card -->
+              <div class="gdr-waypoint-card w-full flex flex-col items-center" id="waypoint-05" data-wp-card="4">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 shadow-sm text-xs font-bold uppercase tracking-widest text-[#0284C7] mb-3">
+                  <span class="w-2 h-2 rounded-full bg-[#0284C7]"></span>
+                  NATIONAL REACH • PAN-INDIA MOBILIZATION
+                </div>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#0F172A] tracking-tight leading-[1.15] max-w-3xl mb-3">
+                  OUR NETWORKS: NATIONAL PROJECT FOOTPRINT.
+                </h2>
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap items-center justify-center gap-2 mb-4">
+                  <button type="button" class="network-filter-btn is-active px-3 py-1 rounded-full bg-[#0284C7] text-white text-xs font-semibold" data-sector="all">All Projects</button>
+                  <button type="button" class="network-filter-btn px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-slate-700 text-xs font-semibold" data-sector="tpqa">TPQA / PMC</button>
+                  <button type="button" class="network-filter-btn px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-slate-700 text-xs font-semibold" data-sector="design">Design &amp; DPR</button>
+                  <button type="button" class="network-filter-btn px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-slate-700 text-xs font-semibold" data-sector="survey">Field Survey</button>
+                  <button type="button" class="network-filter-btn px-3 py-1 rounded-full bg-white/80 border border-slate-200 text-slate-700 text-xs font-semibold" data-sector="geotech">Geotech</button>
+                </div>
+                <p class="text-sm sm:text-base text-slate-600 max-w-2xl leading-relaxed mb-5 font-normal">
+                  Over 1,200 landmark assignments successfully executed across highway authorities, public works departments, irrigation boards, and premier infrastructure concessionaires.
+                </p>
+                <div class="flex items-center gap-4">
+                  <button type="button" id="btn-submit-tender" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#0284C7] hover:bg-[#0369A1] text-white text-sm font-semibold tracking-wide transition-all duration-200 shadow-md shadow-sky-500/20 active:scale-95">
+                    <span>Submit Tender Inquiry / RFP &darr;</span>
+                  </button>
+                  <a href="#about-us" class="inline-flex items-center px-6 py-3 rounded-lg bg-white/90 hover:bg-white text-slate-800 border border-slate-300 text-sm font-semibold tracking-wide transition-all duration-200 shadow-sm active:scale-95">
+                    Corporate Lineage
+                  </a>
+                </div>
               </div>
 
-              <p class="gdr-waypoint-desc">
-                Over 1,200 landmark assignments successfully executed across highway authorities, public works departments, irrigation boards, and premier infrastructure concessionaires.
-              </p>
-
-              <div class="gdr-waypoint-actions">
-                <button type="button" class="scrolly-btn scrolly-btn--primary" id="btn-submit-tender">
-                  <span>Submit Tender Inquiry / RFP &darr;</span>
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </button>
-                <a href="#about-us" class="scrolly-btn scrolly-btn--outline">
-                  <span>Corporate Lineage</span>
-                </a>
-              </div>
-            </article>
+            </div>
 
           </div>
-
-          <!-- Bottom Center Scroll Prompt -->
-          <div class="gdr-scroll-prompt" id="gdr-scroll-prompt" aria-hidden="true">
-            <span>SCROLL TO EXPLORE</span>
-            <svg class="gdr-scroll-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </div>
-
         </div>
-      </div>
+      </section>
 
       <!-- ======================================================================
            STAGE 2: GROUNDED CORPORATE ENGINE (FROSTED GLASS LIGHT THEME)

@@ -16,8 +16,16 @@ import './WebglScrollytelling.css';
 let activeWaypointIndex = 0;
 
 export function initWebglScrollytelling() {
-  const canvas = document.getElementById('gdr-webgl-canvas');
-  const track = document.getElementById('scroll-stage-track') || document.getElementById('gdr-scrolly-track');
+  let canvas = document.getElementById('gdr-webgl-canvas');
+  const canvasContainer = document.getElementById('webgl-canvas-container');
+  if (!canvas && canvasContainer) {
+    canvas = document.createElement('canvas');
+    canvas.id = 'gdr-webgl-canvas';
+    canvas.className = 'gdr-webgl-canvas w-full h-full block';
+    canvas.setAttribute('aria-hidden', 'true');
+    canvasContainer.appendChild(canvas);
+  }
+  const track = document.getElementById('hero-stage') || document.getElementById('scroll-stage-track') || document.getElementById('gdr-scrolly-track');
   if (!canvas || !track) return null;
 
   // Reduced motion preference check
@@ -457,11 +465,11 @@ export function initWebglScrollytelling() {
   // --------------------------------------------------------------------------
   // 7. Pacing & Waypoint Mapping across 500vh Virtual Track
   // --------------------------------------------------------------------------
-  const waypoints = Array.from(document.querySelectorAll('.gdr-waypoint-card'));
-  const trackerItems = Array.from(document.querySelectorAll('.gdr-tracker-item'));
+  const waypoints = Array.from(document.querySelectorAll('.gdr-waypoint-card, [data-wp-card]'));
+  const trackerItems = Array.from(document.querySelectorAll('[data-waypoint], .gdr-tracker-item'));
   const trackerProgressLine = document.querySelector('.gdr-tracker-progress-line');
   const scrollPrompt = document.querySelector('.gdr-scroll-prompt');
-  const hudCoordText = document.getElementById('gdr-hud-coords');
+  const hudCoordText = document.getElementById('hud-telemetry') || document.getElementById('gdr-hud-coords') || document.querySelector('.font-mono.text-slate-600');
 
   const WAYPOINT_RANGES = [
     { index: 0, start: 0.00, end: 0.18, targetProgress: 0.05, label: 'FOUNDATION & SCALE' },
@@ -491,7 +499,9 @@ export function initWebglScrollytelling() {
   trackerItems.forEach((btn, idx) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      const wp = WAYPOINT_RANGES[idx];
+      const wpIdxAttr = btn.getAttribute('data-waypoint') ?? btn.getAttribute('data-wp');
+      const targetIdx = wpIdxAttr !== null ? parseInt(wpIdxAttr, 10) : idx;
+      const wp = WAYPOINT_RANGES[targetIdx];
       if (!wp) return;
       const trackRect = track.getBoundingClientRect();
       const trackTop = window.scrollY + trackRect.top;
@@ -505,7 +515,7 @@ export function initWebglScrollytelling() {
   });
 
   // Waypoint 01 CTA [Explore Capabilities ↓]
-  const exploreCapabilitiesBtn = document.getElementById('btn-explore-capabilities');
+  const exploreCapabilitiesBtn = document.getElementById('btn-explore-capabilities') || document.querySelector('a[href="#expertise"]');
   if (exploreCapabilitiesBtn) {
     exploreCapabilitiesBtn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -655,12 +665,31 @@ export function initWebglScrollytelling() {
 
       // Update Waypoint Cards
       waypoints.forEach((card, idx) => {
-        card.classList.toggle('is-active', idx === activeWaypointIndex);
+        const cIdxAttr = card.getAttribute('data-wp-card') ?? card.getAttribute('data-wp');
+        const cIdx = cIdxAttr !== null ? parseInt(cIdxAttr, 10) : idx;
+        card.classList.toggle('is-active', cIdx === activeWaypointIndex);
       });
 
       // Update Tracker Left Rail
       trackerItems.forEach((item, idx) => {
-        item.classList.toggle('is-active', idx === activeWaypointIndex);
+        const itemIdxAttr = item.getAttribute('data-waypoint') ?? item.getAttribute('data-wp');
+        const itemIdx = itemIdxAttr !== null ? parseInt(itemIdxAttr, 10) : idx;
+        const isActive = itemIdx === activeWaypointIndex;
+        item.classList.toggle('is-active', isActive);
+
+        const badge = item.querySelector('span:first-child');
+        const label = item.querySelector('span:last-child');
+        if (badge && label) {
+          if (isActive) {
+            item.classList.remove('opacity-60');
+            badge.className = 'w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold bg-[#0284C7] text-white shadow-md shadow-sky-500/20';
+            label.className = 'text-xs font-semibold uppercase tracking-wider text-slate-800';
+          } else {
+            item.classList.add('opacity-60');
+            badge.className = 'w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold bg-white border border-slate-300 text-slate-600';
+            label.className = 'text-xs font-semibold uppercase tracking-wider text-slate-600';
+          }
+        }
       });
     }
 
@@ -677,7 +706,8 @@ export function initWebglScrollytelling() {
     // Update HUD Telemetry text
     if (hudCoordText) {
       const activeRange = WAYPOINT_RANGES[activeWaypointIndex];
-      hudCoordText.innerHTML = `GEO // LAT: 22.3072° N &bull; LON: 73.1812° E<br>CAMERA Z: ${camPos.z.toFixed(0)}m &bull; CAM_Y: ${camPos.y.toFixed(0)}m<br>STAGE: ${activeRange.label} [${(rawScrollProgress * 100).toFixed(0)}%]`;
+      const stageNum = String(activeWaypointIndex + 1).padStart(2, '0');
+      hudCoordText.textContent = `GEO // LAT: 22.3072° N • LON: 73.1812° E | STAGE: ${stageNum} // ${activeRange.label}`;
     }
 
     // Render WebGL frame
