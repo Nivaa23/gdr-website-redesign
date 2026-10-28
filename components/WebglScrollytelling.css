@@ -676,18 +676,31 @@
 
 .leadership-image-wrap {
   position: relative;
-  border-radius: 14px;
+  border-radius: 16px;
   overflow: hidden;
   border: 1px solid #CBD5E1;
   box-shadow: 0 12px 30px -5px rgba(15, 23, 42, 0.08);
-  background: #FFFFFF;
+  background: #F1F5F9;
+  height: 520px;
+  min-height: 460px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .leadership-image-wrap img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   object-fit: cover;
+  object-position: center 28%;
+  transition: transform 0.5s ease;
+}
+
+.leadership-image-wrap:hover img {
+  transform: scale(1.03);
 }
 
 .leadership-caption-card {
