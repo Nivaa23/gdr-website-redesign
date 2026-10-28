@@ -1336,13 +1336,13 @@
   <!-- ======================================================================
        GLOBAL WEBSITE FOOTER (Single Source of Truth)
        ====================================================================== -->
-  <footer class="site-footer animated-content" id="site-footer">
+  <footer class="site-footer" id="site-footer">
     <div class="footer-wrapper">
       
       <!-- 1. UPPER INFORMATION GRID -->
-      <div class="footer-grid-upper animated-content-item" role="region" aria-label="Footer Information Grid">
+      <div class="footer-grid-upper" role="region" aria-label="Footer Information Grid">
         
-        <!-- Cell 1: Developing Ways of Success (Row 1, Column 1) -->
+        <!-- Cell 1: Tagline (Row 1, Column 1) -->
         <div class="footer-cell footer-cell--tagline">
           <p class="footer-tagline">Developing ways of success.</p>
         </div>
@@ -1351,19 +1351,22 @@
         <div class="footer-cell footer-cell--company">
           <h3 class="footer-cell__heading">COMPANY</h3>
           <ul class="footer-cell__list" role="list">
-            <li><a href="/index.html#hero-section" class="footer-nav-anchor cursor-target">Home</a></li>
-            <li><a href="/about-1.html" class="footer-nav-anchor cursor-target">About</a></li>
-            <li><a href="/index.html#contact-us" class="footer-nav-anchor cursor-target">Contact</a></li>
+            <li><a href="/#main-content" class="footer-nav-anchor cursor-target">Home</a></li>
+            <li><a href="/about-1.html" class="footer-nav-anchor cursor-target">About Us</a></li>
+            <li><a href="/#about-us" class="footer-nav-anchor cursor-target">Leadership</a></li>
+            <li><a href="/#journey-timeline" class="footer-nav-anchor cursor-target">Timeline</a></li>
+            <li><a href="/#tender-cta-banner" class="footer-nav-anchor cursor-target">Tender Inquiry</a></li>
           </ul>
         </div>
 
         <!-- Cell 3: Expertise (Row 1, Columns 3–4) -->
         <div class="footer-cell footer-cell--expertise">
-          <h3 class="footer-cell__heading">EXPERTISE</h3>
+          <h3 class="footer-cell__heading">DIVISIONS</h3>
           <ul class="footer-cell__list" role="list">
-            <li><a href="/index.html#category-infrastructure" class="footer-nav-anchor cursor-target">Infrastructure</a></li>
-            <li><a href="/index.html#category-building" class="footer-nav-anchor cursor-target">Building</a></li>
-            <li><a href="/index.html#category-testing" class="footer-nav-anchor cursor-target">Testing</a></li>
+            <li><a href="/#engineering-directory" class="footer-nav-anchor cursor-target">Infrastructure &amp; Civil</a></li>
+            <li><a href="/#engineering-directory" class="footer-nav-anchor cursor-target">Design &amp; Technology</a></li>
+            <li><a href="/#engineering-directory" class="footer-nav-anchor cursor-target">Testing &amp; Commerce</a></li>
+            <li><a href="/bridge.html" class="footer-nav-anchor cursor-target">Bridge Engineering</a></li>
           </ul>
         </div>
 
@@ -1371,18 +1374,18 @@
         <div class="footer-cell footer-cell--logo-panel" id="footer-logo-cell">
           <div 
             class="footer-globe-container" 
-            id="footer-globe-container" 
+            id="footer-globe-container"
             role="img" 
-            tabindex="0" 
+            tabindex="0"
             aria-label="Geo Designs &amp; Research Interactive 3D Brand Globe"
           >
-            <!-- 3D Outlined Sphere Construction with Individually Targetable Geometric Facets -->
+            <!-- 3D Outlined Sphere Construction -->
             <svg 
               class="footer-globe-svg" 
-              id="footer-globe-svg" 
+              id="footer-globe-svg"
               viewBox="0 0 200 200" 
-              width="280" 
-              height="280" 
+              width="156" 
+              height="156" 
               aria-hidden="true"
             >
               <defs>
@@ -1391,56 +1394,45 @@
                 </clipPath>
               </defs>
 
-              <!-- Group clipped to sphere -->
               <g clip-path="url(#globe-clip)">
-                <!-- Dark Base Fill -->
                 <circle cx="100" cy="100" r="76" class="globe-base" />
 
-                <!-- INDEPENDENTLY TARGETABLE 3D GEOMETRIC FACETS -->
+                <!-- 3D Geometric Facets -->
                 <g class="globe-facets-layer" id="globe-facets-layer">
-                  <!-- North Polar Tier (Slate Blue #35556B) -->
                   <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M51,42 A76,76 0 0,1 80,26 L100,42 L80,42 Z" />
                   <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M80,26 A76,76 0 0,1 100,24 L100,42 L80,42 Z" />
                   <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,24 A76,76 0 0,1 120,26 L100,42 Z" />
                   <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M120,26 A76,76 0 0,1 149,42 L120,42 L100,42 Z" />
 
-                  <!-- North Temperate Tier -->
                   <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M29,74 A76,76 0 0,1 51,42 L80,42 L65,74 Z" />
                   <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M65,74 L80,42 L100,42 L100,74 Z" />
                   <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,74 L100,42 L120,42 L135,74 Z" />
                   <path class="globe-facet globe-facet--charcoal" data-color="#343A40" d="M135,74 L120,42 L149,42 A76,76 0 0,1 171,74 Z" />
 
-                  <!-- Equatorial Tier (Flanks & Central GDR Monogram Emblem) -->
                   <path class="globe-facet globe-facet--charcoal" data-color="#343A40" d="M24,100 A76,76 0 0,1 29,74 L65,74 L60,100 Z" />
                   <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M65,74 L100,74 L78,88 L60,88 Z" />
                   <path class="globe-facet globe-facet--slate" data-color="#35556B" d="M100,74 L135,74 L140,88 L122,88 Z" />
                   <path class="globe-facet globe-facet--charcoal" data-color="#343A40" d="M135,74 A76,76 0 0,1 176,100 L140,100 L140,88 Z" />
 
-                  <!-- Central GDR Engineering Badge (Independently Active Surface) -->
                   <path class="globe-facet globe-facet--badge" data-color="#35556B" d="M60,88 L140,88 L140,112 L60,112 Z" />
 
-                  <!-- Below Badge Transition -->
                   <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M24,100 L60,100 L60,112 L25,113 Z" />
                   <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M60,112 L140,112 L138,132 L62,132 Z" />
                   <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M140,100 L176,100 A76,76 0 0,1 175,113 L140,112 Z" />
 
-                  <!-- South Temperate Tier (Muted Green #497E5E) -->
                   <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M25,113 A76,76 0 0,0 46,154 L75,154 L62,132 Z" />
                   <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M62,132 L75,154 L100,154 L100,132 Z" />
                   <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M100,132 L100,154 L125,154 L138,132 Z" />
                   <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M138,132 L125,154 L154,154 A76,76 0 0,0 175,113 Z" />
 
-                  <!-- South Polar Tier (Muted Green #497E5E) -->
                   <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M46,154 A76,76 0 0,0 80,174 L100,154 L75,154 Z" />
                   <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M80,174 A76,76 0 0,0 100,176 L100,154 Z" />
                   <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M100,154 L100,176 A76,76 0 0,0 120,174 Z" />
                   <path class="globe-facet globe-facet--green" data-color="#497E5E" d="M120,174 A76,76 0 0,0 154,154 L125,154 L100,154 Z" />
                 </g>
 
-                <!-- GDR Central Text Overlay (pointer-events: none) -->
                 <text x="100" y="104" text-anchor="middle" class="globe-badge-label" pointer-events="none">GDR</text>
 
-                <!-- Clean Spherical Wireframe Meridians & Parallels (Overlay, pointer-events: none) -->
                 <g class="globe-wireframe-lines" pointer-events="none">
                   <ellipse cx="100" cy="100" rx="24" ry="76" class="globe-wireframe globe-wireframe--meridian" />
                   <ellipse cx="100" cy="100" rx="52" ry="76" class="globe-wireframe globe-wireframe--meridian" />
@@ -1453,7 +1445,6 @@
                 </g>
               </g>
 
-              <!-- Outer Boundary Circle & Polar Points -->
               <circle cx="100" cy="100" r="76" class="globe-wireframe globe-wireframe--outer" pointer-events="none" />
               <circle cx="100" cy="24" r="2.5" class="globe-point" pointer-events="none" />
               <circle cx="100" cy="176" r="2.5" class="globe-point" pointer-events="none" />
@@ -1484,46 +1475,48 @@
               href="https://www.linkedin.com/company/geo-designs-&-research-pvt-ltd-/posts/" 
               class="footer-social-link cursor-target" 
               target="_blank" 
-              rel="noopener noreferrer"
-            >LinkedIn</a>
+              rel="noopener noreferrer" 
+              aria-label="Geo Designs &amp; Research LinkedIn"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
           </div>
         </div>
 
         <!-- Cell 7: Other Branches (Row 2, Columns 3–4) -->
         <div class="footer-cell footer-cell--branches">
-          <h3 class="footer-cell__heading">OTHER BRANCHES</h3>
+          <h3 class="footer-cell__heading">REGIONAL BRANCHES</h3>
           <div class="footer-branches-grid">
             <ul class="footer-branches-subcol" role="list">
-              <li><a href="/index.html#branch-card-bharuch" class="footer-branch-link cursor-target">Bharuch</a></li>
-              <li><a href="/index.html#branch-card-bhuj" class="footer-branch-link cursor-target">Bhuj</a></li>
-              <li><a href="/index.html#branch-card-gandhinagar" class="footer-branch-link cursor-target">Gandhinagar</a></li>
-              <li><a href="/index.html#branch-card-junagadh" class="footer-branch-link cursor-target">Junagadh</a></li>
+              <li><a href="/#branch-bharuch" class="footer-branch-link cursor-target">Bharuch</a></li>
+              <li><a href="/#branch-bhuj" class="footer-branch-link cursor-target">Bhuj</a></li>
+              <li><a href="/#branch-gandhinagar" class="footer-branch-link cursor-target">Gandhinagar</a></li>
+              <li><a href="/#branch-junagadh" class="footer-branch-link cursor-target">Junagadh</a></li>
             </ul>
             <ul class="footer-branches-subcol" role="list">
-              <li><a href="/index.html#branch-card-nadiad" class="footer-branch-link cursor-target">Nadiad</a></li>
-              <li><a href="/index.html#branch-card-navsari" class="footer-branch-link cursor-target">Navsari</a></li>
-              <li><a href="/index.html#branch-card-jaisalmer" class="footer-branch-link cursor-target">Jaisalmer</a></li>
+              <li><a href="/#branch-navsari" class="footer-branch-link cursor-target">Navsari</a></li>
+              <li><a href="/#branch-nadiad-jaisalmer" class="footer-branch-link cursor-target">Nadiad</a></li>
+              <li><a href="/#branch-nadiad-jaisalmer" class="footer-branch-link cursor-target">Jaisalmer</a></li>
             </ul>
           </div>
         </div>
 
       </div>
 
-      <!-- 2. OVERSIZED TWO-LINE OUTLINED WORDMARK REGION -->
-      <div class="footer-wordmark-panel animated-content-item" id="footer-wordmark-panel" tabindex="0" role="region" aria-label="Geo Designs &amp; Research Architectural Wordmark">
+      <!-- 2. OVERSIZED TWO-LINE OUTLINED WORDMARK REGION (Scaled to ~160px–190px height) -->
+      <div class="footer-wordmark-panel" id="footer-wordmark-panel" tabindex="0" role="region" aria-label="Geo Designs &amp; Research Architectural Wordmark">
         <svg 
           class="wordmark-svg" 
-          id="wordmark-svg" 
-          viewBox="0 0 1320 280" 
+          id="wordmark-svg"
+          viewBox="0 0 1600 220" 
           width="100%" 
           height="auto" 
-          preserveAspectRatio="xMidYMid meet" 
+          preserveAspectRatio="xMidYMid meet"
           aria-hidden="true"
         >
           <defs>
-            <!-- Cursor-driven localized mask: reveals white fill ONLY within pointer proximity -->
-            <mask id="wordmark-cursor-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1320" height="280">
-              <rect x="0" y="0" width="1320" height="280" fill="#000000" />
+            <mask id="wordmark-cursor-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1600" height="220">
+              <rect x="0" y="0" width="1600" height="220" fill="#000000" />
               <circle 
                 id="wordmark-spotlight" 
                 cx="-500" 
@@ -1533,7 +1526,6 @@
               />
             </mask>
 
-            <!-- Soft radial gradient for smooth fluid travel across nearby letter strokes -->
             <radialGradient id="wordmark-radial-gradient" cx="50%" cy="50%" r="50%">
               <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
               <stop offset="65%" stop-color="#ffffff" stop-opacity="0.9" />
@@ -1544,44 +1536,43 @@
 
           <!-- Technical Architectural Drafting Coordinate Marks -->
           <g class="wordmark-drafting-ticks" stroke="#BEBEBE" stroke-width="1" opacity="0.45">
-            <!-- Corner Registration Marks -->
-            <path d="M 20 35 L 20 15 L 40 15" fill="none" />
-            <path d="M 1300 35 L 1300 15 L 1280 15" fill="none" />
-            <path d="M 20 245 L 20 265 L 40 265" fill="none" />
-            <path d="M 1300 245 L 1300 265 L 1280 265" fill="none" />
-            <!-- Dimension / Alignment Center Crosses -->
-            <path d="M 15 140 H 25 M 20 135 V 145" fill="none" />
-            <path d="M 1295 140 H 1305 M 1300 135 V 145" fill="none" />
-            <path d="M 660 10 V 18" fill="none" />
-            <path d="M 660 262 V 270" fill="none" />
+            <path d="M 20 30 L 20 12 L 38 12" fill="none" />
+            <path d="M 1580 30 L 1580 12 L 1562 12" fill="none" />
+            <path d="M 20 190 L 20 208 L 38 208" fill="none" />
+            <path d="M 1580 190 L 1580 208 L 1562 208" fill="none" />
+            <path d="M 15 110 H 25 M 20 105 V 115" fill="none" />
+            <path d="M 1575 110 H 1585 M 1580 105 V 115" fill="none" />
+            <path d="M 800 8 V 16" fill="none" />
+            <path d="M 800 204 V 212" fill="none" />
           </g>
 
-          <!-- LAYER 1: Base Outlined Lettering (Idle State - Dark Background Visible Inside) -->
+          <!-- LAYER 1: Base Outlined Lettering -->
           <g class="wordmark-layer wordmark-layer--outline">
-            <text x="50%" y="118" text-anchor="middle" class="wordmark-text wordmark-text--outline">GEO DESIGNS</text>
-            <text x="50%" y="242" text-anchor="middle" class="wordmark-text wordmark-text--outline">&amp; RESEARCH</text>
+            <text x="50%" y="94" text-anchor="middle" class="wordmark-text wordmark-text--outline">GEO DESIGNS</text>
+            <text x="50%" y="192" text-anchor="middle" class="wordmark-text wordmark-text--outline">&amp; RESEARCH</text>
           </g>
 
-          <!-- LAYER 2: Localized White Fill Layer (Masked strictly to cursor-driven radius) -->
+          <!-- LAYER 2: Localized White Fill Layer -->
           <g class="wordmark-layer wordmark-layer--fill" mask="url(#wordmark-cursor-mask)">
-            <text x="50%" y="118" text-anchor="middle" class="wordmark-text wordmark-text--fill">GEO DESIGNS</text>
-            <text x="50%" y="242" text-anchor="middle" class="wordmark-text wordmark-text--fill">&amp; RESEARCH</text>
+            <text x="50%" y="94" text-anchor="middle" class="wordmark-text wordmark-text--fill">GEO DESIGNS</text>
+            <text x="50%" y="192" text-anchor="middle" class="wordmark-text wordmark-text--fill">&amp; RESEARCH</text>
           </g>
 
-          <!-- LAYER 3: Crisp Top Stroke Layer (Ensures outlines remain razor-sharp above fill) -->
+          <!-- LAYER 3: Crisp Top Stroke Layer -->
           <g class="wordmark-layer wordmark-layer--top-stroke" aria-hidden="true" pointer-events="none">
-            <text x="50%" y="118" text-anchor="middle" class="wordmark-text wordmark-text--top-stroke">GEO DESIGNS</text>
-            <text x="50%" y="242" text-anchor="middle" class="wordmark-text wordmark-text--top-stroke">&amp; RESEARCH</text>
+            <text x="50%" y="94" text-anchor="middle" class="wordmark-text wordmark-text--top-stroke">GEO DESIGNS</text>
+            <text x="50%" y="192" text-anchor="middle" class="wordmark-text wordmark-text--top-stroke">&amp; RESEARCH</text>
           </g>
         </svg>
       </div>
 
       <!-- 3. BOTTOM COPYRIGHT STRIP -->
-      <div class="footer-copyright-strip animated-content-item">
+      <div class="footer-copyright-strip">
         <p class="footer-copyright-text">
           &copy; <span id="current-year">2026</span> Geo Designs &amp; Research. All rights reserved.
         </p>
       </div>
+
     </div>
   </footer>
 

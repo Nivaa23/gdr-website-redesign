@@ -605,23 +605,14 @@ export function initWebglScrollytelling() {
   updateWaypointIndicators(0);
 
   // --------------------------------------------------------------------------
-  // 8. Dynamic Footer Reveal Margin Synchronization
+  // 8. Natural Document Flow Footer (No Curtain Margin Offset)
   // --------------------------------------------------------------------------
   const updateFooterOffset = () => {
-    const footer = document.querySelector('footer') || document.getElementById('site-footer');
     const contentWrapper = document.getElementById('page-content-wrapper') || document.querySelector('.content-wrapper');
-    if (footer && contentWrapper) {
-      const footerH = footer.offsetHeight;
-      contentWrapper.style.marginBottom = `${footerH}px`;
-      document.documentElement.style.setProperty('--curtain-footer-height', `${footerH}px`);
+    if (contentWrapper) {
+      contentWrapper.style.marginBottom = '0px';
     }
   };
-  window.addEventListener('resize', updateFooterOffset);
-  window.addEventListener('load', updateFooterOffset);
-  const footerEl = document.getElementById('site-footer') || document.querySelector('footer');
-  if (footerEl && window.ResizeObserver) {
-    new ResizeObserver(updateFooterOffset).observe(footerEl);
-  }
   updateFooterOffset();
 
   // --------------------------------------------------------------------------
