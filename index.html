@@ -769,66 +769,276 @@
 
         <!-- --------------------------------------------------------------------
              SECTION 02: CHRONOLOGICAL MILESTONE TIMELINE (ESTABLISHED 1991)
+             Our Journey: Pinned Horizontal Scrub Container
              -------------------------------------------------------------------- -->
-        <section class="grounded-section journey-section" id="milestone-timeline" aria-labelledby="milestone-heading">
-          <div class="container">
+        <section id="journey-timeline" class="relative w-full bg-[#F8FAFC] border-t border-slate-200/80" aria-labelledby="milestone-heading">
+          <!-- Anchor alias for legacy navigation links -->
+          <div id="milestone-timeline" class="absolute top-0 left-0 pointer-events-none" aria-hidden="true"></div>
+
+          <!-- Pinned Sticky Viewport Wrapper -->
+          <div id="journey-sticky-viewport" class="sticky top-0 left-0 w-full h-screen flex flex-col justify-center py-16 overflow-hidden">
             
-            <div class="grounded-section__header grounded-section__header--center">
-              <div class="grounded-eyebrow">ESTABLISHED 1991 &bull; 33+ YEARS OF EXCELLENCE</div>
-              <h2 class="grounded-heading" id="milestone-heading">THREE DECADES OF ENGINEERING EXCELLENCE &amp; NATION BUILDING</h2>
-              <p class="grounded-lead">
+            <!-- Section Header (Static above track) -->
+            <div class="max-w-7xl mx-auto px-6 md:px-10 mb-10 md:mb-12 text-center">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 border border-sky-200 text-[10px] font-bold uppercase tracking-widest text-[#0284C7] mb-3">
+                ESTABLISHED 1991 • 33+ YEARS OF EXCELLENCE
+              </div>
+              <h2 id="milestone-heading" class="text-3xl md:text-5xl font-black text-[#0F172A] tracking-tight leading-tight">
+                THREE DECADES OF ENGINEERING EXCELLENCE &amp; NATION BUILDING
+              </h2>
+              <p class="text-slate-600 mt-4 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
                 From our founding as an advanced material testing laboratory in 1991 to becoming one of India's premier multidisciplinary engineering consultancies.
               </p>
             </div>
 
-            <!-- Elevated White Timeline Cards with Connecting Progress Rail -->
-            <div class="milestones-track">
+            <!-- Pinned Viewport Container -->
+            <div id="timeline-pinned-wrapper" class="relative w-full overflow-hidden">
               
-              <!-- Milestone 1: 1991 -->
-              <div class="milestone-node">
-                <div class="milestone-year-badge">1991</div>
-                <h3 class="milestone-title">Founding of Geo Test House</h3>
-                <p class="milestone-desc">
-                  Founded by Mr. Pradip Chauhan (ME Civil - Gold Medalist), establishing benchmark standards in geotechnical investigation and civil material quality control in Gujarat.
-                </p>
-              </div>
+              <!-- Continuous Blueprint Accent Rail (Background Axis) -->
+              <div class="absolute top-[42px] left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#0284C7]/40 to-transparent z-0 pointer-events-none"></div>
 
-              <!-- Milestone 2: 2000 -->
-              <div class="milestone-node">
-                <div class="milestone-year-badge">2000</div>
-                <h3 class="milestone-title">Vadodara Lab &amp; Bhuj Branch</h3>
-                <p class="milestone-desc">
-                  Expansion of central testing facilities to 1,500 sq.ft and establishment of the Bhuj regional branch facility to support critical post-earthquake reconstruction.
-                </p>
-              </div>
+              <!-- Dynamic Scrubbing Track -->
+              <div id="timeline-track" class="flex flex-row gap-6 pl-8 md:pl-20 pr-32 relative z-10 w-max items-stretch py-4">
+                
+                <!-- Milestone 01: 1991 -->
+                <article class="timeline-card w-[320px] md:w-[360px] flex-shrink-0 bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow relative flex flex-col justify-between">
+                  <div>
+                    <div class="inline-flex items-center justify-center px-3.5 py-1 rounded-full bg-[#0284C7] text-white text-xs font-bold tracking-wide shadow-sm shadow-sky-500/20 mb-4">
+                      1991
+                    </div>
+                    <h3 class="text-base font-bold text-[#0F172A] mb-2 leading-snug">Founding of Geo Test House</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Founded by Mr. Pradip Chauhan (ME Civil - Gold Medalist), establishing benchmark standards in geotechnical investigation and civil material quality control in Gujarat.
+                    </p>
+                  </div>
+                  <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                    <span>PHASE 01</span>
+                    <span>ESTABLISHMENT</span>
+                  </div>
+                </article>
 
-              <!-- Milestone 3: 2005 -->
-              <div class="milestone-node">
-                <div class="milestone-year-badge">2005</div>
-                <h3 class="milestone-title">Dedicated 8,000 Sq.Ft Campus</h3>
-                <p class="milestone-desc">
-                  Relocation to a dedicated 8,000 sq.ft specialized testing and geotechnical engineering campus in Vadodara, adding metallurgical and environmental testing.
-                </p>
-              </div>
+                <!-- Milestone 02: 2000 -->
+                <article class="timeline-card w-[320px] md:w-[360px] flex-shrink-0 bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow relative flex flex-col justify-between">
+                  <div>
+                    <div class="inline-flex items-center justify-center px-3.5 py-1 rounded-full bg-[#0284C7] text-white text-xs font-bold tracking-wide shadow-sm shadow-sky-500/20 mb-4">
+                      2000
+                    </div>
+                    <h3 class="text-base font-bold text-[#0F172A] mb-2 leading-snug">Vadodara Lab &amp; Bhuj Branch</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Expansion of central testing facilities to 1,500 sq.ft and establishment of the Bhuj regional branch facility to support critical post-earthquake reconstruction.
+                    </p>
+                  </div>
+                  <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                    <span>PHASE 02</span>
+                    <span>DISASTER RELIEF</span>
+                  </div>
+                </article>
 
-              <!-- Milestone 4: 2007 -->
-              <div class="milestone-node">
-                <div class="milestone-year-badge">2007</div>
-                <h3 class="milestone-title">Incorporation of GDR Pvt. Ltd.</h3>
-                <p class="milestone-desc">
-                  Incorporation of Geo Designs &amp; Research Pvt. Ltd., rapidly expanding operations into Highway DPR route engineering, Bridge Design, and PMC Supervisions.
-                </p>
-              </div>
+                <!-- Milestone 03: 2005 -->
+                <article class="timeline-card w-[320px] md:w-[360px] flex-shrink-0 bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow relative flex flex-col justify-between">
+                  <div>
+                    <div class="inline-flex items-center justify-center px-3.5 py-1 rounded-full bg-[#0284C7] text-white text-xs font-bold tracking-wide shadow-sm shadow-sky-500/20 mb-4">
+                      2005
+                    </div>
+                    <h3 class="text-base font-bold text-[#0F172A] mb-2 leading-snug">Dedicated 8,000 Sq.Ft Campus</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Relocation to a dedicated 8,000 sq.ft specialized testing and geotechnical engineering campus in Vadodara, adding metallurgical and environmental testing.
+                    </p>
+                  </div>
+                  <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                    <span>PHASE 03</span>
+                    <span>INFRASTRUCTURE</span>
+                  </div>
+                </article>
 
-              <!-- Milestone 5: Present -->
-              <div class="milestone-node">
-                <div class="milestone-year-badge">NOW</div>
-                <h3 class="milestone-title">National Institutional Scale</h3>
-                <p class="milestone-desc">
-                  &#8377;105+ Cr annual turnover, 1,150+ staff strength, NABL accredited laboratory network, 7 strategic branch hubs, and over 1,200 completed infrastructure mandates.
-                </p>
-              </div>
+                <!-- Milestone 04: 2007 -->
+                <article class="timeline-card w-[320px] md:w-[360px] flex-shrink-0 bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow relative flex flex-col justify-between">
+                  <div>
+                    <div class="inline-flex items-center justify-center px-3.5 py-1 rounded-full bg-[#0284C7] text-white text-xs font-bold tracking-wide shadow-sm shadow-sky-500/20 mb-4">
+                      2007
+                    </div>
+                    <h3 class="text-base font-bold text-[#0F172A] mb-2 leading-snug">Incorporation of GDR Pvt. Ltd.</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Incorporation of Geo Designs &amp; Research Pvt. Ltd., rapidly expanding operations into Highway DPR route engineering, Bridge Design, and PMC Supervisions.
+                    </p>
+                  </div>
+                  <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                    <span>PHASE 04</span>
+                    <span>CORPORATE ENTITY</span>
+                  </div>
+                </article>
 
+                <!-- Milestone 05: 2009 -->
+                <article class="timeline-card w-[320px] md:w-[360px] flex-shrink-0 bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow relative flex flex-col justify-between">
+                  <div>
+                    <div class="inline-flex items-center justify-center px-3.5 py-1 rounded-full bg-[#0284C7] text-white text-xs font-bold tracking-wide shadow-sm shadow-sky-500/20 mb-4">
+                      2009
+                    </div>
+                    <h3 class="text-base font-bold text-[#0F172A] mb-2 leading-snug">International Expansion</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Established Metcon Testing Laboratory in Dubai to deliver high-precision testing across the Middle East.
+                    </p>
+                  </div>
+                  <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                    <span>PHASE 05</span>
+                    <span>GLOBAL REACH</span>
+                  </div>
+                </article>
+
+                <!-- Milestone 06: 2010 -->
+                <article class="timeline-card w-[320px] md:w-[360px] flex-shrink-0 bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow relative flex flex-col justify-between">
+                  <div>
+                    <div class="inline-flex items-center justify-center px-3.5 py-1 rounded-full bg-[#0284C7] text-white text-xs font-bold tracking-wide shadow-sm shadow-sky-500/20 mb-4">
+                      2010
+                    </div>
+                    <h3 class="text-base font-bold text-[#0F172A] mb-2 leading-snug">Accreditations &amp; Regional Growth</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Achieved NABL accreditation under ISO/IEC 17025 and ISO 9001 certification. Expanded with a branch and laboratory in Bharuch.
+                    </p>
+                  </div>
+                  <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                    <span>PHASE 06</span>
+                    <span>ACCREDITATION</span>
+                  </div>
+                </article>
+
+                <!-- Milestone 07: 2012 -->
+                <article class="timeline-card w-[320px] md:w-[360px] flex-shrink-0 bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow relative flex flex-col justify-between">
+                  <div>
+                    <div class="inline-flex items-center justify-center px-3.5 py-1 rounded-full bg-[#0284C7] text-white text-xs font-bold tracking-wide shadow-sm shadow-sky-500/20 mb-4">
+                      2012
+                    </div>
+                    <h3 class="text-base font-bold text-[#0F172A] mb-2 leading-snug">Expansion of Laboratory Services</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Undertook laboratory consultancy in Riyadh, Saudi Arabia and expanded with branches and laboratories in Gandhinagar and Junagadh.
+                    </p>
+                  </div>
+                  <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                    <span>PHASE 07</span>
+                    <span>REGIONAL HUBS</span>
+                  </div>
+                </article>
+
+                <!-- Milestone 08: 2013 -->
+                <article class="timeline-card w-[320px] md:w-[360px] flex-shrink-0 bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow relative flex flex-col justify-between">
+                  <div>
+                    <div class="inline-flex items-center justify-center px-3.5 py-1 rounded-full bg-[#0284C7] text-white text-xs font-bold tracking-wide shadow-sm shadow-sky-500/20 mb-4">
+                      2013
+                    </div>
+                    <h3 class="text-base font-bold text-[#0F172A] mb-2 leading-snug">International Project Expertise</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Undertook structural analysis associated with the 60-storey hotel at Black Sea Mall, Baku and conducted 237 NABL tests.
+                    </p>
+                  </div>
+                  <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                    <span>PHASE 08</span>
+                    <span>HIGH-RISE RIGOR</span>
+                  </div>
+                </article>
+
+                <!-- Milestone 09: 2014 -->
+                <article class="timeline-card w-[320px] md:w-[360px] flex-shrink-0 bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow relative flex flex-col justify-between">
+                  <div>
+                    <div class="inline-flex items-center justify-center px-3.5 py-1 rounded-full bg-[#0284C7] text-white text-xs font-bold tracking-wide shadow-sm shadow-sky-500/20 mb-4">
+                      2014
+                    </div>
+                    <h3 class="text-base font-bold text-[#0F172A] mb-2 leading-snug">Further Regional Expansion</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Expanded branch operations to Navsari, Anand and Godhra, establishing immediate on-site mobilization.
+                    </p>
+                  </div>
+                  <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                    <span>PHASE 09</span>
+                    <span>WESTERN NETWORK</span>
+                  </div>
+                </article>
+
+                <!-- Milestone 10: 2015 -->
+                <article class="timeline-card w-[320px] md:w-[360px] flex-shrink-0 bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow relative flex flex-col justify-between">
+                  <div>
+                    <div class="inline-flex items-center justify-center px-3.5 py-1 rounded-full bg-[#0284C7] text-white text-xs font-bold tracking-wide shadow-sm shadow-sky-500/20 mb-4">
+                      2015
+                    </div>
+                    <h3 class="text-base font-bold text-[#0F172A] mb-2 leading-snug">Diversification of Engineering Services</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Expanded facilities from 8,000 to 16,000 sq.ft. Added environmental testing, non-destructive testing (NDT), architectural design, and quantity surveying.
+                    </p>
+                  </div>
+                  <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                    <span>PHASE 10</span>
+                    <span>16K SQ.FT EXPANSION</span>
+                  </div>
+                </article>
+
+                <!-- Milestone 11: 2017 -->
+                <article class="timeline-card w-[320px] md:w-[360px] flex-shrink-0 bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow relative flex flex-col justify-between">
+                  <div>
+                    <div class="inline-flex items-center justify-center px-3.5 py-1 rounded-full bg-[#0284C7] text-white text-xs font-bold tracking-wide shadow-sm shadow-sky-500/20 mb-4">
+                      2017
+                    </div>
+                    <h3 class="text-base font-bold text-[#0F172A] mb-2 leading-snug">Infrastructure Expansion</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Expanded facilities from 16,000 sq.ft to 24,000 sq.ft and accelerated large-scale bridge, highway, and corridor mandates across Western India with dedicated PMC teams.
+                    </p>
+                  </div>
+                  <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                    <span>PHASE 11</span>
+                    <span>CORRIDORS</span>
+                  </div>
+                </article>
+
+                <!-- Milestone 12: 2018 -->
+                <article class="timeline-card w-[320px] md:w-[360px] flex-shrink-0 bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow relative flex flex-col justify-between">
+                  <div>
+                    <div class="inline-flex items-center justify-center px-3.5 py-1 rounded-full bg-[#0284C7] text-white text-xs font-bold tracking-wide shadow-sm shadow-sky-500/20 mb-4">
+                      2018
+                    </div>
+                    <h3 class="text-base font-bold text-[#0F172A] mb-2 leading-snug">Merger &amp; Testing Milestone</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Merged with Geo Designs and recorded 457 NABL-accredited testing parameters across geotechnical, structural, and civil material disciplines.
+                    </p>
+                  </div>
+                  <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                    <span>PHASE 12</span>
+                    <span>457 NABL TESTS</span>
+                  </div>
+                </article>
+
+                <!-- Milestone 13: 2020 -->
+                <article class="timeline-card w-[320px] md:w-[360px] flex-shrink-0 bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow relative flex flex-col justify-between">
+                  <div>
+                    <div class="inline-flex items-center justify-center px-3.5 py-1 rounded-full bg-[#0284C7] text-white text-xs font-bold tracking-wide shadow-sm shadow-sky-500/20 mb-4">
+                      2020
+                    </div>
+                    <h3 class="text-base font-bold text-[#0F172A] mb-2 leading-snug">Advanced Engineering Capabilities</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Expanded into MEPF, green building, and Building Information Modeling (BIM), alongside the introduction of Falling Weight Deflectometer (FWD) and Network Survey Vehicle (NSV) capabilities.
+                    </p>
+                  </div>
+                  <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                    <span>PHASE 13</span>
+                    <span>BIM • FWD • NSV</span>
+                  </div>
+                </article>
+
+                <!-- Milestone 14: 2021 -->
+                <article class="timeline-card w-[320px] md:w-[360px] flex-shrink-0 bg-white/90 backdrop-blur-md border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow relative flex flex-col justify-between">
+                  <div>
+                    <div class="inline-flex items-center justify-center px-3.5 py-1 rounded-full bg-[#0284C7] text-white text-xs font-bold tracking-wide shadow-sm shadow-sky-500/20 mb-4">
+                      2021
+                    </div>
+                    <h3 class="text-base font-bold text-[#0F172A] mb-2 leading-snug">Training &amp; Continued Growth</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                      Established a dedicated 2,000 sq.ft office in Gandhinagar and expanded green building and BIM training initiatives across pan-India operations.
+                    </p>
+                  </div>
+                  <div class="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                    <span>PHASE 14</span>
+                    <span>NATIONAL SCALE</span>
+                  </div>
+                </article>
+
+              </div>
             </div>
 
           </div>

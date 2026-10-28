@@ -231,10 +231,68 @@ function initHeroCarousel() {
 }
 
 /* --------------------------------------------------------------------------
-   5. Our Journey — Official React Bits Pro Concave Carousel Integration
-   Curved gallery wall with large readable cards, mandatory 18px gap & continuous autoplay
+   5. Our Journey — Pinned Horizontal Scrub Timeline & Concave Carousel
+   Pins #journey-timeline in place while scrubbing #timeline-track from right to left
    -------------------------------------------------------------------------- */
 function initJourneyTimeline() {
+  const journeySection = document.getElementById('journey-timeline');
+  const timelineTrack = document.getElementById('timeline-track');
+
+  if (journeySection && timelineTrack) {
+    let maxTranslateX = 0;
+    let currentX = 0;
+    let targetX = 0;
+    let rafId = null;
+
+    function updateMetrics() {
+      const trackWidth = timelineTrack.scrollWidth;
+      const viewportWidth = window.innerWidth;
+      maxTranslateX = Math.max(0, trackWidth - viewportWidth);
+      journeySection.style.height = `${window.innerHeight + maxTranslateX}px`;
+      computeTargetFromScroll();
+    }
+
+    function computeTargetFromScroll() {
+      if (maxTranslateX <= 0) {
+        targetX = 0;
+        return;
+      }
+      const rect = journeySection.getBoundingClientRect();
+      const scrolled = -rect.top;
+      const progress = Math.max(0, Math.min(1, scrolled / maxTranslateX));
+      targetX = -progress * maxTranslateX;
+
+      if (!rafId) {
+        rafId = requestAnimationFrame(scrubLoop);
+      }
+    }
+
+    function scrubLoop() {
+      const diff = targetX - currentX;
+      if (Math.abs(diff) > 0.15) {
+        currentX += diff * 0.16;
+        timelineTrack.style.transform = `translate3d(${currentX.toFixed(2)}px, 0, 0)`;
+        rafId = requestAnimationFrame(scrubLoop);
+      } else {
+        currentX = targetX;
+        timelineTrack.style.transform = `translate3d(${currentX.toFixed(2)}px, 0, 0)`;
+        rafId = null;
+      }
+    }
+
+    window.addEventListener('scroll', computeTargetFromScroll, { passive: true });
+    window.addEventListener('resize', updateMetrics, { passive: true });
+    window.addEventListener('load', updateMetrics);
+
+    if (window.ResizeObserver) {
+      const ro = new ResizeObserver(updateMetrics);
+      ro.observe(timelineTrack);
+    }
+
+    updateMetrics();
+    return;
+  }
+
   const container = document.getElementById('journey-concave-container');
   if (!container) return;
 
