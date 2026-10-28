@@ -507,6 +507,7 @@ export function initWebglScrollytelling() {
       const trackTop = window.scrollY + trackRect.top;
       const maxScroll = Math.max(1, track.offsetHeight - window.innerHeight);
       const targetScrollY = trackTop + (wp.targetProgress * maxScroll);
+      updateWaypointIndicators(targetIdx);
       window.scrollTo({
         top: Math.round(targetScrollY),
         behavior: 'smooth'
@@ -559,6 +560,49 @@ export function initWebglScrollytelling() {
       }
     });
   });
+
+  // Function to update left-rail waypoint button styles dynamically
+  function updateWaypointIndicators(activeIndex) {
+    const waypointButtons = document.querySelectorAll('nav[aria-label="Waypoint Navigation"] button[data-waypoint]');
+    
+    waypointButtons.forEach((btn) => {
+      const waypointIndex = parseInt(btn.getAttribute('data-waypoint'), 10);
+      const circle = btn.querySelector('span:first-child');
+      const label = btn.querySelector('span:last-child');
+      const isActive = waypointIndex === activeIndex;
+
+      btn.classList.toggle('is-active', isActive);
+
+      if (isActive) {
+        btn.style.opacity = '1';
+        if (circle) {
+          circle.style.background = '#0284C7';
+          circle.style.color = '#FFFFFF';
+          circle.style.border = 'none';
+          circle.style.boxShadow = '0 4px 10px rgba(2, 132, 199, 0.35)';
+        }
+        if (label) {
+          label.style.color = '#0F172A';
+          label.style.fontWeight = '700';
+        }
+      } else {
+        btn.style.opacity = '0.55';
+        if (circle) {
+          circle.style.background = '#FFFFFF';
+          circle.style.color = '#64748B';
+          circle.style.border = '1px solid #CBD5E1';
+          circle.style.boxShadow = 'none';
+        }
+        if (label) {
+          label.style.color = '#64748B';
+          label.style.fontWeight = '600';
+        }
+      }
+    });
+  }
+
+  // Initialize Waypoint indicators
+  updateWaypointIndicators(0);
 
   // --------------------------------------------------------------------------
   // 8. Dynamic Footer Reveal Margin Synchronization
@@ -670,27 +714,8 @@ export function initWebglScrollytelling() {
         card.classList.toggle('is-active', cIdx === activeWaypointIndex);
       });
 
-      // Update Tracker Left Rail
-      trackerItems.forEach((item, idx) => {
-        const itemIdxAttr = item.getAttribute('data-waypoint') ?? item.getAttribute('data-wp');
-        const itemIdx = itemIdxAttr !== null ? parseInt(itemIdxAttr, 10) : idx;
-        const isActive = itemIdx === activeWaypointIndex;
-        item.classList.toggle('is-active', isActive);
-
-        const badge = item.querySelector('span:first-child');
-        const label = item.querySelector('span:last-child');
-        if (badge && label) {
-          if (isActive) {
-            item.classList.remove('opacity-60');
-            badge.className = 'w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold bg-[#0284C7] text-white shadow-md shadow-sky-500/20';
-            label.className = 'text-xs font-semibold uppercase tracking-wider text-slate-800';
-          } else {
-            item.classList.add('opacity-60');
-            badge.className = 'w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold bg-white border border-slate-300 text-slate-600';
-            label.className = 'text-xs font-semibold uppercase tracking-wider text-slate-600';
-          }
-        }
-      });
+      // Update Tracker Left Rail (including dynamic inline styles)
+      updateWaypointIndicators(activeWaypointIndex);
     }
 
     // Update Progress Line Fill
