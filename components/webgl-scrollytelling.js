@@ -1604,65 +1604,408 @@ export function initWebglScrollytelling() {
   }
   window.loadWaypoint03SplineScene = mountSplineBIMScene;
 
-  // NODE 4 (Waypoint 04): Material Testing Stress-Test Cube with CAD Dimension Ticks (Dark Graphite #444444)
+  // --------------------------------------------------------------------------
+  // NODE 4 (Waypoint 04): Interactive 3D NDT Material Testing Crystal Core ("Testing_Core_Group")
+  // Ultrasonic Pulse Velocity testing, geotechnical core sample rigor & digital transducers
+  // --------------------------------------------------------------------------
   const testNodeGroup = new THREE.Group();
+  testNodeGroup.name = 'Testing_Core_Group';
   testNodeGroup.position.set(-4, 8.5, -235);
 
-  const testFrameGeo = new THREE.BoxGeometry(8, 8, 8);
-  const testFrameMat = new THREE.MeshBasicMaterial({
-    color: 0x444444,
-    wireframe: true,
+  // 4A. Light Architectural Studio CAD Materials
+  // High-refraction architectural crystal core (Transmission: 0.82, Roughness: 0.12, IOR: 1.54, deep cobalt #0284C7)
+  const crystalCoreMat = new THREE.MeshPhysicalMaterial({
+    color: 0x0284C7,
+    transmission: 0.82,
+    roughness: 0.12,
+    ior: 1.54,
     transparent: true,
-    opacity: 1.0
+    opacity: 0.95,
+    envMapIntensity: 0.95,
+    depthWrite: false
   });
-  const testFrame = new THREE.Mesh(testFrameGeo, testFrameMat);
-  testNodeGroup.add(testFrame);
 
-  // Internal Soil Density Stratum / Octahedron
-  const stressGeo = new THREE.OctahedronGeometry(3.6, 2);
-  const stressMat = new THREE.MeshBasicMaterial({
-    color: 0x444444,
-    wireframe: true,
+  // Ultrasonic Stress Pulse Rim (High-contrast electric cyan/cobalt stroke #00B4D8, Glow: 0.8)
+  const pulseRimMat = new THREE.MeshStandardMaterial({
+    color: 0x00B4D8,
+    emissive: 0x00B4D8,
+    emissiveIntensity: 0.8,
+    roughness: 0.2,
+    metalness: 0.5,
+    envMapIntensity: 0.6
+  });
+
+  // Sensor Particle Micro-Nodes (Semi-reflective slate cubes, #334155, Roughness: 0.3, Metalness: 0.7)
+  const sensorParticleMat = new THREE.MeshStandardMaterial({
+    color: 0x334155,
+    roughness: 0.3,
+    metalness: 0.7,
+    envMapIntensity: 0.6
+  });
+
+  // Calibration Rig Brackets & Frame (Matte dark titanium #1E293B & dark slate #0F172A)
+  const datumCageMat = new THREE.MeshStandardMaterial({
+    color: 0x1E293B,
+    roughness: 0.35,
+    metalness: 0.85
+  });
+
+  const calibrationBracketMat = new THREE.MeshStandardMaterial({
+    color: 0x0F172A,
+    roughness: 0.5,
+    metalness: 0.4
+  });
+
+  const internalFractureMat = new THREE.LineBasicMaterial({
+    color: 0x00B4D8,
     transparent: true,
     opacity: 0.85
   });
-  const stressMesh = new THREE.Mesh(stressGeo, stressMat);
-  testNodeGroup.add(stressMesh);
 
-  // Geotechnical Soil Density Layer Discs (#444444)
-  for (let s = -3; s <= 3; s += 2) {
-    const discGeo = new THREE.RingGeometry(0.8, 3.2, 16);
-    discGeo.rotateX(Math.PI / 2);
-    const discMat = new THREE.MeshBasicMaterial({
-      color: 0x444444,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.7
-    });
-    const disc = new THREE.Mesh(discGeo, discMat);
-    disc.position.y = s;
-    testNodeGroup.add(disc);
-  }
+  // 4B. Internal Test Specimen: Precision Faceted Crystal Core Drill Sample
+  const crystalCoreAssembly = new THREE.Group();
+  crystalCoreAssembly.name = 'Specimen_Crystal_Core';
 
-  // Material Test Orbiting Particles (#444444)
-  const particleGeo = new THREE.BufferGeometry();
-  const particleCount = 90;
-  const particleArray = new Float32Array(particleCount * 3);
-  for (let p = 0; p < particleCount * 3; p += 3) {
-    particleArray[p] = (Math.random() - 0.5) * 12;
-    particleArray[p + 1] = (Math.random() - 0.5) * 12;
-    particleArray[p + 2] = (Math.random() - 0.5) * 12;
-  }
-  particleGeo.setAttribute('position', new THREE.BufferAttribute(particleArray, 3));
-  const particleMat = new THREE.PointsMaterial({
-    size: 0.35,
-    color: 0x444444,
-    transparent: true,
-    opacity: 0.95
+  // Faceted Rock Core Specimen
+  const coreDrillGeo = new THREE.CylinderGeometry(1.65, 1.65, 3.8, 14, 2);
+  const coreDrillMesh = new THREE.Mesh(coreDrillGeo, crystalCoreMat);
+  crystalCoreAssembly.add(coreDrillMesh);
+
+  // Precision Crystalline Fracture Edges
+  const coreFractureGeo = new THREE.EdgesGeometry(coreDrillGeo);
+  const coreFractureLines = new THREE.LineSegments(coreFractureGeo, internalFractureMat);
+  crystalCoreAssembly.add(coreFractureLines);
+
+  // Central Octahedral Stress Nucleus
+  const nucleusGeo = new THREE.OctahedronGeometry(1.1, 1);
+  const nucleusMat = new THREE.MeshStandardMaterial({
+    color: 0x0284C7,
+    emissive: 0x0284C7,
+    emissiveIntensity: 0.45,
+    roughness: 0.15,
+    metalness: 0.75
   });
-  const particlePoints = new THREE.Points(particleGeo, particleMat);
-  testNodeGroup.add(particlePoints);
+  const nucleusMesh = new THREE.Mesh(nucleusGeo, nucleusMat);
+  crystalCoreAssembly.add(nucleusMesh);
+
+  testNodeGroup.add(crystalCoreAssembly);
+
+  // 4C. Ultrasonic Stress Rings (Dual Crackling Resonance Rims with Jagged Micro-Displacement)
+  const ultrasonicRingsGroup = new THREE.Group();
+  ultrasonicRingsGroup.name = 'Ultrasonic_Resonance_Rims';
+
+  function buildCracklingRingGeo(radius, segments = 56, noiseAmp = 0.16, freq = 8) {
+    const pts = [];
+    for (let i = 0; i <= segments; i++) {
+      const theta = (i / segments) * Math.PI * 2;
+      const r = radius + (Math.sin(theta * freq) * 0.65 + Math.cos(theta * freq * 2.2) * 0.35) * noiseAmp;
+      pts.push(new THREE.Vector3(Math.cos(theta) * r, 0, Math.sin(theta) * r));
+    }
+    const ringCurve = new THREE.CatmullRomCurve3(pts, true);
+    return new THREE.TubeGeometry(ringCurve, 84, 0.054, 6, true);
+  }
+
+  // Resonance Ring A (Offset Axis X: 20°, Y: 45°)
+  const ringA = new THREE.Group();
+  ringA.rotation.x = THREE.MathUtils.degToRad(20);
+  ringA.rotation.y = THREE.MathUtils.degToRad(45);
+  const ringAGeo = buildCracklingRingGeo(3.35, 56, 0.16, 7);
+  const ringAMesh = new THREE.Mesh(ringAGeo, pulseRimMat);
+  ringA.add(ringAMesh);
+  ultrasonicRingsGroup.add(ringA);
+
+  // Resonance Ring B (Offset Axis X: -25°, Z: 35°)
+  const ringB = new THREE.Group();
+  ringB.rotation.x = THREE.MathUtils.degToRad(-25);
+  ringB.rotation.z = THREE.MathUtils.degToRad(35);
+  const ringBGeo = buildCracklingRingGeo(3.85, 60, 0.19, 9);
+  const ringBMesh = new THREE.Mesh(ringBGeo, pulseRimMat);
+  ringB.add(ringBMesh);
+  ultrasonicRingsGroup.add(ringB);
+
+  testNodeGroup.add(ultrasonicRingsGroup);
+
+  // 4D. Sensor Point Cloud: ~60 Floating Cubic Micro-Nodes (InstancedMesh for 60fps)
+  const SENSOR_COUNT = 60;
+  const sensorGeo = new THREE.BoxGeometry(0.22, 0.22, 0.22);
+  const sensorInstancedMesh = new THREE.InstancedMesh(sensorGeo, sensorParticleMat, SENSOR_COUNT);
+  sensorInstancedMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+
+  const sensorParticleData = [];
+  const dummyMatrix = new THREE.Matrix4();
+  const dummyPos = new THREE.Vector3();
+  const dummyRot = new THREE.Euler();
+  const dummyQuat = new THREE.Quaternion();
+  const dummyScale = new THREE.Vector3(1, 1, 1);
+
+  for (let s = 0; s < SENSOR_COUNT; s++) {
+    const phi = Math.acos(2 * Math.random() - 1);
+    const theta = Math.random() * Math.PI * 2;
+    const r = 3.8 + Math.random() * 1.5;
+
+    const basePos = new THREE.Vector3(
+      r * Math.sin(phi) * Math.cos(theta),
+      r * Math.sin(phi) * Math.sin(theta) * 0.75, // Ellipsoidal compression
+      r * Math.cos(phi)
+    );
+
+    sensorParticleData.push({
+      basePos,
+      phase: Math.random() * Math.PI * 2,
+      speed: 0.8 + Math.random() * 0.8,
+      rotSpeed: (Math.random() - 0.5) * 1.5
+    });
+
+    dummyPos.copy(basePos);
+    dummyMatrix.compose(dummyPos, dummyQuat, dummyScale);
+    sensorInstancedMesh.setMatrixAt(s, dummyMatrix);
+  }
+  sensorInstancedMesh.instanceMatrix.needsUpdate = true;
+  testNodeGroup.add(sensorInstancedMesh);
+
+  // 4E. External Calibration Rig: Minimal Cubic Datum Cage with Corner Brackets
+  const calibrationRigGroup = new THREE.Group();
+  calibrationRigGroup.name = 'Calibration_Rig';
+
+  // Razor-Thin Cubic Datum Struts (7.6 x 7.6 x 7.6)
+  const cageBoxGeo = new THREE.BoxGeometry(7.6, 7.6, 7.6);
+  const cageEdges = new THREE.LineSegments(
+    new THREE.EdgesGeometry(cageBoxGeo),
+    new THREE.LineBasicMaterial({ color: 0x334155, transparent: true, opacity: 0.65 })
+  );
+  calibrationRigGroup.add(cageEdges);
+
+  // 8 Precision Corner Calibration Brackets in Dark Titanium (#1E293B)
+  const bracketSize = 0.55;
+  const bracketThick = 0.12;
+  [-3.8, 3.8].forEach((bx) => {
+    [-3.8, 3.8].forEach((by) => {
+      [-3.8, 3.8].forEach((bz) => {
+        const cornerNode = new THREE.Mesh(
+          new THREE.BoxGeometry(0.32, 0.32, 0.32),
+          datumCageMat
+        );
+        cornerNode.position.set(bx, by, bz);
+        calibrationRigGroup.add(cornerNode);
+
+        // Axis alignment ticks
+        const tickGeo = new THREE.BoxGeometry(bracketSize, bracketThick, bracketThick);
+        const tickMesh = new THREE.Mesh(tickGeo, calibrationBracketMat);
+        tickMesh.position.set(bx - Math.sign(bx) * (bracketSize / 2), by, bz);
+        calibrationRigGroup.add(tickMesh);
+      });
+    });
+  });
+
+  // Datum Foundation Plinth Plate
+  const plinthGeo = new THREE.BoxGeometry(8.4, 0.4, 8.4);
+  const plinthMesh = new THREE.Mesh(plinthGeo, calibrationBracketMat);
+  plinthMesh.position.set(0, -3.95, 0);
+  addBevelEdges(plinthMesh, plinthGeo);
+  calibrationRigGroup.add(plinthMesh);
+
+  testNodeGroup.add(calibrationRigGroup);
   scene.add(testNodeGroup);
+
+  // --------------------------------------------------------------------------
+  // Waypoint 04 Interactive Drag-to-Rotate, Hover & Spring-Back Controller
+  // --------------------------------------------------------------------------
+  const labsInteractionState = {
+    baseRotation: { x: testNodeGroup.rotation.x, y: testNodeGroup.rotation.y, z: testNodeGroup.rotation.z },
+    baseScale: { x: testNodeGroup.scale.x, y: testNodeGroup.scale.y, z: testNodeGroup.scale.z },
+    targetScale: 1.0,
+    currentScale: 1.0,
+    targetRimEmissive: 0.8,
+    currentRimEmissive: 0.8,
+    isDragging: false,
+    springTween: null
+  };
+
+  function initLabsInteractions(targetCanvas, splineLabsApp) {
+    const coreGroup = (splineLabsApp && typeof splineLabsApp.findObjectByName === 'function')
+      ? (splineLabsApp.findObjectByName('Testing_Core_Group') || testNodeGroup)
+      : testNodeGroup;
+    if (!coreGroup || !targetCanvas) return;
+
+    const baseRotation = { x: coreGroup.rotation.x, y: coreGroup.rotation.y, z: coreGroup.rotation.z };
+    const baseScale = { x: coreGroup.scale.x, y: coreGroup.scale.y, z: coreGroup.scale.z };
+
+    let isLabsDragging = false;
+    let prevPos = { x: 0, y: 0 };
+    let labsSpringTween = null;
+
+    targetCanvas.style.cursor = 'grab';
+
+    const isWaypoint04Active = () => activeWaypointIndex === 3 || targetCanvas.id === 'spline-testing-core';
+
+    // Hover Dynamics (1.05x Scale + Rim Luminescence Boost up to 1.2)
+    targetCanvas.addEventListener('mouseenter', () => {
+      if (isLabsDragging || !isWaypoint04Active()) return;
+      labsInteractionState.targetScale = 1.05;
+      labsInteractionState.targetRimEmissive = 1.2;
+
+      if (window.gsap) {
+        window.gsap.to(coreGroup.scale, {
+          x: baseScale.x * 1.05,
+          y: baseScale.y * 1.05,
+          z: baseScale.z * 1.05,
+          duration: 0.35,
+          ease: 'power2.out'
+        });
+      }
+    });
+
+    targetCanvas.addEventListener('mouseleave', () => {
+      if (isLabsDragging) return;
+      targetCanvas.style.cursor = 'grab';
+      labsInteractionState.targetScale = 1.0;
+      labsInteractionState.targetRimEmissive = 0.8;
+
+      if (window.gsap) {
+        window.gsap.to(coreGroup.scale, {
+          x: baseScale.x,
+          y: baseScale.y,
+          z: baseScale.z,
+          duration: 0.4,
+          ease: 'power2.out'
+        });
+      }
+    });
+
+    // Pointer Down (Drag Start)
+    const onPointerDown = (e) => {
+      if (isScrollActive || !e || !isWaypoint04Active()) return;
+      isLabsDragging = true;
+      labsInteractionState.isDragging = true;
+      targetCanvas.style.cursor = 'grabbing';
+      labsInteractionState.targetScale = 1.05;
+      labsInteractionState.targetRimEmissive = 1.25;
+
+      if (labsSpringTween) {
+        if (typeof labsSpringTween.kill === 'function') labsSpringTween.kill();
+        labsSpringTween = null;
+      }
+      labsInteractionState.springTween = null;
+      prevPos = { x: e.clientX, y: e.clientY };
+    };
+
+    // Pointer Move (Rotational Inspection with Stability Pitch Constraints [-0.45, 0.45])
+    const onPointerMove = (e) => {
+      if (!isLabsDragging || !e) return;
+      const deltaX = e.clientX - prevPos.x;
+      const deltaY = e.clientY - prevPos.y;
+
+      const sensitivity = 0.005;
+      coreGroup.rotation.y += deltaX * sensitivity;
+      coreGroup.rotation.x += deltaY * sensitivity;
+
+      // Constrain pitch to preserve camera stability
+      coreGroup.rotation.x = Math.max(-0.45, Math.min(0.45, coreGroup.rotation.x));
+
+      prevPos = { x: e.clientX, y: e.clientY };
+    };
+
+    // Pointer Up (Elastic Return to Canonical Rest: duration 1.3s, elastic.out(1, 0.5))
+    const onPointerUp = () => {
+      if (!isLabsDragging) return;
+      isLabsDragging = false;
+      labsInteractionState.isDragging = false;
+      targetCanvas.style.cursor = 'grab';
+      labsInteractionState.targetScale = 1.0;
+      labsInteractionState.targetRimEmissive = 0.8;
+
+      if (window.gsap) {
+        labsSpringTween = window.gsap.to(coreGroup.rotation, {
+          x: baseRotation.x,
+          y: baseRotation.y,
+          z: baseRotation.z,
+          duration: 1.3,
+          ease: 'elastic.out(1, 0.5)',
+          onComplete: () => { labsSpringTween = null; }
+        });
+
+        window.gsap.to(coreGroup.scale, {
+          x: baseScale.x,
+          y: baseScale.y,
+          z: baseScale.z,
+          duration: 0.35,
+          ease: 'power2.out'
+        });
+      } else {
+        labsInteractionState.springTween = {
+          model: coreGroup,
+          startX: coreGroup.rotation.x,
+          startY: coreGroup.rotation.y,
+          startZ: coreGroup.rotation.z,
+          targetX: baseRotation.x,
+          targetY: baseRotation.y,
+          targetZ: baseRotation.z,
+          startTime: performance.now(),
+          durationMs: 1300
+        };
+      }
+    };
+
+    targetCanvas.addEventListener('mousedown', onPointerDown);
+    window.addEventListener('mousemove', onPointerMove, { passive: true });
+    window.addEventListener('mouseup', onPointerUp);
+
+    // Touch Support
+    targetCanvas.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches[0]) onPointerDown(e.touches[0]);
+    }, { passive: true });
+    window.addEventListener('touchmove', (e) => {
+      if (e.touches && e.touches[0]) onPointerMove(e.touches[0]);
+    }, { passive: true });
+    window.addEventListener('touchend', onPointerUp, { passive: true });
+
+    // Scroll Sync: Disengage manual drag when scrolling past waypoint
+    window.addEventListener('scroll', () => {
+      if (isLabsDragging) onPointerUp();
+    }, { passive: true });
+
+    if (window.ScrollTrigger) {
+      window.ScrollTrigger.create({
+        trigger: '#hero-scrollytelling, #hero-stage',
+        start: 'top top',
+        end: 'bottom top',
+        onToggle: (self) => {
+          if (self.isActive && isLabsDragging) onPointerUp();
+        }
+      });
+    }
+  }
+
+  // Bind Labs Interactions to primary interactive canvas
+  initLabsInteractions(interactiveCanvas, null);
+
+  // Target Waypoint 04 Anchor (#waypoint-04-3d-target) for Spline runtime
+  const labsAnchor = document.querySelector('#waypoint-04-3d-target');
+  const configuredSplineLabsScene = (labsAnchor && labsAnchor.getAttribute('data-spline-scene')) || window.GDR_SPLINE_LABS_SCENE;
+
+  function mountSplineLabsScene(sceneUrl) {
+    if (!labsAnchor || !sceneUrl) return;
+    labsAnchor.innerHTML = '<canvas id="spline-testing-core" class="w-full h-full block"></canvas>';
+    const labsCanvas = document.getElementById('spline-testing-core');
+    if (!labsCanvas) return;
+
+    const splineLabs = new Application(labsCanvas);
+    splineLabs.load(sceneUrl)
+      .then(() => {
+        testNodeGroup.visible = false;
+        console.log('Spline NDT Testing Core initialized at Waypoint 04.');
+        initLabsInteractions(labsCanvas, splineLabs);
+      })
+      .catch((err) => {
+        testNodeGroup.visible = true;
+        console.error('Failed loading testing core asset:', err);
+      });
+  }
+
+  if (configuredSplineLabsScene) {
+    mountSplineLabsScene(configuredSplineLabsScene);
+  }
+  window.loadWaypoint04SplineScene = mountSplineLabsScene;
 
   // NODE 5 (Waypoint 05): Categorized National Network Pin Constellation
   const networkGroup = new THREE.Group();
@@ -2060,9 +2403,58 @@ export function initWebglScrollytelling() {
 
     bimGroup.position.y = 2.0 + Math.sin(elapsedTime * 1.4) * 0.45;
 
-    stressMesh.rotation.x = elapsedTime * 0.6;
-    stressMesh.rotation.y = elapsedTime * 0.8;
-    particlePoints.rotation.y = elapsedTime * 0.15;
+    // 3D. Animate Waypoint 04 NDT Material Testing Crystal Core ("Testing_Core_Group")
+    // Evaluate native elastic.out(1, 0.5) spring return tween when released
+    if (!labsInteractionState.isDragging && labsInteractionState.springTween) {
+      const lt = labsInteractionState.springTween;
+      const tweenElapsed = performance.now() - lt.startTime;
+      const progress = Math.min(1, tweenElapsed / lt.durationMs);
+      const eased = easeElasticOut(progress, 1, 0.5);
+      lt.model.rotation.x = lt.startX + (lt.targetX - lt.startX) * eased;
+      lt.model.rotation.y = lt.startY + (lt.targetY - lt.startY) * eased;
+      lt.model.rotation.z = lt.startZ + (lt.targetZ - lt.startZ) * eased;
+      if (progress >= 1) {
+        lt.model.rotation.set(lt.targetX, lt.targetY, lt.targetZ);
+        labsInteractionState.springTween = null;
+      }
+    }
+
+    // Smooth hover scale (1.05x) & pulse rim luminescence interpolation
+    labsInteractionState.currentScale += (labsInteractionState.targetScale - labsInteractionState.currentScale) * 0.12;
+    labsInteractionState.currentRimEmissive += (labsInteractionState.targetRimEmissive - labsInteractionState.currentRimEmissive) * 0.12;
+
+    if (!window.gsap) {
+      testNodeGroup.scale.setScalar(labsInteractionState.currentScale);
+    }
+    pulseRimMat.emissiveIntensity = labsInteractionState.currentRimEmissive;
+
+    // Idle state: Slow crystal core rotation (0.3 rad/s) & central nucleus spin
+    crystalCoreAssembly.rotation.y = elapsedTime * 0.3;
+    crystalCoreAssembly.rotation.x = Math.sin(elapsedTime * 0.5) * 0.08;
+    nucleusMesh.rotation.y = -elapsedTime * 0.6;
+    nucleusMesh.rotation.z = elapsedTime * 0.45;
+
+    // Crackling energy rim continuous noise phase shifting (2.5s cycle)
+    const cracklePhase = elapsedTime * ((Math.PI * 2) / 2.5);
+    ringA.rotation.z = cracklePhase * 0.4;
+    ringB.rotation.y = -cracklePhase * 0.35;
+    ringAMesh.rotation.y = Math.sin(cracklePhase) * 0.2;
+    ringBMesh.rotation.x = Math.cos(cracklePhase) * 0.2;
+
+    // Sensor dust particles: Subtle Brownian floating hover (±3px / ±0.18 units)
+    for (let s = 0; s < SENSOR_COUNT; s++) {
+      const pData = sensorParticleData[s];
+      const floatX = Math.sin(elapsedTime * pData.speed + pData.phase) * 0.18;
+      const floatY = Math.cos(elapsedTime * pData.speed * 1.2 + pData.phase) * 0.18;
+      const floatZ = Math.sin(elapsedTime * pData.speed * 0.8 + pData.phase) * 0.18;
+
+      dummyPos.copy(pData.basePos).add(new THREE.Vector3(floatX, floatY, floatZ));
+      dummyRot.set(elapsedTime * pData.rotSpeed, elapsedTime * pData.rotSpeed * 0.8, 0);
+      dummyQuat.setFromEuler(dummyRot);
+      dummyMatrix.compose(dummyPos, dummyQuat, dummyScale);
+      sensorInstancedMesh.setMatrixAt(s, dummyMatrix);
+    }
+    sensorInstancedMesh.instanceMatrix.needsUpdate = true;
 
     // 4. Update Network Sector Pin Highlights (Dark Graphite #444444 default)
     networkMarkers.forEach(pin => {
