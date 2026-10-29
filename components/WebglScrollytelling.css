@@ -82,7 +82,8 @@
   pointer-events: auto;
   cursor: grab;
   display: block;
-  background-color: var(--scrolly-bg);
+  background-color: transparent;
+  transition: opacity 0.15s ease-out;
 }
 
 #webgl-canvas-container canvas:active,
@@ -613,9 +614,10 @@ footer,
 .grounded-stage {
   position: relative;
   z-index: 20;
-  background: rgba(248, 250, 252, 0.94);
-  backdrop-filter: blur(14px);
+  margin-top: -5vh; /* Subtle pull-up overlap to ensure zero visual seam */
+  background: #FFFFFF;
   color: var(--scrolly-slate-dark);
+  border-top: 1px solid var(--scrolly-border);
   border-bottom: 1px solid var(--scrolly-border);
   box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
 }

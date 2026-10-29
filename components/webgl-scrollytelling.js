@@ -105,26 +105,41 @@ export function initWebglScrollytelling() {
 
     // Waypoint 04: Testing & Labs (Hovering perspective overlooking the geodetic cluster)
     new THREE.Vector3(8.0, 19.0, -210.0),
-    new THREE.Vector3(6.0, 20.0, -250.0),
+    new THREE.Vector3(6.0, 19.0, -230.0),
 
-    // Waypoint 05: National Footprint (Expansive high-angle overview of network nodes)
-    new THREE.Vector3(0.0, 26.0, -310.0)
+    // Waypoint 05: Elevated National Horizon Overview (Stays well above floor, never submerges)
+    new THREE.Vector3(0.0, 24.0, -290.0),
+    new THREE.Vector3(0.0, 22.0, -325.0)  // Terminal point: Elevated, horizontal overview
   ];
 
   const cameraFlybyCurve = new THREE.CatmullRomCurve3(flybyCameraPoints, false, 'centripetal', 0.5);
   const cameraSpline = cameraFlybyCurve;
 
-  // Camera Target/Look-At Spline (Smoothly leads ahead of the camera without snapping)
+  // Camera Target/Look-At Spline (Smoothly leads ahead of the camera across the horizon without snapping)
   const lookAtPoints = [
     new THREE.Vector3(0.0, 2.0, 15.0),      // Looking at Foundation Core
     new THREE.Vector3(-1.0, 10.0, -40.0),   // Looking up at Bridge Pylon
     new THREE.Vector3(-2.0, 12.0, -85.0),   // Crossing Bridge Deck
     new THREE.Vector3(-8.0, 14.0, -145.0),  // Looking directly at BIM Towers from the side
-    new THREE.Vector3(0.0, 8.0, -220.0),    // Looking at Testing Labs
-    new THREE.Vector3(0.0, 0.0, -340.0)     // Looking across Footprint Horizon
+    new THREE.Vector3(0.0, 6.0, -220.0),    // Looking at Testing Labs
+    new THREE.Vector3(0.0, 10.0, -360.0),   // Looking across Footprint Horizon
+    new THREE.Vector3(0.0, 14.0, -400.0)    // Terminal: Looking up towards distant horizon
   ];
 
   const cameraLookAtCurve = new THREE.CatmullRomCurve3(lookAtPoints, false, 'centripetal', 0.5);
+
+  // Reusable Terrain Surface Elevation Function
+  function getTerrainElevation(x, z) {
+    let y = Math.sin(x * 0.032) * Math.cos(z * 0.022) * 9.5
+          + Math.sin(x * 0.075 + 1.2) * Math.sin(z * 0.05) * 5.0
+          + Math.cos(x * 0.018 - z * 0.016) * 6.5;
+
+    const distFromCorridor = Math.abs(x + Math.sin(z * 0.02) * 26);
+    if (distFromCorridor < 42) {
+      y *= (distFromCorridor / 42);
+    }
+    return y - 2.0 - 6.0; // Account for terrain mesh translation
+  }
 
   // --------------------------------------------------------------------------
   // 4. High-Contrast Topographic Architectural Terrain & Isoline Shader
@@ -2007,13 +2022,26 @@ export function initWebglScrollytelling() {
   }
   window.loadWaypoint04SplineScene = mountSplineLabsScene;
 
-  // NODE 5 (Waypoint 05): Categorized National Network Pin Constellation
-  const networkGroup = new THREE.Group();
-  networkGroup.position.set(0, 10, -380);
+  // --------------------------------------------------------------------------
+  // NODE 5 (Waypoint 05): Geographic Survey Pins & Geodetic Network Field
+  // Replaces vertical hanging stalks with precision grounded survey pins (1,200+ national project footprints)
+  // --------------------------------------------------------------------------
+  const surveyPinsGroup = new THREE.Group();
+  surveyPinsGroup.name = 'Survey_Pins_Cluster';
+  const networkGroup = surveyPinsGroup;
 
-  const beaconGeo = new THREE.CylinderGeometry(0.12, 0.35, 45, 6);
+  // Pin Geometry Specifications (Upright, anchored to actual terrain elevation)
+  const pinGeometry = new THREE.CylinderGeometry(0.08, 0.08, 4.0, 16);
+  const beaconHeadGeometry = new THREE.SphereGeometry(0.35, 16, 16);
+  const groundRingGeometry = new THREE.RingGeometry(0.4, 0.7, 32);
 
-  // 16 Categorized Regional Projects across India (High-Contrast Light Theme)
+  const pinStemMaterial = new THREE.MeshStandardMaterial({
+    color: 0x334155, // Dark slate
+    metalness: 0.8,
+    roughness: 0.2
+  });
+
+  // Categorized Regional Projects across India (High-Contrast Architectural CAD Palette)
   const SECTOR_COLORS = {
     tpqa: 0x0284C7,     // Cobalt: TPQA, PMC, IE Jobs
     design: 0x0D9488,   // Teal: Design & DPR Jobs
@@ -2021,63 +2049,112 @@ export function initWebglScrollytelling() {
     geotech: 0x7C3AED   // Violet: Geotech Investigation
   };
 
-  const categorizedNodes = [
-    // TPQA & PMC Jobs
-    { pos: [0, 0, 0], sector: 'tpqa', label: 'Vadodara Central HQ' },
-    { pos: [-24, -2, -18], sector: 'tpqa', label: 'Bharuch Corridor' },
-    { pos: [22, -1, 35], sector: 'tpqa', label: 'Gandhinagar Institutional' },
-    { pos: [-38, -3, 45], sector: 'tpqa', label: 'Junagadh Bridge QA' },
-    // Design & DPR Jobs
-    { pos: [-12, 2, -30], sector: 'design', label: 'Navsari Highway DPR' },
-    { pos: [14, 3, -15], sector: 'design', label: 'Surat Express Alignment' },
-    { pos: [-30, 1, 20], sector: 'design', label: 'Rajkot Ring Road DPR' },
-    { pos: [32, 2, -40], sector: 'design', label: 'Ahmedabad Metro BIM' },
-    // Field Survey (LiDAR & Drone)
-    { pos: [-45, -4, 25], sector: 'survey', label: 'Bhuj Port Survey' },
-    { pos: [-65, 0, 80], sector: 'survey', label: 'Jaisalmer Solar LiDAR' },
-    { pos: [10, -2, -60], sector: 'survey', label: 'Narmada Canal Geomatics' },
-    { pos: [-50, 2, -10], sector: 'survey', label: 'Kutch Coastal Bathymetry' },
-    // Geotech Investigation
-    { pos: [5, -1, 20], sector: 'geotech', label: 'Anand Foundation Testing' },
-    { pos: [-20, -2, 50], sector: 'geotech', label: 'Somnath Deep Drilling' },
-    { pos: [28, -3, 10], sector: 'geotech', label: 'Godhra Dam Exploration' },
-    { pos: [-35, 0, -40], sector: 'geotech', label: 'Dahej Industrial Geotech' }
+  // 18 Strategic Ground Nodes mapped to actual terrain coordinates
+  const nodeCoordinates = [
+    // TPQA & PMC Infrastructure Corridors
+    { x: -14, z: -270, sector: 'tpqa', label: 'Vadodara Central HQ' },
+    { x: -8, z: -285, sector: 'tpqa', label: 'Bharuch Corridor PMC' },
+    { x: 2, z: -265, sector: 'tpqa', label: 'Gandhinagar Institutional' },
+    { x: 10, z: -290, sector: 'tpqa', label: 'Junagadh Expressway QA' },
+    { x: -4, z: -310, sector: 'tpqa', label: 'Ahmedabad Ring Road PMC' },
+    // Highway Design & DPR Alignments
+    { x: 6, z: -320, sector: 'design', label: 'Navsari Highway DPR' },
+    { x: -18, z: -330, sector: 'design', label: 'Surat Express Alignment' },
+    { x: 12, z: -340, sector: 'design', label: 'Rajkot Corridor DPR' },
+    { x: 0, z: -350, sector: 'design', label: 'Ahmedabad Metro Alignment' },
+    { x: -10, z: -360, sector: 'design', label: 'Vapi Industrial Highway' },
+    // Precision Geomatics, LiDAR & Drone Surveys
+    { x: -22, z: -280, sector: 'survey', label: 'Bhuj Port Bathymetry' },
+    { x: 16, z: -275, sector: 'survey', label: 'Jaisalmer Solar LiDAR' },
+    { x: -6, z: -335, sector: 'survey', label: 'Narmada Canal Survey' },
+    { x: 18, z: -315, sector: 'survey', label: 'Kutch Coastal Survey' },
+    // Geotechnical Deep Exploration
+    { x: -2, z: -295, sector: 'geotech', label: 'Anand Foundation Exploration' },
+    { x: 8, z: -305, sector: 'geotech', label: 'Somnath Marine Drilling' },
+    { x: -16, z: -345, sector: 'geotech', label: 'Godhra Dam Subsurface' },
+    { x: 14, z: -355, sector: 'geotech', label: 'Dahej Industrial Geotech' }
   ];
 
   const networkMarkers = [];
+  const geodeticVertices = [];
 
-  categorizedNodes.forEach(item => {
+  nodeCoordinates.forEach((item, i) => {
     const colorHex = SECTOR_COLORS[item.sector] || 0x0284C7;
-    const [nx, ny, nz] = item.pos;
+    const pin = new THREE.Group();
 
-    // Upward coordinate beacon
-    const beamMat = new THREE.MeshBasicMaterial({
-      color: colorHex,
-      transparent: true,
-      opacity: 0.35
-    });
-    const beam = new THREE.Mesh(beaconGeo, beamMat);
-    beam.position.set(nx, ny + 22.5, nz);
-    networkGroup.add(beam);
+    // Sample terrain elevation so pins are firmly anchored to the ground
+    const groundY = typeof getTerrainElevation === 'function' ? getTerrainElevation(item.x, item.z) : 0.5;
 
-    // Glowing node marker sphere
-    const markerMat = new THREE.MeshBasicMaterial({
+    // Upright Stem rising upwards from ground surface
+    const stem = new THREE.Mesh(pinGeometry, pinStemMaterial);
+    stem.position.y = 2.0;
+
+    // Cobalt / Sector Beacon Node on top
+    const headMat = new THREE.MeshBasicMaterial({
       color: colorHex,
       transparent: true,
       opacity: 0.95
     });
-    const marker = new THREE.Mesh(new THREE.SphereGeometry(1.2, 8, 8), markerMat);
-    marker.position.set(nx, ny, nz);
-    networkGroup.add(marker);
+    const head = new THREE.Mesh(beaconHeadGeometry, headMat);
+    head.position.y = 4.0;
+
+    // Ground Radar Wave Ring
+    const ringMat = new THREE.MeshBasicMaterial({
+      color: colorHex,
+      transparent: true,
+      opacity: 0.35,
+      side: THREE.DoubleSide
+    });
+    const ring = new THREE.Mesh(groundRingGeometry, ringMat);
+    ring.rotation.x = -Math.PI / 2;
+    ring.position.y = 0.05;
+    const baseScale = 1.0 + (i % 3) * 0.35;
+    ring.scale.setScalar(baseScale);
+
+    pin.add(stem);
+    pin.add(head);
+    pin.add(ring);
+    pin.position.set(item.x, groundY, item.z);
+
+    surveyPinsGroup.add(pin);
+
+    // Save geodetic head world position for interconnected datum network lines
+    geodeticVertices.push(new THREE.Vector3(item.x, groundY + 4.0, item.z));
 
     networkMarkers.push({
       sector: item.sector,
-      beam,
-      marker,
-      baseColor: colorHex
+      pin,
+      stem,
+      head,
+      ring,
+      baseColor: colorHex,
+      baseScale,
+      baseY: groundY
     });
   });
-  scene.add(networkGroup);
+
+  // Interconnected Geodetic Datum Network Lines
+  const geodeticLinePoints = [];
+  for (let i = 0; i < geodeticVertices.length; i++) {
+    for (let j = i + 1; j < geodeticVertices.length; j++) {
+      const dist = geodeticVertices[i].distanceTo(geodeticVertices[j]);
+      if (dist < 32) {
+        geodeticLinePoints.push(geodeticVertices[i], geodeticVertices[j]);
+      }
+    }
+  }
+  if (geodeticLinePoints.length > 0) {
+    const geodeticGeo = new THREE.BufferGeometry().setFromPoints(geodeticLinePoints);
+    const geodeticMat = new THREE.LineBasicMaterial({
+      color: 0x0284C7,
+      transparent: true,
+      opacity: 0.25
+    });
+    const geodeticLines = new THREE.LineSegments(geodeticGeo, geodeticMat);
+    surveyPinsGroup.add(geodeticLines);
+  }
+
+  scene.add(surveyPinsGroup);
 
   // --------------------------------------------------------------------------
   // 7. Pacing & Waypoint Mapping across 500vh Virtual Track
@@ -2276,7 +2353,8 @@ export function initWebglScrollytelling() {
       const targetLookAt = cameraLookAtCurve.getPointAt(clampedProgress);
       camera.lookAt(targetLookAt);
     }
-    updateScrollytellingCamera(p);
+    // Terminal camera rail dampening: completes smooth arc at p=0.90 to hold elevated horizon overview
+    updateScrollytellingCamera(Math.min(p / 0.90, 1.0));
 
     // Move beacon light with camera
     beaconLight.position.copy(camera.position);
@@ -2456,28 +2534,63 @@ export function initWebglScrollytelling() {
     }
     sensorInstancedMesh.instanceMatrix.needsUpdate = true;
 
-    // 4. Update Network Sector Pin Highlights (Dark Graphite #444444 default)
-    networkMarkers.forEach(pin => {
+    // 4. Update Network Sector Pin Highlights & Ground Radar Wave Ring Pulsing
+    networkMarkers.forEach((item, i) => {
+      // Animate ground radar ring pulsing (±0.22 scale oscillation)
+      const pulse = Math.sin(elapsedTime * 2.8 + i * 0.45) * 0.22;
+      const ringScale = Math.max(0.2, item.baseScale + pulse);
+      item.ring.scale.set(ringScale, ringScale, 1.0);
+
       if (currentActiveSector === 'all') {
-        pin.marker.scale.set(1.0, 1.0, 1.0);
-        pin.marker.material.color.setHex(0x444444);
-        pin.marker.material.opacity = 0.95;
-        pin.beam.material.color.setHex(0x444444);
-        pin.beam.material.opacity = 0.4;
-      } else if (pin.sector === currentActiveSector) {
-        pin.marker.scale.set(1.4, 1.4, 1.4);
-        pin.marker.material.color.setHex(pin.baseColor);
-        pin.marker.material.opacity = 1.0;
-        pin.beam.material.color.setHex(pin.baseColor);
-        pin.beam.material.opacity = 0.6;
+        item.head.scale.set(1.0, 1.0, 1.0);
+        item.head.material.color.setHex(item.baseColor);
+        item.head.material.opacity = 0.95;
+        item.ring.material.color.setHex(item.baseColor);
+        item.ring.material.opacity = 0.35 + pulse * 0.15;
+        item.stem.material.opacity = 1.0;
+      } else if (item.sector === currentActiveSector) {
+        item.head.scale.set(1.35, 1.35, 1.35);
+        item.head.material.color.setHex(item.baseColor);
+        item.head.material.opacity = 1.0;
+        item.ring.material.color.setHex(item.baseColor);
+        item.ring.material.opacity = 0.65;
+        item.stem.material.opacity = 1.0;
       } else {
-        pin.marker.scale.set(0.7, 0.7, 0.7);
-        pin.marker.material.color.setHex(0x94A3B8);
-        pin.marker.material.opacity = 0.25;
-        pin.beam.material.color.setHex(0x94A3B8);
-        pin.beam.material.opacity = 0.1;
+        item.head.scale.set(0.65, 0.65, 0.65);
+        item.head.material.color.setHex(0x94A3B8);
+        item.head.material.opacity = 0.25;
+        item.ring.material.color.setHex(0x94A3B8);
+        item.ring.material.opacity = 0.08;
+        item.stem.material.opacity = 0.3;
       }
     });
+
+    // 5. Cinematic Exit Blend into About Section (rawScrollProgress >= 0.88)
+    // Smoothly fade WebGL canvas & Waypoint 05 card to 0 as user approaches bottom of 500vh hero track
+    if (rawScrollProgress >= 0.88) {
+      const fadeProgress = Math.min(1.0, (rawScrollProgress - 0.88) / 0.10); // 0.88 -> 0.98 fully fades
+      const exitOpacity = Math.max(0.0, 1.0 - fadeProgress);
+      if (canvas) canvas.style.opacity = exitOpacity.toString();
+      
+      const wp5Card = document.querySelector('[data-wp-card="4"]') || (waypoints && waypoints[4]);
+      if (wp5Card) {
+        wp5Card.style.opacity = exitOpacity.toString();
+      }
+      const hudNav = document.getElementById('scrolly-nav-rail') || document.querySelector('.gdr-tracker-nav');
+      if (hudNav) {
+        hudNav.style.opacity = exitOpacity.toString();
+      }
+    } else {
+      if (canvas && canvas.style.opacity !== '') canvas.style.opacity = '1';
+      const wp5Card = document.querySelector('[data-wp-card="4"]') || (waypoints && waypoints[4]);
+      if (wp5Card && wp5Card.style.opacity !== '') {
+        wp5Card.style.opacity = '';
+      }
+      const hudNav = document.getElementById('scrolly-nav-rail') || document.querySelector('.gdr-tracker-nav');
+      if (hudNav && hudNav.style.opacity !== '') {
+        hudNav.style.opacity = '1';
+      }
+    }
 
     // 6. Synchronize Narrative Cards & Journey Tracker (Stabilized Hysteresis-Clamped Index Selector)
     const clampedProgress = Math.max(0, Math.min(1, rawScrollProgress));
