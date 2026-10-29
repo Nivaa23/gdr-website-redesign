@@ -1141,51 +1141,468 @@ export function initWebglScrollytelling() {
   }
   window.loadWaypoint02SplineScene = mountSplineBridgeScene;
 
-  // NODE 3 (Waypoint 03): Architectural Clay 7D BIM Building Volumes (Dark Graphite #444444)
-  // Positioned at X: -14, Z: -150 so the flyby camera at X: 0 to +3.5 passes cleanly to the right with zero clipping
+  // --------------------------------------------------------------------------
+  // NODE 3 (Waypoint 03): Architectural BIM Digital Twin Tower Complex ("BIM_Tower_Group")
+  // LOD 500 BIM, clash detection, MEPF coordination, structural glazing & diagrid
+  // Positioned at X: -14, Z: -150 with full lateral clearance from flyby camera
+  // --------------------------------------------------------------------------
   const bimGroup = new THREE.Group();
+  bimGroup.name = 'BIM_Tower_Group';
   bimGroup.position.set(-14, 2, -150);
 
-  const bimClayMat = new THREE.MeshStandardMaterial({
-    color: 0xF1F5F9,
-    roughness: 0.9,
-    metalness: 0.05
-  });
-  const bimWireMat = new THREE.MeshBasicMaterial({
-    color: 0x444444,
-    wireframe: true,
+  // 3A. Light Architectural Studio CAD Materials
+  // Translucent architectural glass (Transmission: 0.88, Roughness: 0.12, IOR: 1.50, tint: #E0F2FE)
+  const bimGlassMat = new THREE.MeshPhysicalMaterial({
+    color: 0xE0F2FE,
+    transmission: 0.88,
+    roughness: 0.12,
+    ior: 1.50,
     transparent: true,
-    opacity: 0.95
+    opacity: 0.95,
+    envMapIntensity: 0.85,
+    depthWrite: false
   });
 
-  // Building Tower A (Clay + Slate Wireframe)
-  const towerAGeo = new THREE.BoxGeometry(10, 26, 10);
-  const towerA = new THREE.Mesh(towerAGeo, bimClayMat);
-  const towerAWire = new THREE.Mesh(towerAGeo, bimWireMat);
-  towerA.add(towerAWire);
-  towerA.position.set(-2, 13, 0);
-  bimGroup.add(towerA);
+  // Structural Floor Plates & Diagrid (Matte architectural concrete / chalk stone, #E2E8F0 to #CBD5E1)
+  const bimConcreteMat = new THREE.MeshStandardMaterial({
+    color: 0xE2E8F0,
+    roughness: 0.6,
+    metalness: 0.1,
+    envMapIntensity: 0.35
+  });
 
-  // Building Tower B (Stepped, offset to the left of Tower A away from camera path)
-  const towerBGeo = new THREE.BoxGeometry(8, 18, 8);
-  const towerB = new THREE.Mesh(towerBGeo, bimClayMat);
-  const towerBWire = new THREE.Mesh(towerBGeo, bimWireMat);
-  towerB.add(towerBWire);
-  towerB.position.set(-10, 9, -6);
-  bimGroup.add(towerB);
+  const bimCoreMat = new THREE.MeshStandardMaterial({
+    color: 0xCBD5E1,
+    roughness: 0.65,
+    metalness: 0.12,
+    envMapIntensity: 0.3
+  });
 
-  // MEPF Conduit Lines (Dark Graphite #444444)
-  const mepLinePoints = [
-    new THREE.Vector3(-12, 2, -6),
-    new THREE.Vector3(-10, 14, -6),
-    new THREE.Vector3(-2, 14, -4),
-    new THREE.Vector3(-2, 22, -4)
+  // Exoskeleton Mullions & Framing (Precision satin dark titanium, #1E293B, Roughness: 0.3, Metalness: 0.85)
+  const bimTitaniumMat = new THREE.MeshStandardMaterial({
+    color: 0x1E293B,
+    roughness: 0.3,
+    metalness: 0.85,
+    envMapIntensity: 0.45
+  });
+
+  // MEPF / Clash Detection Scanning Accents (#0284C7, low emission Glow: 0.25)
+  const bimCobaltScanMat = new THREE.MeshStandardMaterial({
+    color: 0x0284C7,
+    emissive: 0x0284C7,
+    emissiveIntensity: 0.28,
+    roughness: 0.2,
+    metalness: 0.6,
+    envMapIntensity: 0.4
+  });
+
+  const bimMepLineMat = new THREE.LineBasicMaterial({
+    color: 0x0284C7,
+    transparent: true,
+    opacity: 0.88
+  });
+
+  // 3B. Primary Tower: Asymmetrical Faceted Skyscraper with Cutaway / Digital Twin Reveal
+  const primaryTowerGroup = new THREE.Group();
+  primaryTowerGroup.name = 'Primary_BIM_Tower';
+  primaryTowerGroup.position.set(0, 0, 0);
+
+  // Concrete Foundation Podium
+  const podiumGeo = new THREE.BoxGeometry(11.2, 1.2, 11.2);
+  const podiumMesh = new THREE.Mesh(podiumGeo, bimConcreteMat);
+  podiumMesh.position.set(0, 0.6, 0);
+  addBevelEdges(podiumMesh, podiumGeo);
+  primaryTowerGroup.add(podiumMesh);
+
+  // Central MEPF / Elevator Shear Core
+  const coreHeight = 32.0;
+  const coreGeo = new THREE.BoxGeometry(3.2, coreHeight, 3.2);
+  const coreMesh = new THREE.Mesh(coreGeo, bimCoreMat);
+  coreMesh.position.set(0, coreHeight / 2 + 1.2, 0);
+  addBevelEdges(coreMesh, coreGeo);
+  primaryTowerGroup.add(coreMesh);
+
+  // 4 Internal Structural Concrete Columns Grid spanning full tower height
+  [-3.2, 3.2].forEach((cx) => {
+    [-3.2, 3.2].forEach((cz) => {
+      const colGeo = new THREE.CylinderGeometry(0.18, 0.18, coreHeight, 8);
+      const colMesh = new THREE.Mesh(colGeo, bimConcreteMat);
+      colMesh.position.set(cx, coreHeight / 2 + 1.2, cz);
+      primaryTowerGroup.add(colMesh);
+    });
+  });
+
+  // 14 Structural Floor Plates (Spaced every 2.2 units)
+  const floorPlates = [];
+  for (let f = 0; f < 14; f++) {
+    const floorY = 2.2 + f * 2.2;
+    const floorGeo = new THREE.BoxGeometry(8.8, 0.28, 8.8);
+    const floorMesh = new THREE.Mesh(floorGeo, bimConcreteMat);
+    floorMesh.position.set(0, floorY, 0);
+    addBevelEdges(floorMesh, floorGeo);
+    primaryTowerGroup.add(floorMesh);
+    floorPlates.push(floorMesh);
+
+    // MEPF Horizontal Ductwork & Conduit Runs on exposed floors
+    if (f % 2 === 1) {
+      const ductPoints = [
+        new THREE.Vector3(-3.2, floorY + 0.35, -3.2),
+        new THREE.Vector3(0, floorY + 0.35, -1.8),
+        new THREE.Vector3(3.2, floorY + 0.35, 1.8),
+        new THREE.Vector3(3.2, floorY + 0.35, 3.2)
+      ];
+      const ductGeo = new THREE.BufferGeometry().setFromPoints(ductPoints);
+      const ductLine = new THREE.Line(ductGeo, bimMepLineMat);
+      primaryTowerGroup.add(ductLine);
+    }
+  }
+
+  // Front/Right Half: Architectural Glass Curtain Wall Facade with Titanium Mullions
+  // Front Facade Glass (z = +4.45)
+  const frontGlassGeo = new THREE.PlaneGeometry(8.8, coreHeight);
+  const frontGlassMesh = new THREE.Mesh(frontGlassGeo, bimGlassMat);
+  frontGlassMesh.position.set(0, coreHeight / 2 + 1.2, 4.45);
+  primaryTowerGroup.add(frontGlassMesh);
+
+  // Right Flank Glass (x = +4.45)
+  const rightGlassGeo = new THREE.PlaneGeometry(8.8, coreHeight);
+  rightGlassGeo.rotateY(Math.PI / 2);
+  const rightGlassMesh = new THREE.Mesh(rightGlassGeo, bimGlassMat);
+  rightGlassMesh.position.set(4.45, coreHeight / 2 + 1.2, 0);
+  primaryTowerGroup.add(rightGlassMesh);
+
+  // Precision Satin Titanium Mullions Grid (Vertical & Horizontal Floor Spandrels)
+  for (let mx = -4.4; mx <= 4.4; mx += 2.2) {
+    const mullionGeo = new THREE.BoxGeometry(0.08, coreHeight, 0.12);
+    const mullion = new THREE.Mesh(mullionGeo, bimTitaniumMat);
+    mullion.position.set(mx, coreHeight / 2 + 1.2, 4.48);
+    primaryTowerGroup.add(mullion);
+  }
+  for (let mz = -4.4; mz <= 4.4; mz += 2.2) {
+    const mullionGeo = new THREE.BoxGeometry(0.12, coreHeight, 0.08);
+    const mullion = new THREE.Mesh(mullionGeo, bimTitaniumMat);
+    mullion.position.set(4.48, coreHeight / 2 + 1.2, mz);
+    primaryTowerGroup.add(mullion);
+  }
+
+  // Spandrel Glass Bands
+  for (let f = 0; f < 14; f++) {
+    const spandrelY = 2.2 + f * 2.2;
+    const spandrelGeo = new THREE.BoxGeometry(8.84, 0.35, 0.08);
+    const spandrel = new THREE.Mesh(spandrelGeo, bimTitaniumMat);
+    spandrel.position.set(0, spandrelY, 4.46);
+    primaryTowerGroup.add(spandrel);
+
+    const spandrelSideGeo = new THREE.BoxGeometry(0.08, 0.35, 8.84);
+    const spandrelSide = new THREE.Mesh(spandrelSideGeo, bimTitaniumMat);
+    spandrelSide.position.set(4.46, spandrelY, 0);
+    primaryTowerGroup.add(spandrelSide);
+  }
+
+  // Crown: Sloped Architectural Roof Parapet & Cobalt Rooftop Beacon
+  const crownGeo = new THREE.BoxGeometry(8.4, 2.8, 8.4);
+  const crownMesh = new THREE.Mesh(crownGeo, bimTitaniumMat);
+  crownMesh.position.set(0, coreHeight + 2.4, 0);
+  addBevelEdges(crownMesh, crownGeo);
+  primaryTowerGroup.add(crownMesh);
+
+  const crownBeacon = new THREE.Mesh(new THREE.SphereGeometry(0.45, 12, 12), bimCobaltScanMat);
+  crownBeacon.position.set(0, coreHeight + 4.2, 0);
+  primaryTowerGroup.add(crownBeacon);
+
+  bimGroup.add(primaryTowerGroup);
+
+  // 3C. Secondary Companion Tower: Stepped Corporate Annex with Diagrid Exoskeleton
+  const companionTowerGroup = new THREE.Group();
+  companionTowerGroup.name = 'Companion_Diagrid_Tower';
+  companionTowerGroup.position.set(-8.8, 0, -4.5);
+
+  // Lower Section (y = 0 to 14, 5 floors)
+  const lowerSecGeo = new THREE.BoxGeometry(7.2, 13.5, 7.2);
+  const lowerSecMesh = new THREE.Mesh(lowerSecGeo, bimConcreteMat);
+  lowerSecMesh.position.set(0, 6.75, 0);
+  addBevelEdges(lowerSecMesh, lowerSecGeo);
+  companionTowerGroup.add(lowerSecMesh);
+
+  // Upper Stepped Section (y = 13.5 to 22, 4 floors)
+  const upperSecGeo = new THREE.BoxGeometry(5.4, 8.5, 5.4);
+  const upperSecMesh = new THREE.Mesh(upperSecGeo, bimConcreteMat);
+  upperSecMesh.position.set(0.6, 17.75, 0.6);
+  addBevelEdges(upperSecMesh, upperSecGeo);
+  companionTowerGroup.add(upperSecMesh);
+
+  // Diagrid Exoskeleton: Satin Dark Titanium Structural Bracing Framing the Facade
+  const diagridUpVec = new THREE.Vector3(0, 1, 0);
+  const diagridPoints = [
+    // Front face diagonal pairs
+    [new THREE.Vector3(-3.6, 0.5, 3.65), new THREE.Vector3(0, 6.75, 3.65)],
+    [new THREE.Vector3(0, 6.75, 3.65), new THREE.Vector3(3.6, 13.5, 3.65)],
+    [new THREE.Vector3(3.6, 0.5, 3.65), new THREE.Vector3(0, 6.75, 3.65)],
+    [new THREE.Vector3(0, 6.75, 3.65), new THREE.Vector3(-3.6, 13.5, 3.65)],
+    // Right side diagonal pairs
+    [new THREE.Vector3(3.65, 0.5, -3.6), new THREE.Vector3(3.65, 6.75, 0)],
+    [new THREE.Vector3(3.65, 6.75, 0), new THREE.Vector3(3.65, 13.5, 3.6)],
+    [new THREE.Vector3(3.65, 0.5, 3.6), new THREE.Vector3(3.65, 6.75, 0)],
+    [new THREE.Vector3(3.65, 6.75, 0), new THREE.Vector3(3.65, 13.5, -3.6)]
   ];
-  const mepLineGeo = new THREE.BufferGeometry().setFromPoints(mepLinePoints);
-  const mepLineMat = new THREE.LineBasicMaterial({ color: 0x444444, linewidth: 2 });
-  const mepLine = new THREE.Line(mepLineGeo, mepLineMat);
-  bimGroup.add(mepLine);
+
+  diagridPoints.forEach(([pStart, pEnd]) => {
+    const dirVec = new THREE.Vector3().subVectors(pEnd, pStart);
+    const strutLen = dirVec.length();
+    const strutGeo = new THREE.CylinderGeometry(0.08, 0.08, strutLen, 6);
+    const strutMesh = new THREE.Mesh(strutGeo, bimTitaniumMat);
+    strutMesh.position.copy(pStart).add(pEnd).multiplyScalar(0.5);
+    strutMesh.quaternion.setFromUnitVectors(diagridUpVec, dirVec.clone().normalize());
+    companionTowerGroup.add(strutMesh);
+  });
+
+  bimGroup.add(companionTowerGroup);
+
+  // 3D. BIM Coordination / Clash Ring: Floating Horizontal Laser Slice Plane (#0284C7)
+  const clashScanRingGroup = new THREE.Group();
+  clashScanRingGroup.name = 'BIM_Clash_Scan_Ring';
+  clashScanRingGroup.position.set(0, 16.0, 0);
+
+  // Outer & Inner Clash Datum Rings
+  const clashRingGeo = new THREE.TorusGeometry(7.2, 0.065, 10, 64);
+  const clashRingMesh = new THREE.Mesh(clashRingGeo, bimCobaltScanMat);
+  clashRingMesh.rotation.x = Math.PI / 2;
+  clashScanRingGroup.add(clashRingMesh);
+
+  const innerClashRingGeo = new THREE.TorusGeometry(6.2, 0.045, 8, 48);
+  const innerClashRingMesh = new THREE.Mesh(innerClashRingGeo, bimCobaltScanMat);
+  innerClashRingMesh.rotation.x = Math.PI / 2;
+  clashScanRingGroup.add(innerClashRingMesh);
+
+  // Translucent Horizontal Laser Scanning Slice Plane
+  const laserSliceGeo = new THREE.PlaneGeometry(12.5, 12.5);
+  const laserSliceMat = new THREE.MeshBasicMaterial({
+    color: 0x0284C7,
+    transparent: true,
+    opacity: 0.16,
+    side: THREE.DoubleSide,
+    depthWrite: false
+  });
+  const laserSliceMesh = new THREE.Mesh(laserSliceGeo, laserSliceMat);
+  laserSliceMesh.rotation.x = -Math.PI / 2;
+  clashScanRingGroup.add(laserSliceMesh);
+
+  // 4 Corner Telemetry Crosshairs & Coordinate Blips
+  for (let c = 0; c < 4; c++) {
+    const angle = (c * Math.PI) / 2 + Math.PI / 4;
+    const cornerDot = new THREE.Mesh(new THREE.SphereGeometry(0.2, 10, 10), bimCobaltScanMat);
+    cornerDot.position.set(Math.cos(angle) * 7.2, 0, Math.sin(angle) * 7.2);
+    clashScanRingGroup.add(cornerDot);
+  }
+
+  bimGroup.add(clashScanRingGroup);
   scene.add(bimGroup);
+
+  // --------------------------------------------------------------------------
+  // Waypoint 03 Interactive Drag-to-Rotate, Hover & Spring-Back Controller
+  // --------------------------------------------------------------------------
+  const bimInteractionState = {
+    baseRotation: { x: bimGroup.rotation.x, y: bimGroup.rotation.y, z: bimGroup.rotation.z },
+    baseScale: { x: bimGroup.scale.x, y: bimGroup.scale.y, z: bimGroup.scale.z },
+    targetScale: 1.0,
+    currentScale: 1.0,
+    targetGlassTransmission: 0.88,
+    currentGlassTransmission: 0.88,
+    targetCobaltEmissive: 0.28,
+    currentCobaltEmissive: 0.28,
+    isDragging: false,
+    springTween: null
+  };
+
+  function initBIMInteractions(targetCanvas, splineBIMApp) {
+    const towerGroup = (splineBIMApp && typeof splineBIMApp.findObjectByName === 'function')
+      ? (splineBIMApp.findObjectByName('BIM_Tower_Group') || bimGroup)
+      : bimGroup;
+    if (!towerGroup || !targetCanvas) return;
+
+    const baseRotation = { x: towerGroup.rotation.x, y: towerGroup.rotation.y, z: towerGroup.rotation.z };
+    const baseScale = { x: towerGroup.scale.x, y: towerGroup.scale.y, z: towerGroup.scale.z };
+
+    let isBIMDragging = false;
+    let prevPos = { x: 0, y: 0 };
+    let bimSpringTween = null;
+
+    targetCanvas.style.cursor = 'grab';
+
+    const isWaypoint03Active = () => activeWaypointIndex === 2 || targetCanvas.id === 'spline-bim-tower';
+
+    // Hover Dynamics (1.04x Scale + Clearer Glass Transmission 0.94 + Brighter Cobalt Scan)
+    targetCanvas.addEventListener('mouseenter', () => {
+      if (isBIMDragging || !isWaypoint03Active()) return;
+      bimInteractionState.targetScale = 1.04;
+      bimInteractionState.targetGlassTransmission = 0.94;
+      bimInteractionState.targetCobaltEmissive = 0.65;
+
+      if (window.gsap) {
+        window.gsap.to(towerGroup.scale, {
+          x: baseScale.x * 1.04,
+          y: baseScale.y * 1.04,
+          z: baseScale.z * 1.04,
+          duration: 0.4,
+          ease: 'power2.out'
+        });
+      }
+    });
+
+    targetCanvas.addEventListener('mouseleave', () => {
+      if (isBIMDragging) return;
+      targetCanvas.style.cursor = 'grab';
+      bimInteractionState.targetScale = 1.0;
+      bimInteractionState.targetGlassTransmission = 0.88;
+      bimInteractionState.targetCobaltEmissive = 0.28;
+
+      if (window.gsap) {
+        window.gsap.to(towerGroup.scale, {
+          x: baseScale.x,
+          y: baseScale.y,
+          z: baseScale.z,
+          duration: 0.4,
+          ease: 'power2.out'
+        });
+      }
+    });
+
+    // Pointer Down (Drag Start)
+    const onPointerDown = (e) => {
+      if (isScrollActive || !e || !isWaypoint03Active()) return;
+      isBIMDragging = true;
+      bimInteractionState.isDragging = true;
+      targetCanvas.style.cursor = 'grabbing';
+      bimInteractionState.targetScale = 1.04;
+      bimInteractionState.targetGlassTransmission = 0.94;
+      bimInteractionState.targetCobaltEmissive = 0.75;
+
+      if (bimSpringTween) {
+        if (typeof bimSpringTween.kill === 'function') bimSpringTween.kill();
+        bimSpringTween = null;
+      }
+      bimInteractionState.springTween = null;
+      prevPos = { x: e.clientX, y: e.clientY };
+    };
+
+    // Pointer Move (Rotational Inspection with Architectural Pitch Constraints)
+    const onPointerMove = (e) => {
+      if (!isBIMDragging || !e) return;
+      const deltaX = e.clientX - prevPos.x;
+      const deltaY = e.clientY - prevPos.y;
+
+      const sensitivity = 0.005;
+      towerGroup.rotation.y += deltaX * sensitivity;
+      towerGroup.rotation.x += deltaY * sensitivity;
+
+      // Constrain pitch to preserve architectural perspective [-0.35, 0.35]
+      towerGroup.rotation.x = Math.max(-0.35, Math.min(0.35, towerGroup.rotation.x));
+
+      prevPos = { x: e.clientX, y: e.clientY };
+    };
+
+    // Pointer Up (Elastic Return to Canonical Rest: duration 1.3s, elastic.out(1, 0.5))
+    const onPointerUp = () => {
+      if (!isBIMDragging) return;
+      isBIMDragging = false;
+      bimInteractionState.isDragging = false;
+      targetCanvas.style.cursor = 'grab';
+      bimInteractionState.targetScale = 1.0;
+      bimInteractionState.targetGlassTransmission = 0.88;
+      bimInteractionState.targetCobaltEmissive = 0.28;
+
+      if (window.gsap) {
+        bimSpringTween = window.gsap.to(towerGroup.rotation, {
+          x: baseRotation.x,
+          y: baseRotation.y,
+          z: baseRotation.z,
+          duration: 1.3,
+          ease: 'elastic.out(1, 0.5)',
+          onComplete: () => { bimSpringTween = null; }
+        });
+
+        window.gsap.to(towerGroup.scale, {
+          x: baseScale.x,
+          y: baseScale.y,
+          z: baseScale.z,
+          duration: 0.35,
+          ease: 'power2.out'
+        });
+      } else {
+        bimInteractionState.springTween = {
+          model: towerGroup,
+          startX: towerGroup.rotation.x,
+          startY: towerGroup.rotation.y,
+          startZ: towerGroup.rotation.z,
+          targetX: baseRotation.x,
+          targetY: baseRotation.y,
+          targetZ: baseRotation.z,
+          startTime: performance.now(),
+          durationMs: 1300
+        };
+      }
+    };
+
+    targetCanvas.addEventListener('mousedown', onPointerDown);
+    window.addEventListener('mousemove', onPointerMove, { passive: true });
+    window.addEventListener('mouseup', onPointerUp);
+
+    // Touch Support
+    targetCanvas.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches[0]) onPointerDown(e.touches[0]);
+    }, { passive: true });
+    window.addEventListener('touchmove', (e) => {
+      if (e.touches && e.touches[0]) onPointerMove(e.touches[0]);
+    }, { passive: true });
+    window.addEventListener('touchend', onPointerUp, { passive: true });
+
+    // Scroll Sync: Disengage manual drag when scrolling past waypoint
+    window.addEventListener('scroll', () => {
+      if (isBIMDragging) onPointerUp();
+    }, { passive: true });
+
+    if (window.ScrollTrigger) {
+      window.ScrollTrigger.create({
+        trigger: '#hero-scrollytelling, #hero-stage',
+        start: 'top top',
+        end: 'bottom top',
+        onToggle: (self) => {
+          if (self.isActive && isBIMDragging) onPointerUp();
+        }
+      });
+    }
+  }
+
+  // Bind BIM Interactions to primary interactive canvas
+  initBIMInteractions(interactiveCanvas, null);
+
+  // Target Waypoint 03 BIM Target Container (#waypoint-03-3d-target) for Spline runtime
+  const bimAnchor = document.querySelector('#waypoint-03-3d-target');
+  const configuredSplineBIMScene = (bimAnchor && bimAnchor.getAttribute('data-spline-scene')) || window.GDR_SPLINE_BIM_SCENE;
+
+  function mountSplineBIMScene(sceneUrl) {
+    if (!bimAnchor || !sceneUrl) return;
+    bimAnchor.innerHTML = '<canvas id="spline-bim-tower" class="w-full h-full block"></canvas>';
+    const bimCanvas = document.getElementById('spline-bim-tower');
+    if (!bimCanvas) return;
+
+    const splineBIM = new Application(bimCanvas);
+    splineBIM.load(sceneUrl)
+      .then(() => {
+        bimGroup.visible = false;
+        console.log('Spline BIM Digital Twin Tower initialized at Waypoint 03.');
+        initBIMInteractions(bimCanvas, splineBIM);
+      })
+      .catch((err) => {
+        bimGroup.visible = true;
+        console.error('Failed loading BIM asset:', err);
+      });
+  }
+
+  if (configuredSplineBIMScene) {
+    mountSplineBIMScene(configuredSplineBIMScene);
+  }
+  window.loadWaypoint03SplineScene = mountSplineBIMScene;
 
   // NODE 4 (Waypoint 04): Material Testing Stress-Test Cube with CAD Dimension Ticks (Dark Graphite #444444)
   const testNodeGroup = new THREE.Group();
@@ -1609,7 +2026,39 @@ export function initWebglScrollytelling() {
     outerDatumMesh.rotation.z = elapsedTime * 0.18;
     innerDatumMesh.rotation.z = -elapsedTime * 0.25;
 
-    bimGroup.position.y = 2 + Math.sin(elapsedTime * 1.4) * 0.6;
+    // 3C. Animate Waypoint 03 BIM Digital Twin Tower Complex ("BIM_Tower_Group")
+    // Evaluate native elastic.out(1, 0.5) spring return tween when released
+    if (!bimInteractionState.isDragging && bimInteractionState.springTween) {
+      const bmt = bimInteractionState.springTween;
+      const tweenElapsed = performance.now() - bmt.startTime;
+      const progress = Math.min(1, tweenElapsed / bmt.durationMs);
+      const eased = easeElasticOut(progress, 1, 0.5);
+      bmt.model.rotation.x = bmt.startX + (bmt.targetX - bmt.startX) * eased;
+      bmt.model.rotation.y = bmt.startY + (bmt.targetY - bmt.startY) * eased;
+      bmt.model.rotation.z = bmt.startZ + (bmt.targetZ - bmt.startZ) * eased;
+      if (progress >= 1) {
+        bmt.model.rotation.set(bmt.targetX, bmt.targetY, bmt.targetZ);
+        bimInteractionState.springTween = null;
+      }
+    }
+
+    // Smooth hover scale (1.04x), glass transmission (0.88 -> 0.94), and cobalt scan emissive
+    bimInteractionState.currentScale += (bimInteractionState.targetScale - bimInteractionState.currentScale) * 0.12;
+    bimInteractionState.currentGlassTransmission += (bimInteractionState.targetGlassTransmission - bimInteractionState.currentGlassTransmission) * 0.12;
+    bimInteractionState.currentCobaltEmissive += (bimInteractionState.targetCobaltEmissive - bimInteractionState.currentCobaltEmissive) * 0.12;
+
+    if (!window.gsap) {
+      bimGroup.scale.setScalar(bimInteractionState.currentScale);
+    }
+    bimGlassMat.transmission = bimInteractionState.currentGlassTransmission;
+    bimCobaltScanMat.emissiveIntensity = bimInteractionState.currentCobaltEmissive;
+
+    // BIM Coordination Clash Ring: Vertical sweep through tower floors (ΔY = ±12 units, 4s cycle)
+    clashScanRingGroup.position.y = 16.0 + Math.sin(elapsedTime * (Math.PI / 2)) * 12.0;
+    clashRingMesh.rotation.z = elapsedTime * 0.22;
+    innerClashRingMesh.rotation.z = -elapsedTime * 0.35;
+
+    bimGroup.position.y = 2.0 + Math.sin(elapsedTime * 1.4) * 0.45;
 
     stressMesh.rotation.x = elapsedTime * 0.6;
     stressMesh.rotation.y = elapsedTime * 0.8;
