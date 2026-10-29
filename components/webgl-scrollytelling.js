@@ -79,33 +79,36 @@ export function initWebglScrollytelling() {
   scene.add(beaconLight);
 
   // --------------------------------------------------------------------------
-  // 3. Camera Rail & Target CatmullRom Splines
+  // 3. Camera Position Spline Curve (Eyes-on-Deck Perspective)
   // --------------------------------------------------------------------------
-  const cameraRailPoints = [
-    new THREE.Vector3(0, 24, 60),       // Waypoint 01: High overview of contour origin & core
-    new THREE.Vector3(-12, 16, 12),     // Transition dive
-    new THREE.Vector3(-32, 7.5, -45),   // Waypoint 02: Low dive along glowing Highway DPR ribbon & bridge
-    new THREE.Vector3(-14, 18, -100),   // Climb into axonometric perspective
-    new THREE.Vector3(26, 32, -145),    // Waypoint 03: Elevated axonometric view of 7D BIM wireframe complex
-    new THREE.Vector3(6, 18, -195),     // Transition down
-    new THREE.Vector3(-14, 9.5, -240),  // Waypoint 04: Macro focus on NABL structural material test cube
-    new THREE.Vector3(-2, 22, -285),    // Climb toward panoramic horizon
-    new THREE.Vector3(0, 44, -340)      // Waypoint 05: Panoramic horizon of nationwide interconnected nodes
-  ];
-  const cameraSpline = new THREE.CatmullRomCurve3(cameraRailPoints, false, 'catmullrom', 0.5);
+  const BRIDGE_DECK_Y = 14.5; // Exact top-of-deck elevation of Waypoint 02 bridge monument
+  const BRIDGE_Z = -80.0;     // Z-position of the central bridge pylon
 
-  const targetRailPoints = [
-    new THREE.Vector3(0, 4.5, 0),       // Target 01: Central precision coordinate cube
-    new THREE.Vector3(-16, 5, -25),
-    new THREE.Vector3(-26, 4.5, -75),   // Target 02: Highway ribbon & bridge pylon
-    new THREE.Vector3(2, 9, -120),
-    new THREE.Vector3(8, 12, -165),     // Target 03: BIM wireframe building core
-    new THREE.Vector3(-4, 8, -210),
-    new THREE.Vector3(-14, 7.5, -260),  // Target 04: Test cube center
-    new THREE.Vector3(-2, 14, -305),
-    new THREE.Vector3(0, 16, -440)      // Target 05: Distant illuminated national network horizon
+  const cameraControlPoints = [
+    // Waypoint 01: Elevated overview of Foundation Core
+    new THREE.Vector3(12, 14, 65),
+
+    // Transition: Gliding smoothly up to bridge approach (no dip below bridge)
+    new THREE.Vector3(8, 16.5, 10),
+    new THREE.Vector3(4, 18.0, -35),
+
+    // Waypoint 02: Positioned on the roadway looking forward through the stay cables
+    new THREE.Vector3(0, BRIDGE_DECK_Y + 2.6, BRIDGE_Z + 30),    // Approaching deck (Z: -50)
+    new THREE.Vector3(0, BRIDGE_DECK_Y + 2.6, BRIDGE_Z),         // Mid-span through pylon (Z: -80)
+    new THREE.Vector3(-1.5, BRIDGE_DECK_Y + 2.6, BRIDGE_Z - 30), // Crossing forward (Z: -110)
+
+    // Waypoint 03: Approaching BIM High-Rise Towers
+    new THREE.Vector3(-8, 16, -140),
+
+    // Waypoint 04: Macro focus on NABL structural material test cube
+    new THREE.Vector3(-12, 11.5, -230),
+
+    // Waypoint 05: Panoramic horizon of nationwide interconnected nodes
+    new THREE.Vector3(0, 36, -340)
   ];
-  const targetSpline = new THREE.CatmullRomCurve3(targetRailPoints, false, 'catmullrom', 0.5);
+
+  const cameraPathCurve = new THREE.CatmullRomCurve3(cameraControlPoints, false, 'centripetal', 0.4);
+  const cameraSpline = cameraPathCurve;
 
   // --------------------------------------------------------------------------
   // 4. High-Contrast Topographic Architectural Terrain & Isoline Shader
@@ -203,24 +206,37 @@ export function initWebglScrollytelling() {
   scene.add(terrainGroup);
 
   // --------------------------------------------------------------------------
-  // 5. Dark Graphite Highway Spline (#444444)
+  // 5. Road Alignment Path Curve & Tube Geometry (Flush with Bridge Deck Elevation)
   // --------------------------------------------------------------------------
-  const alignmentPoints = [
-    new THREE.Vector3(0, 0.5, 45),
-    new THREE.Vector3(-10, 0.8, 5),
-    new THREE.Vector3(-28, 2.5, -45),
-    new THREE.Vector3(-22, 6.2, -85),   // Viaduct bridge span elevating over valley
-    new THREE.Vector3(0, 8.8, -125),    // Flyover curve
-    new THREE.Vector3(14, 4.0, -165),
-    new THREE.Vector3(-8, 1.8, -215),
-    new THREE.Vector3(-14, 1.2, -260),
-    new THREE.Vector3(0, 2.5, -330),
-    new THREE.Vector3(0, 6.0, -440)
+  const roadControlPoints = [
+    // Waypoint 01: Low ground approach
+    new THREE.Vector3(0, 0.8, 40),
+    new THREE.Vector3(2, 1.2, 10),
+
+    // Approach Ramp up to Bridge Deck (Smooth incline starting at Z: -25)
+    new THREE.Vector3(4, 5.0, -25),
+    new THREE.Vector3(3.5, 11.0, -50),
+
+    // Waypoint 02: On Bridge Deck (Flush with bridge roadway surface at Y = 14.5)
+    new THREE.Vector3(0, BRIDGE_DECK_Y + 0.2, BRIDGE_Z + 15),  // On deck entry (Z: -65)
+    new THREE.Vector3(0, BRIDGE_DECK_Y + 0.2, BRIDGE_Z),       // Deck midpoint (Z: -80, under pylon saddle)
+    new THREE.Vector3(-2, BRIDGE_DECK_Y + 0.2, BRIDGE_Z - 25), // On deck exit (Z: -105)
+
+    // Descent Ramp down to Waypoint 03 (Design & BIM towers)
+    new THREE.Vector3(-6, 9.0, -130),
+    new THREE.Vector3(-10, 2.0, -170),
+
+    // Waypoint 04 & 05: Testing Lab & National Footprint Corridor
+    new THREE.Vector3(-14, 1.5, -260),
+    new THREE.Vector3(0, 6.0, -370)
   ];
-  const alignmentCurve = new THREE.CatmullRomCurve3(alignmentPoints, false, 'catmullrom', 0.5);
+
+  // Rebuild CatmullRomCurve3 with smooth centripetal tension
+  const roadPathCurve = new THREE.CatmullRomCurve3(roadControlPoints, false, 'centripetal', 0.5);
+  const alignmentCurve = roadPathCurve;
 
   // Opaque Dark Graphite Vector Ribbon (#444444)
-  const tubeGeo = new THREE.TubeGeometry(alignmentCurve, 320, 0.65, 8, false);
+  const tubeGeo = new THREE.TubeGeometry(roadPathCurve, 200, 0.9, 16, false);
   const tubeMat = new THREE.MeshStandardMaterial({
     color: 0x444444,
     emissive: 0x222222,
@@ -228,12 +244,13 @@ export function initWebglScrollytelling() {
     roughness: 0.4,
     metalness: 0.15
   });
-  const alignmentTube = new THREE.Mesh(tubeGeo, tubeMat);
-  scene.add(alignmentTube);
+  const roadTubeMesh = new THREE.Mesh(tubeGeo, tubeMat);
+  const alignmentTube = roadTubeMesh;
+  scene.add(roadTubeMesh);
 
-  // High-Contrast Charcoal Centerline Ribbon (#222222)
-  const centerTubeGeo = new THREE.TubeGeometry(alignmentCurve, 160, 0.18, 6, false);
-  const centerTubeMat = new THREE.MeshBasicMaterial({ color: 0x222222 });
+  // High-Contrast Cobalt / Charcoal Centerline Ribbon
+  const centerTubeGeo = new THREE.TubeGeometry(roadPathCurve, 200, 0.22, 8, false);
+  const centerTubeMat = new THREE.MeshBasicMaterial({ color: 0x0284C7 });
   const centerTube = new THREE.Mesh(centerTubeGeo, centerTubeMat);
   scene.add(centerTube);
 
@@ -450,7 +467,7 @@ export function initWebglScrollytelling() {
 
     // --- 1. HOVER EFFECTS ---
     interactiveCanvas.addEventListener('mouseenter', () => {
-      if (isDragging) return;
+      if (isDragging || activeWaypointIndex !== 0) return;
       corePointerState.targetScale = baseScale.x * 1.06;
       corePointerState.targetRingEmissive = 0.65;
       corePointerState.targetRingScale = 1.06;
@@ -486,7 +503,7 @@ export function initWebglScrollytelling() {
 
     // --- 2. DRAG START ---
     const onPointerDown = (e) => {
-      if (isScrollActive || !e) return;
+      if (isScrollActive || !e || activeWaypointIndex !== 0) return;
       isDragging = true;
       interactiveCanvas.style.cursor = 'grabbing';
       corePointerState.targetScale = baseScale.x * 1.06;
@@ -658,51 +675,515 @@ export function initWebglScrollytelling() {
   }
   window.loadWaypoint01SplineScene = mountSplineCoreScene;
 
-  // NODE 2 (Waypoint 02): Cable-Stayed Bridge Pylon Structure (Dark Graphite #444444)
+  // --------------------------------------------------------------------------
+  // NODE 2 (Waypoint 02): Architectural Cable-Stayed Bridge & Flyover Viaduct Monument ("Bridge_Pylon_Group")
+  // Synchronized with BRIDGE_DECK_Y = 14.5 & BRIDGE_Z = -80.0
+  // --------------------------------------------------------------------------
   const bridgeGroup = new THREE.Group();
-  bridgeGroup.position.set(-22, 0, -85);
+  bridgeGroup.name = 'Bridge_Pylon_Group';
+  bridgeGroup.position.set(0, 0, BRIDGE_Z);
+  bridgeGroup.rotation.y = 0; // Aligned directly with corridor road & camera splines
 
-  const pylonMat = new THREE.MeshBasicMaterial({
-    color: 0x444444,
-    wireframe: true,
+  // 2A. Light Architectural CAD Palette Materials
+  // Smooth architectural cast concrete / fair-faced limestone (Roughness: 0.65, Metalness: 0.05, #E2E8F0 to #CBD5E1)
+  const concretePylonMat = new THREE.MeshStandardMaterial({
+    color: 0xE2E8F0,
+    roughness: 0.65,
+    metalness: 0.05,
+    envMapIntensity: 0.35
+  });
+  const concretePierMat = new THREE.MeshStandardMaterial({
+    color: 0xCBD5E1,
+    roughness: 0.65,
+    metalness: 0.05,
+    envMapIntensity: 0.3
+  });
+  const chamferEdgeMat = new THREE.LineBasicMaterial({
+    color: 0x64748B,
     transparent: true,
-    opacity: 0.95
+    opacity: 0.42
   });
 
-  // Left Pylon Tower (38m elevation)
-  const pylonGeo = new THREE.CylinderGeometry(0.4, 1.4, 38, 4);
-  const leftPylon = new THREE.Mesh(pylonGeo, pylonMat);
-  leftPylon.position.set(-6, 19, 0);
-  leftPylon.rotation.z = -0.06;
-  bridgeGroup.add(leftPylon);
-
-  // Right Pylon Tower
-  const rightPylon = new THREE.Mesh(pylonGeo, pylonMat);
-  rightPylon.position.set(6, 19, 0);
-  rightPylon.rotation.z = 0.06;
-  bridgeGroup.add(rightPylon);
-
-  // Dark Graphite Pylon Stay Cables (#444444)
-  const cableMat = new THREE.LineBasicMaterial({
-    color: 0x444444,
-    transparent: true,
-    opacity: 0.85
+  // Matte dark asphalt slate roadway (#1E293B, Roughness: 0.8)
+  const asphaltDeckMat = new THREE.MeshStandardMaterial({
+    color: 0x1E293B,
+    roughness: 0.8,
+    metalness: 0.05,
+    envMapIntensity: 0.2
   });
-  for (let c = 0; c < 8; c++) {
-    const cableY = 12 + c * 3;
-    const cableZ = (c - 3.5) * 6;
-    const cableGeo = new THREE.BufferGeometry().setFromPoints([
-      new THREE.Vector3(0, cableY, 0),
-      new THREE.Vector3(0, 6.2, cableZ)
-    ]);
-    const cableLine = new THREE.Line(cableGeo, cableMat);
-    bridgeGroup.add(cableLine);
+  const bearingPedestalMat = new THREE.MeshStandardMaterial({
+    color: 0x334155,
+    roughness: 0.5,
+    metalness: 0.4
+  });
+
+  // High-tensile structural steel stay cables (Metalness: 0.9, Roughness: 0.2, #64748B)
+  const stayCableMat = new THREE.MeshStandardMaterial({
+    color: 0x64748B,
+    emissive: 0x0284C7,
+    emissiveIntensity: 0.08,
+    roughness: 0.2,
+    metalness: 0.9,
+    envMapIntensity: 0.55
+  });
+
+  // Precision Cobalt Blue #0284C7 anodized cable anchor nodes, saddle caps & centerline
+  const cobaltAccentMat = new THREE.MeshStandardMaterial({
+    color: 0x0284C7,
+    emissive: 0x0284C7,
+    emissiveIntensity: 0.32,
+    roughness: 0.22,
+    metalness: 0.75,
+    envMapIntensity: 0.45
+  });
+
+  // Helper to attach crisp beveled architectural edge creases (no triangle diagonals)
+  function addBevelEdges(mesh, geo, thresholdAngle = 25) {
+    const edges = new THREE.LineSegments(
+      new THREE.EdgesGeometry(geo, thresholdAngle),
+      chamferEdgeMat
+    );
+    mesh.add(edges);
   }
+
+  // 2B. Central Pylon (A-Frame / Diamond Tower with Beveled Chamfers, Deck at Y = 14.5)
+  const pylonTowerGroup = new THREE.Group();
+  pylonTowerGroup.name = 'Central_Diamond_Pylon';
+
+  // Stepped Octagonal Pile Cap Foundation Plinth
+  const pileCapGeo = new THREE.CylinderGeometry(7.6, 8.4, 1.5, 8);
+  const pileCapMesh = new THREE.Mesh(pileCapGeo, concretePierMat);
+  pileCapMesh.position.set(0, 0.75, 0);
+  addBevelEdges(pileCapMesh, pileCapGeo);
+  pylonTowerGroup.add(pileCapMesh);
+
+  // Lower Diamond Tower Legs (Foundation to Deck Cross-Beam at Y = 12.1)
+  const lowerLegGeo = new THREE.CylinderGeometry(1.18, 1.55, 11.8, 8);
+  [-1, 1].forEach((side) => {
+    const lowerLeg = new THREE.Mesh(lowerLegGeo, concretePierMat);
+    lowerLeg.position.set(side * 5.2, 6.3, 0);
+    lowerLeg.rotation.z = side * 0.08;
+    addBevelEdges(lowerLeg, lowerLegGeo);
+    pylonTowerGroup.add(lowerLeg);
+  });
+
+  // Main Post-Tensioned Transverse Cross-Beam (Supporting Viaduct Deck at Y = 14.5)
+  const crossBeamGeo = new THREE.BoxGeometry(13.8, 1.4, 3.4);
+  const crossBeamMesh = new THREE.Mesh(crossBeamGeo, concretePierMat);
+  crossBeamMesh.position.set(0, BRIDGE_DECK_Y - 2.4, 0);
+  addBevelEdges(crossBeamMesh, crossBeamGeo);
+  pylonTowerGroup.add(crossBeamMesh);
+
+  // Elastomeric Bearing Pedestals on Main Cross-Beam
+  [-2.6, 2.6].forEach((bx) => {
+    const bearingGeo = new THREE.BoxGeometry(1.3, 0.36, 1.8);
+    const bearingMesh = new THREE.Mesh(bearingGeo, bearingPedestalMat);
+    bearingMesh.position.set(bx, BRIDGE_DECK_Y - 1.55, 0);
+    pylonTowerGroup.add(bearingMesh);
+  });
+
+  // Upper Converging A-Frame Tapered Concrete Pylon Legs (Rising above Y = 14.5 Deck)
+  const upperLegHeight = 34.0;
+  const upperLegGeo = new THREE.CylinderGeometry(0.64, 1.25, upperLegHeight, 8);
+  [-1, 1].forEach((side) => {
+    const upperLeg = new THREE.Mesh(upperLegGeo, concretePylonMat);
+    upperLeg.position.set(side * 3.15, BRIDGE_DECK_Y + 14.2, 0);
+    upperLeg.rotation.z = side * 0.15; // Converges inward toward saddle apex
+    addBevelEdges(upperLeg, upperLegGeo);
+    pylonTowerGroup.add(upperLeg);
+  });
+
+  // Upper Portal Strut / Cross-Tie Beam (High enough above deck for unobstructed camera drive-through)
+  const upperStrutGeo = new THREE.BoxGeometry(4.6, 1.1, 2.1);
+  const upperStrutMesh = new THREE.Mesh(upperStrutGeo, concretePierMat);
+  upperStrutMesh.position.set(0, BRIDGE_DECK_Y + 19.5, 0);
+  addBevelEdges(upperStrutMesh, upperStrutGeo);
+  pylonTowerGroup.add(upperStrutMesh);
+
+  // Pylon Saddle Head & Cobalt Anodized Crown
+  const saddleBoxGeo = new THREE.BoxGeometry(2.35, 6.8, 2.65);
+  const saddleBoxMesh = new THREE.Mesh(saddleBoxGeo, concretePylonMat);
+  saddleBoxMesh.position.set(0, BRIDGE_DECK_Y + 30.2, 0);
+  addBevelEdges(saddleBoxMesh, saddleBoxGeo);
+  pylonTowerGroup.add(saddleBoxMesh);
+
+  const saddleCapGeo = new THREE.BoxGeometry(2.6, 0.75, 2.9);
+  const saddleCapMesh = new THREE.Mesh(saddleCapGeo, cobaltAccentMat);
+  saddleCapMesh.position.set(0, BRIDGE_DECK_Y + 33.9, 0);
+  pylonTowerGroup.add(saddleCapMesh);
+
+  // Twin Cobalt Anodized Saddle Side Strips
+  [-1.22, 1.22].forEach((sx) => {
+    const stripGeo = new THREE.BoxGeometry(0.14, 5.6, 2.7);
+    const stripMesh = new THREE.Mesh(stripGeo, cobaltAccentMat);
+    stripMesh.position.set(sx, BRIDGE_DECK_Y + 30.0, 0);
+    pylonTowerGroup.add(stripMesh);
+  });
+
+  bridgeGroup.add(pylonTowerGroup);
+
+  // 2C. Segmental Viaduct Box-Girder Deck & Approach Pier Caps (Flush at Y = BRIDGE_DECK_Y = 14.5)
+  const viaductDeckGroup = new THREE.Group();
+  viaductDeckGroup.name = 'Segmental_Viaduct_Deck';
+  // Main flat cable-stayed deck span covers Z = BRIDGE_Z + 18 (-62) to BRIDGE_Z - 26 (-106)
+  const deckSpanLength = 44;
+  const deckCenterZ = -4.0;
+
+  // Precast Segmental Box-Girder Soffit Spine
+  const soffitGeo = new THREE.BoxGeometry(6.2, 1.15, deckSpanLength);
+  const soffitMesh = new THREE.Mesh(soffitGeo, concretePierMat);
+  soffitMesh.position.set(0, BRIDGE_DECK_Y - 1.05, deckCenterZ);
+  addBevelEdges(soffitMesh, soffitGeo);
+  viaductDeckGroup.add(soffitMesh);
+
+  // Cantilevered Upper Deck Wings
+  const wingSlabGeo = new THREE.BoxGeometry(9.2, 0.42, deckSpanLength);
+  const wingSlabMesh = new THREE.Mesh(wingSlabGeo, concretePylonMat);
+  wingSlabMesh.position.set(0, BRIDGE_DECK_Y - 0.35, deckCenterZ);
+  addBevelEdges(wingSlabMesh, wingSlabGeo);
+  viaductDeckGroup.add(wingSlabMesh);
+
+  // Transverse Segmental Match-Cast Ribs along Soffit
+  for (let sz = -24; sz <= 16; sz += 5) {
+    const ribGeo = new THREE.BoxGeometry(8.6, 0.32, 0.28);
+    const ribMesh = new THREE.Mesh(ribGeo, concretePierMat);
+    ribMesh.position.set(0, BRIDGE_DECK_Y - 0.68, sz);
+    viaductDeckGroup.add(ribMesh);
+  }
+
+  // Matte Dark Asphalt Slate Roadway Surface (#1E293B, Roughness: 0.8, Top at exact BRIDGE_DECK_Y = 14.5)
+  const roadwayGeo = new THREE.BoxGeometry(7.8, 0.16, deckSpanLength);
+  const roadwayMesh = new THREE.Mesh(roadwayGeo, asphaltDeckMat);
+  roadwayMesh.position.set(0, BRIDGE_DECK_Y - 0.08, deckCenterZ);
+  viaductDeckGroup.add(roadwayMesh);
+
+  // Clean Cobalt Blue Centerline Stroke (#0284C7) + Edge Parapets
+  const centerlineGeo = new THREE.BoxGeometry(0.24, 0.06, deckSpanLength);
+  const centerlineMesh = new THREE.Mesh(centerlineGeo, cobaltAccentMat);
+  centerlineMesh.position.set(0, BRIDGE_DECK_Y + 0.03, deckCenterZ);
+  viaductDeckGroup.add(centerlineMesh);
+
+  [-4.35, 4.35].forEach((px) => {
+    const parapetGeo = new THREE.BoxGeometry(0.42, 0.65, deckSpanLength);
+    const parapetMesh = new THREE.Mesh(parapetGeo, concretePylonMat);
+    parapetMesh.position.set(px, BRIDGE_DECK_Y + 0.18, deckCenterZ);
+    addBevelEdges(parapetMesh, parapetGeo);
+    viaductDeckGroup.add(parapetMesh);
+  });
+
+  // Flanking Tapered Structural Pier Shafts, Hammerhead Pier Caps & Elastomeric Bearings
+  [-22, 15].forEach((pz) => {
+    const pierShaftGeo = new THREE.CylinderGeometry(0.95, 1.38, 12.0, 8);
+    const pierShaft = new THREE.Mesh(pierShaftGeo, concretePierMat);
+    pierShaft.position.set(0, 6.0, pz);
+    addBevelEdges(pierShaft, pierShaftGeo);
+    viaductDeckGroup.add(pierShaft);
+
+    const pierCapGeo = new THREE.BoxGeometry(7.4, 0.95, 2.2);
+    const pierCap = new THREE.Mesh(pierCapGeo, concretePylonMat);
+    pierCap.position.set(0, BRIDGE_DECK_Y - 2.35, pz);
+    addBevelEdges(pierCap, pierCapGeo);
+    viaductDeckGroup.add(pierCap);
+
+    [-2.1, 2.1].forEach((bx) => {
+      const pedGeo = new THREE.BoxGeometry(1.1, 0.32, 1.3);
+      const pedMesh = new THREE.Mesh(pedGeo, bearingPedestalMat);
+      pedMesh.position.set(bx, BRIDGE_DECK_Y - 1.72, pz);
+      viaductDeckGroup.add(pedMesh);
+    });
+  });
+
+  bridgeGroup.add(viaductDeckGroup);
+
+  // 2D. Stay-Cable Arrays (Dual-Plane Semi-Harp Fan System) & Cobalt Anchor Nodes
+  const stayCablesGroup = new THREE.Group();
+  stayCablesGroup.name = 'Stay_Cable_Arrays';
+  const cableUpVec = new THREE.Vector3(0, 1, 0);
+  const cableAnchorNodes = [];
+
+  [-1, 1].forEach((planeSide) => {
+    const deckAnchorX = planeSide * 4.35;
+    const saddleAnchorX = planeSide * 1.18;
+
+    [-1, 1].forEach((spanDir) => {
+      for (let i = 0; i < 6; i++) {
+        const saddleY = BRIDGE_DECK_Y + 21.5 + i * 1.7;
+        const saddleZ = spanDir * (0.4 + i * 0.12);
+        const deckZ = spanDir === 1
+          ? (4.0 + i * 2.2)   // Fore span (up to +15)
+          : (-4.5 - i * 3.5); // Aft span (down to -22)
+        const deckY = BRIDGE_DECK_Y + 0.22;
+
+        const vStart = new THREE.Vector3(saddleAnchorX, saddleY, saddleZ);
+        const vEnd = new THREE.Vector3(deckAnchorX, deckY, deckZ);
+        const cableVec = new THREE.Vector3().subVectors(vEnd, vStart);
+        const cableLen = cableVec.length();
+
+        // High-tensile cylindrical stay cable
+        const cableGeo = new THREE.CylinderGeometry(0.042, 0.042, cableLen, 6);
+        const cableMesh = new THREE.Mesh(cableGeo, stayCableMat);
+        cableMesh.position.copy(vStart).add(vEnd).multiplyScalar(0.5);
+        cableMesh.quaternion.setFromUnitVectors(cableUpVec, cableVec.clone().normalize());
+        stayCablesGroup.add(cableMesh);
+
+        // Precision Cobalt Blue #0284C7 Anodized Deck Anchor Cap
+        const deckAnchorGeo = new THREE.CylinderGeometry(0.14, 0.18, 0.48, 8);
+        const deckAnchor = new THREE.Mesh(deckAnchorGeo, cobaltAccentMat);
+        deckAnchor.position.copy(vEnd);
+        deckAnchor.quaternion.setFromUnitVectors(cableUpVec, cableVec.clone().normalize());
+        stayCablesGroup.add(deckAnchor);
+        cableAnchorNodes.push(deckAnchor);
+
+        // Precision Cobalt Blue #0284C7 Saddle Socket Node
+        const saddleNode = new THREE.Mesh(new THREE.SphereGeometry(0.13, 8, 8), cobaltAccentMat);
+        saddleNode.position.copy(vStart);
+        stayCablesGroup.add(saddleNode);
+      }
+    });
+  });
+
+  bridgeGroup.add(stayCablesGroup);
+
+  // 2E. CAD Construction Datum / Alignment Ring (Grounding Tower into Topographic Terrain)
+  const bridgeDatumGroup = new THREE.Group();
+  bridgeDatumGroup.name = 'CAD_Construction_Datum';
+  bridgeDatumGroup.position.set(0, 0.35, 0);
+
+  const bridgeDatumMat = new THREE.MeshStandardMaterial({
+    color: 0x0284C7,
+    emissive: 0x0284C7,
+    emissiveIntensity: 0.35,
+    roughness: 0.25,
+    metalness: 0.6
+  });
+
+  // Outer & Inner Coordinate Datum Rings
+  const outerDatumGeo = new THREE.TorusGeometry(11.5, 0.08, 12, 72);
+  const outerDatumMesh = new THREE.Mesh(outerDatumGeo, bridgeDatumMat);
+  outerDatumMesh.rotation.x = Math.PI / 2;
+  bridgeDatumGroup.add(outerDatumMesh);
+
+  const innerDatumGeo = new THREE.TorusGeometry(9.2, 0.055, 10, 64);
+  const innerDatumMesh = new THREE.Mesh(innerDatumGeo, bridgeDatumMat);
+  innerDatumMesh.rotation.x = Math.PI / 2;
+  bridgeDatumGroup.add(innerDatumMesh);
+
+  // Coordinate Crosshair Ticks & Survey Nodes
+  for (let d = 0; d < 8; d++) {
+    const angle = (d * Math.PI) / 4;
+    const tickGeo = new THREE.BoxGeometry(0.14, 0.08, 1.8);
+    const tickMesh = new THREE.Mesh(tickGeo, bridgeDatumMat);
+    tickMesh.position.set(Math.cos(angle) * 11.5, 0, Math.sin(angle) * 11.5);
+    tickMesh.rotation.y = -angle;
+    bridgeDatumGroup.add(tickMesh);
+  }
+
+  bridgeGroup.add(bridgeDatumGroup);
   scene.add(bridgeGroup);
+
+  // --------------------------------------------------------------------------
+  // Waypoint 02 Spline Runtime Container & Interactive Drag-to-Rotate / Spring Return Controller
+  // --------------------------------------------------------------------------
+  const bridgeInteractionState = {
+    baseRotation: { x: bridgeGroup.rotation.x, y: bridgeGroup.rotation.y, z: bridgeGroup.rotation.z },
+    baseScale: { x: bridgeGroup.scale.x, y: bridgeGroup.scale.y, z: bridgeGroup.scale.z },
+    targetScale: 1.0,
+    currentScale: 1.0,
+    targetCableEmissive: 0.08,
+    currentCableEmissive: 0.08,
+    isDragging: false,
+    springTween: null
+  };
+
+  function initBridgeInteractions(targetCanvas, splineBridgeApp) {
+    const bridgeModel = (splineBridgeApp && typeof splineBridgeApp.findObjectByName === 'function')
+      ? (splineBridgeApp.findObjectByName('Bridge_Pylon_Group') || bridgeGroup)
+      : bridgeGroup;
+    if (!bridgeModel || !targetCanvas) return;
+
+    const baseRotation = { x: bridgeModel.rotation.x, y: bridgeModel.rotation.y, z: bridgeModel.rotation.z };
+    const baseScale = { x: bridgeModel.scale.x, y: bridgeModel.scale.y, z: bridgeModel.scale.z };
+
+    let isBridgeDragging = false;
+    let prevPos = { x: 0, y: 0 };
+    let bridgeSpringTween = null;
+
+    targetCanvas.style.cursor = 'grab';
+
+    const isWaypoint02Active = () => activeWaypointIndex === 1 || targetCanvas.id === 'spline-infrastructure-bridge';
+
+    // Hover Dynamics (1.04x Scale + Stay-Cable Cobalt Highlight Intensification)
+    targetCanvas.addEventListener('mouseenter', () => {
+      if (isBridgeDragging || !isWaypoint02Active()) return;
+      bridgeInteractionState.targetScale = 1.04;
+      bridgeInteractionState.targetCableEmissive = 0.42;
+
+      if (window.gsap) {
+        window.gsap.to(bridgeModel.scale, {
+          x: baseScale.x * 1.04,
+          y: baseScale.y * 1.04,
+          z: baseScale.z * 1.04,
+          duration: 0.4,
+          ease: 'power2.out'
+        });
+      }
+    });
+
+    targetCanvas.addEventListener('mouseleave', () => {
+      if (isBridgeDragging) return;
+      targetCanvas.style.cursor = 'grab';
+      bridgeInteractionState.targetScale = 1.0;
+      bridgeInteractionState.targetCableEmissive = 0.08;
+
+      if (window.gsap) {
+        window.gsap.to(bridgeModel.scale, {
+          x: baseScale.x,
+          y: baseScale.y,
+          z: baseScale.z,
+          duration: 0.4,
+          ease: 'power2.out'
+        });
+      }
+    });
+
+    // Pointer Down (Drag Start)
+    const onPointerDown = (e) => {
+      if (isScrollActive || !e || !isWaypoint02Active()) return;
+      isBridgeDragging = true;
+      bridgeInteractionState.isDragging = true;
+      targetCanvas.style.cursor = 'grabbing';
+      bridgeInteractionState.targetScale = 1.04;
+      bridgeInteractionState.targetCableEmissive = 0.52;
+
+      if (bridgeSpringTween) {
+        if (typeof bridgeSpringTween.kill === 'function') bridgeSpringTween.kill();
+        bridgeSpringTween = null;
+      }
+      bridgeInteractionState.springTween = null;
+      prevPos = { x: e.clientX, y: e.clientY };
+    };
+
+    // Pointer Move (Rotational Inspection with Pitch Constraints)
+    const onPointerMove = (e) => {
+      if (!isBridgeDragging || !e) return;
+      const deltaX = e.clientX - prevPos.x;
+      const deltaY = e.clientY - prevPos.y;
+
+      const sensitivity = 0.005;
+      bridgeModel.rotation.y += deltaX * sensitivity;
+      bridgeModel.rotation.x += deltaY * sensitivity;
+
+      // Pitch constraints to preserve architectural horizon
+      bridgeModel.rotation.x = Math.max(-0.4, Math.min(0.4, bridgeModel.rotation.x));
+
+      prevPos = { x: e.clientX, y: e.clientY };
+    };
+
+    // Pointer Up (Elastic Return to Canonical Rest: duration 1.3s, elastic.out(1, 0.5))
+    const onPointerUp = () => {
+      if (!isBridgeDragging) return;
+      isBridgeDragging = false;
+      bridgeInteractionState.isDragging = false;
+      targetCanvas.style.cursor = 'grab';
+      bridgeInteractionState.targetScale = 1.0;
+      bridgeInteractionState.targetCableEmissive = 0.08;
+
+      if (window.gsap) {
+        bridgeSpringTween = window.gsap.to(bridgeModel.rotation, {
+          x: baseRotation.x,
+          y: baseRotation.y,
+          z: baseRotation.z,
+          duration: 1.3,
+          ease: 'elastic.out(1, 0.5)',
+          onComplete: () => { bridgeSpringTween = null; }
+        });
+
+        window.gsap.to(bridgeModel.scale, {
+          x: baseScale.x,
+          y: baseScale.y,
+          z: baseScale.z,
+          duration: 0.35,
+          ease: 'power2.out'
+        });
+      } else {
+        bridgeInteractionState.springTween = {
+          model: bridgeModel,
+          startX: bridgeModel.rotation.x,
+          startY: bridgeModel.rotation.y,
+          startZ: bridgeModel.rotation.z,
+          targetX: baseRotation.x,
+          targetY: baseRotation.y,
+          targetZ: baseRotation.z,
+          startTime: performance.now(),
+          durationMs: 1300
+        };
+      }
+    };
+
+    targetCanvas.addEventListener('mousedown', onPointerDown);
+    window.addEventListener('mousemove', onPointerMove, { passive: true });
+    window.addEventListener('mouseup', onPointerUp);
+
+    // Touch Support
+    targetCanvas.addEventListener('touchstart', (e) => {
+      if (e.touches && e.touches[0]) onPointerDown(e.touches[0]);
+    }, { passive: true });
+    window.addEventListener('touchmove', (e) => {
+      if (e.touches && e.touches[0]) onPointerMove(e.touches[0]);
+    }, { passive: true });
+    window.addEventListener('touchend', onPointerUp, { passive: true });
+
+    // Scroll Sync: Disengage manual drag if user scrolls through waypoint
+    window.addEventListener('scroll', () => {
+      if (isBridgeDragging) onPointerUp();
+    }, { passive: true });
+
+    if (window.ScrollTrigger) {
+      window.ScrollTrigger.create({
+        trigger: '#hero-scrollytelling, #hero-stage',
+        start: 'top top',
+        end: 'bottom top',
+        onToggle: (self) => {
+          if (self.isActive && isBridgeDragging) onPointerUp();
+        }
+      });
+    }
+  }
+
+  // Bind Bridge Interactions to primary interactive canvas
+  initBridgeInteractions(interactiveCanvas, null);
+
+  // Target Waypoint 02 Bridge Container (#waypoint-02-3d-target) for optional external Spline scene
+  const bridgeAnchor = document.querySelector('#waypoint-02-3d-target');
+  const configuredSplineBridgeScene = (bridgeAnchor && bridgeAnchor.getAttribute('data-spline-scene')) || window.GDR_SPLINE_BRIDGE_SCENE;
+
+  function mountSplineBridgeScene(sceneUrl) {
+    if (!bridgeAnchor || !sceneUrl) return;
+    bridgeAnchor.innerHTML = '<canvas id="spline-infrastructure-bridge" class="w-full h-full block"></canvas>';
+    const bridgeCanvas = document.getElementById('spline-infrastructure-bridge');
+    if (!bridgeCanvas) return;
+
+    const splineBridge = new Application(bridgeCanvas);
+    splineBridge.load(sceneUrl)
+      .then(() => {
+        bridgeGroup.visible = false;
+        console.log('Spline Infrastructure Bridge initialized at Waypoint 02.');
+        initBridgeInteractions(bridgeCanvas, splineBridge);
+      })
+      .catch((err) => {
+        bridgeGroup.visible = true;
+        console.error('Failed loading bridge asset:', err);
+      });
+  }
+
+  if (configuredSplineBridgeScene) {
+    mountSplineBridgeScene(configuredSplineBridgeScene);
+  }
+  window.loadWaypoint02SplineScene = mountSplineBridgeScene;
 
   // NODE 3 (Waypoint 03): Architectural Clay 7D BIM Building Volumes (Dark Graphite #444444)
   const bimGroup = new THREE.Group();
-  bimGroup.position.set(8, 10, -165);
+  bimGroup.position.set(-10, 2, -170);
 
   const bimClayMat = new THREE.MeshStandardMaterial({
     color: 0xF1F5F9,
@@ -1060,15 +1541,34 @@ export function initWebglScrollytelling() {
     smoothedProgress += (rawScrollProgress - smoothedProgress) * 0.085;
     const p = Math.max(0.0001, Math.min(0.9999, smoothedProgress));
 
-    // 2. Camera Spline Rail Evaluation
-    const camPos = cameraSpline.getPointAt(p);
-    const targetPos = targetSpline.getPointAt(p);
+    // 2. Camera Spline Rail Evaluation (Eyes-on-Deck Perspective)
+    function updateCameraAlongPath(progress) {
+      // Sample position from stabilized camera path
+      const camPos = cameraPathCurve.getPointAt(progress);
+      const floatY = Math.sin(elapsedTime * 1.2) * 0.22;
+      const floatX = Math.cos(elapsedTime * 0.9) * 0.18;
+      camera.position.set(camPos.x + floatX, camPos.y + floatY, camPos.z);
 
-    // Subtle natural floating idle breathing
-    const floatY = Math.sin(elapsedTime * 1.2) * 0.45;
-    const floatX = Math.cos(elapsedTime * 0.9) * 0.35;
-    camera.position.set(camPos.x + floatX, camPos.y + floatY, camPos.z);
-    camera.lookAt(targetPos);
+      // Dynamic Look-At Target (Slightly ahead along the road curve for cinematic tracking)
+      const lookAheadProgress = Math.min(1.0, progress + 0.08);
+      const lookTarget = roadPathCurve.getPointAt(lookAheadProgress).clone();
+
+      // Add subtle vertical lift to lookTarget when at the bridge (0.18 to 0.42) to frame pylon height without boundary snapping
+      if (progress >= 0.14 && progress <= 0.46) {
+        const bridgeLiftWeight = progress < 0.18
+          ? (progress - 0.14) / 0.04
+          : (progress > 0.42 ? (0.46 - progress) / 0.04 : 1.0);
+        lookTarget.y += 3.5 * Math.max(0, Math.min(1, bridgeLiftWeight));
+      } else if (progress < 0.14) {
+        const wp01Weight = Math.max(0, 1.0 - progress / 0.14);
+        lookTarget.x = THREE.MathUtils.lerp(lookTarget.x, 0.0, wp01Weight);
+        lookTarget.y = THREE.MathUtils.lerp(lookTarget.y, 5.2, wp01Weight);
+        lookTarget.z = THREE.MathUtils.lerp(lookTarget.z, 0.0, wp01Weight);
+      }
+
+      camera.lookAt(lookTarget);
+    }
+    updateCameraAlongPath(p);
 
     // Move beacon light with camera
     beaconLight.position.copy(camera.position);
@@ -1128,7 +1628,40 @@ export function initWebglScrollytelling() {
       splineCoreObject.rotation.y = scrollRotationOffset + dragRotation.y;
     }
 
-    bimGroup.position.y = 10 + Math.sin(elapsedTime * 1.4) * 0.6;
+    // 3B. Animate Waypoint 02 Infrastructure Bridge Monument ("Bridge_Pylon_Group")
+    // Evaluate native elastic.out(1, 0.5) spring return tween when released
+    if (!bridgeInteractionState.isDragging && bridgeInteractionState.springTween) {
+      const bt = bridgeInteractionState.springTween;
+      const tweenElapsed = performance.now() - bt.startTime;
+      const progress = Math.min(1, tweenElapsed / bt.durationMs);
+      const eased = easeElasticOut(progress, 1, 0.5);
+      bt.model.rotation.x = bt.startX + (bt.targetX - bt.startX) * eased;
+      bt.model.rotation.y = bt.startY + (bt.targetY - bt.startY) * eased;
+      bt.model.rotation.z = bt.startZ + (bt.targetZ - bt.startZ) * eased;
+      if (progress >= 1) {
+        bt.model.rotation.set(bt.targetX, bt.targetY, bt.targetZ);
+        bridgeInteractionState.springTween = null;
+      }
+    }
+
+    // Smooth hover scale (1.04x) & stay-cable cobalt micro-pulse + hover intensification
+    bridgeInteractionState.currentScale += (bridgeInteractionState.targetScale - bridgeInteractionState.currentScale) * 0.12;
+    bridgeInteractionState.currentCableEmissive += (bridgeInteractionState.targetCableEmissive - bridgeInteractionState.currentCableEmissive) * 0.12;
+
+    if (!window.gsap) {
+      bridgeGroup.scale.setScalar(bridgeInteractionState.currentScale);
+    }
+
+    const idleCablePulse = (Math.sin(elapsedTime * 2.4) * 0.5 + 0.5) * 0.1;
+    stayCableMat.emissiveIntensity = bridgeInteractionState.currentCableEmissive + idleCablePulse;
+    cobaltAccentMat.emissiveIntensity = 0.28 + idleCablePulse * 1.4 + (bridgeInteractionState.currentCableEmissive - 0.08) * 0.8;
+
+    // Gentle floating oscillation of CAD construction datum indicators (±4px / ±0.22 world units)
+    bridgeDatumGroup.position.y = 0.35 + Math.sin(elapsedTime * 1.6) * 0.22;
+    outerDatumMesh.rotation.z = elapsedTime * 0.18;
+    innerDatumMesh.rotation.z = -elapsedTime * 0.25;
+
+    bimGroup.position.y = 2 + Math.sin(elapsedTime * 1.4) * 0.6;
 
     stressMesh.rotation.x = elapsedTime * 0.6;
     stressMesh.rotation.y = elapsedTime * 0.8;
