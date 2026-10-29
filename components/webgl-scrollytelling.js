@@ -79,36 +79,52 @@ export function initWebglScrollytelling() {
   scene.add(beaconLight);
 
   // --------------------------------------------------------------------------
-  // 3. Camera Position Spline Curve (Eyes-on-Deck Perspective)
+  // 3. Smooth, Non-Intersecting Architectural Flyby Camera Path & Look-At Spline
   // --------------------------------------------------------------------------
   const BRIDGE_DECK_Y = 14.5; // Exact top-of-deck elevation of Waypoint 02 bridge monument
   const BRIDGE_Z = -80.0;     // Z-position of the central bridge pylon
 
-  const cameraControlPoints = [
-    // Waypoint 01: Elevated overview of Foundation Core
-    new THREE.Vector3(12, 14, 65),
+  const flybyCameraPoints = [
+    // Waypoint 01: Elevated 3/4 Perspective framing the Foundation Core
+    new THREE.Vector3(14.0, 15.0, 70.0),
 
-    // Transition: Gliding smoothly up to bridge approach (no dip below bridge)
-    new THREE.Vector3(8, 16.5, 10),
-    new THREE.Vector3(4, 18.0, -35),
+    // Transition 01 -> 02: Sweeping smoothly toward the bridge approach
+    new THREE.Vector3(10.0, 16.5, 30.0),
+    new THREE.Vector3(6.0, 17.5, -5.0),
 
-    // Waypoint 02: Positioned on the roadway looking forward through the stay cables
-    new THREE.Vector3(0, BRIDGE_DECK_Y + 2.6, BRIDGE_Z + 30),    // Approaching deck (Z: -50)
-    new THREE.Vector3(0, BRIDGE_DECK_Y + 2.6, BRIDGE_Z),         // Mid-span through pylon (Z: -80)
-    new THREE.Vector3(-1.5, BRIDGE_DECK_Y + 2.6, BRIDGE_Z - 30), // Crossing forward (Z: -110)
+    // Waypoint 02: Infrastructure Bridge (Glide over deck with clear side offset, avoiding cables & pylon)
+    new THREE.Vector3(4.5, 17.0, -45.0),
+    new THREE.Vector3(3.0, 16.8, -80.0),
 
-    // Waypoint 03: Approaching BIM High-Rise Towers
-    new THREE.Vector3(-8, 16, -140),
+    // Transition 02 -> 03: Curved Arc to bypass BIM towers without colliding through them
+    new THREE.Vector3(-4.0, 17.5, -115.0),
 
-    // Waypoint 04: Macro focus on NABL structural material test cube
-    new THREE.Vector3(-12, 11.5, -230),
+    // Waypoint 03: Design & BIM Towers (Lateral offset to the right/front, framing towers at X: -10 to -14)
+    new THREE.Vector3(0.0, 18.0, -145.0),  // Stays clear of tower bounding box
+    new THREE.Vector3(3.5, 18.5, -170.0),  // Smooth wide turn around the building mass
 
-    // Waypoint 05: Panoramic horizon of nationwide interconnected nodes
-    new THREE.Vector3(0, 36, -340)
+    // Waypoint 04: Testing & Labs (Hovering perspective overlooking the geodetic cluster)
+    new THREE.Vector3(8.0, 19.0, -210.0),
+    new THREE.Vector3(6.0, 20.0, -250.0),
+
+    // Waypoint 05: National Footprint (Expansive high-angle overview of network nodes)
+    new THREE.Vector3(0.0, 26.0, -310.0)
   ];
 
-  const cameraPathCurve = new THREE.CatmullRomCurve3(cameraControlPoints, false, 'centripetal', 0.4);
-  const cameraSpline = cameraPathCurve;
+  const cameraFlybyCurve = new THREE.CatmullRomCurve3(flybyCameraPoints, false, 'centripetal', 0.5);
+  const cameraSpline = cameraFlybyCurve;
+
+  // Camera Target/Look-At Spline (Smoothly leads ahead of the camera without snapping)
+  const lookAtPoints = [
+    new THREE.Vector3(0.0, 2.0, 15.0),      // Looking at Foundation Core
+    new THREE.Vector3(-1.0, 10.0, -40.0),   // Looking up at Bridge Pylon
+    new THREE.Vector3(-2.0, 12.0, -85.0),   // Crossing Bridge Deck
+    new THREE.Vector3(-8.0, 14.0, -145.0),  // Looking directly at BIM Towers from the side
+    new THREE.Vector3(0.0, 8.0, -220.0),    // Looking at Testing Labs
+    new THREE.Vector3(0.0, 0.0, -340.0)     // Looking across Footprint Horizon
+  ];
+
+  const cameraLookAtCurve = new THREE.CatmullRomCurve3(lookAtPoints, false, 'centripetal', 0.5);
 
   // --------------------------------------------------------------------------
   // 4. High-Contrast Topographic Architectural Terrain & Isoline Shader
@@ -206,70 +222,14 @@ export function initWebglScrollytelling() {
   scene.add(terrainGroup);
 
   // --------------------------------------------------------------------------
-  // 5. Road Alignment Path Curve & Tube Geometry (Flush with Bridge Deck Elevation)
+  // 5. Road Pipe Mesh Removed (Unobstructed Topographic Terrain Contours)
   // --------------------------------------------------------------------------
-  const roadControlPoints = [
-    // Waypoint 01: Low ground approach
-    new THREE.Vector3(0, 0.8, 40),
-    new THREE.Vector3(2, 1.2, 10),
-
-    // Approach Ramp up to Bridge Deck (Smooth incline starting at Z: -25)
-    new THREE.Vector3(4, 5.0, -25),
-    new THREE.Vector3(3.5, 11.0, -50),
-
-    // Waypoint 02: On Bridge Deck (Flush with bridge roadway surface at Y = 14.5)
-    new THREE.Vector3(0, BRIDGE_DECK_Y + 0.2, BRIDGE_Z + 15),  // On deck entry (Z: -65)
-    new THREE.Vector3(0, BRIDGE_DECK_Y + 0.2, BRIDGE_Z),       // Deck midpoint (Z: -80, under pylon saddle)
-    new THREE.Vector3(-2, BRIDGE_DECK_Y + 0.2, BRIDGE_Z - 25), // On deck exit (Z: -105)
-
-    // Descent Ramp down to Waypoint 03 (Design & BIM towers)
-    new THREE.Vector3(-6, 9.0, -130),
-    new THREE.Vector3(-10, 2.0, -170),
-
-    // Waypoint 04 & 05: Testing Lab & National Footprint Corridor
-    new THREE.Vector3(-14, 1.5, -260),
-    new THREE.Vector3(0, 6.0, -370)
-  ];
-
-  // Rebuild CatmullRomCurve3 with smooth centripetal tension
-  const roadPathCurve = new THREE.CatmullRomCurve3(roadControlPoints, false, 'centripetal', 0.5);
-  const alignmentCurve = roadPathCurve;
-
-  // Opaque Dark Graphite Vector Ribbon (#444444)
-  const tubeGeo = new THREE.TubeGeometry(roadPathCurve, 200, 0.9, 16, false);
-  const tubeMat = new THREE.MeshStandardMaterial({
-    color: 0x444444,
-    emissive: 0x222222,
-    emissiveIntensity: 0.25,
-    roughness: 0.4,
-    metalness: 0.15
-  });
-  const roadTubeMesh = new THREE.Mesh(tubeGeo, tubeMat);
-  const alignmentTube = roadTubeMesh;
-  scene.add(roadTubeMesh);
-
-  // High-Contrast Cobalt / Charcoal Centerline Ribbon
-  const centerTubeGeo = new THREE.TubeGeometry(roadPathCurve, 200, 0.22, 8, false);
-  const centerTubeMat = new THREE.MeshBasicMaterial({ color: 0x0284C7 });
-  const centerTube = new THREE.Mesh(centerTubeGeo, centerTubeMat);
-  scene.add(centerTube);
-
-  // Traveling Light Pulses along the Corridor (#444444 / #666666)
-  const pulseSpheres = [];
-  const pulseGeo = new THREE.SphereGeometry(0.65, 8, 8);
-  const pulseMat = new THREE.MeshStandardMaterial({
-    color: 0x444444,
-    emissive: 0x666666,
-    emissiveIntensity: 0.8
-  });
-  for (let i = 0; i < 4; i++) {
-    const pulseMesh = new THREE.Mesh(pulseGeo, pulseMat);
-    scene.add(pulseMesh);
-    pulseSpheres.push({
-      mesh: pulseMesh,
-      t: i * 0.25,
-      speed: 0.08 + i * 0.02
-    });
+  let roadTubeMesh = null;
+  if (roadTubeMesh) {
+    scene.remove(roadTubeMesh);
+    if (roadTubeMesh.geometry) roadTubeMesh.geometry.dispose();
+    if (roadTubeMesh.material) roadTubeMesh.material.dispose();
+    roadTubeMesh = null;
   }
 
   // --------------------------------------------------------------------------
@@ -681,8 +641,8 @@ export function initWebglScrollytelling() {
   // --------------------------------------------------------------------------
   const bridgeGroup = new THREE.Group();
   bridgeGroup.name = 'Bridge_Pylon_Group';
-  bridgeGroup.position.set(0, 0, BRIDGE_Z);
-  bridgeGroup.rotation.y = 0; // Aligned directly with corridor road & camera splines
+  bridgeGroup.position.set(-4.5, 0, BRIDGE_Z);
+  bridgeGroup.rotation.y = 0; // Positioned on left-center with clear side offset from flyby camera
 
   // 2A. Light Architectural CAD Palette Materials
   // Smooth architectural cast concrete / fair-faced limestone (Roughness: 0.65, Metalness: 0.05, #E2E8F0 to #CBD5E1)
@@ -1182,8 +1142,9 @@ export function initWebglScrollytelling() {
   window.loadWaypoint02SplineScene = mountSplineBridgeScene;
 
   // NODE 3 (Waypoint 03): Architectural Clay 7D BIM Building Volumes (Dark Graphite #444444)
+  // Positioned at X: -14, Z: -150 so the flyby camera at X: 0 to +3.5 passes cleanly to the right with zero clipping
   const bimGroup = new THREE.Group();
-  bimGroup.position.set(-10, 2, -170);
+  bimGroup.position.set(-14, 2, -150);
 
   const bimClayMat = new THREE.MeshStandardMaterial({
     color: 0xF1F5F9,
@@ -1202,23 +1163,23 @@ export function initWebglScrollytelling() {
   const towerA = new THREE.Mesh(towerAGeo, bimClayMat);
   const towerAWire = new THREE.Mesh(towerAGeo, bimWireMat);
   towerA.add(towerAWire);
-  towerA.position.set(-4, 13, 0);
+  towerA.position.set(-2, 13, 0);
   bimGroup.add(towerA);
 
-  // Building Tower B (Stepped)
+  // Building Tower B (Stepped, offset to the left of Tower A away from camera path)
   const towerBGeo = new THREE.BoxGeometry(8, 18, 8);
   const towerB = new THREE.Mesh(towerBGeo, bimClayMat);
   const towerBWire = new THREE.Mesh(towerBGeo, bimWireMat);
   towerB.add(towerBWire);
-  towerB.position.set(6, 9, -4);
+  towerB.position.set(-10, 9, -6);
   bimGroup.add(towerB);
 
   // MEPF Conduit Lines (Dark Graphite #444444)
   const mepLinePoints = [
-    new THREE.Vector3(-8, 2, -6),
-    new THREE.Vector3(-4, 14, -6),
-    new THREE.Vector3(6, 14, -4),
-    new THREE.Vector3(6, 22, -4)
+    new THREE.Vector3(-12, 2, -6),
+    new THREE.Vector3(-10, 14, -6),
+    new THREE.Vector3(-2, 14, -4),
+    new THREE.Vector3(-2, 22, -4)
   ];
   const mepLineGeo = new THREE.BufferGeometry().setFromPoints(mepLinePoints);
   const mepLineMat = new THREE.LineBasicMaterial({ color: 0x444444, linewidth: 2 });
@@ -1228,7 +1189,7 @@ export function initWebglScrollytelling() {
 
   // NODE 4 (Waypoint 04): Material Testing Stress-Test Cube with CAD Dimension Ticks (Dark Graphite #444444)
   const testNodeGroup = new THREE.Group();
-  testNodeGroup.position.set(-14, 7.5, -258);
+  testNodeGroup.position.set(-4, 8.5, -235);
 
   const testFrameGeo = new THREE.BoxGeometry(8, 8, 8);
   const testFrameMat = new THREE.MeshBasicMaterial({
@@ -1541,34 +1502,21 @@ export function initWebglScrollytelling() {
     smoothedProgress += (rawScrollProgress - smoothedProgress) * 0.085;
     const p = Math.max(0.0001, Math.min(0.9999, smoothedProgress));
 
-    // 2. Camera Spline Rail Evaluation (Eyes-on-Deck Perspective)
-    function updateCameraAlongPath(progress) {
-      // Sample position from stabilized camera path
-      const camPos = cameraPathCurve.getPointAt(progress);
+    // 2. Smooth, Non-Intersecting Architectural Flyby Camera & Parallel Look-At Evaluation
+    function updateScrollytellingCamera(progress) {
+      const clampedProgress = Math.max(0, Math.min(1, progress));
+
+      // 1. Position camera along non-colliding curved spline
+      const targetCamPos = cameraFlybyCurve.getPointAt(clampedProgress);
       const floatY = Math.sin(elapsedTime * 1.2) * 0.22;
       const floatX = Math.cos(elapsedTime * 0.9) * 0.18;
-      camera.position.set(camPos.x + floatX, camPos.y + floatY, camPos.z);
+      camera.position.set(targetCamPos.x + floatX, targetCamPos.y + floatY, targetCamPos.z);
 
-      // Dynamic Look-At Target (Slightly ahead along the road curve for cinematic tracking)
-      const lookAheadProgress = Math.min(1.0, progress + 0.08);
-      const lookTarget = roadPathCurve.getPointAt(lookAheadProgress).clone();
-
-      // Add subtle vertical lift to lookTarget when at the bridge (0.18 to 0.42) to frame pylon height without boundary snapping
-      if (progress >= 0.14 && progress <= 0.46) {
-        const bridgeLiftWeight = progress < 0.18
-          ? (progress - 0.14) / 0.04
-          : (progress > 0.42 ? (0.46 - progress) / 0.04 : 1.0);
-        lookTarget.y += 3.5 * Math.max(0, Math.min(1, bridgeLiftWeight));
-      } else if (progress < 0.14) {
-        const wp01Weight = Math.max(0, 1.0 - progress / 0.14);
-        lookTarget.x = THREE.MathUtils.lerp(lookTarget.x, 0.0, wp01Weight);
-        lookTarget.y = THREE.MathUtils.lerp(lookTarget.y, 5.2, wp01Weight);
-        lookTarget.z = THREE.MathUtils.lerp(lookTarget.z, 0.0, wp01Weight);
-      }
-
-      camera.lookAt(lookTarget);
+      // 2. Look-At target along parallel smoothed track
+      const targetLookAt = cameraLookAtCurve.getPointAt(clampedProgress);
+      camera.lookAt(targetLookAt);
     }
-    updateCameraAlongPath(p);
+    updateScrollytellingCamera(p);
 
     // Move beacon light with camera
     beaconLight.position.copy(camera.position);
@@ -1667,14 +1615,7 @@ export function initWebglScrollytelling() {
     stressMesh.rotation.y = elapsedTime * 0.8;
     particlePoints.rotation.y = elapsedTime * 0.15;
 
-    // 4. Advance Corridor Light Pulses
-    pulseSpheres.forEach(item => {
-      item.t = (item.t + item.speed * 0.018) % 1;
-      const point = alignmentCurve.getPointAt(item.t);
-      item.mesh.position.copy(point);
-    });
-
-    // 5. Update Network Sector Pin Highlights (Dark Graphite #444444 default)
+    // 4. Update Network Sector Pin Highlights (Dark Graphite #444444 default)
     networkMarkers.forEach(pin => {
       if (currentActiveSector === 'all') {
         pin.marker.scale.set(1.0, 1.0, 1.0);
@@ -1757,8 +1698,6 @@ export function initWebglScrollytelling() {
       renderer.dispose();
       terrainGeo.dispose();
       terrainShaderMaterial.dispose();
-      tubeGeo.dispose();
-      tubeMat.dispose();
     }
   };
 }
